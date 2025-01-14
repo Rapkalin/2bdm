@@ -1,0 +1,40 @@
+{
+    "name": "rapkalin/2bdm",
+    "description": "The o2bdm architecture studio's official website",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "Website\\App\\": "app/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Rapkalin",
+            "email": "raphael@rapkalin.fr"
+        }
+    ],
+    "require": {
+        "php": ">=8.2",
+        "johnpbloch/wordpress": "^6.3",
+        "composer/installers": "^1.12",
+        "vlucas/phpdotenv": "^5.5"
+    },
+    "config": {
+        "vendor-dir": "website/vendor",
+        "allow-plugins": {
+            "composer/installers": true,
+            "johnpbloch/wordpress-core-installer": true
+        }
+    },
+    "extra": {
+        "wordpress-install-dir": "website/wordpress-core",
+        "installer-paths": {
+            "website/app/themes/{$name}/": [
+                "type:wordpress-theme"
+            ],
+            "website/app/plugins/{$name}/": [
+                "type:wordpress-plugin"
+            ]
+        }
+    }
+}

@@ -52,6 +52,7 @@
 website/vendor
 website/wordpress-core
 website/.env
+website/app/uploads/*
 
 # Other
 .DS_Store

@@ -10,8 +10,7 @@ if (have_rows('home_cover')) : while (have_rows('home_cover')) : the_row();
                     <div class="section-title">
                         <h2><?php the_sub_field('title'); ?></h2>
                     </div>
-                    <p><?php the_sub_field('title'); ?></p>
-                    <?php if (get_sub_field('button')) : ?>
+                    <?php if (get_sub_field('button')['url']) : ?>
                         <a href="<?= get_sub_field('button')['url']; ?>" class="button"><?= get_sub_field('button')['label']; ?></a>
                     <?php endif; ?>
                 </div>

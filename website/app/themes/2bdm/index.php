@@ -4,13 +4,11 @@ $home = new WP_Query(['pagename' => 'homepage']);
 while ($home->have_posts()) : $home->the_post();
     get_template_part('partials/homepage/cover');
     get_template_part('partials/homepage/presentation');
+    get_template_part('partials/homepage/brochure');
     get_template_part('partials/homepage/core-business');
+    get_template_part('partials/homepage/team');
 endwhile;
 ?>
-
-<div>
-    <h2>Équipe</h2>
-</div>
 
 <div>
     <h2>Prix & mentions</h2>

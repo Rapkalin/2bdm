@@ -3,12 +3,9 @@ get_header();
 $home = new WP_Query(['pagename' => 'homepage']);
 while ($home->have_posts()) : $home->the_post();
     get_template_part('partials/homepage/cover');
+    get_template_part('partials/homepage/presentation');
 endwhile;
 ?>
-
-<div>
-    <h2>Présentation</h2>
-</div>
 
 <div>
     <h2>Essence de notre métier</h2>
@@ -20,10 +17,6 @@ endwhile;
 
 <div>
     <h2>Prix & mentions</h2>
-</div>
-
-<div>
-    <h2>Publications</h2>
 </div>
 
 <div>

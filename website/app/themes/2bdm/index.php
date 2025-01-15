@@ -4,12 +4,9 @@ $home = new WP_Query(['pagename' => 'homepage']);
 while ($home->have_posts()) : $home->the_post();
     get_template_part('partials/homepage/cover');
     get_template_part('partials/homepage/presentation');
+    get_template_part('partials/homepage/core-business');
 endwhile;
 ?>
-
-<div>
-    <h2>Essence de notre métier</h2>
-</div>
 
 <div>
     <h2>Équipe</h2>

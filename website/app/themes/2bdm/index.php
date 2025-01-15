@@ -11,7 +11,6 @@ while ($home->have_posts()) : $home->the_post();
     get_template_part('partials/homepage/publications');
 endwhile; ?>
 
-
 <div>
     <h2>Projets</h2>
 </div>

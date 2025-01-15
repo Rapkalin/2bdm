@@ -23,4 +23,3 @@ if (have_rows('home_publications')) :
         </section>
     <?php endwhile;
 endif;
-

@@ -21,4 +21,3 @@ if (have_rows('home_team')) :
         </section>
     <?php endwhile;
 endif;
-

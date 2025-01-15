@@ -18,4 +18,3 @@ if (have_rows('home_cover')) :
         <?php endif;
     endwhile;
 endif;
-

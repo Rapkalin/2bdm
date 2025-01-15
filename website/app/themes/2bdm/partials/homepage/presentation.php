@@ -22,4 +22,3 @@ if (have_rows('home_presentation')) :
         <?php endif;
     endwhile;
 endif;
-

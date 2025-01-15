@@ -20,4 +20,3 @@ if (have_rows('home_core_business')) :
         <?php endif;
     endwhile;
 endif;
-

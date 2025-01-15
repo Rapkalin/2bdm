@@ -20,4 +20,3 @@ if (have_rows('home_mentions')) :
         <?php endif;
     endwhile;
 endif;
-

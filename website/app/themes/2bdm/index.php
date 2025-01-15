@@ -7,12 +7,8 @@ while ($home->have_posts()) : $home->the_post();
     get_template_part('partials/homepage/brochure');
     get_template_part('partials/homepage/core-business');
     get_template_part('partials/homepage/team');
-endwhile;
-?>
-
-<div>
-    <h2>Prix & mentions</h2>
-</div>
+    get_template_part('partials/homepage/mentions');
+endwhile; ?>
 
 <div>
     <h2>Publications</h2>

@@ -2,8 +2,7 @@
 
 if (have_rows('home_core_business')) :
     while (have_rows('home_core_business')) : the_row();
-        if(get_sub_field('image')['url']) :
-?>
+        if(get_sub_field('image')['url']) : ?>
             <section id="home-core-business" class="home-block">
                 <div class="content">
                     <div class="section-title">
@@ -18,8 +17,7 @@ if (have_rows('home_core_business')) :
                     >
                 </div>
             </section>
-<?php
-        endif;
+        <?php endif;
     endwhile;
 endif;
 

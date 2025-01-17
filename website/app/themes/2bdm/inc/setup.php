@@ -48,7 +48,7 @@ if (!function_exists('theme_admin_bar_render')) {
     add_action( 'wp_before_admin_bar_render', 'theme_admin_bar_render' );
 }
 
-if (!function_exists('theme_admin_bar_render')) {
+if (!function_exists('theme_custom_menu_order')) {
     function theme_custom_menu_order( $menu_ord ) : array|bool {
         if ( !$menu_ord )  {
             return true;
@@ -71,8 +71,8 @@ if (!function_exists('theme_admin_bar_render')) {
             "separator-last"
         ];
     }
-    add_filter( 'custom_menu_order', 'theme_custom_menu_order', 10, 1 );
-    add_filter( 'menu_order', 'theme_custom_menu_order', 10, 1 );
+    add_filter( 'custom_menu_order', 'theme_custom_menu_order' );
+    add_filter( 'menu_order', 'theme_custom_menu_order' );
 }
 
 /**

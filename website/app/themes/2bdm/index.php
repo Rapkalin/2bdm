@@ -7,15 +7,5 @@ while ($home->have_posts()) : $home->the_post();
             get_template_part("partials/homepage/{$key}");
         }
     }
-endwhile; ?>
-
-<div>
-    <h2>Nos agences</h2>
-</div>
-
-<div>
-    <h2>Contact bloc</h2>
-</div>
-
-<?php
+endwhile;
 get_footer();

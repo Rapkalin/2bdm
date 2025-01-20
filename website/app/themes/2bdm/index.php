@@ -2,18 +2,13 @@
 get_header();
 $home = new WP_Query(['pagename' => 'homepage']);
 while ($home->have_posts()) : $home->the_post();
-    get_template_part('partials/homepage/cover');
-    get_template_part('partials/homepage/presentation');
-    get_template_part('partials/homepage/brochure');
-    get_template_part('partials/homepage/core-business');
-    get_template_part('partials/homepage/team');
-    get_template_part('partials/homepage/mentions');
-    get_template_part('partials/homepage/publications');
+    $fields = get_fields($home->post->ID);
+    foreach ($fields as $key => $field) {
+        if (file_exists(__DIR__ . "/partials/homepage/{$key}.php")) {
+            get_template_part("partials/homepage/{$key}");
+        }
+    }
 endwhile; ?>
-
-<div>
-    <h2>Projets</h2>
-</div>
 
 <div>
     <h2>A la une</h2>

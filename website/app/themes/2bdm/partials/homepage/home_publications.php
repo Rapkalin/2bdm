@@ -7,7 +7,7 @@ if (have_rows('home_publications')) :
                 <p><?php the_sub_field('title'); ?></p>
                 <div class="section-publications">
                     <?php while (have_rows('publications')) : the_row() ?>
-                        <div class="publication">
+                        <div class="home-publication">
                             <img
                                 alt="<?= get_sub_field('image')['title'] ?>"
                                 src="<?= get_sub_field('image')['url'] ?>"

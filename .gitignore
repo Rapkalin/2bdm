@@ -53,6 +53,8 @@ website/vendor
 website/wordpress-core
 website/.env
 website/app/uploads/*
+website/app/themes/2bdm/node_modules
+website/app/themes/2bdm/dist
 
 # Other
 .DS_Store

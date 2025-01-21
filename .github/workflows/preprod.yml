@@ -27,7 +27,7 @@ jobs:
           key: ${{ runner.os }}-${{ hashFiles('**/composer.lock') }}
           restore-keys: ${{ runner.os }}-'8.0'-composer-
 
-      - name: Install dependencies
+      - name: Install vendor
         uses: php-actions/composer@v6
         with:
           dev: no
@@ -47,15 +47,15 @@ jobs:
         with:
           node-version: 20
 
-      - name: Install vendor
+      - name: Install node_modules
         run: |
           cd website/app/themes/2bdm/
           npm install
 
       - name: Build webpack
         run: |
+          ls -la website/
           cd website/app/themes/2bdm/
-          ls -la
           npx webpack
 
       - name: Zip artifact for deployment

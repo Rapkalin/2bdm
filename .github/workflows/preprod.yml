@@ -39,6 +39,9 @@ jobs:
     needs: build-php
 
     steps:
+      - name: Checkout preprod 2bdm
+        uses: actions/checkout@v3
+        
       - name: Setup Node version
         uses: actions/setup-node@v2
         with:

@@ -46,7 +46,7 @@ jobs:
 
       - name: Install vendor
         run: |
-          cd app/themes/2bdm/
+          ls -la
           npm install
 
       - name: Build webpack

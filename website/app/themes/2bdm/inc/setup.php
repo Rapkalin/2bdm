@@ -6,6 +6,12 @@
 if (!function_exists('theme_2bdm_setup')) {
     function theme_2bdm_setup(): void {
         add_theme_support('title-tag');
+        add_theme_support('menus');
+        register_nav_menus([
+            'header-menu' => esc_html__('Header Menu', '2bdm'),
+            'footer-menu' => esc_html__('Footer Menu', '2bdm'),
+        ]);
+
         add_filter('use_block_editor_for_post', '__return_false');
         show_admin_bar(false);
     }

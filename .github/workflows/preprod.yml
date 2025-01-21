@@ -6,17 +6,15 @@ on:
       - 'develop'
 
 jobs:
-  build:
+  build-php:
     runs-on: ubuntu-latest
+    needs: build-php
     strategy:
       fail-fast: true
       matrix:
         php: [ 8.2 ]
 
     steps:
-      - name: checkout preprod 2bdm
-        uses: actions/checkout@v3
-
       - name: Restore the Composer cache directory
         run: echo "dir=$(composer config cache-files-dir)" >> $GITHUB_OUTPUT
 
@@ -34,6 +32,28 @@ jobs:
           args: --prefer-dist --no-interaction
           php_version: 8.2
 
+  build-js:
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: true
+      matrix:
+        php: [ 8.2 ]
+
+    steps:
+      - name: Checkout preprod 2bdm
+        uses: actions/checkout@v3
+
+      - name: Setup Node version
+        uses: actions/setup-node@v2
+        with:
+          node-version: 20
+
+      - name: Install vendor
+        run: npm install
+
+      - name: Build webpack
+        run: npx webpack
+
       - name: Zip artifact for deployment
         run: zip -r release.zip website/app/* website/vendor/* website/wordpress-core/* -x ".git/*" -x ".github/*"
 
@@ -42,7 +62,6 @@ jobs:
         with:
           name: app
           path: release.zip
-
   deploy:
     runs-on: ubuntu-latest
     needs: build

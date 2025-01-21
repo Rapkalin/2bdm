@@ -45,10 +45,14 @@ jobs:
           node-version: 20
 
       - name: Install vendor
-        run: npm install
+        run: |
+          cd app/themes/2bdm/
+          npm install
 
       - name: Build webpack
-        run: npx webpack
+        run: |
+          cd app/themes/2bdm/
+          npx webpack
 
       - name: Zip artifact for deployment
         run: zip -r release.zip website/app/* website/vendor/* website/wordpress-core/* -x ".git/*" -x ".github/*"

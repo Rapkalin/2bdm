@@ -1,2 +1,5 @@
+import '../../style.css';
+
 console.log('hello there test')
-let a = 'test';
+
+let a = 'vartest';

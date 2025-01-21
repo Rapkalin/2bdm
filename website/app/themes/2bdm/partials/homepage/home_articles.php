@@ -1,7 +1,8 @@
 <?php
+
 if (have_rows('home_articles')) :
     while (have_rows('home_articles')) : the_row();
-     $featured_articles = get_field('home_articles');
+        $featured_articles = get_field('home_articles');
         if ($featured_articles) : ?>
             <section id="home-articles" class="home-block">
                 <?php foreach ($featured_articles as $article) : ?>

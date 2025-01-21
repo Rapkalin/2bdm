@@ -63,9 +63,8 @@ jobs:
 
       - name: Build webpack
         run: |
-          ls -la website/
           cd website/app/themes/2bdm/
-          npx webpack
+          npx webpack --optimization-minimize
 
       - name: Zip JS artifact for deployment
         run: zip -r release-js.zip website/app/* -x ".git/*" -x ".github/*"

@@ -50,11 +50,12 @@ jobs:
       - name: Install vendor
         run: |
           ls -la
+          cd website/app/themes/2bdm/
+          ls -la
           npm install
 
       - name: Build webpack
         run: |
-          cd app/themes/2bdm/
           npx webpack
 
       - name: Zip artifact for deployment

@@ -54,6 +54,7 @@ jobs:
 
       - name: Build webpack
         run: |
+          cd website/app/themes/2bdm/
           ls -la
           npx webpack
 

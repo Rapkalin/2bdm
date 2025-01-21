@@ -41,7 +41,7 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: app
-          path: release.zip
+          path: release-php.zip
 
   build-js:
     runs-on: ubuntu-latest

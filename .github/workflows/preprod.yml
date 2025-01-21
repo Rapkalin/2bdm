@@ -8,7 +8,6 @@ on:
 jobs:
   build-php:
     runs-on: ubuntu-latest
-    needs: build-php
     strategy:
       fail-fast: true
       matrix:
@@ -34,6 +33,7 @@ jobs:
 
   build-js:
     runs-on: ubuntu-latest
+    needs: build-php
     strategy:
       fail-fast: true
       matrix:

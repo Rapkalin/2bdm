@@ -3,7 +3,7 @@
 /**
 * Return images folder path
 */
-function asset($path)
+function asset($path): string
 {
-    echo bloginfo('template_directory') . '/images/' . $path;
+    return get_template_directory_uri() . '/assets/images/' . $path;
 }

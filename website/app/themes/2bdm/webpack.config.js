@@ -1,12 +1,15 @@
 const path = require('path');
+const TerserPlugin = require("terser-webpack-plugin");
+const dev = process.env.NODE_ENV === "development"
 
-module.exports = {
+let config = {
     entry: './assets/scripts/app.js',
     output: {
         filename: 'main.js',
         path: path.resolve(__dirname, 'dist'),
     },
-    mode: 'development',
+    watch: dev,
+    mode: "development",
     module: {
         rules: [
             {
@@ -24,4 +27,16 @@ module.exports = {
             },
         ],
     },
+    optimization: {
+        minimize: false,
+        minimizer: [],
+    },
 };
+
+if (!dev) {
+    config.optimization.minimize = true;
+    config.optimization.minimizer.push(new TerserPlugin());
+    config.mode = 'production'
+}
+
+module.exports = config;

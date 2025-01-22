@@ -10,6 +10,7 @@ let config = {
     },
     watch: dev,
     mode: "development",
+    devtool: dev ? "eval-cheap-module-source-map" : "hidden-source-map",
     module: {
         rules: [
             {
@@ -19,18 +20,42 @@ let config = {
             },
             {
                 test: /\.css$/i,
-                use: ['style-loader', 'css-loader'],
+                use: ["style-loader", "css-loader"]
             },
             {
-                test: /\.(png|svg|jpg|jpeg|gif)$/i,
-                type: 'asset/resource',
+                test: /\.scss$/i,
+                use: [
+                    "style-loader",
+                    {
+                        loader: "css-loader",
+                        options: {
+                            importLoaders: 1
+                        }
+                    },
+                    {
+                        loader: "postcss-loader",
+                        options: {
+                            postcssOptions: {
+                                plugins: [
+                                    "autoprefixer",
+                                ],
+                            },
+                        },
+                    },
+                    {
+                        loader: "sass-loader",
+                        options: {
+                            implementation: require('sass')
+                        },
+                    },
+                ],
             },
         ],
     },
     optimization: {
         minimize: false,
         minimizer: [],
-    },
+    }
 };
 
 if (!dev) {
@@ -38,5 +63,7 @@ if (!dev) {
     config.optimization.minimizer.push(new TerserPlugin());
     config.mode = 'production'
 }
+
+console.log('Webpack Config', config);
 
 module.exports = config;

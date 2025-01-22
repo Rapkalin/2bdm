@@ -1,6 +1,27 @@
 const path = require('path');
+const dev = process.env.NODE_ENV === "development";
 const TerserPlugin = require("terser-webpack-plugin");
-const dev = process.env.NODE_ENV === "development"
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
+let cssLoader = [
+    dev ? "style-loader" : MiniCssExtractPlugin.loader,
+    {
+        loader: "css-loader",
+        options: {
+            importLoaders: 1
+        }
+    },
+    {
+        loader: "postcss-loader",
+        options: {
+            postcssOptions: {
+                plugins: [
+                    "autoprefixer",
+                ],
+            },
+        },
+    },
+]
 
 let config = {
     entry: './assets/scripts/app.js',
@@ -20,28 +41,11 @@ let config = {
             },
             {
                 test: /\.css$/i,
-                use: ["style-loader", "css-loader"]
+                use: cssLoader
             },
             {
                 test: /\.scss$/i,
-                use: [
-                    "style-loader",
-                    {
-                        loader: "css-loader",
-                        options: {
-                            importLoaders: 1
-                        }
-                    },
-                    {
-                        loader: "postcss-loader",
-                        options: {
-                            postcssOptions: {
-                                plugins: [
-                                    "autoprefixer",
-                                ],
-                            },
-                        },
-                    },
+                use: [...cssLoader,
                     {
                         loader: "sass-loader",
                         options: {
@@ -55,7 +59,12 @@ let config = {
     optimization: {
         minimize: false,
         minimizer: [],
-    }
+    },
+    plugins: [
+        new MiniCssExtractPlugin({
+            filename: "[name].css",
+        }),
+    ],
 };
 
 if (!dev) {

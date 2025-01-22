@@ -1,5 +1,6 @@
 <?php
 get_header();
+?> <button id="button">Cliquez ici</button> <?php
 $home = new WP_Query(['pagename' => 'homepage']);
 while ($home->have_posts()) : $home->the_post();
     foreach (get_fields($home->post->ID) as $key => $field) {

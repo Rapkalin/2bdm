@@ -5,8 +5,10 @@ The offical 2bdm architect's sutdio's website
 
 ![wordpress](https://img.shields.io/badge/wordpress-v6.7-0678BE.svg?style=flat-square)
 ![php](https://img.shields.io/badge/PHP-v8.2-828cb7.svg?style=flat-square)
-![Node](https://img.shields.io/badge/node-v18-644D31.svg?style=flat-square)
 ![composer](https://img.shields.io/badge/composer-v2-126E75.svg?style=flat-square)
+![Node](https://img.shields.io/badge/node-v20-644D31.svg?style=flat-square)
+![npm](https://img.shields.io/badge/npm-v8-904F51.svg?style=flat-square)
+![webpack](https://img.shields.io/badge/webpack-v5-157B25.svg?style=flat-square)
 
 # GETTING STARTED
 
@@ -69,7 +71,28 @@ DATABASE_PROD_PASSWORD=your-prod-db-password
 ```
 
 ### FRONT-END INSTALL
-- TBD
+- The whole frontend installation is located in the Theme Directory. 
+- This project uses:
+  - Webpack5 configuration : see config in the webpack.config.js file
+  - Babel for Javascript previous ES compatibility: see config in the .babelrc file
+  - Dependencies management with npm and a package.json
+  - Sass for style
+- Go to the Theme directory
+```
+  cd website/app/themes/2bdm
+```
+
+- Make sure you have the correct node version (v20) and npm version (v8)
+- Install the dependencies
+```
+  npm install
+```
+
+- Check the listed scripts in the package.json and use the one according to your needs.
+```
+  npm run build // for production mode
+  npm run dev // for development mode with a watcher
+```
 
 ### HOW TO DEPLOY
 To use the auto-deploy using Github Workflows please follow the below instructions:

@@ -1,8 +1,8 @@
 <?php
 
-/*
+/**
  * Set up the 2BDM theme
- */
+ **/
 if (!function_exists('theme_2bdm_setup')) {
     function theme_2bdm_setup(): void {
         add_theme_support('title-tag');
@@ -25,9 +25,9 @@ if (!function_exists('theme_2bdm_title_separator')) {
     add_action('document_title_separator', 'theme_2bdm_title_separator');
 }
 
-/*
+/**
  * Reorganize the 2BDM admin menu
- */
+ **/
 if (!function_exists('theme_remove_admin_menus')) {
     // Removes from admin menu
     function theme_remove_admin_menus(): void {
@@ -82,49 +82,8 @@ if (!function_exists('theme_custom_menu_order')) {
 }
 
 /**
- * 2BDM functions and definitions
-
-if (!function_exists('theme_2bdm_setup')) {
-    function theme_2bdm_setup(): void
-    {
-        add_theme_support('title-tag');
-        add_theme_support('post-thumbnails');
-        add_theme_support('align-wide');
-        add_theme_support('customize-selective-refresh-widgets');
-        add_theme_support('post-formats',
-            [
-                'aside',
-                'chat',
-                'gallery',
-                'image',
-                'link',
-                'quote',
-                'status',
-                'video',
-                'audio'
-            ]
-        );
-        add_theme_support('editor-color-palette',
-            [
-                ['name' => 'Rose', 'slug'  => 'pink', 'color' => '#ff8da8'],
-                ['name' => 'Noir', 'slug'  => 'dark-text', 'color' => '#5f5e5e']
-            ]
-        );
-
-        register_nav_menus([
-            'header-menu' => esc_html__('Header Menu', 'pdesign'),
-            'products-menu' => esc_html__('Products Menu', 'pdesign'),
-            'footer-menu' => esc_html__('Footer Menu', 'pdesign'),
-            'footer-products-menu' => esc_html__('Footer Products Menu', 'pdesign'),
-        ]);
-    }
-    add_action('after_setup_theme', 'theme_2bdm_setup');
-}
-*/
-
-/**
  * Enqueue scripts and styles.
-**/
+ **/
 if (!function_exists('theme_2bdm_scripts')) {
     function theme_2bdm_scripts(): void
     {

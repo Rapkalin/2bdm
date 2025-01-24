@@ -13,11 +13,19 @@
             "email": "raphael@rapkalin.fr"
         }
     ],
+    "repositories":[
+        {
+            "type":"composer",
+            "url":"https://wpackagist.org"
+        }
+    ],
     "require": {
         "php": ">=8.2",
         "johnpbloch/wordpress": "^6.3",
         "composer/installers": "^1.12",
-        "vlucas/phpdotenv": "^5.5"
+        "vlucas/phpdotenv": "^5.5",
+
+        "wpackagist-plugin/webp-converter-for-media":"^6.2"
     },
 
     "require-dev": {

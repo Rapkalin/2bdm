@@ -96,7 +96,7 @@ if (!function_exists('theme_2bdm_scripts')) {
         wp_dequeue_style( 'wc-block-style' ); // Remove WoocCommerce block css
         wp_dequeue_style( 'global-styles' ); // Remove theme.json
         wp_dequeue_style( 'wp-emoji-styles' ); // Remove emoji style
-        wp_enqueue_script('main-js', get_template_directory_uri() .  '/dist/main.js', [], '1.0', true);
+        wp_enqueue_script('main-js', get_template_directory_uri() .  '/dist/main.js', [], '1.0', ['strategy' => 'defer']);
     }
     add_action('wp_enqueue_scripts', 'theme_2bdm_scripts');
 }

@@ -100,7 +100,7 @@ jobs:
       - name: unzip artifact for deployment
         run: |
           unzip -o release-js.zip
-          unzip -o release-php.zip
+          unzip -u release-php.zip
 
       - name: Deploy with rsync
         uses: burnett01/rsync-deployments@5.2

@@ -35,7 +35,7 @@ jobs:
           php_version: 8.2
 
       - name: Zip PHP artifact for deployment
-        run: zip -r release-php.zip website/app/plugins/* website/vendor/* website/wordpress-core/* -x ".git/*" -x ".github/*"
+        run: zip -r release-php.zip website/app website/vendor/* website/wordpress-core/* -x ".git/*" -x ".github/*"
 
       - name: Upload PHP artifact
         uses: actions/upload-artifact@v4
@@ -99,8 +99,8 @@ jobs:
 
       - name: unzip artifact for deployment
         run: |
+          unzip -o release-php.zip
           unzip -o release-js.zip
-          unzip -u release-php.zip
 
       - name: Deploy with rsync
         uses: burnett01/rsync-deployments@5.2

@@ -8,7 +8,7 @@
 *.log
 
 # htaccess
-/.htaccess
+website/.htaccess
 
 # All plugins
 #

@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html >
 <html <?php language_attributes(); ?>>
 
 <head>
@@ -7,6 +7,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
     <meta name="description" content="<?= get_bloginfo('description') ?>">
     <meta name="keywords" content="2BDM ARCHITECTURE, 2BDM, ARCHITECTURE, studio d'architectes, studio, studio d'artchitecture">
+    <meta name="author" content="Rapkalin">
+
     <?php wp_head(); ?>
 </head>
 

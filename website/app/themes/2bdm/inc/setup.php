@@ -12,7 +12,6 @@ if (!function_exists('theme_2bdm_setup')) {
             'footer-menu' => esc_html__('Footer Menu', '2bdm'),
         ]);
 
-        add_filter('use_block_editor_for_post', '__return_false');
         show_admin_bar(false);
     }
     add_action('after_setup_theme', 'theme_2bdm_setup');

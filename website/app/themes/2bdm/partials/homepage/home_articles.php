@@ -4,17 +4,23 @@ if (have_rows('home_articles')) :
     $featured_articles = get_field('home_articles');
     if ($featured_articles) : ?>
         <section id="home-articles" class="home-block">
-            <?php foreach ($featured_articles as $article) : ?>
-                <div class="home-article">
-                    <h2><?php the_field('title', $article->ID); ?></h2>
-                    <p><?php the_field('description', $article->ID); ?></p>
-                    <img
-                        alt="<?= get_field('image', $article->ID)['title'] ?>"
-                        src="<?= get_field('image', $article->ID)['url'] ?>"
-                        width="<?= get_field('image', $article->ID)['width'] ?>"
-                        height="<?= get_field('image', $article->ID)['height'] ?>"
-                    >
-                </div>
+            <?php foreach ($featured_articles as $article) :
+                $image = get_field('image', $article->ID);
+                // $srcset = wp_get_attachment_image_srcset($image->ID, 'thumbnail');
+                // $src = wp_get_attachment_image($image->ID, 'large');
+            ?>
+                <a href="<?= get_permalink($article->ID) ?>">
+                    <div class="home-article">
+                        <h2><?= $article->post_title ?></h2>
+                        <p><?= $article->post_excerpt ?></p>
+                        <img
+                            alt="<?= $image['title'] ?>"
+                            src="<?= $image['url'] ?>"
+                            width="<?= $image['width'] ?>"
+                            height="<?= $image['height'] ?>"
+                        >
+                    </div>
+                </a>
             <?php endforeach; ?>
         </section>
     <?php endif;

@@ -23,12 +23,15 @@ function projects_init(): void {
             'capability_type' => 'post',
             'hierarchical' => false,
             'menu_icon' => 'dashicons-admin-multisite',
-            'supports' => array(
+            'show_in_rest' => true,
+            'supports' => [
+                'excerpt',
                 'page-attributes',
                 'title',
                 'editor',
                 'thumbnail'
-            ),
+            ]
+            ,
             'has_archive' => true,
         )
     );

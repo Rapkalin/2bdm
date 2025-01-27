@@ -12,9 +12,20 @@ if (!function_exists('theme_2bdm_setup')) {
             'footer-menu' => esc_html__('Footer Menu', '2bdm'),
         ]);
 
+        add_filter('use_block_editor_for_post', 'desactivate_gutemberg_pages', 10, 2);
         show_admin_bar(false);
     }
     add_action('after_setup_theme', 'theme_2bdm_setup');
+}
+
+if (!function_exists('desactivate_gutemberg_pages')) {
+    function desactivate_gutemberg_pages($use_block_editor, $post): bool {
+        if ($post->post_type === 'page') {
+            return false;
+        }
+
+        return $use_block_editor;
+    }
 }
 
 if (!function_exists('theme_2bdm_title_separator')) {
@@ -63,8 +74,8 @@ if (!function_exists('theme_custom_menu_order')) {
             "index.php",
             "separator1",
             "edit.php?post_type=page",
+            "edit.php?post_type=articles",
             "edit.php?post_type=projects",
-            "edit.php",
             "upload.php",
             "separator2",
             "themes.php",

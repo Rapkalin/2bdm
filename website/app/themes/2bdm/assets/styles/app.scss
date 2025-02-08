@@ -3,8 +3,15 @@
 
 /* PARTIALS */
 @import "partials/header";
+@import "partials/home-cover";
 
 body {
     background: $background;
     width: 100vw;
+    margin: 0;
+}
+
+/* Reset default margin */
+h1, h2 {
+    margin: 0;
 }

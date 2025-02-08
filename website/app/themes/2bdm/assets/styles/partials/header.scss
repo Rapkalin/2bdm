@@ -1,0 +1,40 @@
+#header-container {
+  position: fixed;
+  top: 8px;
+  width: inherit;
+  display: flex;
+  justify-content: space-between;
+
+  #logo {
+    a {
+      img {
+        width: 80px;
+        height: auto;
+        object-fit: cover;
+      }
+    }
+  }
+
+}
+
+#menu-content {
+  display: flex;
+  list-style: none;
+
+  li {
+    margin: 0 60px 0 0;
+    font-family: sans-serif;
+    font-size: x-large;
+
+    a {
+      text-decoration-line: none;
+      color: floralwhite;
+
+      &visited {
+        color: black;
+      }
+    }
+  }
+}
+
+

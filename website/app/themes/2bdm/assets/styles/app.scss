@@ -1,6 +1,10 @@
-$background: white;
+/* UTILS / ABSTRACTS */
+@import "abstracts/variables";
+
+/* PARTIALS */
+@import "partials/header";
 
 body {
     background: $background;
-    transform: translateX(20px);
+    width: 100vw;
 }

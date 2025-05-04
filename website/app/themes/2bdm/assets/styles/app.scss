@@ -1,9 +1,12 @@
 /* UTILS / ABSTRACTS */
-@import "abstracts/variables";
+@use "abstracts/variables" as *;
 
 /* PARTIALS */
-@import "partials/header";
-@import "partials/home-cover";
+@use "partials/header" as *;
+@use "partials/home-cover" as *;
+
+/* PARTIALS */
+@use "components/intro" as *;
 
 body {
     background: $background;
@@ -15,3 +18,6 @@ body {
 h1, h2 {
     margin: 0;
 }
+
+
+

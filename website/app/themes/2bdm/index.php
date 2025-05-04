@@ -1,5 +1,11 @@
 <?php
 get_header();
+?>
+    <div class="intro-container">
+        <?php get_template_part("components/intro-svg"); ?>
+    </div>
+<?php
+
 $home = new WP_Query(['pagename' => 'homepage']);
 while ($home->have_posts()) : $home->the_post();
     foreach (get_fields($home->post->ID) as $key => $field) {

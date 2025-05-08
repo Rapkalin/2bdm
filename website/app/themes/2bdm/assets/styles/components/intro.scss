@@ -2,22 +2,48 @@
   position: fixed;
   width: 100dvw;
   height: 100dvh;
-  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+#intro-start {
+  background-color: white;
 
   .path {
     stroke: black;
     stroke-dasharray: 1000;
     stroke-dashoffset: 1000;
     stroke-width: 1;
-    animation: dash 5s linear forwards;
+    animation: dash 6s linear forwards;
   }
 
   @keyframes dash {
     to {
       stroke-dashoffset: 0;
     }
+  }
+
+  .path-small {
+    stroke: #444444;
+    stroke-dasharray: 1000;
+    stroke-dashoffset: 1000;
+    animation: small 10s linear forwards;
+  }
+
+  @keyframes small {
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+}
+
+#intro-mask {
+  background-color: #444444;
+  transition: 0.9s ease-in-out;
+  clip-path: circle(0%);
+
+  .path-mask {
+    stroke: white;
   }
 }

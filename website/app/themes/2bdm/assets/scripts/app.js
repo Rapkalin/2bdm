@@ -11,9 +11,9 @@ setTimeout(function () {
 setTimeout(function () {
         document.getElementById("intro-start").remove();
         let el = document.getElementById("intro-mask");
-        el.style.clipPath = "circle(0%)"; // Make intro mask disappear in circle
+        el.style.transform = "translate(0, -200%)"; // Make intro mask disappear in circle
         setTimeout(function () {
-            el.style.opacity = 0; // while fading
-        }, 300)
-    }, 3000
+            el.remove()
+        }, 1000)
+    }, 2900
 )

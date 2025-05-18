@@ -1,5 +1,5 @@
 /* UTILS / ABSTRACTS */
-@use "abstracts/variables" as *;
+@use "abstracts/general" as *;
 
 /* PARTIALS */
 @use "partials/header" as *;
@@ -7,17 +7,3 @@
 
 /* COMPONENTS */
 @use "components/intro" as *;
-
-body {
-    background: $background;
-    width: 100vw;
-    margin: 0;
-}
-
-/* Reset default margin */
-h1, h2 {
-    margin: 0;
-}
-
-
-

@@ -1,0 +1,27 @@
+/* UTILS / ABSTRACTS */
+@use "variables" as *;
+
+body {
+  background: $white;
+  width: 100vw;
+  margin: 0;
+  font-family: "Neue Haas", sans-serif;
+}
+
+/* Reset default margin */
+h1, h2 {
+  margin: 0;
+}
+
+a {
+  text-decoration-line: none;
+  color: $white;
+
+  &visited {
+    color: $black;
+  }
+}
+
+a:hover {
+  font-weight: 500;
+}

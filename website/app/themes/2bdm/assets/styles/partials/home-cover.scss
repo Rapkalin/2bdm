@@ -1,5 +1,5 @@
 .home-block {
-  height: 100vh;
+  width: 100dvw;
 
   .banner {
     background-size: cover;
@@ -8,6 +8,11 @@
     display: flex;
     align-items: center;
     padding: 0 0 0 150px;
+  }
+
+  img {
+    width: 100dvw;
+    object-fit: cover;
   }
 }
 

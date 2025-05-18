@@ -47,9 +47,13 @@ let config = {
                 test: /\.scss$/i,
                 use: [...cssLoader,
                     {
+                        loader: 'resolve-url-loader',
+                    },
+                    {
                         loader: "sass-loader",
                         options: {
-                            implementation: require('sass')
+                            implementation: require('sass'),
+                            sourceMap: true
                         },
                     },
                 ],

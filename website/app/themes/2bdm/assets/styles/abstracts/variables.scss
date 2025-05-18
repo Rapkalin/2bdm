@@ -1,5 +1,78 @@
 /* GLOBALS */
 $font-color: black;
 
-/* PARTIALS */
-$background: white;
+/* COLORS */
+$white: floralwhite;
+$black: black;
+$grey: #756f5e;
+
+/* FONTS */
+@font-face {
+  font-family: 'Neue Haas';
+  src:
+    url('fonts/neue-haas-grotesk-display-pro/NeueHaasDisplayLight.ttf') format('truetype'),
+    url('fonts/neue-haas-grotesk-display-pro/NeueHaasDisplayLightItalic.ttf') format('truetype');
+}
+
+@font-face {
+  font-family: "Neue Haas";
+  src:
+      url('fonts/neue-haas-grotesk-display-pro/NeueHaasDisplayXXThin.ttf') format('truetype'),
+      url('fonts/neue-haas-grotesk-display-pro/NeueHaasDisplayXXThinItalic.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Neue Haas";
+  src:
+    url('fonts/neue-haas-grotesk-display-pro/NeueHaasDisplayXThin.ttf') format('truetype'),
+    url('fonts/neue-haas-grotesk-display-pro/NeueHaasDisplayXThinItalic.ttf') format('truetype');
+  font-weight: 200;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Neue Haas";
+  src:
+    url('fonts/neue-haas-grotesk-display-pro/NeueHaasDisplayThin.ttf') format('truetype'),
+    url('fonts/neue-haas-grotesk-display-pro/NeueHaasDisplayThinItalic.ttf') format('truetype');
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Neue Haas";
+  src:
+    url('fonts/neue-haas-grotesk-display-pro/NeueHaasDisplayRoman.ttf') format('truetype'),
+    url('fonts/neue-haas-grotesk-display-pro/NeueHaasDisplayRomanItalic.ttf') format('truetype');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Neue Haas";
+  src:
+    url('fonts/neue-haas-grotesk-display-pro/NeueHaasDisplayMedium.ttf') format('truetype'),
+    url('fonts/neue-haas-grotesk-display-pro/NeueHaasDisplayMediumItalic.ttf') format('truetype');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Neue Haas";
+  src:
+          url('fonts/neue-haas-grotesk-display-pro/NeueHaasDisplayBold.ttf') format('truetype'),
+          url('fonts/neue-haas-grotesk-display-pro/NeueHaasDisplayBoldItalic.ttf') format('truetype');
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Neue Haas";
+  src:
+    url('fonts/neue-haas-grotesk-display-pro/NeueHaasDisplayBlack.ttf') format('truetype'),
+    url('fonts/neue-haas-grotesk-display-pro/NeueHaasDisplayBlackItalic.ttf') format('truetype');
+  font-weight: 700;
+  font-style: normal;
+}

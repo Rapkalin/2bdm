@@ -1,14 +1,17 @@
 <?php
 get_header();
 ?>
+
+<?php if (!$_COOKIE["intro"]): ?>
     <div class="intro-container" id="intro-start">
-        <?php get_template_part("components/svg-intro.php"); ?>
+        <?php get_template_part("components/svg-intro"); ?>
     </div>
     <div class="intro-container" id="intro-mask">
         <?php get_template_part("components/svg-intro-mask"); ?>
     </div>
-<?php
+<?php endif; ?>
 
+<?php
 $home = new WP_Query(['pagename' => 'homepage']);
 while ($home->have_posts()) : $home->the_post();
     foreach (get_fields($home->post->ID) as $key => $field) {
@@ -18,4 +21,5 @@ while ($home->have_posts()) : $home->the_post();
     }
 endwhile;
 ?> <button id="button">Cliquez ici</button> <?php
+
 get_footer();

@@ -20,11 +20,7 @@ if (!function_exists('theme_2bdm_setup')) {
 
 if (!function_exists('desactivate_gutemberg_pages')) {
     function desactivate_gutemberg_pages($use_block_editor, $post): bool {
-        if ($post->post_type === 'page') {
-            return false;
-        }
-
-        return $use_block_editor;
+        return false;
     }
 }
 

@@ -1,12 +1,12 @@
 <?php
 get_header();
 ?>
-        <div class="intro-container" id="intro-start">
-            <?php get_template_part("components/intro-svg"); ?>
-        </div>
-        <div class="intro-container" id="intro-mask">
-            <?php get_template_part("components/intro-svg-mask"); ?>
-        </div>
+    <div class="intro-container" id="intro-start">
+        <?php get_template_part("components/svg-intro.php"); ?>
+    </div>
+    <div class="intro-container" id="intro-mask">
+        <?php get_template_part("components/svg-intro-mask"); ?>
+    </div>
 <?php
 
 $home = new WP_Query(['pagename' => 'homepage']);

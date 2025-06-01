@@ -1,5 +1,5 @@
 /* UTILS / ABSTRACTS */
-@use "abstracts/general" as *;
+@use "basics/general" as *;
 
 /* PARTIALS */
 @use "partials/header" as *;
@@ -7,3 +7,5 @@
 
 /* COMPONENTS */
 @use "components/intro" as *;
+@use "components/block-content" as *;
+@use "components/block-header-banner" as *;

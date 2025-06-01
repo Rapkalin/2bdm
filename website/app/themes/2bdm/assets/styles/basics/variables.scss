@@ -1,3 +1,5 @@
+@use 'functions' as fn;
+
 /* GLOBALS */
 $font-color: black;
 
@@ -5,6 +7,16 @@ $font-color: black;
 $white: floralwhite;
 $black: black;
 $grey: #756f5e;
+
+/* FONT SIZES */
+$fs-h1: fn.toRem(102);
+
+/* FONT WEIGHTS */
+$fw-h1: 400;
+
+/* LINE HEIGHTS */
+$lh-h1: fn.toRem(102);
+$lh-p: fn.toRem(32);
 
 /* FONTS */
 @font-face {

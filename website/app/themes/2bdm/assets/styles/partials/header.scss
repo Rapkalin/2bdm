@@ -1,5 +1,5 @@
 /* UTILS / ABSTRACTS */
-@use "../abstracts/variables" as *;
+@use "../basics/variables" as var;
 
 #header-container {
   position: fixed;
@@ -21,7 +21,7 @@
 }
 
 #navigation {
-  background-color: $grey;
+  background-color: var.$grey;
   padding: 15px 45px;
   border-radius: 50px;
 
@@ -34,6 +34,3 @@
 
   }
 }
-
-
-

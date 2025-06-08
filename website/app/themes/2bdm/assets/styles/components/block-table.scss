@@ -1,0 +1,30 @@
+@use "../basics/variables" as var;
+@use "../basics/functions" as fn;
+
+.table-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  padding: 40px 48px;
+  font-weight: var.$fw-p;
+  font-size: var.$fs-p;
+
+  .tc-wrapper {
+    border-top: solid 1px;
+    border-color: var.$grey;
+    padding-top: 20px;
+
+    .tc-title {
+      color: var.$grey;
+    }
+
+    .tc-description {
+      color: var.$darkgrey;
+
+      ul  {
+        padding: unset;
+        list-style-position: inside;
+      }
+    }
+  }
+}

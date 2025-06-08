@@ -6,13 +6,16 @@ $font-color: black;
 /* COLORS */
 $white: floralwhite;
 $black: black;
+$darkgrey: #444444;
 $grey: #756f5e;
 
 /* FONT SIZES */
 $fs-h1: fn.toRem(102);
+$fs-p: fn.toRem(16);
 
 /* FONT WEIGHTS */
 $fw-h1: 400;
+$fw-p: 300;
 
 /* LINE HEIGHTS */
 $lh-h1: fn.toRem(102);

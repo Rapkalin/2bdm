@@ -38,3 +38,12 @@
         </nav>
     </div>
     <div class="container">
+
+    <?php if (!$_COOKIE["intro"]): ?>
+        <div class="intro-container" id="intro-start">
+            <?php get_template_part("components/svg-intro"); ?>
+        </div>
+        <div class="intro-container" id="intro-mask">
+            <?php get_template_part("components/svg-intro-mask"); ?>
+        </div>
+    <?php endif; ?>

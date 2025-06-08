@@ -5,6 +5,8 @@ if (have_rows('header_banner')) :
     get_template_part("components/block_header_banner");
 endif;
 
+?><span id="first-section"></span><?php
+
 if (have_rows('content_blocks')) :
     while (have_rows('content_blocks')) : the_row(); ?>
         <section class="content-blocks">

@@ -16,8 +16,6 @@
             <span class="svg-arrow-down"><?php get_template_part("components/svg-arrow-down"); ?></span>
             <div><?= get_sub_field('call_to_action'); ?></div>
         </a>
-
-        <span id="first-section"></span>
     </section>
 <?php endif ?>
 

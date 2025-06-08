@@ -6,7 +6,12 @@ if( $images ): ?>
     <section class="gallery-images">
         <?php foreach( $images as $i => $image ):
             $srcset = wp_get_attachment_image_srcset( $image['ID']);
-            $align = $i === 0 ? $align : ( $align === 'right' ? 'left' : 'right' );
+
+            if (count($images) > 1) {
+                $align = $i === 0 ? $align : ( $align === 'right' ? 'left' : 'right' );
+            } else {
+                $align = 'default';
+            }
         ?>
             <img
                 src="<?php header_image(); ?>"

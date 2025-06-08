@@ -1,6 +1,10 @@
 /* UTILS / ABSTRACTS */
 @use "variables" as var;
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   background: var.$white;
   width: 100vw;

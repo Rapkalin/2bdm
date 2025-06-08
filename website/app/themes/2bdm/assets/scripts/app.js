@@ -1,5 +1,6 @@
 import css from "../styles/app.scss"
 import cookies from "./cookies";
+import carousel from "./carousel";
 
 console.log('Main JS loaded')
 let intro = cookies.getCookie("intro");
@@ -23,3 +24,8 @@ if (!intro) {
 
     cookies.setCookie("intro", true, 1);
 }
+
+// Carrousel init
+document.addEventListener("DOMContentLoaded", () => {
+    carousel.init();
+});

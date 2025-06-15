@@ -1,0 +1,16 @@
+@use '../basics/variables' as var;
+
+.text-wrapper {
+  display: flex;
+
+  .text-content {
+    width: 35%;
+    font-weight: var.$fw-p;
+    line-height: var.$lh-p-m;
+    font-size: var.$fs-p;
+  }
+}
+
+.text-align-right {
+  flex-direction: row-reverse;
+}

@@ -13,7 +13,7 @@ body {
 }
 
 /* Reset default margin */
-h1, h2, p {
+h1, h2, h4, p {
   margin: unset;
 }
 
@@ -28,4 +28,12 @@ a {
 
 .main-wrapper {
     padding: 40px 48px;
+}
+
+.menu-content {
+  display: flex;
+  gap: 45px;
+  list-style: none;
+  margin: unset;
+  padding: unset;
 }

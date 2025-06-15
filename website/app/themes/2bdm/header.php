@@ -15,7 +15,7 @@
 
 <body <?php body_class(); ?>>
     <div id="header-container">
-        <div id="logo">
+        <div id="header-logo">
             <?php $imageData = getimagesize(get_template_directory() . '/assets/images/' . '2BDM_white.webp'); ?>
             <a href="<?= home_url('/'); ?>">
                 <img
@@ -27,7 +27,7 @@
             </a>
         </div>
         <nav id="navigation">
-            <ul id="menu-content">
+            <ul class="menu-content">
                 <?php wp_nav_menu([
                     'theme_location' => 'header-menu',
                     'menu_id' => 'header-menu',

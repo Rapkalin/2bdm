@@ -10,6 +10,8 @@ if (!function_exists('theme_2bdm_setup')) {
         register_nav_menus([
             'header-menu' => esc_html__('Header Menu', '2bdm'),
             'footer-menu' => esc_html__('Footer Menu', '2bdm'),
+            'social-menu' => esc_html__('Social Media Menu', '2bdm'),
+            'legal-menu' => esc_html__('Legal Menu', '2bdm'),
         ]);
 
         add_filter('use_block_editor_for_post', 'desactivate_gutemberg_pages', 10, 2);

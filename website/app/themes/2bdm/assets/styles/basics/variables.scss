@@ -11,7 +11,9 @@ $grey: #756f5e;
 
 /* FONT SIZES */
 $fs-h1: fn.toRem(102);
+$fs-h4: fn.toRem(22);
 $fs-p: fn.toRem(16);
+$fs-p-s: fn.toRem(12); // font size paragraph small
 
 /* FONT WEIGHTS */
 $fw-xl: 500;
@@ -23,6 +25,7 @@ $lh-h1: fn.toRem(102);
 $lh-p-xl: fn.toRem(36);
 $lh-p: fn.toRem(32);
 $lh-p-m: fn.toRem(26); // line height paragraph medium
+$lh-p-s: fn.toRem(16); // line height paragraph small
 
 /* FONTS */
 @font-face {

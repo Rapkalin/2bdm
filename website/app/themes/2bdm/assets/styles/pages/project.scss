@@ -1,0 +1,4 @@
+@use "../basics/functions" as fn;
+.content-blocks {
+  margin-top: fn.toRem(40);
+}

@@ -1,0 +1,25 @@
+@use "../basics/variables" as var;
+
+.intro-wrapper {
+  display: flex;
+  justify-content: space-between;
+
+  .intro-description {
+    font-size: var.$lh-p-xl;
+    line-height: var.$lh-p-xl;
+    font-weight: var.$fw-p;
+    width: 60%;
+  }
+
+  .intro-location {
+    display: flex;
+    gap: 10px;
+    color: var.$grey;
+    font-size: var.$fs-p;
+    padding-top: 20px;
+
+    .intro-city {
+      font-weight: var.$fw-xl;
+    }
+  }
+}

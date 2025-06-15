@@ -23,6 +23,9 @@ if (have_rows('content_blocks')) :
                 case 'carousel':
                     get_template_part("components/block_carousel");
                     break;
+                case 'introduction':
+                    get_template_part("components/block_introduction");
+                    break;
             } ?>
         </section>
     <?php endwhile;

@@ -13,8 +13,8 @@ body {
 }
 
 /* Reset default margin */
-h1, h2 {
-  margin: 0;
+h1, h2, p {
+  margin: unset;
 }
 
 a {

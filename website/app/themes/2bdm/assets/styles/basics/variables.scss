@@ -24,6 +24,9 @@ $lh-p-xl: fn.toRem(36);
 $lh-p: fn.toRem(32);
 $lh-p-m: fn.toRem(26); // line height paragraph medium
 
+/* WIDTH */
+$main: calc(100dvw - fn.toRem(96)); // Remove the sum of the horizontal margin (here 48px (left) + 48x (right))
+
 /* FONTS */
 @font-face {
   font-family: 'Neue Haas';
@@ -37,10 +40,11 @@ $lh-p-m: fn.toRem(26); // line height paragraph medium
   src:
       url('fonts/neue-haas-grotesk-display-pro/NeueHaasDisplayXXThin.ttf') format('truetype'),
       url('fonts/neue-haas-grotesk-display-pro/NeueHaasDisplayXXThinItalic.ttf') format('truetype');
-  font-weight: 200;
+  font-weight: 100;
   font-style: normal;
 }
 
+/* Add regular */
 @font-face {
   font-family: "Neue Haas";
   src:

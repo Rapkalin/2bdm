@@ -14,28 +14,30 @@
 </head>
 
 <body <?php body_class(); ?>>
-    <div id="header-container">
-        <div id="logo">
-            <?php $imageData = getimagesize(get_template_directory() . '/assets/images/' . '2BDM_white.webp'); ?>
-            <a href="<?= home_url('/'); ?>">
-                <img
-                    src="<?= asset('logo-white.svg') ?>"
-                    alt="2BDM ARCHITECTURE LOGO"
-                    width="<?= $imageData[0] ?>"
-                    height="<?= $imageData[1] ?>"
-                >
-            </a>
+    <div id="header-main">
+        <div id="header-container">
+            <div id="header-logo">
+                <?php $imageData = getimagesize(get_template_directory() . '/assets/images/' . '2BDM_white.webp'); ?>
+                <a href="<?= home_url('/'); ?>">
+                    <img
+                        src="<?= asset('logo-white.svg') ?>"
+                        alt="2BDM ARCHITECTURE LOGO"
+                        width="<?= $imageData[0] ?>"
+                        height="<?= $imageData[1] ?>"
+                    >
+                </a>
+            </div>
+            <nav id="navigation">
+                <ul class="menu-content">
+                    <?php wp_nav_menu([
+                        'theme_location' => 'header-menu',
+                        'menu_id' => 'header-menu',
+                        'items_wrap' => '%3$s',
+                        'container' => false
+                    ]); ?>
+                </ul>
+            </nav>
         </div>
-        <nav id="navigation">
-            <ul id="menu-content">
-                <?php wp_nav_menu([
-                    'theme_location' => 'header-menu',
-                    'menu_id' => 'header-menu',
-                    'items_wrap' => '%3$s',
-                    'container' => false
-                ]); ?>
-            </ul>
-        </nav>
     </div>
     <div class="container">
 

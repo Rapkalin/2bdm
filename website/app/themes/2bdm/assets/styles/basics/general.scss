@@ -1,5 +1,6 @@
 /* UTILS / ABSTRACTS */
 @use "variables" as var;
+@use "functions" as fn;
 
 html {
   scroll-behavior: smooth;
@@ -27,5 +28,13 @@ a {
 }
 
 .main-wrapper {
-    padding: 40px 48px;
+    padding: fn.toRem(40) fn.toRem(48);
+}
+
+.menu-content {
+  display: flex;
+  gap: fn.toRem(45);
+  list-style: none;
+  margin: unset;
+  padding: unset;
 }

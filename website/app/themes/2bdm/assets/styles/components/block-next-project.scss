@@ -1,0 +1,47 @@
+@use "../basics/variables" as var;
+@use "../basics/functions" as fn;
+
+.next-project-wrapper {
+  color: var.$darkgrey;
+
+  .next-project-links {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var.$darkgrey;
+    padding-top: fn.toRem(24);
+
+    a {
+      color: var.$darkgrey;
+    }
+  }
+
+  h2 {
+    margin: unset;
+    font-weight: var.$fw-h1;
+    font-size: var.$fs-h2;
+    line-height: var.$lh-h2;
+  }
+
+  .next-project-container {
+    margin-top: fn.toRem(16);
+
+    img {
+      width: 100%;
+      height: 560px;
+      object-fit: cover;
+      background-position: center;
+    }
+
+    ul {
+      margin: unset;
+      padding: unset;
+
+      li {
+        font-weight: var.$fw-h1;
+        font-size: var.$fs-p;
+        line-height: var.$lh-p-m;
+        list-style-position: inside;
+      }
+    }
+  }
+}

@@ -11,6 +11,7 @@ $grey: #756f5e;
 
 /* FONT SIZES */
 $fs-h1: fn.toRem(102);
+$fs-h2: fn.toRem(38);
 $fs-p: fn.toRem(16);
 
 /* FONT WEIGHTS */
@@ -20,6 +21,7 @@ $fw-p: 300;
 
 /* LINE HEIGHTS */
 $lh-h1: fn.toRem(102);
+$lh-h2: fn.toRem(48);
 $lh-p-xl: fn.toRem(36);
 $lh-p: fn.toRem(32);
 $lh-p-m: fn.toRem(26); // line height paragraph medium

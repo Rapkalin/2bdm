@@ -26,6 +26,9 @@ if (have_rows('content_blocks')) :
                 case 'introduction':
                     get_template_part("components/block_introduction");
                     break;
+                case 'next_project':
+                    get_template_part("components/block_next_project");
+                    break;
             } ?>
         </section>
     <?php endwhile;

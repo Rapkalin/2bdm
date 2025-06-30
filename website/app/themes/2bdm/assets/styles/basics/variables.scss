@@ -11,6 +11,7 @@ $grey: #756f5e;
 
 /* FONT SIZES */
 $fs-h1: fn.toRem(102);
+$fs-h2: fn.toRem(38);
 $fs-h4: fn.toRem(22);
 $fs-p: fn.toRem(16);
 $fs-p-s: fn.toRem(12); // font size paragraph small
@@ -22,10 +23,14 @@ $fw-p: 300;
 
 /* LINE HEIGHTS */
 $lh-h1: fn.toRem(102);
+$lh-h2: fn.toRem(48);
 $lh-p-xl: fn.toRem(36);
 $lh-p: fn.toRem(32);
 $lh-p-m: fn.toRem(26); // line height paragraph medium
 $lh-p-s: fn.toRem(16); // line height paragraph small
+
+/* WIDTH */
+$main: calc(100dvw - fn.toRem(96)); // Remove the sum of the horizontal margin (here 48px (left) + 48x (right))
 
 /* FONTS */
 @font-face {
@@ -40,10 +45,11 @@ $lh-p-s: fn.toRem(16); // line height paragraph small
   src:
       url('fonts/neue-haas-grotesk-display-pro/NeueHaasDisplayXXThin.ttf') format('truetype'),
       url('fonts/neue-haas-grotesk-display-pro/NeueHaasDisplayXXThinItalic.ttf') format('truetype');
-  font-weight: 200;
+  font-weight: 100;
   font-style: normal;
 }
 
+/* Add regular */
 @font-face {
   font-family: "Neue Haas";
   src:

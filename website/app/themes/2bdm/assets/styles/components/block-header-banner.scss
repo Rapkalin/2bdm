@@ -16,7 +16,9 @@
     display: grid;
     grid-template-columns: 2fr 1fr;
     align-items: end;
-    margin: 0 fn.toRem(48);
+    width: var.$main;
+    margin-right: fn.toRem(48);
+    margin-left: fn.toRem(48);
 
     h1 {
       font-size: var.$fs-h1;
@@ -52,7 +54,7 @@
     display: flex;
     bottom: fn.toRem(35);
     position: absolute;
-    width: 80dvw;
+    width: var.$main;
     border-top: 1px solid var.$white;
     padding-top: fn.toRem(35);
 

@@ -60,13 +60,18 @@
 
     #footer-social-media-navigation {
       ul {
-        li:after {
-          padding-left: fn.toRem(8);
-          content: url("../../images/arrow.svg");
+
+        li {
+          border-bottom: 1px solid var.$darkgrey;
+
+          &:after {
+            padding-left: fn.toRem(8);
+            content: url("../../images/arrow.svg");
+          }
         }
 
         li:hover {
-          text-decoration: underline;
+          border-bottom: 1px solid var.$white;
         }
       }
     }

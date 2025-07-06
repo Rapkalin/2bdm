@@ -1,8 +1,14 @@
 <?php
+/**
+ * Template Name: Grille des projets
+ *
+ * @package WordPress
+ */
+
 get_header();
 
-if (have_rows('header_banner')) :
-    get_template_part("components/block_header_banner");
+if (have_rows('header_slider')) :
+    get_template_part("components/block_header_slider");
 endif;
 
 if ( have_posts() ) :

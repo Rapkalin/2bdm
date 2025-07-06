@@ -12,7 +12,7 @@
                 </div>
             <?php endif; ?>
         </div>
-        <a id="hb-cta" href="#first-section">
+        <a class="hb-cta" href="#first-section">
             <span class="svg-arrow-down"><?php get_template_part("components/svg-arrow-down"); ?></span>
             <div><?= get_sub_field('call_to_action'); ?></div>
         </a>

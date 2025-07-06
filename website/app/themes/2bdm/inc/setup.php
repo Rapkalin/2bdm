@@ -7,6 +7,7 @@ if (!function_exists('theme_2bdm_setup')) {
     function theme_2bdm_setup(): void {
         add_theme_support('title-tag');
         add_theme_support('menus');
+        add_theme_support('block-templates');
         register_nav_menus([
             'header-menu' => esc_html__('Header Menu', '2bdm'),
             'footer-menu' => esc_html__('Footer Menu', '2bdm'),
@@ -40,6 +41,7 @@ if (!function_exists('theme_remove_admin_menus')) {
     // Removes from admin menu
     function theme_remove_admin_menus(): void {
         remove_menu_page( 'edit-comments.php' );
+        remove_menu_page( 'edit.php' );
     }
     add_action( 'admin_menu', 'theme_remove_admin_menus' );
 }

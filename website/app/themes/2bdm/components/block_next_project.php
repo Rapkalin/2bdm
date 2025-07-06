@@ -13,16 +13,26 @@
         </div>
     </div>
     <div class="next-project-container">
-        <h2><?= $next_project->title ?></h2>
-        <ul>
-            <li><?= $next_project->post_excerpt ?></li>
-        </ul>
-        <img
-            src="<?= $next_project_banner['image']['url']; ?>"
-            srcset="<?php echo esc_attr( $srcset ); ?>"
-            alt="<?= $next_project_banner['image']['title']; ?>"
-            height="<?= $next_project_banner['image']['height']; ?>"
-            width="<?= $next_project_banner['image']['width']; ?>"
-        >
+        <a href="<?= $next_project->guid ?>">
+            <h2><?= $next_project->title ?></h2>
+            <ul>
+                <li><?= $next_project->post_excerpt ?></li>
+            </ul>
+            <div class="next-project-img">
+                <img
+                    src="<?= $next_project_banner['image']['url']; ?>"
+                    srcset="<?php echo esc_attr( $srcset ); ?>"
+                    alt="<?= $next_project_banner['image']['title']; ?>"
+                    height="<?= $next_project_banner['image']['height']; ?>"
+                    width="<?= $next_project_banner['image']['width']; ?>"
+                >
+                <div class="next-project-button">
+                    <button class="classic-button">
+                        Voir le projet
+                        <span class="svg-arrow-right-up-diag"><?php get_template_part("components/svg-arrow-right-up-diag"); ?></span>
+                    </button>
+                </div>
+            </div>
+        </a>
     </div>
 </div>

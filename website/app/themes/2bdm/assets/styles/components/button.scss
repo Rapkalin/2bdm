@@ -1,0 +1,15 @@
+@use "../basics/variables" as var;
+@use "../basics/functions" as fn;
+
+.classic-button {
+  background-color: var.$white;
+  border: none;
+  color: var.$grey;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: var.$fs-p;
+  border-radius: fn.toRem(25);
+  cursor: pointer;
+}

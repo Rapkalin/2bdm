@@ -1,0 +1,5 @@
+@use "../basics/functions" as fn;
+
+.svg-arrow-right-up-diag {
+  margin-left: fn.toRem(8);
+}

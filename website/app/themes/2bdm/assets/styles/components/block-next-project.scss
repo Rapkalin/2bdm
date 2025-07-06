@@ -46,11 +46,12 @@
       object-fit: cover;
       background-position: center;
       margin-top: fn.toRem(16);
+      clip-path: circle(100%);
       transition: all 0.9s ease-in-out;
     }
 
     img:hover {
-      clip-path: circle(25%);
+      clip-path: circle(23%);
     }
 
     ul {

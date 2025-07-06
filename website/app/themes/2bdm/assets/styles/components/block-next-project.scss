@@ -9,11 +9,26 @@
     justify-content: space-between;
     border-top: 1px solid var.$darkgrey;
     padding-top: fn.toRem(24);
+    color: var.$grey;
+    font-size: var.$fs-p;
 
-    a {
-      color: var.$darkgrey;
+    .all-projects-container {
+      border-bottom: 1px solid var.$white;
+      a {
+        color: var.$grey;
+      }
+
+      .svg-arrow-right-up-diag {
+        margin-left: fn.toRem(8);
+      }
+
+    }
+
+    .all-projects-container:hover {
+      border-bottom: 1px solid var.$darkgrey;
     }
   }
+
 
   h2 {
     margin: unset;
@@ -30,6 +45,13 @@
       height: 560px;
       object-fit: cover;
       background-position: center;
+      margin-top: fn.toRem(16);
+      clip-path: circle(100%);
+      transition: all 0.9s ease-in-out;
+    }
+
+    img:hover {
+      clip-path: circle(23%);
     }
 
     ul {

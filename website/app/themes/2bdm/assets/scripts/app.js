@@ -1,6 +1,7 @@
 import css from "../styles/app.scss"
 import cookies from "./cookies";
 import carousel from "./carousel";
+import carousel_banner from "./carousel_banner";
 
 console.log('Main JS loaded')
 let intro = cookies.getCookie("intro");
@@ -25,7 +26,7 @@ if (!intro) {
     cookies.setCookie("intro", true, 1);
 }
 
-// Carrousel init
 document.addEventListener("DOMContentLoaded", () => {
-    carousel.init();
+    carousel.init();// Carousel init
+    carousel_banner.init(); // Carousel banner init
 });

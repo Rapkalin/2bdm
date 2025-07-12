@@ -10,12 +10,12 @@ if (have_rows('header_banner')) : the_row() ?>
                 'description' => get_sub_field('description'),
                 'call_to_action' => get_sub_field('call_to_action'),
             ],
-            'permalink' => get_permalink(),
+            'permalink' => get_permalink()
         ]);
     ?>
 <?php endif; ?>
 
-?><span id="first-section"></span><?php
+<span id="first-section"></span><?php
 
 if (have_rows('content_blocks')) :
     while (have_rows('content_blocks')) : the_row(); ?>

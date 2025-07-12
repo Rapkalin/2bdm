@@ -47,7 +47,7 @@
       justify-content: center;
       align-items: center;
       clip-path: circle(100%);
-      transition: all 0.6s ease-in 0s;
+      transition: all 0.9s ease-in 0s;
 
       img {
         width: 100%;
@@ -65,7 +65,7 @@
     }
 
     .next-project-img:hover {
-      clip-path: circle(25%);
+      clip-path: circle(17rem at center);
 
       .next-project-button {
         opacity: 100%;

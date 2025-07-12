@@ -1,34 +1,19 @@
 <?php if (have_rows('header_slider')) : the_row()?>
     <?php
-    $featured_posts = get_field('header_slider');
-    foreach( $featured_posts as $feat_post):
-        $post = $feat_post['slide'][0];
-        // Setup this post for WP functions (variable must be named $post).
-        setup_postdata($post);
-        $banner = get_field('header_banner', $post->ID);
-    ?>
-        <section class="header-slider header-banner"
-                 style='background-image: url("<?= $banner['image']['url']; ?>")'
-        >
-            <div class="hs-wrapper hb-wrapper">
-                <h1><?=  $banner['title']; ?></h1>
+        $featured_posts = get_field('header_slider');
+        foreach( $featured_posts as $feat_post):
+            $post = $feat_post['slide'][0];
+            // Setup this post for WP functions (variable must be named $post).
+            setup_postdata($post);
+            $banner = get_field('header_banner', $post->ID);
+            get_template_part("components/block_header_banner", args: [
+                'banner' => $banner,
+                'permalink' => get_permalink(),
+                'slider' => true,
+            ]);
+        endforeach;
 
-                <?php if($banner['description']): ?>
-                    <div class="hb-description">
-                        <i class="fa-solid fa-circle"></i>
-                        <p><?= $banner['description']; ?></p>
-                    </div>
-                <?php endif; ?>
-            </div>
-            <a class="classic-button" href="<?php the_permalink(); ?>">Voir le projet</a>
-            <a class="hb-cta" href="#first-section">
-                <span class="svg-arrow-down"><?php get_template_part("components/svg-arrow-down"); ?></span>
-                <div><?= $banner['call_to_action']; ?></div>
-            </a>
-        </section>
-    <?php endforeach; ?>
-
-    <?php // get all projects
+        // get all projects
         $query = new WP_Query(array(
             'post_type' => 'projects',
             'post_status' => 'publish',

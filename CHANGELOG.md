@@ -7,4 +7,4 @@
 [2BDM-5] - Project page
 [2BDM-6] - Agency page
 [2BDM-7] - News page
-[2BDM-7] - Contact page
+[2BDM-8] - Contact page

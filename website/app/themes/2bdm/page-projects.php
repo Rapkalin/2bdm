@@ -18,21 +18,28 @@ $query = new WP_Query(array(
     'posts_per_page' => -1
 ));
 
-while ($query->have_posts()): $query->the_post();
-    if (have_rows('header_banner')) : the_row(); ?>
-        <div class="next-project-wrapper main-wrapper">
-            <?php
-                $project_banner = get_field('header_banner', $post->ID);
+?>
+<div class="projects-container main-wrapper">
+    <?php
+    while ($query->have_posts()): $query->the_post();
+        if (have_rows('header_banner')) : the_row(); ?>
+            <div class="next-project-wrapper">
+                <?php
+                    $project_banner = get_field('header_banner', $post->ID);
 
-                get_template_part("components/block_project", args: [
-                    'project' => $post,
-                    'project_banner' => $project_banner,
-                    'srcset' => wp_get_attachment_image_srcset( $project_banner['image']['ID']),
-                ]);
-            ?>
-        </div>
-    <?php endif;
-endwhile;
+                    get_template_part("components/block_project", args: [
+                        'project' => $post,
+                        'project_banner' => $project_banner,
+                        'srcset' => wp_get_attachment_image_srcset( $project_banner['image']['ID']),
+                    ]);
+                ?>
+            </div>
+        <?php endif;
+    endwhile;
+    ?>
+</div>
+
+<?php
 wp_reset_query();
 
 get_footer();

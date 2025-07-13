@@ -1,4 +1,4 @@
-<div class="next-project-wrapper main-wrapper">
+<div class="next-project-wrapper <?= isset($args['extraClasses']) ? implode(' ', $args['extraClasses']) : '' ?>">
     <div class="next-project-links">
         <div class="previous-project">Projet suivant</div>
 
@@ -11,5 +11,6 @@
         'project' => $args['project'],
         'project_banner' => $args['project_banner'],
         'srcset' => wp_get_attachment_image_srcset( $args['project_banner']['image']['ID']),
+        'extraClasses' => ['main-wrapper'],
     ]) ?>
 </div>

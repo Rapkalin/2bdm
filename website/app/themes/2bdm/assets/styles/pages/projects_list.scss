@@ -1,0 +1,23 @@
+@use "../basics/variables" as var;
+@use "../basics/functions" as fn;
+
+.projects-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: fn.toRem(20);
+
+  .next-project-wrapper {
+    .next-project-container {
+      .next-project-img {
+        img {
+          aspect-ratio: 16/9;
+        }
+      }
+
+      .next-project-img:hover {
+        clip-path: circle(34% at center);
+      }
+    }
+  }
+}
+

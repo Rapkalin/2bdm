@@ -18,7 +18,6 @@
                     ]);
                 ?></div><?php
             endforeach;
-        ?></div><?php
-    ?>
+        ?></div>
 <?php endif ?>
 

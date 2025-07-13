@@ -1,9 +1,4 @@
 <div class="next-project-wrapper main-wrapper">
-    <?php
-        $next_project = get_sub_field('next_project')[0];
-        $next_project_banner = get_field('header_banner', $next_project->ID);
-        $srcset = wp_get_attachment_image_srcset( $next_project_banner['image']['ID']);
-    ?>
     <div class="next-project-links">
         <div class="previous-project">Projet suivant</div>
 
@@ -12,27 +7,9 @@
             <span class="svg-arrow-right-up-diag"><?php get_template_part("components/svg-arrow-right-up-diag"); ?></span>
         </div>
     </div>
-    <div class="next-project-container">
-        <a href="<?= $next_project->guid ?>">
-            <h2><?= $next_project->title ?></h2>
-            <ul>
-                <li><?= $next_project->post_excerpt ?></li>
-            </ul>
-            <div class="next-project-img">
-                <img
-                    src="<?= $next_project_banner['image']['url']; ?>"
-                    srcset="<?php echo esc_attr( $srcset ); ?>"
-                    alt="<?= $next_project_banner['image']['title']; ?>"
-                    height="<?= $next_project_banner['image']['height']; ?>"
-                    width="<?= $next_project_banner['image']['width']; ?>"
-                >
-                <div class="next-project-button">
-                    <button class="classic-button">
-                        Voir le projet
-                        <span class="svg-arrow-right-up-diag"><?php get_template_part("components/svg-arrow-right-up-diag"); ?></span>
-                    </button>
-                </div>
-            </div>
-        </a>
-    </div>
+    <?php get_template_part("components/block_project", args: [
+        'project' => $args['project'],
+        'project_banner' => $args['project_banner'],
+        'srcset' => wp_get_attachment_image_srcset( $args['project_banner']['image']['ID']),
+    ]) ?>
 </div>

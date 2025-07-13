@@ -35,7 +35,14 @@ if (have_rows('content_blocks')) :
                     get_template_part("components/block_introduction");
                     break;
                 case 'next_project':
-                    get_template_part("components/block_next_project");
+                    $next_project = get_sub_field('next_project')[0];
+                    $next_project_banner = get_field('header_banner', $next_project->ID);
+
+                    get_template_part("components/block_next_project", args: [
+                        'project' => $next_project,
+                        'project_banner' => $next_project_banner,
+                        'srcset' => wp_get_attachment_image_srcset( $next_project_banner['image']['ID']),
+                    ]);
                     break;
             } ?>
         </section>

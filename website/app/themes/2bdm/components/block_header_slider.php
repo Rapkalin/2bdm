@@ -1,4 +1,4 @@
-<?php if (have_rows('header_slider')) : the_row()?>
+<?php if (have_rows('header_slider')) : the_row() ?>
     <?php
         $featured_posts = get_field('header_slider');
         $cta = get_field('call_to_action')

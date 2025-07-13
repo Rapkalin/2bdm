@@ -22,32 +22,14 @@ while ($query->have_posts()): $query->the_post();
     if (have_rows('header_banner')) : the_row(); ?>
         <div class="next-project-wrapper main-wrapper">
             <?php
-            $image = get_sub_field('image');
-            $srcset = wp_get_attachment_image_srcset( $image['ID']);
+                $project_banner = get_field('header_banner', $post->ID);
+
+                get_template_part("components/block_project", args: [
+                    'project' => $post,
+                    'project_banner' => $project_banner,
+                    'srcset' => wp_get_attachment_image_srcset( $project_banner['image']['ID']),
+                ]);
             ?>
-            <div class="next-project-container">
-                <a href="<?php  the_permalink(); ?>">
-                    <h2><?= the_title() ?></h2>
-                    <ul>
-                        <li><?= get_the_excerpt() ?></li>
-                    </ul>
-                    <div class="next-project-img">
-                        <img
-                                src="<?= $image['url']; ?>"
-                                srcset="<?php echo esc_attr( $srcset ); ?>"
-                                alt="<?= $image['image']['title']; ?>"
-                                height="<?= $image['height']; ?>"
-                                width="<?= $image['width']; ?>"
-                        >
-                        <div class="next-project-button">
-                            <button class="classic-button">
-                                Voir le projet
-                                <span class="svg-arrow-right-up-diag"><?php get_template_part("components/svg-arrow-right-up-diag"); ?></span>
-                            </button>
-                        </div>
-                    </div>
-                </a>
-            </div>
         </div>
     <?php endif;
 endwhile;

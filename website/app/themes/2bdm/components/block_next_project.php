@@ -10,7 +10,6 @@
     <?php get_template_part("components/block_project", args: [
         'project' => $args['project'],
         'project_banner' => $args['project_banner'],
-        'srcset' => wp_get_attachment_image_srcset( $args['project_banner']['image']['ID']),
-        'extraClasses' => ['main-wrapper'],
+        'srcset' => wp_get_attachment_image_srcset( $args['project_banner']['image']['ID'])
     ]) ?>
 </div>

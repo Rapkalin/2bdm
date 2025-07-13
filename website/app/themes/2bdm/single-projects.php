@@ -13,9 +13,7 @@ if (have_rows('header_banner')) : the_row() ?>
             'permalink' => get_permalink()
         ]);
     ?>
-<?php endif; ?>
-
-<span id="first-section"></span><?php
+<?php endif;
 
 if (have_rows('content_blocks')) :
     while (have_rows('content_blocks')) : the_row(); ?>

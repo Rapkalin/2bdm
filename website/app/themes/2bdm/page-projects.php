@@ -11,13 +11,16 @@ if (have_rows('header_slider')) :
     get_template_part("components/block_header_slider");
 endif;
 
-// get all projects
+// Initial query to load only 4 projects
 $query = new WP_Query(array(
     'post_type' => 'projects',
     'post_status' => 'publish',
-    'posts_per_page' => -1
+    'posts_per_page' => 4,
+    'paged' => 1
 ));
 
+// Get the total number of projects
+$total_projects = $query->found_posts;
 ?>
 <div class="projects-container main-wrapper">
     <?php
@@ -39,8 +42,22 @@ $query = new WP_Query(array(
     ?>
 </div>
 
-<?php
-wp_reset_query();
+<!-- We display the Button load more projects only if there are more than 4 projects left -->
+<?php if ($total_projects > 4) : ?>
+    <div class="button-load-more">
+        <button
+            id="load-more"
+            class="classic-button"
+            data-projects-left="<?= $total_projects ?>"
+            data-page="1"
+            data-url="<?php echo admin_url('admin-ajax.php'); ?>"
+        >
+           Voir plus de projets
+           <span class="svg-plus"><?php get_template_part("components/svg-plus"); ?></span>
+        </button>
+    </div>
+<?php endif;
 
+wp_reset_query();
 get_footer();
 ?>

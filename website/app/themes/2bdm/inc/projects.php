@@ -1,6 +1,10 @@
 <?php
 
+use JetBrains\PhpStorm\NoReturn;
+
 add_action('init', 'projects_init');
+add_action('wp_ajax_load_more_projects', 'load_more_projects');
+add_action('wp_ajax_nopriv_load_more_projects', 'load_more_projects');
 
 function projects_init(): void {
     register_post_type(
@@ -60,3 +64,40 @@ function projects_init(): void {
     );
     register_taxonomy_for_object_type('2bdm-projects', 'projects');
 }
+
+/**
+ * Ajax call to display more projects
+ * @return void
+ */
+#[NoReturn] function load_more_projects(): void {
+    $paged = (int) $_POST['paged'];
+    $query = new WP_Query(array(
+        'post_type' => 'projects',
+        'post_status' => 'publish',
+        'posts_per_page' => 4,
+        'paged' => $paged
+    ));
+
+    if ($query->have_posts()) :
+        while ($query->have_posts()): $query->the_post();
+            if (have_rows('header_banner')) : the_row(); ?>
+                <div class="next-project-wrapper">
+                    <?php
+                    $project_banner = get_field('header_banner', $post->ID);
+
+                    get_template_part("components/block_project", args: [
+                        'project' => $post,
+                        'project_banner' => $project_banner,
+                        'srcset' => wp_get_attachment_image_srcset( $project_banner['image']['ID']),
+                    ]);
+                    ?>
+                </div>
+            <?php endif;
+        endwhile;
+    endif;
+
+    wp_reset_query();
+    die();
+}
+
+

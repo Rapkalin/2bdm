@@ -1,7 +1,8 @@
-import css from "../styles/app.scss"
+import css from "../styles/app.scss" // This loads the css even though it is not use here do not remove it
 import cookies from "./cookies";
 import carousel from "./carousel";
 import carousel_banner from "./carousel_banner";
+import load_more_projects from "./load_more";
 
 console.log('Main JS loaded')
 let intro = cookies.getCookie("intro");
@@ -27,6 +28,18 @@ if (!intro) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-    carousel.init();// Carousel init
-    carousel_banner.init(); // Carousel banner init
+    const carousel_images = document.querySelectorAll(".carousel-images");
+    if (carousel_images.length) {
+        carousel.init();// Carousel init
+    }
+
+    const slider = document.querySelectorAll('.slider');
+    if (slider.length) {
+        carousel_banner.init(); // Carousel banner init
+    }
+
+    const loadMoreButton = document.getElementById('load-more');
+    if (loadMoreButton) {
+        load_more_projects.init(); // Load more projects init
+    }
 });

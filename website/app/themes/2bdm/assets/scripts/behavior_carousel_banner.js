@@ -1,4 +1,4 @@
-const carousel_banner = {
+const behavior_carousel_banner = {
     init() {
         const slides = document.querySelectorAll('.slide');
         const prevButtons = document.querySelectorAll('.prev-slide');
@@ -33,4 +33,4 @@ const carousel_banner = {
     }
 }
 
-export default carousel_banner;
+export default behavior_carousel_banner;

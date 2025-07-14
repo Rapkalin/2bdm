@@ -1,4 +1,4 @@
-const cookies = {
+const behavior_cookies = {
     setCookie(name, value, days) {
         let expires = "";
         if (days) {
@@ -26,4 +26,4 @@ const cookies = {
     }
 }
 
-export default cookies;
+export default behavior_cookies;

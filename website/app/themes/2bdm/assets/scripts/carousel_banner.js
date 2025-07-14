@@ -6,8 +6,6 @@ const carousel_banner = {
         const hbBottoms = document.querySelectorAll('.hb-bottom');
         let currentSlide = 0;
 
-        console.log('slides', slides);
-
         function showSlide(index) {
             slides.forEach(slide => slide.classList.remove('active'));
             slides[index].classList.add('active');

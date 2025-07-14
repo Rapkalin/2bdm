@@ -1,8 +1,8 @@
 <div class="next-project-container">
-    <a href="<?= $args['project']->guid ?>">
-        <h2><?= $args['project']->title ?></h2>
+    <a href="<?= get_permalink() ?>">
+        <h2><?= the_title() ?></h2>
         <ul>
-            <li><?= $args['project']->post_excerpt ?></li>
+            <li><?= get_the_excerpt() ?></li>
         </ul>
         <div class="next-project-img">
             <img
@@ -14,8 +14,8 @@
             >
             <div class="next-project-button">
                 <button class="classic-button">
-                    Voir le projet
-                    <span class="svg-arrow-right-up-diag"><?php get_template_part("components/svg-arrow-right-up-diag"); ?></span>
+                   Voir le projet
+                   <span class="svg-arrow-right-up-diag"><?php get_template_part("components/svg-arrow-right-up-diag"); ?></span>
                 </button>
             </div>
         </div>

@@ -15,7 +15,10 @@
 
     <div class="hb-bottom row-3 hb-active">
         <div class="hb-button-wrapper <?= isset($args['extraClasses']) ? implode(' ', $args['extraClasses']) : '' ?>">
-            <a class="classic-button" href="<?= $args['permalink']; ?>">Voir le projet</a>
+            <a class="classic-button" href="<?= $args['permalink']; ?>">
+               Voir le projet
+               <span class="svg-arrow-right-up-diag"><?php get_template_part("components/svg-arrow-right-up-diag"); ?></span>
+            </a>
         </div>
 
         <div class="hb-cta-wrapper">

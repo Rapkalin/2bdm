@@ -3,7 +3,7 @@
         <div class="previous-project">Projet suivant</div>
 
         <div class="all-projects-container">
-            <a class="all-projects" href="/projects">Tous nos projets</a>
+            <a class="all-projects" href="/grille-des-projets">Tous nos projets</a>
             <span class="svg-arrow-right-up-diag"><?php get_template_part("components/svg-arrow-right-up-diag"); ?></span>
         </div>
     </div>

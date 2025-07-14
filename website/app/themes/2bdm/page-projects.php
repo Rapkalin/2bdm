@@ -11,6 +11,9 @@ if (have_rows('header_slider')) :
     get_template_part("components/block_header_slider");
 endif;
 
+$terms = get_terms_hierarchy('2bdm-projects');
+get_template_part("components/block_filters", args: ['terms' => $terms]);
+
 // Initial query to load only 4 projects
 $query = new WP_Query(array(
     'post_type' => 'projects',

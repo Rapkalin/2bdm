@@ -1,4 +1,4 @@
-const carousel = {
+const behavior_carousel = {
     init() {
         const track = document.querySelector(".carousel-track");
         const prevBtn = document.querySelector(".carousel-prev");
@@ -68,4 +68,4 @@ const carousel = {
     }
 };
 
-export default carousel;
+export default behavior_carousel;

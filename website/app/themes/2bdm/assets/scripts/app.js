@@ -1,11 +1,12 @@
 import css from "../styles/app.scss" // This loads the css even though it is not use here do not remove it
-import cookies from "./cookies";
-import carousel from "./carousel";
-import carousel_banner from "./carousel_banner";
-import load_more_projects from "./load_more";
+import behavior_cookies from "./behavior_cookies";
+import behavior_carousel from "./behavior_carousel";
+import behavior_carousel_banner from "./behavior_carousel_banner";
+import behavior_accordions from "./behavior_accordions";
+import behavior_filter_projects from "./behavior_filter_projects";
 
 console.log('Main JS loaded')
-let intro = cookies.getCookie("intro");
+let intro = behavior_cookies.getCookie("intro");
 
 if (!intro) {
     setTimeout(function () {
@@ -24,22 +25,23 @@ if (!intro) {
         }, 2900
     )
 
-    cookies.setCookie("intro", true, 1);
+    behavior_cookies.setCookie("intro", true, 1);
 }
 
 document.addEventListener("DOMContentLoaded", () => {
     const carousel_images = document.querySelectorAll(".carousel-images");
     if (carousel_images.length) {
-        carousel.init();// Carousel init
+        behavior_carousel.init();// Carousel init
     }
 
     const slider = document.querySelectorAll('.slider');
     if (slider.length) {
-        carousel_banner.init(); // Carousel banner init
+        behavior_carousel_banner.init(); // Carousel banner init
     }
 
-    const loadMoreButton = document.getElementById('load-more');
-    if (loadMoreButton) {
-        load_more_projects.init(); // Load more projects init
+    const pageContainer = document.querySelectorAll(".projects-container");
+    if (pageContainer.length) {
+        behavior_accordions.init();
+        behavior_filter_projects.init();
     }
 });

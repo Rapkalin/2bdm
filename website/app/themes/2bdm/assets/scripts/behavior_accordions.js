@@ -1,6 +1,6 @@
 const accordions_behavios = {
     init() {
-        const accordions = document.querySelectorAll('.accordion');
+        const accordions = document.querySelectorAll('.fc-accordion-label');
 
         accordions.forEach(accordion => {
             accordion.addEventListener('click', function() {

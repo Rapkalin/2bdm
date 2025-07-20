@@ -1,0 +1,29 @@
+@use "../basics/functions" as fn;
+
+.next-articles-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+
+  .next-article-container {
+    .next-article-img {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+
+      img {
+        aspect-ratio: 16 / 9;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        background-position: center;
+      }
+
+      .next-article-button {
+        position: absolute;
+        margin-bottom: fn.toRem(12);
+        margin-left: fn.toRem(12);
+      }
+    }
+  }
+}

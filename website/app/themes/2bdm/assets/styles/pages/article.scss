@@ -1,0 +1,63 @@
+@use "../basics/variables" as var;
+@use "../basics/functions" as fn;
+
+.article-container {
+  margin: fn.toRem(199) fn.toRem(162) 0 fn.toRem(162);
+
+    .article-title {
+      font-size: var.$fs-h1-m;
+      font-weight: var.$fw-h1;
+      line-height: var.$fs-h1-m;
+      text-align: center;
+      color: var.$grey;
+      margin-top: fn.toRem(40);
+    }
+
+  .article-header-wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: fn.toRem(24);
+    border-bottom: 1px solid var.$lightgrey;
+
+
+    .article-date, .article-taxonomy {
+      font-size: var.$fs-p;
+      line-height: var.$lh-p-m;
+      color: var.$grey;
+    }
+
+    .article-taxonomy {
+      background-color: #D4CFC1;
+      padding: 4px 12px;
+      border-radius: 16px;
+    }
+  }
+}
+
+.next-articles-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.25rem;
+
+  .next-article-container {
+    .next-article-img {
+      position: relative;
+      display: flex;
+      align-items: flex-end;
+
+      img {
+        aspect-ratio: 16 / 9;
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        background-position: center;
+      }
+
+      .next-article-button {
+        position: absolute;
+        margin-bottom: 12px;
+        margin-left: 12px;
+      }
+    }
+  }
+}

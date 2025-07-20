@@ -21,5 +21,6 @@
 @use "components/svg-arrows" as *;
 
 /* PAGES */
+@use "pages/article" as *;
 @use "pages/project" as *;
 @use "pages/projects_list" as *;

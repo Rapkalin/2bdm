@@ -32,7 +32,9 @@ if (have_rows('content_blocks')) :
                     get_template_part("components/block_carousel");
                     break;
                 case 'introduction':
-                    get_template_part("components/block_introduction");
+                    get_template_part("components/block_introduction", args: [
+                        'extraClasses' => ['main-wrapper, project-intro-wrapper']
+                    ]);
                     break;
                 case 'next_project':
                     $next_project = get_sub_field('next_project')[0];

@@ -10,5 +10,6 @@ if( $image ): ?>
             width="<?= $image['width'] ?>"
             height="<?= $image['height'] ?>"
         >
+        <span class="img-credit"><?= get_sub_field('credit') ?></span>
     </section>
 <?php endif; ?>

@@ -21,6 +21,32 @@
       object-fit: cover;
       background-position: center;
     }
+
+    .img-credit {
+      font-size: var.$fs-p-s;
+      line-height: var.$fs-p;
+      color : var.$grey;
+    }
+  }
+
+  .article-content {
+    color: var.$grey;
+    line-height: var.$lh-p-m;
+    padding-right: fn.toRem(113);
+    padding-left: fn.toRem(113);
+
+    blockquote {
+      font-size: var.$fs-h4;
+      line-height: var.$lh-p;
+      margin: fn.toRem(24) 0;
+      padding: fn.toRem(12) 0 fn.toRem(12) fn.toRem(12);
+      border-left: 2px solid var.$lightgrey;
+    }
+
+    ul {
+      padding-left: fn.toRem(24);
+      margin: fn.toRem(24) 0;
+    }
   }
 
   .article-header-wrapper {

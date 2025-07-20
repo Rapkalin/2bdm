@@ -19,9 +19,6 @@ $taxonomy = get_the_terms(get_the_ID(), '2bdm-articles')[0];
             while (have_rows('content_blocks')) : the_row(); ?>
                 <section class="content-blocks">
                     <?php switch(get_row_layout()) {
-                        case 'text':
-                            get_template_part("components/block_text");
-                            break;
                         case 'image':
                             get_template_part("components/block_image");
                             break;
@@ -29,6 +26,12 @@ $taxonomy = get_the_terms(get_the_ID(), '2bdm-articles')[0];
                             get_template_part("components/block_introduction", args: [
                                 'extraClasses' => ['article-intro-wrapper']
                             ]);
+                            break;
+                        case 'text':
+                            get_template_part("components/block_text");
+                            break;
+                        case 'content':
+                            ?><div class="article-content"><?= get_sub_field('content', $post->ID) ?></div><?php
                             break;
                     } ?>
                 </section>

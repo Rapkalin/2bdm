@@ -1,8 +1,10 @@
 <div class="main-wrapper next-articles-wrapper">
     <div class="all-articles-container">
         <p>Cela peut vous intéresser...</p>
-        <a class="all-articles" href="/actualites">Toutes nos actualités</a>
-        <span class="svg-arrow-right-up-diag"><?php get_template_part("components/svg-arrow-right-up-diag"); ?></span>
+        <a class="all-articles" href="/actualites">
+            Toutes nos actualités
+            <span class="svg-arrow-right-up-diag"><?php get_template_part("components/svg-arrow-right-up-diag"); ?></span>
+        </a>
     </div>
 
     <div class="next-articles-container">

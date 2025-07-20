@@ -1,29 +1,110 @@
 @use "../basics/functions" as fn;
+@use "../basics/variables" as var;
 
-.next-articles-container {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 1.25rem;
+.next-articles-wrapper {
+  .all-articles-container {
+    display: flex;
+    justify-content: space-between;
+    color: grey;
 
-  .next-article-container {
-    .next-article-img {
-      position: relative;
-      display: flex;
-      align-items: flex-end;
+    a {
+      color: var.$grey;
+      border-bottom: 1px solid var.$white;
+    }
 
-      img {
-        aspect-ratio: 16 / 9;
-        width: 100%;
-        height: auto;
-        object-fit: cover;
-        background-position: center;
+    a:hover {
+      border-bottom: 1px solid var.$grey;
+    }
+  }
+
+  .next-articles-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+
+    .next-article-container {
+      .next-article-date {
+        display: flex;
+        align-items: center;
+        margin-top: fn.toRem(16);
+
+        .fa-circle {
+          font-size: fn.toRem(5);
+          color: var.$grey;
+          margin-right: fn.toRem(12);
+        }
       }
 
-      .next-article-button {
-        position: absolute;
-        margin-bottom: fn.toRem(12);
-        margin-left: fn.toRem(12);
+      .next-article-title {
+        font-size: var.$fs-h2;
+        font-weight: var.$fw-h1;
+        line-height: var.$lh-h2;
+        color: var.$darkgrey;
+      }
+
+      .next-article-img-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .next-article-img {
+          position: relative;
+          display: flex;
+          align-items: flex-end;
+
+          img {
+            aspect-ratio: 16 / 9;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            background-position: center;
+            clip-path: circle(100%);
+            transition: all 1s ease-in-out;
+          }
+
+          img:hover {
+            clip-path: circle(34% at center);
+          }
+
+          .next-article-button {
+            position: absolute;
+            visibility: visible;
+          }
+
+          .next-article-taxonomy-button {
+            position: absolute;
+            margin-bottom: fn.toRem(12);
+            margin-left: fn.toRem(12);
+
+            .classic-button {
+              transition: all 1s ease-in-out;
+            }
+          }
+        }
+
+        .next-article-button {
+          position: absolute;
+          opacity: 0;
+          transition: all 0.5s ease-in-out;
+        }
+      }
+
+      .next-article-img-container:hover {
+        .next-article-img {
+          .next-article-taxonomy-button {
+            .classic-button {
+              background-color: var.$lightgrey;
+              color: var.$white;
+            }
+          }
+        }
+
+        .next-article-button {
+          opacity: 100%;
+        }
       }
     }
   }
 }
+

@@ -11,21 +11,33 @@
 ?>
 
 <div class="next-article-container">
-    <a href="<?= get_permalink() ?>">
-        <h2><?= get_field('title', $article->ID) ?></h2>
-        <div class="next-article-img">
-            <img
-                src="<?= $next_article_banner['url']; ?>"
-                srcset="<?php echo esc_attr( $args['srcset'] ); ?>"
-                alt="<?= $next_article_banner['title']; ?>"
-                height="<?= $next_article_banner['height']; ?>"
-                width="<?= $next_article_banner['width']; ?>"
-            >
+    <a href="<?= get_permalink() ?>">`
+        <div class="next-article-img-container">
+            <div class="next-article-img">
+                <img
+                    src="<?= $next_article_banner['url']; ?>"
+                    srcset="<?php echo esc_attr( $args['srcset'] ); ?>"
+                    alt="<?= $next_article_banner['title']; ?>"
+                    height="<?= $next_article_banner['height']; ?>"
+                    width="<?= $next_article_banner['width']; ?>"
+                >
+                <div class="next-article-taxonomy-button">
+                    <button class="classic-button">
+                        <?= $taxonomy->name ?>
+                    </button>
+                </div>
+            </div>
             <div class="next-article-button">
                 <button class="classic-button">
-                    <?= $taxonomy->name ?>
+                    En savoir plus
+                    <span class="svg-arrow-right-up-diag"><?php get_template_part("components/svg-arrow-right-up-diag"); ?></span>
                 </button>
             </div>
         </div>
     </a>
+    <div class="next-article-date">
+        <i class="fa-solid fa-circle"></i>
+        <?= get_field('release_date', $article->ID) ?>
+    </div>
+    <h2 class="next-article-title"><?= get_field('title', $article->ID) ?></h2>
 </div>

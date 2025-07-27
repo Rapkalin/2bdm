@@ -11,8 +11,6 @@
         <?php foreach ($args['articles'] as $article):?>
             <?php get_template_part("components/block_article", args: [
                 'article' => $article,
-                'project_banner' => $args['project_banner'],
-                'srcset' => wp_get_attachment_image_srcset( $args['project_banner']['image']['ID'])
             ]) ?>
         <?php endforeach ?>
     </div>

@@ -4,6 +4,7 @@ import behavior_carousel from "./behavior_carousel";
 import behavior_carousel_banner from "./behavior_carousel_banner";
 import behavior_accordions from "./behavior_accordions";
 import behavior_filter_projects from "./behavior_filter_projects";
+import behavior_filter_articles from "./behavior_filter_articles";
 
 console.log('Main JS loaded')
 
@@ -23,6 +24,8 @@ document.addEventListener("DOMContentLoaded", () => {
         behavior_accordions.init();
         behavior_filter_projects.init();
     }
+
+    behavior_filter_articles.init();
 
     const intro_container = document.querySelectorAll(".intro-container");
     if (intro_container.length) {

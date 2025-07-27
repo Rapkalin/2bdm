@@ -66,7 +66,7 @@ $total_articles = $query->found_posts;
             data-page="1"
             data-url="<?php echo admin_url('admin-ajax.php'); ?>"
         >
-            Voir plus de projets
+            Voir plus d'actualités
             <span class="svg-plus"><?php get_template_part("components/svg-plus"); ?></span>
         </button>
     </div>

@@ -15,12 +15,14 @@ $terms = get_terms_hierarchy('2bdm-projects');
 get_template_part("components/block_filters", args: ['terms' => $terms]);
 
 // Initial query to load only 4 projects
-$query = new WP_Query(array(
-    'post_type' => 'projects',
-    'post_status' => 'publish',
-    'posts_per_page' => 4,
-    'paged' => 1
-));
+$query = new WP_Query(
+        [
+        'post_type' => 'projects',
+        'post_status' => 'publish',
+        'posts_per_page' => 4,
+        'paged' => 1
+    ]
+);
 
 // Get the total number of projects
 $total_projects = $query->found_posts;

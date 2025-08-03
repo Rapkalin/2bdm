@@ -1,4 +1,4 @@
-<div class="intro-wrapper main-wrapper">
+<div class="<?= isset($args['extraClasses']) ? implode(' ', $args['extraClasses']) : '' ?>">
     <div class="intro-description"><?= get_sub_field('description'); ?></div>
     <div class="intro-location">
         <div class="intro-city"><?= get_sub_field('city'); ?></div>

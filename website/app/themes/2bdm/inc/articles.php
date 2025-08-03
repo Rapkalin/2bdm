@@ -60,3 +60,47 @@ function articles_init(): void {
     );
     register_taxonomy_for_object_type('2bdm-articles', 'articles');
 }
+
+add_action('wp_ajax_load_more_or_filtered_articles', 'load_more_or_filtered_articles');
+add_action('wp_ajax_nopriv_load_more_or_filtered_articles', 'load_more_or_filtered_articles');
+
+function load_more_or_filtered_articles() {
+    $paged = $_POST['paged'];
+    $terms = isset($_POST['terms']) ? $_POST['terms'] : 'all';
+
+    $tax_query = [];
+    if ($terms !== 'all') {
+        $terms = explode(',', $terms);
+        $tax_query = [
+            [
+                'taxonomy' => '2bdm-articles',
+                'field' => 'term_id',
+                'terms' => $terms,
+            ]
+        ];
+    }
+
+    $query = new WP_Query([
+        'post_type' => 'articles',
+        'post_status' => 'publish',
+        'posts_per_page' => 4,
+        'paged' => $paged,
+        'tax_query' => $tax_query
+    ]);
+
+    $articles_html = '';
+    while ($query->have_posts()) : $query->the_post();
+        ob_start();
+        get_template_part("components/block_article", null, ['article' => get_post()]);
+        $articles_html .= ob_get_clean();
+    endwhile;
+
+    $remaining_articles = $query->found_posts - ($paged * 4);
+
+    wp_send_json_success([
+        'articles_html' => $articles_html,
+        'remaining_articles' => $remaining_articles
+    ]);
+
+    wp_die();
+}

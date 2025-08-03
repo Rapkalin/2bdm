@@ -16,7 +16,7 @@
 <body <?php body_class(); ?>>
     <div id="header-main">
         <div id="header-container">
-            <div id="header-logo">
+            <div id="header-logo<?= $args['color-logo'] ?? '' ?>">
                 <?php $imageData = getimagesize(get_template_directory() . '/assets/images/' . '2BDM_white.webp'); ?>
                 <a href="<?= home_url('/'); ?>">
                     <img

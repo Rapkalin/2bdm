@@ -1,34 +1,54 @@
-import css from "../styles/app.scss" // This loads the css even though it is not use here do not remove it
+// /!\ CAUTION /!\
+// This loads the css even though it is not use here do not remove it
+import css from "../styles/app.scss"
+// /!\ CAUTION /!\
+
 import behavior_intro from "./behavior_intro";
 import behavior_carousel from "./behavior_carousel";
 import behavior_carousel_banner from "./behavior_carousel_banner";
 import behavior_accordions from "./behavior_accordions";
 import behavior_filter_projects from "./behavior_filter_projects";
 import behavior_filter_articles from "./behavior_filter_articles";
+import behavior_forms from "./behavior_forms";
 
-console.log('Main JS loaded')
+console.info('The main JS has been loaded')
 
 document.addEventListener("DOMContentLoaded", () => {
+    // Classic carrousel behavior
     const carousel_images = document.querySelectorAll(".carousel-images");
     if (carousel_images.length) {
-        behavior_carousel.init();// Carousel init
+        behavior_carousel.init();
     }
 
+    // Banner carrousel behavior
     const slider = document.querySelectorAll('.slider');
     if (slider.length) {
-        behavior_carousel_banner.init(); // Carousel banner init
+        behavior_carousel_banner.init();
     }
 
+    // Filters behavior
     const pageContainer = document.querySelectorAll(".projects-container");
     if (pageContainer.length) {
         behavior_accordions.init();
         behavior_filter_projects.init();
     }
 
-    behavior_filter_articles.init();
+    // Articles behavior
+    const terms = document.querySelectorAll('.filter-term');
+    if (terms.length) {
+        behavior_filter_articles.init();
+    }
 
+
+    // Intro behavior
     const intro_container = document.querySelectorAll(".intro-container");
     if (intro_container.length) {
         behavior_intro.init()
+    }
+
+    // Forms behavior
+    const form = document.getElementById('dynamic-form');
+    if (form) {
+        behavior_forms.init();
     }
 });

@@ -1,4 +1,4 @@
-const accordions_behavios = {
+const behavior_accordions = {
     init() {
         const accordions = document.querySelectorAll('.fc-accordion-label');
 
@@ -17,4 +17,4 @@ const accordions_behavios = {
     }
 };
 
-export default accordions_behavios;
+export default behavior_accordions;

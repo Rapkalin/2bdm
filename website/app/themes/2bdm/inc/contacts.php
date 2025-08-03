@@ -46,12 +46,12 @@ function submit_dynamic_form(): void {
 
 
     try {
-        // Gérer les fichiers uploadés
+        // Handle uploaded files
         $attachments = [];
         if (!empty($_FILES)) {
             $message .= "<p>Fichiers uploadés:</p>";
             foreach ($_FILES as $key => $file) {
-                // Vérification du type de fichier
+                // Check the file type and make sure they are only PDF
                 $file_type = wp_check_filetype_and_ext($file['tmp_name'], $file['name']);
                 if ($file_type['type'] !== 'application/pdf') {
                     wp_send_json_error('Seuls les fichiers PDF sont autorisés.');
@@ -67,11 +67,11 @@ function submit_dynamic_form(): void {
             }
         }
 
-        // Envoi de l'email avec pièces jointes
+        // Send email with attachments
         $headers = ['Content-Type: text/html; charset=UTF-8'];
         $mail_sent = wp_mail($to, $subject, $message, $headers, $attachments);
 
-        // Supprimer les fichiers temporaires après l'envoi de l'email
+        // Delete files from temp directory
         foreach ($attachments as $attachment) {
             if (file_exists($attachment)) {
                 unlink($attachment);
@@ -103,51 +103,58 @@ function getFormGroup(string $type, array $data = []): void {
     switch ($type) {
         case 'text':
             ?>
-            <div class="form-group">
+            <div class="form-group group-text group-label">
                 <div class="error-container"></div>
                 <label for="<?= $data['label'] ?>"><?= $data['label'] ?></label>
-                <input type="text" id="<?= $data['label'] ?>" name="<?= $data['label'] ?>">
+                <input type="text" id="<?= $data['label'] ?>" name="<?= $data['label'] ?>" placeholder="<?= $data['label'] ?>">
             </div>
             <?php
             break;
         case 'email':
             ?>
-                <div class="form-group">
+                <div class="form-group group-text group-label">
                     <div class="error-container"></div>
                     <label for="email"><?= $data['label'] ?></label>
-                    <input autocomplete type="email" id="email" name="email">
+                    <input autocomplete type="email" id="email" name="email" placeholder="<?= $data['label'] ?>">
                 </div>
             <?php
             break;
         case 'cities':
             ?>
-                <div class="form-group">
+                <div class="form-group group-text group-cities">
                     <div class="error-container"></div>
-                    <label><?= $data['label'] ?></label>;
-                    <?php foreach ($data['cities'] as $city): ?>
-                        <div class="ville-option">
-                            <label for="<?= $city ?>"><?= $city ?></label>
-                            <input type="radio" id="<?= $city ?>" name="ville" value="<?= $city ?>">
+                    <div class="cities-container">
+                        <div class="city-title">Ville</div>
+                        <div class="cities-option">
+                            <?php foreach ($data['cities'] as $city): ?>
+                                <div class="city-option">
+                                    <input type="radio" id="<?= $city ?>" name="city" value="<?= $city ?>">
+                                    <label for="<?= $city ?>"><?= $city ?></label>
+                                </div>
+                            <?php endforeach; ?>
                         </div>
-                    <?php endforeach; ?>
+                    </div>
                 </div>
             <?php
             break;
         case 'text_area':
             ?>
-                <div class="form-group">
+                <div class="form-group group-text group-label">
                     <label for="message"><?= $data['label'] ?></label>
-                    <textarea id="message" name="message"></textarea>
+                    <textarea id="message" name="message" placeholder="<?= $data['label'] ?>"></textarea>
                 </div>
             <?php
             break;
         case 'file':
             ?>
-                <div class="form-group">
-                    <label for="<?= htmlspecialchars($data['label']) ?>"><?= htmlspecialchars($data['label']) ?></label>
-                    <input type="file" id="<?= htmlspecialchars($data['label']) ?>" name="<?= htmlspecialchars($data['label']) ?>">
-                </div>
+            <div class="form-group">
+                <input type="file" id="<?= htmlspecialchars($data['label']) ?>" name="<?= htmlspecialchars($data['label']) ?>" class="custom-file-input">
+                <label for="<?= htmlspecialchars($data['label']) ?>" class="custom-file-label">
+                    <?= htmlspecialchars($data['label']) ?>
+                </label>
+            </div>
             <?php
+            break;
         default:
             break;
     }

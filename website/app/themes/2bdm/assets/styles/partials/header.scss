@@ -23,7 +23,15 @@
           width: 35px;
           height: auto;
           object-fit: cover;
+        svg {
+          color: red;
         }
+        }
+
+      }
+
+      &__grey {
+        color: var.$darkgrey;
       }
     }
 

@@ -81,7 +81,13 @@ function submit_dynamic_form(): void {
         if ($mail_sent) {
             wp_send_json_success('Formulaire soumis avec succès et email envoyé');
         } else {
-            wp_send_json_error('Erreur lors de l\'envoi de l\'email');
+            wp_send_json_error(
+                    [
+                        'message' => 'Erreur lors de l\'envoi de l\'email',
+                        'error' => $mail_sent
+                    ],
+                500,
+            );
         }
     } catch (\Exception $e) {
         wp_send_json_error('Erreur lors de l\'envoi de l\'email : ' . $e->getMessage());
@@ -159,3 +165,24 @@ function getFormGroup(string $type, array $data = []): void {
             break;
     }
 }
+
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
+require_once __DIR__ . '/../../../../vendor/autoload.php';
+
+add_action('phpmailer_init', 'configure_smtp');
+
+function configure_smtp($phpmailer): void
+{
+    $phpmailer->isSMTP();
+    $phpmailer->Host = 'smtp.ionos.com'; // Serveur SMTP pour IONOS
+    $phpmailer->SMTPAuth = true;
+    $phpmailer->Port = 465; // Port SMTP pour SSL
+    $phpmailer->Username = 'raphael@rapkalin.fr'; // Remplacez par votre adresse email OVH
+    $phpmailer->Password = 'BVUZeICiERofLA8n6BEN4GKqa!%+?456a'; // Remplacez par votre mot de passe email
+    $phpmailer->SMTPSecure = 'ssl'; // Utilisez 'tls' si vous utilisez le port 587
+    $phpmailer->From       = 'raphael@rapkalin.fr';
+    $phpmailer->FromName   = 'From Name';
+}
+

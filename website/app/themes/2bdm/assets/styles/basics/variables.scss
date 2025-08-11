@@ -2,16 +2,20 @@
 
 /* GLOBALS */
 $font-color: black;
+$font-family: "Neue Haas", sans-serif;
 
 /* COLORS */
 $white: floralwhite;
 $black: black;
 $darkgrey: #444444;
 $grey: #756f5e;
+$lightgrey: #D4CFC1;
 
 /* FONT SIZES */
 $fs-h1: fn.toRem(102);
+$fs-h1-m: fn.toRem(80);
 $fs-h2: fn.toRem(38);
+$fs-h2-m: fn.toRem(30);
 $fs-h4: fn.toRem(22);
 $fs-p: fn.toRem(16);
 $fs-p-s: fn.toRem(12); // font size paragraph small
@@ -23,6 +27,7 @@ $fw-p: 300;
 
 /* LINE HEIGHTS */
 $lh-h1: fn.toRem(102);
+$lh-h1-m: fn.toRem(80);
 $lh-h2: fn.toRem(48);
 $lh-p-xl: fn.toRem(36);
 $lh-p: fn.toRem(32);

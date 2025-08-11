@@ -1,0 +1,28 @@
+@use '../basics/variables' as var;
+
+.filters-container-articles {
+  .fc-terms-container {
+    border-bottom: 1px solid var.$lightgrey;
+  }
+
+  .filter-term {
+    font-size: var.$fs-h4;
+    font-weight: var.$fw-p;
+    line-height: var.$lh-p;
+    background-color: var.$white;
+    color: var.$lightgrey;
+    cursor: pointer;
+    padding: 18px;
+    border: none;
+    text-align: left;
+
+    &.selected {
+      color: var.$grey;
+      font-weight: var.$fw-h1;
+    }
+
+    &:hover {
+      color: var.$grey;
+    }
+  }
+}

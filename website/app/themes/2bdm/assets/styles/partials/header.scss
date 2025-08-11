@@ -18,11 +18,21 @@
     z-index: 999;
 
     #header-logo {
-      a {
-        img {
-          width: 35px;
-          height: auto;
-          object-fit: cover;
+      .dynamic-logo {
+        color: white;
+
+        &__grey {
+          color: var.$grey;
+
+          svg {
+            height: fn.toRem(49);
+            width: auto;
+          }
+        }
+
+        svg {
+          height: fn.toRem(49);
+          width: auto;
         }
       }
     }

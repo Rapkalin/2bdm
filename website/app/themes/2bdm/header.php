@@ -19,12 +19,7 @@
             <div id="header-logo">
                 <?php $imageData = getimagesize(get_template_directory() . '/assets/images/' . '2BDM_white.webp'); ?>
                 <a href="<?= home_url('/'); ?>">
-                    <img
-                        src="<?= asset('logo-white.svg') ?>"
-                        alt="2BDM ARCHITECTURE LOGO"
-                        width="<?= $imageData[0] ?>"
-                        height="<?= $imageData[1] ?>"
-                    >
+                    <span class="dynamic-logo<?= $args['color-logo'] ?? '' ?>"><?php get_template_part("components/logo-white"); ?></span>
                 </a>
             </div>
             <nav id="navigation">

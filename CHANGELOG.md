@@ -8,5 +8,5 @@
 [2BDM-6] - Agency page
 [2BDM-7] - News page
 [2BDM-8] - News listing page
-[2BDM-9] - Contact page
+[2BDM-9] - Contact pages
 [2BDM-10] - Animated intro

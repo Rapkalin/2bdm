@@ -11,15 +11,21 @@
 @use "components/block-carousel" as *;
 @use "components/block-content" as *;
 @use "components/block-filters" as *;
+@use "components/block-filters-articles" as *;
 @use "components/block-header-banner" as *;
 @use "components/block-images" as *;
 @use "components/block-intro" as *;
 @use "components/block-introduction" as *;
+@use "components/block-next-articles" as *;
 @use "components/block-next-project" as *;
 @use "components/block-table" as *;
 @use "components/block-text" as *;
 @use "components/svg-arrows" as *;
 
 /* PAGES */
+@use "pages/article" as *;
+@use "pages/articles_list" as *;
+@use "pages/contact" as *;
+@use "pages/legal" as *;
 @use "pages/project" as *;
 @use "pages/projects_list" as *;

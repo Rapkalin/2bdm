@@ -97,6 +97,7 @@ if (!function_exists('theme_custom_menu_order')) {
 if (!function_exists('theme_2bdm_scripts')) {
     function theme_2bdm_scripts(): void
     {
+        wp_enqueue_style('2bdm', get_stylesheet_directory_uri() . '/dist/main.css');
         wp_deregister_script('jquery');
         wp_dequeue_style( 'wp-block-library' );
         wp_dequeue_style( 'wp-block-library-theme' );

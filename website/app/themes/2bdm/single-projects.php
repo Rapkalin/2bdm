@@ -33,7 +33,7 @@ if (have_rows('content_blocks')) :
                     break;
                 case 'introduction':
                     get_template_part("components/block_introduction", args: [
-                        'extraClasses' => ['main-wrapper, project-intro-wrapper']
+                        'extraClasses' => ['main-wrapper', 'project-intro-wrapper']
                     ]);
                     break;
                 case 'next_project':

@@ -36,5 +36,9 @@ a {
   gap: fn.toRem(45);
   list-style: none;
   margin: unset;
-  padding: unset;
+  padding: unset
+}
+
+.svg-plus {
+  margin-left: fn.toRem(8);
 }

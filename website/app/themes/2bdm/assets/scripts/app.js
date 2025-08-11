@@ -1,7 +1,7 @@
 // /!\ CAUTION /!\
 // This loads the css even though it is not use here do not remove it
 import css from "../styles/app.scss"
-// /!\ CAUTION /!\
+// /!\ END OF CAUTION /!\
 
 import behavior_intro from "./behavior_intro";
 import behavior_carousel from "./behavior_carousel";
@@ -11,7 +11,7 @@ import behavior_filter_projects from "./behavior_filter_projects";
 import behavior_filter_articles from "./behavior_filter_articles";
 import behavior_forms from "./behavior_forms";
 
-console.info('The main JS has been loaded')
+console.info('The main JS has been loaded');
 
 document.addEventListener("DOMContentLoaded", () => {
     // Classic carrousel behavior

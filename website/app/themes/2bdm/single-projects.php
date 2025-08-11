@@ -36,21 +36,21 @@ if (have_rows('content_blocks')) :
                         'extraClasses' => ['main-wrapper', 'project-intro-wrapper']
                     ]);
                     break;
-                case 'next_project':
-                    $next_project = get_sub_field('next_project')[0];
-                    $next_project_banner = get_field('header_banner', $next_project->ID);
-
-                    get_template_part("components/block_next_project", args: [
-                        'project' => $next_project,
-                        'project_banner' => $next_project_banner,
-                        'srcset' => wp_get_attachment_image_srcset( $next_project_banner['image']['ID']),
-                        'extraClasses' => ['main-wrapper']
-                    ]);
-                    break;
             } ?>
         </section>
     <?php endwhile;
 endif;
+
+// BLOCK NEXT PROJECT
+$next_project = get_sub_field('next_project')[0];
+$next_project_banner = get_field('header_banner', $next_project->ID);
+
+get_template_part("components/block_next_project", args: [
+    'project' => $next_project,
+    'project_banner' => $next_project_banner,
+    'srcset' => wp_get_attachment_image_srcset( $next_project_banner['image']['ID']),
+    'extraClasses' => ['main-wrapper']
+]);
 
 get_footer();
 ?>

@@ -168,21 +168,19 @@ function getFormGroup(string $type, array $data = []): void {
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
-
 require_once __DIR__ . '/../../../../vendor/autoload.php';
-
 add_action('phpmailer_init', 'configure_smtp');
 
 function configure_smtp($phpmailer): void
 {
     $phpmailer->isSMTP();
-    $phpmailer->Host = 'smtp.ionos.com'; // Serveur SMTP pour IONOS
-    $phpmailer->SMTPAuth = true;
-    $phpmailer->Port = 465; // Port SMTP pour SSL
-    $phpmailer->Username = 'raphael@rapkalin.fr'; // Remplacez par votre adresse email OVH
-    $phpmailer->Password = 'BVUZeICiERofLA8n6BEN4GKqa!%+?456a'; // Remplacez par votre mot de passe email
-    $phpmailer->SMTPSecure = 'ssl'; // Utilisez 'tls' si vous utilisez le port 587
-    $phpmailer->From       = 'raphael@rapkalin.fr';
-    $phpmailer->FromName   = 'From Name';
+    $phpmailer->Host = $env['HOST']; // Serveur SMTP pour IONOS
+    $phpmailer->SMTPAuth = $env['SMTPAUTH'];
+    $phpmailer->Port = $env['PORT']; // Port SMTP pour SSL
+    $phpmailer->Username = $env['USERNAME']; // Remplacez par votre adresse email OVH
+    $phpmailer->Password = $env['PASSWORD']; // Remplacez par votre mot de passe email
+    $phpmailer->SMTPSecure = $env['SMTPSECURE']; // Utilisez 'tls' si vous utilisez le port 587
+    $phpmailer->From = $env['FROM'];
+    $phpmailer->FromName = $env['FROMNAME'];
 }
 

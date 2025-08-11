@@ -5,9 +5,7 @@ if (have_rows('home_articles')) :
     if ($featured_articles) : ?>
         <section id="home-articles" class="home-block">
             <?php foreach ($featured_articles as $article) :
-                $image = get_field('image', $article->ID);
-                // $srcset = wp_get_attachment_image_srcset($image->ID, 'thumbnail');
-                // $src = wp_get_attachment_image($image->ID, 'large');
+                $image = get_field('thumbnail_image', $article->ID);
             ?>
                 <a href="<?= get_permalink($article->ID) ?>">
                     <div class="home-article">

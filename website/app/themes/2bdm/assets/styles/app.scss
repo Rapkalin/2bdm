@@ -13,6 +13,7 @@
 @use "components/block-filters" as *;
 @use "components/block-filters-articles" as *;
 @use "components/block-header-banner" as *;
+@use "components/block-image-full" as *;
 @use "components/block-images" as *;
 @use "components/block-intro" as *;
 @use "components/block-introduction" as *;
@@ -23,6 +24,7 @@
 @use "components/svg-arrows" as *;
 
 /* PAGES */
+@use "pages/agency" as *;
 @use "pages/article" as *;
 @use "pages/articles_list" as *;
 @use "pages/contact" as *;

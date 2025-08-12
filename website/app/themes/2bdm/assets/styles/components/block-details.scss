@@ -1,0 +1,64 @@
+@use "../basics/variables" as var;
+@use "../basics/functions" as fn;
+
+.section-block-details {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  color: var.$darkgrey;
+  gap: 80px;
+
+  .block-details-left {
+    gap: 103px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    h3 {
+      font-size: var.$fs-h4;
+      line-height: var.$lh-p;
+      font-weight: var.$fw-p;
+
+      &:before {
+        content: url("../../../components/svg-bullet.svg");
+        vertical-align: text-bottom;
+        margin-right: 7px;
+      }
+    }
+
+    img {
+      aspect-ratio: 2 / 3;
+      width: 90%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+
+  .block-details-right {
+    h2 {
+      font-size: var.$fs-h2-m;
+      line-height: var.$lh-p-xl;
+      font-weight: var.$fw-p;
+      padding-bottom: fn.toRem(48);
+    }
+
+    .details-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin-top: fn.toRem(48);
+      gap: fn.toRem(48);
+
+      p {
+        font-size: var.$fs-p;
+        line-height: var.$lh-p-m;
+        padding: fn.toRem(24) 0;
+        border-top: 1px solid var.$lightgrey;
+
+        strong {
+          font-weight: var.$fw-xl;
+          color: var.$grey;
+        }
+      }
+    }
+  }
+}
+

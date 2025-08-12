@@ -5,9 +5,9 @@
   margin: fn.toRem(146) fn.toRem(162) 0 fn.toRem(162);
 
   .article-title {
-    font-size: var.$fs-h1-m;
+    font-size: var.$fs-h1-s;
     font-weight: var.$fw-h1;
-    line-height: var.$fs-h1-m;
+    line-height: var.$lh-h1-s;
     text-align: center;
     color: var.$grey;
     margin-top: fn.toRem(40);

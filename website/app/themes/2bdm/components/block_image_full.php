@@ -1,7 +1,7 @@
 <?php
 $image = get_sub_field('image');
 if( $image ): ?>
-    <section class="section-block-image-full">
+    <section class="section-block-image-full main-wrapper">
         <?php $srcset = wp_get_attachment_image_srcset( $image['ID']); ?>
         <img
             src="<?php header_image(); ?>"

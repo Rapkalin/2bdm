@@ -21,8 +21,13 @@ $rightDetails = get_sub_field('block_details_right');
     <section class="block-details-right">
         <h2 class="right-title"><?= $rightDetails['introduction'] ?></h2>
         <div class="details-container">
-            <?php foreach ($rightDetails['contents'] as $detail): ?>
-                <?= $detail['content'] ?>
+            <?php foreach ($rightDetails['content'] as $detail): ?>
+                <?=
+                    get_template_part('components/block_detail', null, [
+                        'type' => $detail['acf_fc_layout'],
+                        'content' => $detail["{$detail['acf_fc_layout']}_content"]
+                    ]);
+                ?>
             <?php endforeach; ?>
         </div>
     </section>

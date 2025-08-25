@@ -23,11 +23,8 @@ while (have_rows('content_blocks')) : the_row(); ?>
         case 'details':
             get_template_part("components/block_details");
             break;
-        case 'details_full':
-            // get_template_part("components/block_details_full");
-            break;
         case 'numbers':
-            // get_template_part("components/block_numbers");
+            get_template_part("components/block_numbers");
             break;
         case 'quote':
             // get_template_part("components/block_quote");

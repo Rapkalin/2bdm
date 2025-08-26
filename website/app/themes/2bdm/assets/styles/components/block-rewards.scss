@@ -1,0 +1,84 @@
+@use "../basics/variables" as var;
+@use "../basics/functions" as fn;
+
+.section-block-rewards {
+  display: grid;
+  gap: fn.toRem(80);
+  color: var.$grey;
+
+  .block-rewards-intro {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    font-size: var.$fs-p;
+    line-height: var.$lh-p;
+
+    .reward-intro-title {
+      display: flex;
+      align-items: center;
+      gap: fn.toRem(8);
+
+      svg {
+        height: fn.toRem(8);
+        width: auto;
+        color: var.$grey
+      }
+    }
+
+    .reward-intro-description {
+      font-size: var.$fs-h2-m;
+      line-height: var.$lh-p-xl;
+    }
+  }
+
+  .block-rewards-container {
+    display: grid;
+    gap: fn.toRem(48);
+    width: 100%;
+    grid-auto-columns: 25%;
+    grid-auto-flow: column;
+    overflow-x: scroll;
+
+    .block-rewards-card {
+      .card-header-container {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        align-items: center;
+        gap: fn.toRem(16);
+        width: 100%;
+        height: auto;
+
+        img {
+          width: inherit;
+        }
+
+        .card-header {
+          .card-header-title {
+            font-size: var.$fs-h2-m;
+            line-height: var.$lh-p-xl;
+            font-weight: var.$fw-p;
+            color: var.$darkgrey;
+          }
+
+          .card-header-category {
+            display: flex;
+            align-items: center;
+            gap: fn.toRem(8);
+            line-height: var.$lh-p-m;
+
+            svg {
+              height: fn.toRem(8);
+              width: auto;
+              color: var.$grey
+            }
+          }
+        }
+      }
+
+      .card-image {
+        width: 100%;
+        object-fit: cover;
+        aspect-ratio: 396 / 260;
+      }
+    }
+  }
+}

@@ -27,7 +27,10 @@ while (have_rows('content_blocks')) : the_row(); ?>
             get_template_part("components/block_numbers");
             break;
         case 'quote':
-            // get_template_part("components/block_quote");
+            get_template_part("components/block_quote");
+            break;
+        case 'infos':
+            get_template_part("components/block_infos");
             break;
         case 'team':
             // get_template_part("components/block_team");

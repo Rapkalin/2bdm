@@ -1,4 +1,4 @@
-<div class="section-block-numbers">
+<section class="section-block-numbers">
     <div class="block-numbers-title">En chiffres</div>
     <div class="block-numbers-container">
         <div class="block-number">
@@ -14,4 +14,4 @@
             <div>collaborateurs</div>
         </div>
     </div>
-</div>
+</section>

@@ -1,4 +1,4 @@
-<div class="section-block-quote main-wrapper">
+<section class="section-block-quote main-wrapper">
     <div class="banner" style="background-image: url(<?= get_sub_field('image')['url']; ?>);">
         <h2 class="block-quote">
             <?php get_template_part('components/svg-quote') ?>
@@ -6,4 +6,4 @@
             Chaque projet est une promesse : celle de faire perdurer un savoir-faire d’excellence, résolument tourné vers l’innovation et l’intervention responsable.
         </h2>
     </div>
-</div>
+</section>

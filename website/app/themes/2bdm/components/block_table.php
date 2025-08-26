@@ -1,5 +1,5 @@
 <?php if (have_rows('table_content')): ?>
-    <div class="table-content main-wrapper">
+    <section class="section-block-table-content main-wrapper">
         <?php while( have_rows('table_content') ) : the_row(); ?>
             <div class="tc-wrapper">
                 <div class="tc-title"><?= get_sub_field('title'); ?></div>
@@ -9,6 +9,6 @@
                 </div>
             </div>
         <?php endwhile; ?>
-    </div>
+    </section>
 <?php endif ?>
 

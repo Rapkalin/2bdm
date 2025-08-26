@@ -1,7 +1,7 @@
 @use "../basics/variables" as var;
 @use "../basics/functions" as fn;
 
-.table-content {
+.section-block-table-content {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   gap: 20px;

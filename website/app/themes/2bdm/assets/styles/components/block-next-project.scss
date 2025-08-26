@@ -1,7 +1,7 @@
 @use "../basics/variables" as var;
 @use "../basics/functions" as fn;
 
-.next-project-wrapper {
+.section-next-next-project-wrapper {
   color: var.$darkgrey;
 
   .next-project-links {
@@ -26,7 +26,7 @@
 
   }
 
-  .next-project-container {
+  .section-block-next-project-container {
     margin-top: fn.toRem(16);
 
     h2 {

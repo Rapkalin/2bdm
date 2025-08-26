@@ -1,4 +1,4 @@
-<section class="header-banner slide-content"
+<section class="section-block-header-banner slide-content"
          style='background-image: url("<?= $args['banner']['image']['url']; ?>")'
 >
     <div class="hb-wrapper row-2">

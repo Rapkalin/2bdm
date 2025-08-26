@@ -83,7 +83,7 @@ function projects_init(): void {
     if ($query->have_posts()) :
         while ($query->have_posts()): $query->the_post();
             if (have_rows('header_banner')) : the_row(); ?>
-                <div class="next-project-wrapper">
+                <section class="section-next-next-project-wrapper">
                     <?php
                     $project_banner = get_field('header_banner', $post->ID);
 
@@ -93,7 +93,7 @@ function projects_init(): void {
                         'srcset' => wp_get_attachment_image_srcset( $project_banner['image']['ID']),
                     ]);
                     ?>
-                </div>
+                </section>
             <?php endif;
         endwhile;
     endif;
@@ -137,7 +137,7 @@ function projects_init(): void {
             while ($query->have_posts()): $query->the_post();
                 if (have_rows('header_banner')) : the_row(); ?>
                     <?php ob_start(); ?>
-                    <div class="next-project-wrapper">
+                    <section class="section-next-next-project-wrapper">
                         <?php
                         $project_banner = get_field('header_banner', $post->ID);
 
@@ -147,7 +147,7 @@ function projects_init(): void {
                             'srcset' => wp_get_attachment_image_srcset( $project_banner['image']['ID']),
                         ]);
                         ?>
-                    </div>
+                    </section>
                     <?php $projects_html .= ob_get_clean(); ?>
                 <?php endif;
             endwhile;

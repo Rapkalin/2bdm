@@ -1,0 +1,37 @@
+@use "../basics/variables" as var;
+@use "../basics/functions" as fn;
+
+.section-block-infos {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding: fn.toRem(80) fn.toRem(48);
+  background-color: var.$grey;
+  color: var.$white;
+  font-size: var.$fs-p;
+  line-height: var.$lh-p;
+
+  .block-infos-title {
+    &:before {
+      content: url("../../../components/svg-bullet-white.svg");
+      vertical-align: center;
+      margin-right: 7px;
+    }
+  }
+
+  .block-infos-container {
+    display: grid;
+    gap: fn.toRem(40);
+
+    .block-infos {
+      padding-top: fn.toRem(24);
+      border-top: solid 1px var.$lightgrey-m;
+
+      .title {
+        font-size: var.$fs-h2-m;
+        line-height: var.$lh-p-xl;
+        margin-bottom: fn.toRem(8);
+      }
+    }
+  }
+
+}

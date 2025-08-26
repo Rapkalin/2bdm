@@ -39,16 +39,20 @@
     overflow-x: scroll;
 
     .block-rewards-card {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
       .card-header-container {
         display: grid;
         grid-template-columns: 1fr 3fr;
         align-items: center;
         gap: fn.toRem(16);
-        width: 100%;
-        height: auto;
 
         img {
-          width: inherit;
+          height: fn.toRem(102);
+          object-fit: cover;
+          aspect-ratio: 1 / 1;
         }
 
         .card-header {
@@ -66,7 +70,7 @@
             line-height: var.$lh-p-m;
 
             svg {
-              height: fn.toRem(8);
+              height: fn.toRem(4);
               width: auto;
               color: var.$grey
             }
@@ -78,6 +82,53 @@
         width: 100%;
         object-fit: cover;
         aspect-ratio: 396 / 260;
+      }
+
+      .card-infos {
+        display: flex;
+        flex-direction: column;
+        gap: fn.toRem(16);
+
+        .card-infos-header {
+          display: flex;
+          gap: fn.toRem(8);
+
+          .card-infos-header-title {
+            font-size: var.$fs-h4;
+            line-height: var.$lh-p;
+            font-weight: var.$fw-p;
+            color: var.$darkgrey;
+          }
+
+          .card-infos-header-location {
+            display: flex;
+            align-items: center;
+            gap: fn.toRem(8);
+            color: var.$darkgrey;
+
+            svg {
+              height: fn.toRem(4);
+              width: auto;
+              color: var.$grey
+            }
+          }
+        }
+
+        .card-button {
+          display: flex;
+          gap: fn.toRem(8);
+          align-items: center;
+
+          svg {
+            color: var.$grey;
+            height: fn.toRem(8);
+            width: fn.toRem(13);
+          }
+        }
+
+        .card-description {
+          color: var.$darkgrey;
+        }
       }
     }
   }

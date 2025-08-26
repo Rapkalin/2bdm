@@ -36,7 +36,7 @@ while (have_rows('content_blocks')) : the_row(); ?>
             // get_template_part("components/block_team");
             break;
         case 'awards':
-            // get_template_part("components/block_awards");
+            // get_template_part("components/block_rewards");
             break;
         case 'publications':
             // get_template_part("components/block_publications");

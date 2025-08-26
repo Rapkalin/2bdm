@@ -1,5 +1,6 @@
 .home-block {
-  width: 100dvw;
+  height: 100dvh;
+  width: auto;
 
   .banner {
     background-size: cover;
@@ -13,6 +14,12 @@
   img {
     width: 100dvw;
     object-fit: cover;
+  }
+
+  .content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
 

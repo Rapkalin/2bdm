@@ -1,7 +1,7 @@
 @use '../basics/functions' as fn;
 @use '../basics/variables' as var;
 
-.header-banner {
+.section-block-header-banner {
   display: grid;
   justify-content: center;
   min-height: 100dvh;
@@ -106,6 +106,11 @@
           padding: 8px;
           color: white;
           border: 1px solid white;
+
+          svg {
+            height: fn.toRem(8);
+            width: fn.toRem(13);
+          }
         }
       }
     }

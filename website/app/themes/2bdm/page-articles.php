@@ -46,7 +46,7 @@ $query = new WP_Query(
 // Get the total number of projects
 $total_articles = $query->found_posts;
 ?>
-    <div class="main-wrapper next-articles-wrapper">
+    <div class="section-block-next-articles-wrapper main-wrapper">
             <div class="next-articles-container">
                 <?php while ($query->have_posts()): $query->the_post(); ?>
                     <?php get_template_part("components/block_article", args: [

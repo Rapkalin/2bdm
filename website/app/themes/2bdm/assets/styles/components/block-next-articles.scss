@@ -1,7 +1,7 @@
 @use "../basics/functions" as fn;
 @use "../basics/variables" as var;
 
-.next-articles-wrapper {
+.section-block-next-articles-wrapper {
   .all-articles-container {
     display: flex;
     justify-content: space-between;

@@ -216,13 +216,16 @@ input[type="file"] {
   color: var.$grey;
 
   .side-title {
+    display: flex;
+    align-items: center;
+    gap: fn.toRem(8);
     font-size: 22px;
     line-height: 32px;
 
-    &:before {
-      content: url("../../../components/svg-bullet.svg");
-      vertical-align: text-bottom;
-      margin-right: 7px;
+    svg {
+      height: fn.toRem(8);
+      width: auto;
+      color: var.$grey
     }
   }
 
@@ -232,14 +235,17 @@ input[type="file"] {
     padding-top: 24px;
 
     .next-title {
+      display: flex;
+      align-items: center;
+      gap: fn.toRem(8);
       font-size: 22px;
       line-height: 32px;
       margin-bottom: 8px;
 
-      &:before {
-        content: url("../../../components/svg-bullet.svg");
-        vertical-align: text-bottom;
-        margin-right: 7px;
+      svg {
+        height: fn.toRem(8);
+        width: auto;
+        color: var.$grey
       }
     }
 

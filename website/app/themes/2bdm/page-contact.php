@@ -15,9 +15,15 @@ get_header(args:['color-logo' => '__grey']);
 <div class="form-wrapper main-wrapper">
     <div class="form-side-container">
         <?php if(have_rows('side_content')): the_row() ?>
-            <div class="side-title"><?= get_sub_field('title') ?></div>
+            <div class="side-title">
+                <?php get_template_part('components/svg-bullet') ?>
+                <?= get_sub_field('title') ?>
+            </div>
             <div class="side-next">
-                <div class="next-title"><?= get_sub_field('side_content_bottom')['title'] ?></div>
+                <div class="next-title">
+                    <?php get_template_part('components/svg-bullet') ?>
+                    <?= get_sub_field('side_content_bottom')['title'] ?>
+                </div>
                 <p class="next-description"><?= get_sub_field('side_content_bottom')['description'] ?></p>
             </div>
         <?php endif; ?>

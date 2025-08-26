@@ -1,4 +1,4 @@
-<div class="main-wrapper next-articles-wrapper">
+<section class="section-block-next-articles-wrapper main-wrapper">
     <div class="all-articles-container">
         <p>Cela peut vous intéresser...</p>
         <a class="all-articles" href="/actualites">
@@ -14,4 +14,4 @@
             ]) ?>
         <?php endforeach ?>
     </div>
-</div>
+</section>

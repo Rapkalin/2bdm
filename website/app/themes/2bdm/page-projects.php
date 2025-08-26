@@ -31,7 +31,7 @@ $total_projects = $query->found_posts;
     <?php
     while ($query->have_posts()): $query->the_post();
         if (have_rows('header_banner')) : the_row(); ?>
-            <div class="next-project-wrapper">
+            <section class="section-next-next-project-wrapper">
                 <?php
                     $project_banner = get_field('header_banner', $post->ID);
 
@@ -41,7 +41,7 @@ $total_projects = $query->found_posts;
                         'srcset' => wp_get_attachment_image_srcset( $project_banner['image']['ID']),
                     ]);
                 ?>
-            </div>
+            </section>
         <?php endif;
     endwhile;
     ?>

@@ -23,20 +23,20 @@ while (have_rows('content_blocks')) : the_row(); ?>
         case 'details':
             get_template_part("components/block_details");
             break;
-        case 'details_full':
-            // get_template_part("components/block_details_full");
-            break;
         case 'numbers':
-            // get_template_part("components/block_numbers");
+            get_template_part("components/block_numbers");
             break;
         case 'quote':
-            // get_template_part("components/block_quote");
+            get_template_part("components/block_quote");
+            break;
+        case 'infos':
+            get_template_part("components/block_infos");
             break;
         case 'team':
             // get_template_part("components/block_team");
             break;
         case 'awards':
-            // get_template_part("components/block_awards");
+            // get_template_part("components/block_rewards");
             break;
         case 'publications':
             // get_template_part("components/block_publications");

@@ -1,4 +1,4 @@
-<div class="next-project-container">
+<section class="section-block-next-project-container">
     <a href="<?= get_permalink() ?>">
         <h2><?= the_title() ?></h2>
         <ul>
@@ -20,4 +20,4 @@
             </div>
         </div>
     </a>
-</div>
+</section>

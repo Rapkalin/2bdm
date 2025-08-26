@@ -16,11 +16,14 @@
       font-size: var.$fs-h4;
       line-height: var.$lh-p;
       font-weight: var.$fw-p;
+      display: flex;
+      align-items: center;
+      gap: fn.toRem(8);
 
-      &:before {
-        content: url("../../../components/svg-bullet.svg");
-        vertical-align: text-bottom;
-        margin-right: 7px;
+      svg {
+        height: fn.toRem(8);
+        width: auto;
+        color: var.$grey
       }
     }
 

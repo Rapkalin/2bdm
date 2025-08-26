@@ -5,7 +5,10 @@ $rightDetails = get_sub_field('block_details_right');
 
 <section class="section-block-details main-wrapper">
     <div class="block-details-left">
-        <h3 class="left-title"><?= $leftDetails['title'] ?></h3>
+        <h3 class="left-title">
+            <?php get_template_part('components/svg-bullet') ?>
+            <?= $leftDetails['title'] ?>
+        </h3>
         <?php if($image = $leftDetails['image']): ?>
             <?php $srcset = wp_get_attachment_image_srcset( $image['ID']); ?>
             <img

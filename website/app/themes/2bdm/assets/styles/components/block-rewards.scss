@@ -16,6 +16,9 @@
       display: flex;
       align-items: center;
       gap: fn.toRem(8);
+      font-size: var.$fs-h4;
+      line-height: var.$lh-p;
+      font-weight: var.$fw-p;
 
       svg {
         height: fn.toRem(8);

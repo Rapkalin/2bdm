@@ -1,8 +1,8 @@
 <section class="section-block-next-project-container">
-    <a href="<?= get_permalink() ?>">
-        <h2><?= the_title() ?></h2>
+    <a href="<?= get_permalink($args['project']) ?>">
+        <h2><?= get_the_title($args['project']) ?></h2>
         <ul>
-            <li><?= get_the_excerpt() ?></li>
+            <li><?= get_the_excerpt($args['project']) ?></li>
         </ul>
         <div class="next-project-img">
             <img

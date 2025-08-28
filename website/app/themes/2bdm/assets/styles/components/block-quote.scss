@@ -2,12 +2,11 @@
 @use '../basics/functions' as fn;
 
 .section-block-quote {
-  padding: fn.toRem(182) fn.toRem(80) fn.toRem(182) fn.toRem(180);
-
   .block-quote {
     display: grid;
     grid-template-columns: minmax(fn.toRem(1), auto) 1fr;
-    color: var.$darkgrey;
+    padding: fn.toRem(182) fn.toRem(80) fn.toRem(182) fn.toRem(180);
+    color: var.$white;
     font-size: var.$fs-h2;
     line-height: var.$lh-h2;
     font-weight: var.$fw-p;

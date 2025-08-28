@@ -5,7 +5,7 @@ if (have_rows('home_cover')) :
         if(get_sub_field('image')['url']) : ?>
             <section id="home-cover" class="home-block">
                 <div class="banner" style="background-image: url(<?= get_sub_field('image')['url']; ?>);">
-                    <div class="content">
+                    <div class="content overlay">
                         <div class="section-title">
                             <h2><?php the_sub_field('title'); ?></h2>
                         </div>

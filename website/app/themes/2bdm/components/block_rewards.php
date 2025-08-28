@@ -8,118 +8,45 @@
     </div>
 
     <div class="block-rewards-container">
-        <div class="block-rewards-card">
-            <div class="card-header-container">
-                <img class="card-logo" src="<?= asset('card-logo.png') ?>" alt="card-logo">
-                <div class="card-header">
-                    <div class="card-header-title">Trophée Eiffel 2021</div>
-                    <div class="card-header-category">
-                        <?php get_template_part('components/svg-bullet') ?>
-                        Catégorie "Innover"
+        <?php foreach (get_sub_field('reward_card') as $card): ?>
+            <?php
+                $projectCard = $card['reward_project'][0];
+                $project = get_fields($projectCard->ID);
+                $projectCoverImage = $card['reward_project_image']['url'] ?? $project['header_banner']['image']['url'];
+                $projectTitle = $card['reward_project_title'] ?: get_the_title($projectCard->ID);
+            ?>
+
+            <div class="block-rewards-card">
+                <div class="card-header-container">
+                    <img class="card-logo" src="<?= $card['reward_logo']['url'] ?>" alt="card-logo">
+                    <div class="card-header">
+                        <div class="card-header-title"><?= $card['reward_title'] ?></div>
+                        <div class="card-header-category">
+                            <?php get_template_part('components/svg-bullet') ?>
+                            <?= $card['reward_category'] ?>
+                        </div>
                     </div>
                 </div>
-            </div>
-            <img class="card-image" src="<?= asset('card-image.jpg') ?>" alt="card-image">
-            <div class="card-infos">
-                <div class="card-infos-header">
-                    <div class="card-infos-header-title">Hotel de la Marine</div>
-                    <div class="card-infos-header-location">
-                        <?php get_template_part('components/svg-bullet') ?>
-                        Paris VIII
+                <img class="card-image" src="<?= $projectCoverImage ?>" alt="card-image">
+                <div class="card-infos">
+                    <div class="card-infos-header">
+                        <div class="card-infos-header-title"><?= $projectTitle ?></div>
+                        <div class="card-infos-header-location">
+                            <?php get_template_part('components/svg-bullet') ?>
+                            <?= $card['reward_project_location'] ?>
+                        </div>
                     </div>
-                </div>
-                <div class="card-button">
-                    Voir le projet
-                    <?php get_template_part("components/svg-arrow-right"); ?>
-                </div>
-                <div class="card-description">La verrière de l’Hôtel de la Marine, conçue par  Christophe Bottineau et Hugh Dutton, a été récompensée pour son audace et son innovation architecturale.<br>
-                    La verrière de l’Hôtel de la Marine, conçue par  Christophe Bottineau et Hugh Dutton, a été récompensée pour son audace et son innovation architecturale.
-                    <br>La verrière de l’Hôtel de la Marine, conçue par  Christophe Bottineau et Hugh Dutton, a été récompensée pour son audace et son innovation architecturale.
-                </div>
-            </div>
-        </div>
-        <div class="block-rewards-card">
-            <div class="card-header-container">
-                <img class="card-logo" src="<?= asset('card-logo.png') ?>" alt="card-logo">
-                <div class="card-header">
-                    <div class="card-header-title">Prix Européen d'architecture Philippe Blabla 2025</div>
-                    <div class="card-header-category">
-                        <?php get_template_part('components/svg-bullet') ?>
-                        Catégorie "Innover"
-                    </div>
+                    <a
+                        class="card-button"
+                        href="<?= get_permalink($projectCard->ID) ?>"
+                    >
+                        Voir le projet
+                        <?php get_template_part("components/svg-arrow-right") ?>
+                    </a>
+                    <a href=""></a>
+                    <div class="card-description"><?= $card['reward_project_description'] ?></div>
                 </div>
             </div>
-            <img class="card-image" src="<?= asset('card-image.jpg') ?>" alt="card-image">
-            <div class="card-infos">
-                <div class="card-infos-header">
-                    <div class="card-infos-header-title">Hotel de la Marine</div>
-                    <div class="card-infos-header-location">
-                        <?php get_template_part('components/svg-bullet') ?>
-                        Paris VIII
-                    </div>
-                </div>
-                <div class="card-button">
-                    Voir le projet
-                    <?php get_template_part("components/svg-arrow-right"); ?>
-                </div>
-                <div class="card-description">La verrière de l’Hôtel de la Marine, conçue par  Christophe Bottineau et Hugh Dutton, a été récompensée pour son audace et son innovation architecturale.</div>
-            </div>
-        </div>
-        <div class="block-rewards-card">
-            <div class="card-header-container">
-                <img class="card-logo" src="<?= asset('card-logo.png') ?>" alt="card-logo">
-                <div class="card-header">
-                    <div class="card-header-title">Trophée Eiffel 2021</div>
-                    <div class="card-header-category">
-                        <?php get_template_part('components/svg-bullet') ?>
-                        Catégorie "Innover"
-                    </div>
-                </div>
-            </div>
-            <img class="card-image" src="<?= asset('card-image.jpg') ?>" alt="card-image">
-            <div class="card-infos">
-                <div class="card-infos-header">
-                    <div class="card-infos-header-title">Hotel de la Marine</div>
-                    <div class="card-infos-header-location">
-                        <?php get_template_part('components/svg-bullet') ?>
-                        Paris VIII
-                    </div>
-                </div>
-                <div class="card-button">
-                    Voir le projet
-                    <?php get_template_part("components/svg-arrow-right"); ?>
-                </div>
-                <div class="card-description">La verrière de l’Hôtel de la Marine, conçue par  Christophe Bottineau et Hugh Dutton, a été récompensée pour son audace et son innovation architecturale.<br>
-                    La verrière de l’Hôtel de la Marine, conçue par  Christophe Bottineau et Hugh Dutton, a été récompensée pour son audace et son innovation architecturale.
-                </div>
-            </div>
-        </div>
-        <div class="block-rewards-card">
-            <div class="card-header-container">
-                <img class="card-logo" src="<?= asset('card-logo.png') ?>" alt="card-logo">
-                <div class="card-header">
-                    <div class="card-header-title">Trophée Eiffel 2021</div>
-                    <div class="card-header-category">
-                        <?php get_template_part('components/svg-bullet') ?>
-                        Catégorie "Innover"
-                    </div>
-                </div>
-            </div>
-            <img class="card-image" src="<?= asset('card-image.jpg') ?>" alt="card-image">
-            <div class="card-infos">
-                <div class="card-infos-header">
-                    <div class="card-infos-header-title">Hotel de la Marine</div>
-                    <div class="card-infos-header-location">
-                        <?php get_template_part('components/svg-bullet') ?>
-                        Paris VIII
-                    </div>
-                </div>
-                <div class="card-button">
-                    Voir le projet
-                    <?php get_template_part("components/svg-arrow-right"); ?>
-                </div>
-                <div class="card-description">La verrière de l’Hôtel de la Marine, conçue par  Christophe Bottineau et Hugh Dutton, a été récompensée pour son audace et son innovation architecturale.</div>
-            </div>
-        </div>
+        <?php endforeach; ?>
     </div>
 </section>

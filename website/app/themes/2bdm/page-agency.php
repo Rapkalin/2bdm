@@ -17,28 +17,28 @@ get_header(args:['color-logo' => '__grey']);
 while (have_rows('content_blocks')) : the_row(); ?>
 <section class="content-blocks">
     <?php switch(get_row_layout()) {
-        case 'image_full':
+        case 'block_image_full':
             get_template_part("components/block_image_full");
             break;
-        case 'details':
+        case 'block_details':
             get_template_part("components/block_details");
             break;
-        case 'numbers':
+        case 'block_numbers':
             get_template_part("components/block_numbers");
             break;
-        case 'quote':
+        case 'block_quote':
             get_template_part("components/block_quote");
             break;
-        case 'infos':
+        case 'block_infos':
             get_template_part("components/block_infos");
             break;
-        case 'team':
+        case 'block_team':
             // get_template_part("components/block_team");
             break;
-        case 'awards':
+        case 'block_awards':
             // get_template_part("components/block_rewards");
             break;
-        case 'publications':
+        case 'block_publications':
             // get_template_part("components/block_publications");
             break;
     } ?>

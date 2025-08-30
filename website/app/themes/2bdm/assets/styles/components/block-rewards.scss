@@ -38,6 +38,7 @@
     gap: fn.toRem(48);
     width: 100%;
     grid-auto-flow: column;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
     overflow-x: scroll;
 
     .block-rewards-card {
@@ -124,11 +125,17 @@
           display: flex;
           gap: fn.toRem(8);
           align-items: center;
+          border-bottom: 1px solid var.$white;
+          width: fit-content;
 
           svg {
             color: var.$grey;
             height: fn.toRem(8);
             width: fn.toRem(13);
+          }
+
+          &:hover {
+            border-bottom: 1px solid var.$grey;
           }
         }
 

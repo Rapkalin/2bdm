@@ -76,10 +76,6 @@
             position: absolute;
             margin-bottom: fn.toRem(12);
             margin-left: fn.toRem(12);
-
-            .classic-button {
-              transition: all 1s ease-in-out;
-            }
           }
         }
 
@@ -96,6 +92,7 @@
             .classic-button {
               background-color: var.$lightgrey;
               color: var.$white;
+              border: 1px solid var.$lightgrey;
             }
           }
         }

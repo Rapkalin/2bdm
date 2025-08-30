@@ -2,13 +2,13 @@
     <div class="block-rewards-intro">
         <div class="reward-intro-title">
             <?php get_template_part('components/svg-bullet') ?>
-            Récompenses
+            <?= get_sub_field('bullet') ?>
         </div>
-        <div class="reward-intro-description">Une reconnaissance du travail d’excellence, de l’innovation et de l’engagement de l’agence en faveur du patrimoine.</div>
+        <div class="reward-intro-description"><?= get_sub_field('title') ?></div>
     </div>
 
     <div class="block-rewards-container">
-        <?php foreach (get_sub_field('reward_card') as $card): ?>
+        <?php foreach (get_sub_field('reward_cards') as $card): ?>
             <?php
                 $projectCard = $card['reward_project'][0];
                 $project = get_fields($projectCard->ID);
@@ -21,10 +21,13 @@
                     <img class="card-logo" src="<?= $card['reward_logo']['url'] ?>" alt="card-logo">
                     <div class="card-header">
                         <div class="card-header-title"><?= $card['reward_title'] ?></div>
-                        <div class="card-header-category">
-                            <?php get_template_part('components/svg-bullet') ?>
-                            <?= $card['reward_category'] ?>
-                        </div>
+
+                        <?php if($card['reward_category']): ?>
+                            <div class="card-header-category">
+                                <?php get_template_part('components/svg-bullet') ?>
+                                <?= $card['reward_category'] ?>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <img class="card-image" src="<?= $projectCoverImage ?>" alt="card-image">

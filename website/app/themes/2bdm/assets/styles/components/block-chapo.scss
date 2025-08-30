@@ -34,8 +34,9 @@
 
     .chapo-description-container {
       .chapo-description {
+        margin-bottom: fn.toRem(24);
         font-size: var.$fs-p;
-        line-height: var.$lh-p;
+        line-height: var.$lh-p-m;
       }
     }
   }

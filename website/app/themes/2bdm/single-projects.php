@@ -49,7 +49,8 @@ get_template_part("components/block_next_project", args: [
     'project' => $next_project,
     'project_banner' => $next_project_banner,
     'srcset' => wp_get_attachment_image_srcset( $next_project_banner['image']['ID']),
-    'extraClasses' => ['main-wrapper']
+    'extraClasses' => ['main-wrapper'],
+    'show_header_minor' => true
 ]);
 
 get_footer();

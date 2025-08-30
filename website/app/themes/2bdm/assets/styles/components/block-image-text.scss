@@ -1,0 +1,29 @@
+@use "../basics/variables" as var;
+@use "../basics/functions" as fn;
+
+.section-block-image-text {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: fn.toRem(64);
+  padding: fn.toRem(104) fn.toRem(48) fn.toRem(48) fn.toRem(48);
+  font-weight: var.$fw-p;
+  color: var.$white;
+
+  .container {
+    width: 40%;
+
+    .title {
+      font-size: var.$fs-h2;
+      line-height: var.$lh-h2;
+      font-weight: var.$fw-p;
+    }
+
+    .description {
+      margin-top: fn.toRem(228);
+      margin-bottom: fn.toRem(24);
+      font-size: var.$fs-h4;
+      line-height: var.$lh-p;
+    }
+  }
+}

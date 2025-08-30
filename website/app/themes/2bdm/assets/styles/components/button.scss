@@ -34,7 +34,7 @@
   &-bkg-grey {
     background-color: var.$grey;
     color: var.$white;
-    border: 1px solid var.$white;
+    border: 1px solid var.$grey;
 
     svg {
       color: var.$white;
@@ -45,6 +45,7 @@
     &:hover {
       background-color: var.$white;
       color: var.$grey;
+      border: 1px solid var.$white;
 
       svg {
         color: var.$grey;

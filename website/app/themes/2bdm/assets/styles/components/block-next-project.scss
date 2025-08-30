@@ -4,6 +4,20 @@
 .section-next-next-project-wrapper {
   color: var.$darkgrey;
 
+  .main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: fn.toRem(24);
+
+    .title {
+      font-size: var.$fs-h2;
+      line-height: var.$lh-h2;
+      font-weight: var.$fw-p;
+      color: var.$grey;
+    }
+  }
+
   .next-project-links {
     display: flex;
     justify-content: space-between;

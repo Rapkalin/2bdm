@@ -30,7 +30,9 @@
                         <?php endif; ?>
                     </div>
                 </div>
+
                 <img class="card-image" src="<?= $projectCoverImage ?>" alt="card-image">
+
                 <div class="card-infos">
                     <div class="card-infos-header">
                         <div class="card-infos-header-title"><?= $projectTitle ?></div>

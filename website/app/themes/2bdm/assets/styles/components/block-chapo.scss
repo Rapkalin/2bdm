@@ -1,0 +1,42 @@
+@use "../basics/variables" as var;
+@use "../basics/functions" as fn;
+
+.section-block-chapo {
+  display: flex;
+  flex-direction: column;
+  gap: fn.toRem(64);
+  padding: fn.toRem(160) fn.toRem(128);
+  font-weight: var.$fw-p;
+
+  .chapo-title {
+    font-size: var.$fs-h2;
+    line-height: var.$lh-h2;
+    font-weight: var.$fw-p;
+  }
+
+  .chapo-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+    .chapo-bullet {
+      font-size: var.$fs-h4;
+      line-height: var.$lh-p;
+      display: flex;
+      align-items: center;
+      gap: fn.toRem(8);
+
+      svg {
+        height: fn.toRem(8);
+        width: auto;
+        color: var.$grey
+      }
+    }
+
+    .chapo-description-container {
+      .chapo-description {
+        font-size: var.$fs-p;
+        line-height: var.$lh-p;
+      }
+    }
+  }
+}

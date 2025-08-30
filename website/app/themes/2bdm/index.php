@@ -11,15 +11,23 @@ get_header();
     </div>
 <?php endif; ?>
 
-<?php
-$home = new WP_Query(['pagename' => 'homepage']);
-while ($home->have_posts()) : $home->the_post();
-    foreach (get_fields($home->post->ID) as $key => $field) {
-        if (file_exists(__DIR__ . "/partials/homepage/{$key}.php")) {
-            get_template_part("partials/homepage/{$key}");
-        }
-    }
-endwhile;
-?> <button id="button">Cliquez ici</button> <?php
+    <section class="section-block-header-banner slide-content"
+             style='background-image: url("<?= get_field('home_cover')['image']['url']; ?>")'
+    >
+    </section>
 
+    <span id="first-section"></span>
+
+<?php
+if (have_rows('content_blocks')) :
+    while (have_rows('content_blocks')) : the_row(); ?>
+        <section class="content-blocks">
+            <?php switch(get_row_layout()) {
+                case 'block_chapo':
+                    get_template_part("components/block_chapo");
+                    break;
+            } ?>
+        </section>
+    <?php endwhile;
+endif;
 get_footer();

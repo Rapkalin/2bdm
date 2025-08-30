@@ -37,7 +37,6 @@
     display: grid;
     gap: fn.toRem(48);
     width: 100%;
-    grid-auto-columns: 25%;
     grid-auto-flow: column;
     overflow-x: scroll;
 
@@ -91,6 +90,10 @@
         display: flex;
         flex-direction: column;
         gap: fn.toRem(16);
+
+        a {
+          color: var.$grey;
+        }
 
         .card-infos-header {
           display: flex;

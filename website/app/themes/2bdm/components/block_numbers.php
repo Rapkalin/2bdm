@@ -3,7 +3,7 @@
     <div class="block-numbers-container">
         <?php foreach (get_sub_field('numbers') as $number): ?>
             <div class="block-number">
-                <div class="number"><?= $number['nombre'] ?></div>
+                <div class="number"><?= $number['number'] ?></div>
                 <div class="title"><?= $number['text'] ?></div>
             </div>
         <?php endforeach; ?>

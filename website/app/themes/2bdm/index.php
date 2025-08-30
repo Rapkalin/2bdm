@@ -11,12 +11,12 @@ get_header();
     </div>
 <?php endif; ?>
 
-    <section class="section-block-header-banner slide-content"
-             style='background-image: url("<?= get_field('home_cover')['image']['url']; ?>")'
-    >
-    </section>
+<section class="section-block-header-banner slide-content"
+         style='background-image: url("<?= get_field('home_cover')['image']['url']; ?>")'
+>
+</section>
 
-    <span id="first-section"></span>
+<span id="first-section"></span>
 
 <?php
 if (have_rows('content_blocks')) :

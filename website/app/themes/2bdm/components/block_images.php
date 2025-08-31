@@ -5,7 +5,7 @@ $size = 'full'; // (thumbnail, medium, large, full or custom size)
 if( $images ): ?>
     <section class="section-block-gallery-images main-wrapper">
         <?php foreach( $images as $i => $image ):
-            $srcset = wp_get_attachment_image_srcset( $image['ID']);
+            $srcset = wp_get_attachment_image_srcset($image['ID']);
 
             if (count($images) > 1) {
                 $align = $i === 0 ? $align : ( $align === 'right' ? 'left' : 'right' );
@@ -14,8 +14,8 @@ if( $images ): ?>
             }
         ?>
             <img
-                src="<?php header_image(); ?>"
-                srcset="<?php echo esc_attr( $srcset ); ?>"
+                src="<?php header_image() ?>"
+                srcset="<?= esc_attr( $srcset ) ?>"
                 alt="<?= $image['alt'] ?? $image['title'] ?>"
                 width="<?= $image['width'] ?>"
                 height="<?= $image['height'] ?>"

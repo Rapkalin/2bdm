@@ -21,7 +21,7 @@ get_header();
 <?php
 if (have_rows('content_blocks')) :
     while (have_rows('content_blocks')) : the_row(); ?>
-        <section class="content-blocks">
+        <section class="content-blocks <?= get_row_layout() ?>">
             <?php switch(get_row_layout()) {
                 case 'block_chapo':
                     get_template_part("components/block_chapo");
@@ -36,7 +36,11 @@ if (have_rows('content_blocks')) :
                     get_template_part("components/block_image_with_text");
                     break;
                 case 'block_articles':
-                    get_template_part("components/block_articles");
+                    get_template_part("components/block_articles", args: [
+                        'articles' => get_sub_field('articles'),
+                        'extraClasses' => ['bck-color-grey'],
+                        'show_header_main' => get_sub_field('main_title'),
+                    ]);
                     break;
             } ?>
         </section>

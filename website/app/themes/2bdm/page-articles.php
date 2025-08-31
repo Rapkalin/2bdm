@@ -5,7 +5,7 @@
  * @package WordPress
  */
 
-get_header();
+get_header(args:['color-logo' => '__grey']);
 
 ?>
     <div class="article-container articles-grid-header-container">
@@ -46,15 +46,15 @@ $query = new WP_Query(
 // Get the total number of projects
 $total_articles = $query->found_posts;
 ?>
-    <div class="section-block-next-articles-wrapper main-wrapper">
-            <div class="next-articles-container">
-                <?php while ($query->have_posts()): $query->the_post(); ?>
-                    <?php get_template_part("components/block_article", args: [
-                        'article' => get_post(),
-                    ]) ?>
-                <?php endwhile; ?>
-            </div>
-    </div>
+<section class="section-block-next-articles-wrapper main-wrapper">
+        <div class="next-articles-container">
+            <?php while ($query->have_posts()): $query->the_post(); ?>
+                <?php get_template_part("components/block_article", args: [
+                    'article' => get_post(),
+                ]) ?>
+            <?php endwhile; ?>
+        </div>
+</section>
 
     <!-- We display the Button load more projects only if there are more than 4 projects left -->
 <?php if ($total_articles > 4) : ?>

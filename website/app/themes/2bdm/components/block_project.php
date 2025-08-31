@@ -7,7 +7,7 @@
                 <li><?= get_the_excerpt($args['project']) ?></li>
             </ul>
         <?php endif ?>
-        
+
         <div class="next-project-img">
             <img
                 src="<?= $args['project_banner']['image']['url']; ?>"

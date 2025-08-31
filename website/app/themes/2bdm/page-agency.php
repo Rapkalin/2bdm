@@ -26,8 +26,8 @@ while (have_rows('content_blocks')) : the_row(); ?>
         case 'block_numbers':
             get_template_part("components/block_numbers");
             break;
-        case 'block_quote':
-            get_template_part("components/block_quote");
+        case 'block_image_with_text':
+            get_template_part("components/block_image_with_text");
             break;
         case 'block_infos':
             get_template_part("components/block_infos");

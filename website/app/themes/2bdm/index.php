@@ -27,10 +27,13 @@ if (have_rows('content_blocks')) :
                     get_template_part("components/block_chapo");
                     break;
                 case 'block_image_text':
-                    get_template_part("components/block_image_text");
+                    get_template_part("components/block_image_text_button");
                     break;
                 case 'block_realisations':
                     get_template_part("components/block_realisations");
+                    break;
+                case 'block_image_with_text':
+                    get_template_part("components/block_image_with_text");
                     break;
             } ?>
         </section>

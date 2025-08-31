@@ -35,6 +35,9 @@ if (have_rows('content_blocks')) :
                 case 'block_image_with_text':
                     get_template_part("components/block_image_with_text");
                     break;
+                case 'block_articles':
+                    get_template_part("components/block_articles");
+                    break;
             } ?>
         </section>
     <?php endwhile;

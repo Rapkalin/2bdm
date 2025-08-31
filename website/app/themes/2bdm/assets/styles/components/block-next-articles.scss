@@ -2,10 +2,29 @@
 @use "../basics/variables" as var;
 
 .section-block-next-articles-wrapper {
+  .main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: fn.toRem(48);
+    padding-bottom: fn.toRem(24);
+    border-bottom: 1px solid var.$white;
+
+    .title {
+      font-size: var.$fs-h2;
+      line-height: var.$lh-h2;
+      font-weight: var.$fw-p;
+      color: var.$white;
+    }
+  }
+
   .all-articles-container {
     display: flex;
     justify-content: space-between;
     color: grey;
+    margin: fn.toRem(24) 0;
+    padding-top: fn.toRem(24);
+    border-top: 1px solid var.$lightgrey;
 
     a {
       color: var.$grey;
@@ -105,3 +124,14 @@
   }
 }
 
+.bck-color-grey {
+  background-color: var.$darkgrey;
+  color: var.$white;
+  .next-articles-container {
+    .next-article-container {
+      .next-article-title {
+        color: var.$white;
+      }
+    }
+  }
+}

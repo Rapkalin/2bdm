@@ -1,7 +1,10 @@
 <div class="filters-container filters-container-articles main-wrapper" style="
     margin-top: 50px;
 ">
-    <div class="fc-title">Actualités</div>
+    <div class="fc-title">
+        <?php get_template_part('components/svg-bullet') ?>
+        Actualités
+    </div>
     <div class="fc-terms-container">
         <div id="all" class="filter-content">
             <div class="filter-term selected" data-term-id="all">

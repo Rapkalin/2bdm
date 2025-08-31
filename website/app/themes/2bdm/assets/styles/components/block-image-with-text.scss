@@ -1,8 +1,8 @@
 @use '../basics/variables' as var;
 @use '../basics/functions' as fn;
 
-.section-block-quote {
-  .block-quote {
+.section-block-image-with-text {
+  .block-text {
     display: grid;
     grid-template-columns: minmax(fn.toRem(1), auto) 1fr;
     padding: fn.toRem(182) fn.toRem(80) fn.toRem(182) fn.toRem(180);
@@ -14,5 +14,23 @@
     svg {
       margin-right: fn.toRem(12);
     }
+  }
+
+  .block-image {
+    background-size: cover;
+    background-position: center;
+    height: inherit;
+    display: flex;
+    align-items: center;
+    padding: 0 0 0 150px;
+  }
+
+  .with-text {
+    box-shadow: inset 2000px 0 0 0 rgba(0, 0, 0, 0.3);
+  }
+
+  .no-text {
+    height: 70dvh;
+    width: auto;
   }
 }

@@ -3,7 +3,6 @@
 
 /* PARTIALS */
 @use "partials/header" as *;
-@use "partials/home-cover" as *;
 @use "partials/footer" as *;
 
 /* COMPONENTS */
@@ -15,7 +14,8 @@
 @use "components/block-filters-articles" as *;
 @use "components/block-header-banner" as *;
 @use "components/block-image-full" as *;
-@use "components/block-image-text" as *;
+@use "components/block-image-text-button" as *;
+@use "components/block-image-with-text" as *;
 @use "components/block-images" as *;
 @use "components/block-infos" as *;
 @use "components/block-intro" as *;
@@ -24,7 +24,6 @@
 @use "components/block-next-project" as *;
 @use "components/block-numbers" as *;
 @use "components/block-publications" as *;
-@use "components/block-quote" as *;
 @use "components/block-rewards" as *;
 @use "components/block-table" as *;
 @use "components/block-text" as *;

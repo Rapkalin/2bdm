@@ -1,3 +1,38 @@
+@use '../basics/variables' as var;
+@use '../basics/functions' as fn;
+
 .block_articles {
   margin-top: unset !important;
+}
+
+.section-block-home-cover {
+  display: flex;
+  justify-content: center;
+  min-height: 100dvh;
+  background-size:cover;
+  background-position: center;
+  box-shadow: inset 2000px 0 0 0 rgba(0, 0, 0, 0.5);
+  color: var.$white;
+  padding: 0 fn.toRem(48);
+
+  .block-cover-words {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    width: 100%;;
+
+    .word {
+      display: flex;
+      align-items: center;
+      font-size: var.$fs-h2-m;
+      line-height: var.$lh-p-xl;
+    }
+
+    svg {
+      display: inline;
+      height: fn.toRem(8);
+      width: fn.toRem(8);
+      margin: 0 fn.toRem(30);
+    }
+  }
 }

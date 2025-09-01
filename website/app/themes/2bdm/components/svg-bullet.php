@@ -1,3 +1,3 @@
-<svg viewBox="0 0 8 8" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
-    <circle cx="4" cy="4" r="4" fill="currentColor"/>
+<svg viewBox="-1 -1 2 2" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
+    <circle cx="0" cy="0" r="1" fill="currentColor"/>
 </svg>

@@ -1,4 +1,7 @@
-<?php if ($button = get_sub_field('button')): ?>
+<?php
+    $button = $args['button'] ?? get_sub_field('button')
+?>
+<?php if ($button): ?>
     <a
         class="classic-button <?= isset($args['buttonClasses']) ? implode(' ', $args['buttonClasses']) : '' ?>"
         href="<?= $button['url'] ?>"

@@ -42,6 +42,9 @@ if (have_rows('content_blocks')) :
                         'show_header_main' => get_sub_field('main_title'),
                     ]);
                     break;
+                case 'block_contact':
+                    get_template_part("components/block_contact");
+                    break;
             } ?>
         </section>
     <?php endwhile;

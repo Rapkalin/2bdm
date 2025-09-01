@@ -1,5 +1,7 @@
 <?php
 get_header();
+
+$homeCover = get_field('home_cover');
 ?>
 
 <?php if (!$_COOKIE["intro"]): ?>
@@ -11,9 +13,21 @@ get_header();
     </div>
 <?php endif; ?>
 
-<section class="section-block-header-banner slide-content"
-         style='background-image: url("<?= get_field('home_cover')['image']['url']; ?>")'
+<section class="section-block-home-cover"
+         style='background-image: url("<?= $homeCover['image']['url']; ?>")'
 >
+    <div class="block-cover-words">
+        <?php foreach($homeCover['cover_words'] as $i => $word): ?>
+            <?php if($i > 0): ?>
+                <?php get_template_part("components/svg-bullet"); ?>
+                <div class="word">
+                    <?= $word['cover_word'] ?>
+                </div>
+            <?php else: ?>
+                <div class="word"><?= $word['cover_word'] ?></div>
+            <?php endif; ?>
+        <?php endforeach; ?>
+    </div>
 </section>
 
 <span id="first-section"></span>

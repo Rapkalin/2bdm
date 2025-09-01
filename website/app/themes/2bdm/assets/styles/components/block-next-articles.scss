@@ -87,10 +87,11 @@
         .next-article-img {
           position: relative;
           display: flex;
-          align-items: flex-end;
+          align-items: center;
+          justify-content: center;
           clip-path: circle(100%);
           transition: all 1s ease-in-out;
-
+          
           img {
             aspect-ratio: 16 / 9;
             width: 100%;

@@ -8,7 +8,6 @@ const behavior_filter_articles = {
         let currentPage = 1;
 
         terms.forEach(term => {
-            console.log('term solo', term);
             term.addEventListener('click', function() {
                 console.log('this', this.getAttribute('data-term-id'));
                 const termId = this.getAttribute('data-term-id');
@@ -33,7 +32,6 @@ const behavior_filter_articles = {
             });
         });
 
-        console.log('load more', loadMoreButton);
         if (loadMoreButton) {
             loadMoreButton.addEventListener('click', function() {
                 currentPage++;

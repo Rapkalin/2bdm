@@ -118,7 +118,7 @@
     }
 
     .accordion-content {
-      max-height: fn.toRem(-1);
+      max-height: fn.toRem(10000);
       overflow: hidden;
       transition: max-height 0.5s ease-in-out;
 

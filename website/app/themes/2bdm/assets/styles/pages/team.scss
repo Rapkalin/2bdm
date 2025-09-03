@@ -1,0 +1,133 @@
+@use '../basics/variables' as var;
+@use '../basics/functions' as fn;
+
+.section-block-people {
+  .block-people {
+    margin-top: fn.toRem(40);
+
+    .block-people-title {
+      font-size: var.$fs-h4;
+      line-height: var.$lh-p;
+      font-weight: var.$fw-xl;
+      color: var.$grey;
+    }
+
+    .block-people-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: fn.toRem(20);
+
+      .people-details {
+        position: relative;
+        width: calc(25% - 20px); /* 4 images per row with a 20px gap */
+        cursor: pointer;
+        display: flex;
+        justify-content: center;
+        filter: grayscale(100%);
+        transition: filter 0.3s ease;
+
+        .people-button {
+          position: absolute;
+          bottom: fn.toRem(20);
+          opacity: 0;
+        }
+
+        &:hover {
+          filter: grayscale(0%);
+
+          .people-button {
+            opacity: 1;
+          }
+        }
+      }
+
+      .people-image {
+        width: 100%;
+        height: auto;
+      }
+    }
+  }
+
+  .people-popup {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+
+    .popup-content {
+      position: relative;
+      background: var.$white;
+      padding: fn.toRem(20);
+      border-radius: fn.toRem(8);
+      max-width: fn.toRem(500);
+      text-align: center;
+      color: var.$grey;
+
+      .popup-name {
+        font-size: var.$fs-h4;
+        line-height: var.$lh-p;
+        font-weight: var.$fw-p;
+      }
+
+      .popup-image {
+        max-width: 100%;
+        height: auto;
+        margin-bottom: fn.toRem(15);
+      }
+
+      .popup-close {
+        position: absolute;
+        top: fn.toRem(20);
+        right: fn.toRem(25);
+        background: none;
+        border: none;
+        font-size: fn.toRem(36);
+        color: var.$darkgrey;
+        cursor: pointer;
+      }
+    }
+  }
+
+  .people-popup[hidden] {
+    display: none;
+  }
+
+  .accordion-block {
+    margin-bottom: fn.toRem(10);
+    border-radius: fn.toRem(4);
+    overflow: hidden;
+
+    .accordion-title {
+      padding: fn.toRem(15);
+      margin: 0;
+      cursor: pointer;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      --after-content: '-';
+
+      &:after {
+        content: var(--after-content);
+        font-size: var.$fs-h4;
+        transition: transform 0.3s ease;
+      }
+    }
+
+    .accordion-content {
+      max-height: fn.toRem(1000);
+      overflow: hidden;
+      transition: max-height 0.5s ease-in-out;
+
+      &.closed {
+        max-height: 0;
+        padding: 0;
+      }
+    }
+  }
+}

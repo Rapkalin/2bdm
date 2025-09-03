@@ -14,6 +14,7 @@
 
     .block-people-container {
       display: flex;
+      justify-content: space-between;
       flex-wrap: wrap;
       gap: fn.toRem(20);
 
@@ -110,17 +111,14 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      --after-content: '-';
 
-      &:after {
-        content: var(--after-content);
-        font-size: var.$fs-h4;
+      .accordion-icon {
+        font-size: 20px;
         transition: transform 0.3s ease;
       }
     }
 
     .accordion-content {
-      max-height: fn.toRem(1000);
       overflow: hidden;
       transition: max-height 0.5s ease-in-out;
 

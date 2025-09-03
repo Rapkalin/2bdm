@@ -5,14 +5,15 @@ const behavior_popup = {
         accordionTitles.forEach(title => {
             title.addEventListener('click', function() {
                 const content = this.nextElementSibling;
+                const icon = this.querySelector('.accordion-icon');
                 const isOpen = !content.classList.contains('closed');
 
                 if (isOpen) {
                     content.classList.add('closed');
-                    this.style.setProperty('--after-content', '"+"');
+                    icon.textContent = '+';
                 } else {
                     content.classList.remove('closed');
-                    this.style.setProperty('--after-content', '"-"');
+                    icon.textContent = '-';
                 }
             });
         });

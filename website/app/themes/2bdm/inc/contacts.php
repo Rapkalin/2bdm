@@ -157,6 +157,7 @@ function getFormGroup(string $type, array $data = []): void {
                 <input type="file" id="<?= htmlspecialchars($data['label']) ?>" name="<?= htmlspecialchars($data['label']) ?>" class="custom-file-input">
                 <label for="<?= htmlspecialchars($data['label']) ?>" class="custom-file-label">
                     <?= htmlspecialchars($data['label']) ?>
+                    <?php get_template_part("components/svg-arrow-down"); ?>
                 </label>
             </div>
             <?php

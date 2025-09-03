@@ -13,6 +13,7 @@
 @use "components/block-details" as *;
 @use "components/block-filters" as *;
 @use "components/block-filters-articles" as *;
+@use "components/block-header" as *;
 @use "components/block-header-banner" as *;
 @use "components/block-image-full" as *;
 @use "components/block-image-text-button" as *;
@@ -31,7 +32,6 @@
 @use "components/svg-arrows" as *;
 
 /* PAGES */
-@use "pages/agency" as *;
 @use "pages/article" as *;
 @use "pages/articles_list" as *;
 @use "pages/contact" as *;
@@ -39,3 +39,4 @@
 @use "pages/legal" as *;
 @use "pages/project" as *;
 @use "pages/projects_list" as *;
+@use "pages/team" as *;

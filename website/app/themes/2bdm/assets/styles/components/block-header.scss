@@ -1,7 +1,7 @@
-@use '../basics/variables' as var;
-@use '../basics/functions' as fn;
+@use "../basics/functions" as fn;
+@use "../basics/variables" as var;
 
-.agency-header-container {
+.page-header-container {
   display: flex;
   flex-direction: column;
   gap: 24px;
@@ -10,13 +10,13 @@
   color: var.$darkgrey;
   width: 70%;
 
-  .agency-title {
+  .title {
     font-size: var.$fs-h1-m;
     line-height: var.$lh-h1-m;
     font-weight: var.$fw-h1;
   }
 
-  .agency-description {
+  .description {
     font-size: var.$fs-h2;
     line-height: var.$lh-h2;
     font-weight: var.$fw-p;

@@ -10,6 +10,7 @@ import behavior_accordions from "./behavior_accordions";
 import behavior_filter_projects from "./behavior_filter_projects";
 import behavior_filter_articles from "./behavior_filter_articles";
 import behavior_forms from "./behavior_forms";
+import behavior_popup from "./behavior_popup";
 
 console.info('The main JS has been loaded');
 
@@ -50,5 +51,11 @@ document.addEventListener("DOMContentLoaded", () => {
     const form = document.getElementById('dynamic-form');
     if (form) {
         behavior_forms.init();
+    }
+
+    const peopleDetails = document.querySelectorAll('.people-details');
+    console.log(peopleDetails);
+    if(peopleDetails) {
+        behavior_popup.init();
     }
 });

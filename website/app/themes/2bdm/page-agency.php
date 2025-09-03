@@ -8,9 +8,9 @@
 get_header(args:['color-logo' => '__grey']);
 
 ?>
-<div class="agency-header-container">
-    <h1 class="agency-title"><?= get_field('title') ?></h1>
-    <div class="agency-description"><?= get_field('description') ?></div>
+<div class="page-header-container">
+    <h1 class="title"><?= get_field('title') ?></h1>
+    <div class="description"><?= get_field('description') ?></div>
 </div>
 
 <?php if (have_rows('content_blocks')) :

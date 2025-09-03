@@ -140,6 +140,366 @@ $poles = [
                     'title' => 'image title'
                 ]
             ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe 2',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
+            [
+                'name' => 'John Doe test',
+                'description' => 'Description du poste',
+                'image' => [
+                    'url' => asset('christophe.jpg'),
+                    'title' => 'image title'
+                ]
+            ],
         ]
     ],
 ];
@@ -155,7 +515,10 @@ $poles = [
     <section class="section-block-people">
         <?php foreach ($poles as $pole): ?>
             <div class="accordion-block block-people">
-                <h3 class="accordion-title block-people-title"><?= $pole['title'] ?></h3>
+                <h3 class="accordion-title block-people-title">
+                    <?= $pole['title'] ?>
+                    <span class="accordion-icon">-</span>
+                </h3>
                 <div class="accordion-content">
                     <div class="block-people-container">
                     <?php foreach ($pole['people'] as $person): ?>
@@ -165,9 +528,7 @@ $poles = [
                             data-description="<?= esc_attr($person['description']) ?>"
                             data-image="<?= esc_url($person['image']['url']) ?>"
                         >
-                            <div class="people-image-container">
-                                <img src="<?= esc_url($person['image']['url']) ?>" alt="<?= esc_attr($person['image']['title']) ?>" class="people-image">
-                            </div>
+                            <img src="<?= esc_url($person['image']['url']) ?>" alt="<?= esc_attr($person['image']['title']) ?>" class="people-image">
                             <button class="people-button classic-button">En savoir plus</button>
                         </div>
                     <?php endforeach; ?>

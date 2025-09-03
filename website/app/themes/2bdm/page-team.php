@@ -24,13 +24,21 @@ get_header(args:['color-logo' => '__grey']);
                 <div class="accordion-content">
                     <div class="block-people-container">
                     <?php foreach ($department['team'] as $member): ?>
+                        <?php $srcset = wp_get_attachment_image_srcset( $member['image']['ID']); ?>
                         <div
                             class="people-details"
                             data-name="<?= esc_attr($member['name']) ?>"
                             data-description="<?= esc_attr($member['description']) ?>"
                             data-image="<?= esc_url($member['image']['url']) ?>"
                         >
-                            <img src="<?= esc_url($member['image']['url']) ?>" alt="<?= esc_attr($member['image']['title']) ?>" class="people-image">
+                            <img
+                                class="people-image"
+                                src="<?= esc_url($member['image']['url']) ?>"
+                                srcset="<?php echo esc_attr( $srcset ); ?>"
+                                alt="<?= esc_attr($member['image']['title']) ?>"
+                                width="<?= $member['image']['width'] ?>"
+                                height="<?= $member['image']['height'] ?>"
+                            >
                             <button class="people-button classic-button">En savoir plus</button>
                         </div>
                     <?php endforeach; ?>

@@ -38,7 +38,7 @@
     gap: fn.toRem(48);
     width: 100%;
     grid-auto-flow: column;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-auto-columns: 25%;
     overflow-x: scroll;
 
     .block-rewards-card {

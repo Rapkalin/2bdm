@@ -16,17 +16,8 @@ $homeCover = get_field('home_cover');
 <section class="section-block-home-cover"
          style='background-image: url("<?= $homeCover['image']['url']; ?>")'
 >
-    <div class="block-cover-words">
-        <?php foreach($homeCover['cover_words'] as $i => $word): ?>
-            <?php if($i > 0): ?>
-                <?php get_template_part("components/svg-bullet"); ?>
-                <div class="word">
-                    <?= $word['cover_word'] ?>
-                </div>
-            <?php else: ?>
-                <div class="word"><?= $word['cover_word'] ?></div>
-            <?php endif; ?>
-        <?php endforeach; ?>
+    <div class="block-cover-logo">
+        <?php get_template_part("components/svg-logo-white") ?>
     </div>
 </section>
 

@@ -27,7 +27,7 @@ get_header(args:['color-logo' => '__grey']);
                         <?php $srcset = wp_get_attachment_image_srcset( $member['image']['ID']); ?>
                         <div
                             class="people-details"
-                            data-name="<?= esc_attr($member['name']) ?>"
+                            data-name="<?= esc_attr($member['title']) ?>"
                             data-description="<?= esc_attr($member['description']) ?>"
                             data-image="<?= esc_url($member['image']['url']) ?>"
                         >

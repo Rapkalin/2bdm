@@ -145,18 +145,19 @@ input[type="file"] {
 
 /* Styliser le label pour ressembler à un bouton en forme de gélule */
 .custom-file-label {
-  display: inline-block;
+  display: flex;
+  align-items: center;
+  width: fit-content;
   padding: 8px 16px;
   background-color: #D4CFC1;
   color: #756F5E;
   border-radius: 20px;
   cursor: pointer;
   transition: background-color 0.3s;
-  width: fit-content;
 
-  &:after {
-    content: url("../../../components/svg-arrow-down.svg");
-    margin-left: 8px;
+  svg {
+    height: fn.toRem(13);
+    margin-left: fn.toRem(8);
   }
 }
 
@@ -164,6 +165,10 @@ input[type="file"] {
 .custom-file-label:hover {
   background-color: var.$grey;
   color: var.$white;
+
+  svg {
+    color: var.$white
+  }
 }
 
 /* Optionnel : changer la couleur lorsque le fichier est sélectionné */

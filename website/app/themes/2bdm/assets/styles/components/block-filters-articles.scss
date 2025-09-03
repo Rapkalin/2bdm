@@ -1,4 +1,5 @@
 @use '../basics/variables' as var;
+@use '../basics/functions' as fn;
 
 .filters-container-articles {
   .fc-terms-container {
@@ -23,6 +24,18 @@
 
     &:hover {
       color: var.$grey;
+    }
+  }
+
+  .fc-title {
+    display: flex;
+    align-items: center;
+    gap: fn.toRem(8);
+    color: var.$grey;
+
+    svg {
+      height: fn.toRem(8);
+      width: fn.toRem(8);
     }
   }
 }

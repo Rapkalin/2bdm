@@ -3,18 +3,20 @@
 
 /* PARTIALS */
 @use "partials/header" as *;
-@use "partials/home-cover" as *;
 @use "partials/footer" as *;
 
 /* COMPONENTS */
 @use "components/button" as *;
 @use "components/block-carousel" as *;
 @use "components/block-chapo" as *;
+@use "components/block-contact" as *;
 @use "components/block-details" as *;
 @use "components/block-filters" as *;
 @use "components/block-filters-articles" as *;
 @use "components/block-header-banner" as *;
 @use "components/block-image-full" as *;
+@use "components/block-image-text-button" as *;
+@use "components/block-image-with-text" as *;
 @use "components/block-images" as *;
 @use "components/block-infos" as *;
 @use "components/block-intro" as *;
@@ -23,7 +25,6 @@
 @use "components/block-next-project" as *;
 @use "components/block-numbers" as *;
 @use "components/block-publications" as *;
-@use "components/block-quote" as *;
 @use "components/block-rewards" as *;
 @use "components/block-table" as *;
 @use "components/block-text" as *;
@@ -34,6 +35,7 @@
 @use "pages/article" as *;
 @use "pages/articles_list" as *;
 @use "pages/contact" as *;
+@use "pages/homepage" as *;
 @use "pages/legal" as *;
 @use "pages/project" as *;
 @use "pages/projects_list" as *;

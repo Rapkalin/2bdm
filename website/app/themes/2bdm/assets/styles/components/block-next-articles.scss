@@ -2,10 +2,29 @@
 @use "../basics/variables" as var;
 
 .section-block-next-articles-wrapper {
+  .main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: fn.toRem(48);
+    padding-bottom: fn.toRem(24);
+    border-bottom: 1px solid var.$white;
+
+    .title {
+      font-size: var.$fs-h2;
+      line-height: var.$lh-h2;
+      font-weight: var.$fw-p;
+      color: var.$white;
+    }
+  }
+
   .all-articles-container {
     display: flex;
     justify-content: space-between;
     color: grey;
+    margin: fn.toRem(24) 0;
+    padding-top: fn.toRem(24);
+    border-top: 1px solid var.$lightgrey;
 
     a {
       color: var.$grey;
@@ -22,7 +41,24 @@
     grid-template-columns: 1fr 1fr;
     gap: 1.25rem;
 
+    .next-article-taxonomy-button {
+      position: absolute;
+      z-index: 1;
+      bottom: fn.toRem(12);
+      left: fn.toRem(12);
+    }
+
     .next-article-container {
+      &:hover {
+        .next-article-taxonomy-button {
+          .classic-button {
+            background-color: var.$lightgrey;
+            color: var.$white;
+            border: 1px solid var.$lightgrey;
+          }
+        }
+      }
+
       .next-article-date {
         display: flex;
         align-items: center;
@@ -51,20 +87,17 @@
         .next-article-img {
           position: relative;
           display: flex;
-          align-items: flex-end;
-
+          align-items: center;
+          justify-content: center;
+          clip-path: circle(100%);
+          transition: all 1s ease-in-out;
+          
           img {
             aspect-ratio: 16 / 9;
             width: 100%;
             height: auto;
             object-fit: cover;
             background-position: center;
-            clip-path: circle(100%);
-            transition: all 1s ease-in-out;
-          }
-
-          img:hover {
-            clip-path: circle(34% at center);
           }
 
           .next-article-button {
@@ -72,14 +105,8 @@
             visibility: visible;
           }
 
-          .next-article-taxonomy-button {
-            position: absolute;
-            margin-bottom: fn.toRem(12);
-            margin-left: fn.toRem(12);
-
-            .classic-button {
-              transition: all 1s ease-in-out;
-            }
+          &:hover {
+            clip-path: circle(34% at center);
           }
         }
 
@@ -91,15 +118,6 @@
       }
 
       .next-article-img-container:hover {
-        .next-article-img {
-          .next-article-taxonomy-button {
-            .classic-button {
-              background-color: var.$lightgrey;
-              color: var.$white;
-            }
-          }
-        }
-
         .next-article-button {
           opacity: 100%;
         }
@@ -108,3 +126,14 @@
   }
 }
 
+.bck-color-grey {
+  background-color: var.$darkgrey;
+  color: var.$white;
+  .next-articles-container {
+    .next-article-container {
+      .next-article-title {
+        color: var.$white;
+      }
+    }
+  }
+}

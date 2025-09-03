@@ -6,8 +6,17 @@
             <?= get_sub_field('chapo_bullet') ?>
         </div>
         <div class="chapo-description-container">
-            <div><?= get_sub_field('chapo_description') ?></div>
-            <button>Button</button>
+            <div class="chapo-description"><?= get_sub_field('chapo_description') ?></div>
+            <?php if ($button = get_sub_field('chapo_button')): ?>
+                <a
+                    class="classic-button classic-button-bkg-grey classic-button-border"
+                    href="<?= $button['url'] ?>"
+                    target="<?= $button['target'] ?>"
+                >
+                    <?= $button['title'] ?>
+                    <?php get_template_part('components/svg-arrow-right-up-diag') ?>
+                </a>
+            <?php endif; ?>
         </div>
     </div>
 </section>

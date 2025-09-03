@@ -56,8 +56,7 @@
             </nav>
             <nav id="footer-social-media-navigation">
                 <ul class="menu-content">
-                    <?php
-                    wp_nav_menu([
+                    <?php wp_nav_menu([
                         'theme_location' => 'social-menu',
                         'menu_id' => 'social-menu',
                         'items_wrap' => '%3$s',

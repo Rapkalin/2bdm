@@ -20,7 +20,7 @@
 
     svg {
       height: fn.toRem(8);
-      width: auto;
+      width: fn.toRem(8);
     }
   }
 
@@ -79,7 +79,7 @@
 
                 svg {
                   height: fn.toRem(4);
-                  width: auto;
+                  width: fn.toRem(4);
                 }
               }
             }

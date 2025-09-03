@@ -11,8 +11,14 @@
 ?>
 
 <div class="next-article-container">
-    <a href="<?= get_permalink() ?>">`
+    <a href="<?= get_permalink() ?>">
         <div class="next-article-img-container">
+            <div class="next-article-taxonomy-button">
+                <button class="classic-button">
+                    <?= $taxonomy->name ?>
+                </button>
+            </div>
+
             <div class="next-article-img">
                 <img
                     src="<?= $next_article_banner['url']; ?>"
@@ -21,18 +27,15 @@
                     height="<?= $next_article_banner['height']; ?>"
                     width="<?= $next_article_banner['width']; ?>"
                 >
-                <div class="next-article-taxonomy-button">
+
+                <div class="next-article-button">
                     <button class="classic-button">
-                        <?= $taxonomy->name ?>
+                        En savoir plus
+                        <span class="svg-arrow-right-up-diag"><?php get_template_part("components/svg-arrow-right-up-diag"); ?></span>
                     </button>
                 </div>
             </div>
-            <div class="next-article-button">
-                <button class="classic-button">
-                    En savoir plus
-                    <span class="svg-arrow-right-up-diag"><?php get_template_part("components/svg-arrow-right-up-diag"); ?></span>
-                </button>
-            </div>
+
         </div>
     </a>
     <div class="next-article-date">

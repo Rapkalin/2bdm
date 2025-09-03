@@ -12,6 +12,7 @@
     font-size: var.$fs-h2;
     line-height: var.$lh-h2;
     font-weight: var.$fw-p;
+    text-indent: 10%;
   }
 
   .chapo-container {
@@ -27,15 +28,18 @@
 
       svg {
         height: fn.toRem(8);
-        width: auto;
+        width: fn.toRem(8);
         color: var.$grey
       }
     }
 
     .chapo-description-container {
+      color: var.$grey;
+
       .chapo-description {
+        margin-bottom: fn.toRem(24);
         font-size: var.$fs-p;
-        line-height: var.$lh-p;
+        line-height: var.$lh-p-m;
       }
     }
   }

@@ -22,7 +22,7 @@
     height: inherit;
     display: flex;
     align-items: center;
-    padding: 0 0 0 150px;
+    padding: 0 0 0 fn.toRem(150);
   }
 
   .with-text {
@@ -32,5 +32,18 @@
   .no-text {
     height: 70dvh;
     width: auto;
+  }
+}
+
+/* smartphones, iPhone, portrait 480x320 phones */
+@media (max-width:480px)  {
+  .section-block-image-with-text {
+    .block-text {
+      padding: unset;
+    }
+
+    .block-image {
+      padding: unset;
+    }
   }
 }

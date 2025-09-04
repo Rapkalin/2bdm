@@ -146,3 +146,40 @@
     }
   }
 }
+
+/* smartphones, iPhone, portrait 480x320 phones */
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (max-width:680px)  {
+  .section-block-rewards {
+    gap: fn.toRem(48);
+    padding: 0 fn.toRem(20);
+
+    .block-rewards-intro {
+      display: flex;
+      flex-direction: column;
+      gap: fn.toRem(24);
+    }
+
+    .block-rewards-container {
+      gap: fn.toRem(24);
+      grid-auto-columns: 75%;
+
+      .block-rewards-card {
+        .card-header-container {
+          .card-header {
+            .card-header-title {
+              font-size: var.$fs-h4;
+              line-height: var.$lh-p;
+            }
+
+            .card-header-category {
+              font-size: var.$fs-p-s;
+              line-height: var.$lh-p-s;
+            }
+          }
+        }
+      }
+    }
+  }
+}

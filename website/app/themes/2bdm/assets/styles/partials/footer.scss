@@ -123,5 +123,24 @@
       grid-template-rows: 1fr 1fr 1fr;
       grid-template-columns: unset;
     }
+
+    .footer-navigation {
+      flex-direction: column;
+    }
+  }
+
+  .menu-content,
+  .menu-content > div > ul
+  {
+    justify-content: space-between;
+  }
+
+  .menu-content > div > ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #footer-menu {
+    width: 100%;
   }
 }

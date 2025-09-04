@@ -19,6 +19,7 @@
       display: flex;
       align-items: center;
       gap: fn.toRem(8);
+      margin: unset;
 
       svg {
         height: fn.toRem(8);
@@ -92,7 +93,7 @@
     padding-bottom: unset;
 
     .block-details-left {
-      gap: fn.toRem(40);
+      gap: fn.toRem(24);
     }
 
     .block-details-right {
@@ -102,7 +103,9 @@
 
       .details-container {
         .row-container {
-          display: block;
+          display: flex;
+          flex-direction: column;
+          gap: fn.toRem(48);
         }
       }
     }

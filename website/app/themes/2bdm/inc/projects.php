@@ -115,7 +115,7 @@ function projects_init(): void {
         $args = [
             'post_type' => 'projects',
             'post_status' => 'publish',
-            'posts_per_page' => 4,
+            'posts_per_page' => 6,
             'paged' => $paged,
         ];
 
@@ -130,7 +130,7 @@ function projects_init(): void {
         }
 
         $query = new WP_Query($args);
-        $remaining_projects = ($query->found_posts - ($paged * 4) - 1);
+        $remaining_projects = ($query->found_posts - ($paged * 6) - 1);
 
         $projects_html = '';
         if ($query->have_posts()) {

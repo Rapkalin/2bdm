@@ -22,3 +22,13 @@
     font-weight: var.$fw-p;
   }
 }
+
+/* smartphones, iPhone, portrait 480x320 phones */
+@media (max-width:480px)  {
+  .page-header-container {
+    .title {
+      font-size: fn.toRem(80);
+      line-height: fn.toRem(80);
+    }
+  }
+}

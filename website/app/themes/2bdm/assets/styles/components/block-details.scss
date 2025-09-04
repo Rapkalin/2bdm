@@ -87,7 +87,7 @@
   .section-block-details {
     grid-template-rows: 1fr;
     grid-template-columns: unset;
-    gap: fn.toRem(48);
+    gap: fn.toRem(40);
 
     .block-details-left {
       gap: fn.toRem(40);

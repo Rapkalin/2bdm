@@ -39,6 +39,13 @@ a {
   margin-top: fn.toRem(40);
 }
 
+.svg-right svg {
+  color: var.$white;
+  height: fn.toRem(8);
+  width: fn.toRem(13);
+  margin-left: fn.toRem(8);
+}
+
 /* smartphones, iPhone, portrait 480x320 phones */
 /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
 /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */

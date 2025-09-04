@@ -7,6 +7,7 @@ import behavior_intro from "./behavior_intro";
 import behavior_carousel from "./behavior_carousel";
 import behavior_carousel_banner from "./behavior_carousel_banner";
 import behavior_accordions from "./behavior_accordions";
+import behavior_fade_up from "./behavior_fade_up";
 import behavior_filter_projects from "./behavior_filter_projects";
 import behavior_filter_articles from "./behavior_filter_articles";
 import behavior_forms from "./behavior_forms";
@@ -54,8 +55,12 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
     const peopleDetails = document.querySelectorAll('.people-details');
-    console.log(peopleDetails);
-    if(peopleDetails) {
+    if (peopleDetails.length) {
         behavior_popup.init();
+    }
+
+    const words = document.querySelectorAll('.word');
+    if (words) {
+        behavior_fade_up.init();
     }
 });

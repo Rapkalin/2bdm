@@ -1,6 +1,10 @@
 @use "../basics/variables" as var;
 @use "../basics/functions" as fn;
 
+.block_infos {
+  margin-top: unset;
+}
+
 .section-block-infos {
   display: grid;
   grid-template-columns: 1fr 2fr;

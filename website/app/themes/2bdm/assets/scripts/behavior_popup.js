@@ -18,7 +18,7 @@ const behavior_popup = {
             });
         });
 
-        const peopleDetails = document.querySelectorAll('.people-details');
+        const peopleDetails = document.querySelectorAll('.popup-active');
         const popup = document.getElementById('people-popup');
         const popupImage = popup.querySelector('.popup-image');
         const popupName = popup.querySelector('.popup-name');
@@ -33,7 +33,7 @@ const behavior_popup = {
                     const image = this.getAttribute('data-image');
 
                     popupName.textContent = name;
-                    popupDescription.textContent = description;
+                    popupDescription.innerHTML = description;
                     popupImage.src = image;
                     popupImage.alt = name;
 

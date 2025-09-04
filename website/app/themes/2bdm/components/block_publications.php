@@ -14,6 +14,13 @@
                             <div class="publication-info-details">
                                 <div class="publication-title"><?= $card['publication_title'] ?></div>
                                 <div class="publication-author"><?= $card['publication_author'] ?></div>
+
+                                <?php if ($card['button']): ?>
+                                    <a class="publication-button" href="<?= $card['button']['url'] ?>">
+                                        <?= $card['title'] ?>
+                                        <span class="svg-right"><?php get_template_part("components/svg-arrow-right") ?></span>
+                                    </a>
+                                <?php endif; ?>
                             </div>
                             <div class="publication-details">
                                 <div class="publication-name"><?= $card['publication_newspaper_title'] ?></div>

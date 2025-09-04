@@ -11,9 +11,15 @@
         <?php foreach (get_sub_field('reward_cards') as $card): ?>
             <?php
                 $projectCard = $card['reward_project'][0];
-                $project = get_fields($projectCard->ID);
-                $projectCoverImage = $card['reward_project_image']['url'] ?? $project['header_banner']['image']['url'];
-                $projectTitle = $card['reward_project_title'] ?: get_the_title($projectCard->ID);
+
+                if ($projectCard)  {
+                    $project = get_fields($projectCard->ID);
+                    $projectCoverImage = $card['reward_project_image']['url'] ?? $project['header_banner']['image']['url'];
+                    $projectTitle = $card['reward_project_title'] ?: get_the_title($projectCard->ID);
+                } else {
+                    $projectCoverImage = $card['reward_project_image']['url'];
+                    $projectTitle = $card['reward_project_title'];
+                }
             ?>
 
             <div class="block-rewards-card">
@@ -41,14 +47,16 @@
                             <?= $card['reward_project_location'] ?>
                         </div>
                     </div>
-                    <a
-                        class="card-button"
-                        href="<?= get_permalink($projectCard->ID) ?>"
-                    >
-                        Voir le projet
-                        <?php get_template_part("components/svg-arrow-right") ?>
-                    </a>
-                    <a href=""></a>
+
+                    <?php if ($projectCard): ?>
+                        <a class="card-button" href="<?= get_permalink($projectCard->ID) ?>">
+                            Voir le projet
+                            <?php get_template_part("components/svg-arrow-right") ?>
+                        </a>
+                    <?php else: ?>
+                            Page à venir
+                    <?php endif; ?>
+
                     <div class="card-description"><?= $card['reward_project_description'] ?></div>
                 </div>
             </div>

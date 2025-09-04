@@ -35,6 +35,10 @@
     }
   }
 
+  .article-button {
+    margin: fn.toRem(24) fn.toRem(113) 0 fn.toRem(113);
+  }
+
   .article-content {
     color: var.$darkgrey;
     line-height: var.$lh-p-m;

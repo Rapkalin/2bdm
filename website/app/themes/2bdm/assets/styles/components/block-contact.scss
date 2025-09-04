@@ -4,12 +4,11 @@
 .section-block-contact {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: fn.toRem(247);
-  height: 55dvh;
+  gap: 15%;
   padding: fn.toRem(104) fn.toRem(48);
 
   img {
-    height: inherit;
+    max-height: 55dvh;
     width: auto;
     object-fit: cover;
     aspect-ratio: 5 / 8;
@@ -95,6 +94,14 @@
     height: auto;
     gap: fn.toRem(48);
     padding: 0 fn.toRem(20);
+
+    img {
+      max-height: unset;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      aspect-ratio: 4 / 6;
+    }
 
     .block-contact-container {
       gap: fn.toRem(48);

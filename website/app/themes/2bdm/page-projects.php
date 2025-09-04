@@ -47,8 +47,8 @@ $total_projects = $query->found_posts;
     ?>
 </div>
 
-<!-- We display the Button load more projects only if there are more than 4 projects left -->
-<?php if ($total_projects > 4) : ?>
+<!-- We display the Button load more projects only if there are more than 6 projects left -->
+<?php if ($total_projects > 6) : ?>
     <div class="button-load-more">
         <button
             id="load-more"

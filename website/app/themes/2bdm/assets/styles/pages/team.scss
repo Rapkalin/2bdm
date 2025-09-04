@@ -64,9 +64,11 @@
         }
       }
 
-      .people-image {
-        width: 100%;
-        height: auto;
+      .people-image-button {
+        .people-image {
+          width: 100%;
+          height: auto;
+        }
       }
     }
   }

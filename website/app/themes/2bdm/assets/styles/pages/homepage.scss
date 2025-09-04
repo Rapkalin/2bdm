@@ -14,4 +14,20 @@
   box-shadow: inset 100dvw 0 0 0 rgba(0, 0, 0, 0.5);
   color: var.$white;
   padding: 0 fn.toRem(48);
+
+  .block-cover-words {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 80px;
+    width: 100%;;
+
+    .word {
+      display: flex;
+      align-items: center;
+      font-size: var.$fs-h2-m;
+      line-height: var.$lh-p-xl;
+    }
+  }
 }

@@ -7,7 +7,7 @@
         <div class="block-publications-wrapper">
             <div class="publications-intro-description"><?= get_sub_field('description') ?></div>
             <div class="block-publications-cards">
-                <?php foreach (get_sub_field('publication_card') as $card): ?>
+                <?php foreach (get_sub_field('publication_cards') as $card): ?>
                     <div class="block-publications-card">
                         <img src="<?= $card['publication_image']['url'] ?>" alt="publication-cover">
                         <div class="publication-info">

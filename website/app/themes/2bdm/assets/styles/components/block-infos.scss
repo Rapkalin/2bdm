@@ -1,6 +1,10 @@
 @use "../basics/variables" as var;
 @use "../basics/functions" as fn;
 
+.block_infos {
+  margin-top: unset;
+}
+
 .section-block-infos {
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -33,5 +37,16 @@
       }
     }
   }
+}
 
+/* smartphones, iPhone, portrait 480x320 phones */
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (max-width:780px)  {
+  .section-block-infos {
+    display: flex;
+    flex-direction: column;
+    gap: fn.toRem(48);
+    padding: fn.toRem(48) fn.toRem(20);
+  }
 }

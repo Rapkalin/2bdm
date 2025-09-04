@@ -54,7 +54,7 @@ document.addEventListener("DOMContentLoaded", () => {
         behavior_forms.init();
     }
 
-    const peopleDetails = document.querySelectorAll('.people-details');
+    const peopleDetails = document.querySelectorAll('.popup-active');
     if (peopleDetails.length) {
         behavior_popup.init();
     }

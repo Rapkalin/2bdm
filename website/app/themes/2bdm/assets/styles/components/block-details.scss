@@ -5,10 +5,10 @@
   display: grid;
   grid-template-columns: 1fr 2fr;
   color: var.$darkgrey;
-  gap: 80px;
+  gap: fn.toRem(80);
 
   .block-details-left {
-    gap: 103px;
+    gap: fn.toRem(103);
     display: flex;
     flex-direction: column;
 
@@ -19,6 +19,7 @@
       display: flex;
       align-items: center;
       gap: fn.toRem(8);
+      margin: unset;
 
       svg {
         height: fn.toRem(8);
@@ -82,3 +83,33 @@
   }
 }
 
+/* smartphones, iPhone, portrait 480x320 phones */
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (max-width:780px)  {
+  .section-block-details {
+    grid-template-rows: 1fr;
+    grid-template-columns: unset;
+    gap: fn.toRem(40);
+    padding-top: unset;
+    padding-bottom: unset;
+
+    .block-details-left {
+      gap: fn.toRem(24);
+    }
+
+    .block-details-right {
+      h2 {
+        padding-bottom: unset;
+      }
+
+      .details-container {
+        .row-container {
+          display: flex;
+          flex-direction: column;
+          gap: fn.toRem(48);
+        }
+      }
+    }
+  }
+}

@@ -15,35 +15,60 @@
     .block-people-container {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
+      align-items: start;
       gap: fn.toRem(20);
       width: 100%;
 
-      .people-details {
-        position: relative;
+      .popup-active {
         cursor: pointer;
-        display: flex;
-        justify-content: center;
-        filter: grayscale(100%);
-        transition: filter 0.3s ease;
 
-        .people-button {
-          position: absolute;
-          bottom: fn.toRem(20);
-          opacity: 0;
+        .people-image-button {
+          position: relative;
+          display: flex;
+          justify-content: center;
+
+          .people-button {
+            position: absolute;
+            bottom: fn.toRem(20);
+            opacity: 0;
+          }
         }
 
         &:hover {
-          filter: grayscale(0%);
-
-          .people-button {
-            opacity: 1;
+          .people-image-button {
+            .people-button {
+              opacity: 1;
+            }
           }
         }
       }
 
-      .people-image {
-        width: 100%;
-        height: auto;
+      .people-details {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        filter: grayscale(100%);
+        transition: filter 0.3s ease;
+        color: var.$grey;
+
+        .people-name {
+          margin-top: fn.toRem(24);
+          font-size: var.$fs-h4;
+          line-height: var.$lh-p;
+          font-weight: var.$fw-p;
+        }
+
+        &:hover {
+          filter: grayscale(0%);
+        }
+      }
+
+      .people-image-button {
+        .people-image {
+          width: 100%;
+          height: auto;
+        }
       }
     }
   }

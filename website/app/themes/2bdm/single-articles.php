@@ -31,13 +31,17 @@ $taxonomy = get_the_terms(get_the_ID(), '2bdm-articles')[0];
                             get_template_part("components/block_text");
                             break;
                         case 'content':
-                            ?><div class="article-content"><?= get_sub_field('content', $post->ID) ?></div><?php
-                            break;
+                            ?><div class="article-content"><?= get_sub_field('content', $post->ID) ?></div>
+                            <?php break;
                     } ?>
                 </section>
             <?php endwhile;
         endif;
     ?>
+
+    <?php  if($button = get_field('button')): ?>
+        <a class="article-button classic-button classic-button-bkg-grey classic-button-border" href="<?= $button['url'] ?>"><?= $button['title'] ?></a>
+    <?php endif; ?>
 </div>
 
 

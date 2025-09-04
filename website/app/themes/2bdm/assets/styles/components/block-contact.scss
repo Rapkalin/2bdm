@@ -4,12 +4,11 @@
 .section-block-contact {
   display: grid;
   grid-template-columns: 1fr 2fr;
-  gap: fn.toRem(247);
-  height: 55dvh;
+  gap: 15%;
   padding: fn.toRem(104) fn.toRem(48);
 
   img {
-    height: inherit;
+    max-height: 55dvh;
     width: auto;
     object-fit: cover;
     aspect-ratio: 5 / 8;
@@ -44,40 +43,72 @@
     .join-us-container {
       display: flex;
       align-items: flex-start;
-      padding-top: fn.toRem(24);
+      padding: fn.toRem(24) 0;
       border-top: 1px solid var.$lightgrey;
       gap: fn.toRem(28);
 
-        .join-us-details {
-          display: flex;
-          flex-direction: column;
-          gap: fn.toRem(16);
+      .join-us-details {
+        display: flex;
+        flex-direction: column;
+        gap: fn.toRem(16);
 
-          .title {
-              font-size: var.$fs-h4;
-              line-height: var.$lh-p;
-              font-weight: var.$fw-p;
-              margin: unset;
-            }
-
-            .description {
-              font-size: var.$fs-p;
-              line-height: var.$lh-p-m;
-              font-weight: var.$fw-p;
-            }
-        }
-
-        a {
-          color: var.$grey;
-          min-inline-size: fit-content;
-          border-bottom: 1px solid var.$white;
-          font-size: var.$fs-p;
-          line-height: var.$lh-p-m;
-
-          &:hover {
-            border-bottom: 1px solid var.$grey;
+        .title {
+            font-size: var.$fs-h4;
+            line-height: var.$lh-p;
+            font-weight: var.$fw-p;
+            margin: unset;
           }
+
+          .description {
+            font-size: var.$fs-p;
+            line-height: var.$lh-p-m;
+            font-weight: var.$fw-p;
+          }
+      }
+
+      a {
+        display: flex;
+        align-items: center;
+        gap: fn.toRem(8);
+        color: var.$grey;
+        min-inline-size: fit-content;
+        border-bottom: 1px solid var.$white;
+        font-size: var.$fs-p;
+        line-height: var.$lh-p-m;
+
+        &:hover {
+          border-bottom: 1px solid var.$grey;
         }
+      }
+    }
+  }
+}
+
+/* smartphones, iPhone, portrait 480x320 phones */
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (max-width:780px)  {
+  .section-block-contact {
+    display: flex;
+    flex-direction: column;
+    height: auto;
+    gap: fn.toRem(48);
+    padding: 0 fn.toRem(20);
+
+    img {
+      max-height: unset;
+      height: 100%;
+      width: 100%;
+      object-fit: cover;
+      aspect-ratio: 4 / 6;
+    }
+
+    .block-contact-container {
+      gap: fn.toRem(48);
+
+      .join-us-container {
+        flex-direction: column;
+      }
     }
   }
 }

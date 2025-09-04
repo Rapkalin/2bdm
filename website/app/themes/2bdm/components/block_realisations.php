@@ -37,6 +37,6 @@ if ($featured_projects) :
                     ?>
                 </section>
             <?php endforeach; ?>
-        <div class="projects-container main-wrapper">
+        </div>
     <?php endif;
 endif;

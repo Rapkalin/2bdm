@@ -40,3 +40,18 @@
     }
   }
 }
+
+/* smartphones, iPhone, portrait 480x320 phones */
+@media (max-width:480px)  {
+  .section-block-numbers {
+    display: block;
+
+    .block-numbers-title {
+      margin-bottom: fn.toRem(48);
+    }
+
+    .block-numbers-container {
+      gap: fn.toRem(38);
+    }
+  }
+}

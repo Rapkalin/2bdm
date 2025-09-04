@@ -11,7 +11,7 @@
 ?>
 
 <div class="next-article-container">
-    <a href="<?= get_permalink() ?>">
+    <a href="<?= get_permalink($article->ID) ?>">
         <div class="next-article-img-container">
             <div class="next-article-taxonomy-button">
                 <button class="classic-button">

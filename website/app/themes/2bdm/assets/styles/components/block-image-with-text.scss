@@ -41,7 +41,7 @@
 @media (max-width:480px)  {
   .section-block-image-with-text {
     .block-text {
-      padding: fn.toRem(80) fn.toRem(20)  fn.toRem(80) fn.toRem(20);
+      padding: fn.toRem(80) fn.toRem(20);
       font-size: var.$fs-h2-m;
       line-height: var.$lh-p-xl;
       display: grid;

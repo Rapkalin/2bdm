@@ -34,3 +34,10 @@ a {
 .svg-plus {
   margin-left: fn.toRem(8);
 }
+
+.svg-right svg {
+  color: var.$white;
+  height: fn.toRem(8);
+  width: fn.toRem(13);
+  margin-left: fn.toRem(8);
+}

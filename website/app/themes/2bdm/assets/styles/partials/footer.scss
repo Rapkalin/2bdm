@@ -5,7 +5,8 @@
 .menu-content > div > ul
 {
   display: flex;
-  gap: fn.toRem(40);
+  gap: fn.toRem(12) fn.toRem(40);
+  flex-wrap: wrap;
   list-style: none;
   margin: unset;
   padding: unset
@@ -57,6 +58,8 @@
   .footer-navigation {
     display: flex;
     justify-content: space-between;
+    flex-wrap: wrap;
+    gap: fn.toRem(48);
     margin-top: 80px;
     border-top: solid 1px;
     border-bottom: solid 1px;
@@ -106,7 +109,21 @@
     line-height: var.$lh-p-s;
 
     .menu-content {
-      gap: fn.toRem(24)
+      gap: fn.toRem(24) fn.toRem(12)
+    }
+  }
+}
+
+/* smartphones, iPhone, portrait 480x320 phones */
+@media (max-width:480px)  {
+  #footer-container {
+    .footer-addresses {
+      grid-template-rows: 1fr 1fr 1fr;
+      grid-template-columns: unset;
+    }
+
+    .footer-navigation {
+
     }
   }
 }

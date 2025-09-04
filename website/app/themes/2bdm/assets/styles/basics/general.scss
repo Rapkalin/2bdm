@@ -41,3 +41,10 @@ a {
   width: fn.toRem(13);
   margin-left: fn.toRem(8);
 }
+
+/* smartphones, iPhone, portrait 480x320 phones */
+@media (max-width:480px)  {
+  .main-wrapper {
+    padding: fn.toRem(24) fn.toRem(20);
+  }
+}

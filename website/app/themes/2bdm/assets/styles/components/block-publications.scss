@@ -100,3 +100,12 @@
     }
   }
 }
+
+/* smartphones, iPhone, portrait 480x320 phones */
+@media (max-width:480px)  {
+  .section-block-publications {
+    grid-template-rows: 1fr;
+    grid-template-columns: unset;
+    padding: unset;
+  }
+}

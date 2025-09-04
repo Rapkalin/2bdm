@@ -11,3 +11,4 @@
 [2BDM-9] - Contact pages
 [2BDM-10] - Team page
 [2BDM-11] - Animated intro
+[2BDM-12] - Mobile version

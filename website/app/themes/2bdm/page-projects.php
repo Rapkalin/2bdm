@@ -19,7 +19,7 @@ $query = new WP_Query(
         [
         'post_type' => 'projects',
         'post_status' => 'publish',
-        'posts_per_page' => 4,
+        'posts_per_page' => 6,
         'paged' => 1
     ]
 );

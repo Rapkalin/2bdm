@@ -20,3 +20,26 @@
     }
   }
 }
+
+/* smartphones, iPhone, portrait 480x320 phones */
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (max-width:780px)  {
+  .projects-container {
+    display: flex;
+    flex-direction: column;
+    padding: 0 fn.toRem(20);
+
+    .section-next-next-project-wrapper {
+      padding: fn.toRem(24) 0;
+
+      .section-block-next-project-container {
+        .next-project-img {
+          img {
+            aspect-ratio: 3.5/4;
+          }
+        }
+      }
+    }
+  }
+}

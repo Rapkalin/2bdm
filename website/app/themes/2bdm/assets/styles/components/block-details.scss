@@ -19,6 +19,7 @@
       display: flex;
       align-items: center;
       gap: fn.toRem(8);
+      margin: unset;
 
       svg {
         height: fn.toRem(8);
@@ -83,14 +84,18 @@
 }
 
 /* smartphones, iPhone, portrait 480x320 phones */
-@media (max-width:480px)  {
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (max-width:780px)  {
   .section-block-details {
     grid-template-rows: 1fr;
     grid-template-columns: unset;
-    gap: fn.toRem(48);
+    gap: fn.toRem(40);
+    padding-top: unset;
+    padding-bottom: unset;
 
     .block-details-left {
-      gap: fn.toRem(40);
+      gap: fn.toRem(24);
     }
 
     .block-details-right {
@@ -100,7 +105,9 @@
 
       .details-container {
         .row-container {
-          display: block;
+          display: flex;
+          flex-direction: column;
+          gap: fn.toRem(48);
         }
       }
     }

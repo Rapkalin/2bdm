@@ -115,7 +115,9 @@
 }
 
 /* smartphones, iPhone, portrait 480x320 phones */
-@media (max-width:480px)  {
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (max-width:780px)  {
   #footer-container {
     .footer-addresses {
       grid-template-rows: 1fr 1fr 1fr;
@@ -123,7 +125,22 @@
     }
 
     .footer-navigation {
-
+      flex-direction: column;
     }
+  }
+
+  .menu-content,
+  .menu-content > div > ul
+  {
+    justify-content: space-between;
+  }
+
+  .menu-content > div > ul {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+
+  #footer-menu {
+    width: 100%;
   }
 }

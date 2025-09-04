@@ -19,7 +19,7 @@ $query = new WP_Query(
         [
         'post_type' => 'projects',
         'post_status' => 'publish',
-        'posts_per_page' => 4,
+        'posts_per_page' => 6,
         'paged' => 1
     ]
 );
@@ -47,8 +47,8 @@ $total_projects = $query->found_posts;
     ?>
 </div>
 
-<!-- We display the Button load more projects only if there are more than 4 projects left -->
-<?php if ($total_projects > 4) : ?>
+<!-- We display the Button load more projects only if there are more than 6 projects left -->
+<?php if ($total_projects > 6) : ?>
     <div class="button-load-more">
         <button
             id="load-more"

@@ -19,7 +19,7 @@ function projects_init(): void {
                 'all_items' => 'Tous les projets',
                 'add_new_item' => 'Ajouter un projet',
                 'edit_item' => 'Éditer le projet',
-                'new_item' => 'Nouveeau projet',
+                'new_item' => 'Nouveau projet',
                 'view_item' => 'Voir le projet',
                 'search_items' => 'Rechercher parmi les projets',
                 'not_found' => 'Aucun projet trouvé',
@@ -76,7 +76,7 @@ function projects_init(): void {
     $query = new WP_Query(array(
         'post_type' => 'projects',
         'post_status' => 'publish',
-        'posts_per_page' => 4,
+        'posts_per_page' => 6,
         'paged' => $paged
     ));
 
@@ -115,7 +115,7 @@ function projects_init(): void {
         $args = [
             'post_type' => 'projects',
             'post_status' => 'publish',
-            'posts_per_page' => 4,
+            'posts_per_page' => 6,
             'paged' => $paged,
         ];
 
@@ -130,7 +130,7 @@ function projects_init(): void {
         }
 
         $query = new WP_Query($args);
-        $remaining_projects = ($query->found_posts - ($paged * 4) - 1);
+        $remaining_projects = ($query->found_posts - ($paged * 6) - 1);
 
         $projects_html = '';
         if ($query->have_posts()) {

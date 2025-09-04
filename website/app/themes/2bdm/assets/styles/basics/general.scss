@@ -35,9 +35,17 @@ a {
   margin-left: fn.toRem(8);
 }
 
+.content-blocks {
+  margin-top: fn.toRem(40);
+}
+
 /* smartphones, iPhone, portrait 480x320 phones */
 @media (max-width:480px)  {
   .main-wrapper {
     padding: fn.toRem(24) fn.toRem(20);
+  }
+
+  .content-blocks {
+    margin-top: fn.toRem(48);
   }
 }

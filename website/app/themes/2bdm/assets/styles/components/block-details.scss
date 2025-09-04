@@ -88,6 +88,8 @@
     grid-template-rows: 1fr;
     grid-template-columns: unset;
     gap: fn.toRem(40);
+    padding-top: unset;
+    padding-bottom: unset;
 
     .block-details-left {
       gap: fn.toRem(40);

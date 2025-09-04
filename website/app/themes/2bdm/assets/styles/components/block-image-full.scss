@@ -6,3 +6,12 @@
     object-fit: cover;
   }
 }
+
+/* smartphones, iPhone, portrait 480x320 phones */
+@media (max-width:480px)  {
+  .section-block-image-full {
+    img {
+      aspect-ratio: 4 / 5;
+    }
+  }
+}

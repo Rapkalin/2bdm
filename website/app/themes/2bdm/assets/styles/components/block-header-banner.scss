@@ -4,6 +4,7 @@
 .section-block-header-banner {
   display: grid;
   justify-content: center;
+  align-items: end;
   min-height: 100dvh;
   background-size:cover;
   background-position: center;
@@ -134,6 +135,7 @@
       color: white;
       display: grid;
       justify-content: center;
+      align-items: end;
       min-height: 100dvh;
     }
   }

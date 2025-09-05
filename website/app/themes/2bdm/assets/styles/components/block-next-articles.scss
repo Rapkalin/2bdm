@@ -64,10 +64,14 @@
         align-items: center;
         margin-top: fn.toRem(16);
 
-        .fa-circle {
-          font-size: fn.toRem(5);
-          color: var.$grey;
-          margin-right: fn.toRem(12);
+        span {
+          display: flex;
+
+          svg {
+            height: fn.toRem(5);
+            color: var.$grey;
+            margin-right: fn.toRem(12);
+          }
         }
       }
 

@@ -61,6 +61,10 @@
         .chapo-description {
           margin-bottom: unset;
         }
+
+        a {
+          margin-top: fn.toRem(24);
+        }
       }
     }
 

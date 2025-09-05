@@ -100,5 +100,14 @@
         margin : 0 fn.toRem(20);
       }
     }
+
+    .article-content {
+      padding: 0 fn.toRem(20) fn.toRem(24) fn.toRem(20);
+      margin: unset;
+    }
+
+    .article-button {
+      margin: fn.toRem(24) fn.toRem(20) 0 fn.toRem(20);
+    }
   }
 }

@@ -40,7 +40,13 @@ $taxonomy = get_the_terms(get_the_ID(), '2bdm-articles')[0];
     ?>
 
     <?php  if($button = get_field('button')): ?>
-        <a class="article-button classic-button classic-button-bkg-grey classic-button-border" href="<?= $button['url'] ?>"><?= $button['title'] ?></a>
+        <a
+            class="article-button classic-button classic-button-bkg-grey classic-button-border"
+            href="<?= $button['url'] ?>"
+        >
+            <?= $button['title'] ?>
+            <?php get_template_part('components/svg-arrow-right-up-diag') ?>
+        </a>
     <?php endif; ?>
 </div>
 

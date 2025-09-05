@@ -234,30 +234,66 @@ input[type="file"] {
     }
   }
 
-  .side-next {
-    margin-bottom: 64px;
-    border-top: 1px solid;
-    padding-top: 24px;
-
-    .next-title {
-      display: flex;
-      align-items: center;
-      gap: fn.toRem(8);
-      font-size: 22px;
-      line-height: 32px;
-      margin-bottom: 8px;
-
-      svg {
-        height: fn.toRem(8);
-        width: fn.toRem(8);
-        color: var.$grey
-      }
-    }
-
-    .next-description {
-      font-size: 16px;
-      line-height: 26px;
-    }
+  .side-desktop {
+    display: block;
   }
 }
 
+.side-mobile {
+  display: none;
+}
+
+.side-next {
+  margin-bottom: 64px;
+  border-top: 1px solid;
+  padding-top: 24px;
+
+  .next-title {
+    display: flex;
+    align-items: center;
+    gap: fn.toRem(8);
+    font-size: 22px;
+    line-height: 32px;
+    margin-bottom: 8px;
+
+    svg {
+      height: fn.toRem(8);
+      width: fn.toRem(8);
+      color: var.$grey
+    }
+  }
+
+  .next-description {
+    font-size: 16px;
+    line-height: 26px;
+  }
+}
+
+
+/* smartphones, iPhone, portrait 480x320 phones */
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (max-width:780px)  {
+  .contact-header-container {
+    display: flex;
+    flex-direction: column;
+    margin: fn.toRem(200) fn.toRem(20) fn.toRem(48) fn.toRem(20);
+    gap: fn.toRem(40);
+  }
+
+  .side-mobile {
+    display: block;
+    margin: 0 fn.toRem(20) fn.toRem(40) fn.toRem(20);
+  }
+
+  .form-side-container {
+    .side-desktop {
+      display: none;
+    }
+  }
+
+  .form-wrapper {
+    display: flex;
+    flex-direction: column;
+  }
+}

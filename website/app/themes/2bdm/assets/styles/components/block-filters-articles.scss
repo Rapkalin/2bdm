@@ -38,10 +38,36 @@
     align-items: center;
     gap: fn.toRem(8);
     color: var.$grey;
+    font-size: var.$fs-h4;
+    line-height: var.$lh-p;
+    font-weight: var.$fw-p;
 
     svg {
       height: fn.toRem(8);
       width: fn.toRem(8);
+    }
+  }
+}
+
+/* smartphones, iPhone, portrait 480x320 phones */
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (max-width:780px)  {
+  .filters-container-articles {
+    display: flex;
+    flex-direction: column;
+    padding: 0 fn.toRem(20);
+    gap: fn.toRem(24);
+
+    .fc-terms-container {
+      display: flex;
+      flex-direction: column;
+      padding-bottom: fn.toRem(24);
+      gap: fn.toRem(12);
+    }
+
+    .filter-term {
+      padding: 0 fn.toRem(18);
     }
   }
 }

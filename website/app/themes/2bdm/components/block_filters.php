@@ -12,7 +12,16 @@
                     <button class="fc-accordion-label" data-target="#<?= $parent_slug ?>">
                        <?= $parent_name ?>
                         <span class="icon-plus"><?php get_template_part("components/svg-plus"); ?></span>
-                        <span class="icon-minus" style="display: none;"><?php get_template_part("components/svg-minus"); ?></span>                    </button>
+                        <span class="icon-minus" style="display: none;"><?php get_template_part("components/svg-minus"); ?></span>
+                    </button>
+                    <div id="<?= $parent_slug ?>-mobile" class="accordion-content-mobile">
+                        <?php foreach ($child_terms as $child_term) : ?>
+                            <button class="child-term" data-term-id="<?= $child_term->term_id ?>">
+                                <?= $child_term->name ?>
+                                <?php get_template_part("components/svg-plus"); ?>
+                            </button>
+                        <?php endforeach; ?>
+                    </div>
             <?php endforeach; ?>
         </div>
 

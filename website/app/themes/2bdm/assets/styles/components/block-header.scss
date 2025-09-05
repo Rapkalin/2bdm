@@ -30,6 +30,7 @@
   .page-header-container {
     gap: fn.toRem(40);
     margin-top: fn.toRem(200);
+    padding: 0 fn.toRem(20);
 
     .title {
       font-size: var.$fs-h1-s;

@@ -6,8 +6,8 @@ if (have_rows('header_banner')) : the_row() ?>
         get_template_part("components/block_header_banner", args: [
             'banner' => [
                 'image'=> ['url' => get_sub_field('image')['url']],
-                'title' => get_sub_field('title'),
-                'description' => get_sub_field('description'),
+                'title' => nl2br(get_sub_field('title', false)),
+                'description' => get_sub_field('description', false),
                 'call_to_action' => get_sub_field('call_to_action'),
             ],
             'permalink' => get_permalink()

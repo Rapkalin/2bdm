@@ -59,6 +59,10 @@
       padding-bottom: fn.toRem(18);
     }
 
+    .accordion-content-mobile {
+      display: none;
+    }
+
     .accordions-container {
       position: relative;
       display: flex;
@@ -76,8 +80,6 @@
 
         &.accordion-active {
           max-height: fn.toRem(1000);
-
-
         }
       }
     }
@@ -124,4 +126,38 @@
   }
 }
 
+/* smartphones, iPhone, portrait 480x320 phones */
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (max-width:780px)  {
+  .filters-container {
+    display: flex;
+    flex-direction: column;
+    gap: fn.toRem(24);
 
+    .parent-terms-container {
+      flex-direction: column;
+
+      .fc-accordion-label {
+        display: flex;
+        justify-content: space-between;
+      }
+    }
+
+    .fc-terms-container {
+      .accordions-container {
+        display: none;
+      }
+    }
+
+    .accordion-content-mobile {
+      display: none;
+
+      &.accordion-active {
+        display: flex;
+        flex-wrap: wrap;
+        margin-bottom: fn.toRem(24);
+      }
+    }
+  }
+}

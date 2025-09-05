@@ -8,7 +8,6 @@
     <meta name="description" content="<?= get_bloginfo('description') ?>">
     <meta name="keywords" content="2BDM ARCHITECTURE, 2BDM, ARCHITECTURE, studio d'architectes, studio, studio d'artchitecture">
     <meta name="author" content="Rapkalin">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" rel="stylesheet"/>
 
     <?php wp_head(); ?>
 </head>

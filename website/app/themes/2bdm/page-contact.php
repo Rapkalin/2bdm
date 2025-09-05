@@ -19,7 +19,7 @@ get_header(args:['color-logo' => '__grey']);
                 <?php get_template_part('components/svg-bullet') ?>
                 <?= get_sub_field('title') ?>
             </div>
-            <div class="side-next">
+            <div class="side-next side-desktop">
                 <div class="next-title">
                     <?php get_template_part('components/svg-bullet') ?>
                     <?= get_sub_field('side_content_bottom')['title'] ?>
@@ -78,6 +78,13 @@ get_header(args:['color-logo' => '__grey']);
     </form>
 </div>
 
+<div class="side-next side-mobile">
+    <div class="next-title">
+        <?php get_template_part('components/svg-bullet') ?>
+        <?= get_sub_field('side_content_bottom')['title'] ?>
+    </div>
+    <p class="next-description"><?= get_sub_field('side_content_bottom')['description'] ?></p>
+</div>
 
 <?php
 

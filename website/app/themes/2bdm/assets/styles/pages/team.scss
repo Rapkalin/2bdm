@@ -59,6 +59,10 @@
           font-weight: var.$fw-p;
         }
 
+        .people-description {
+          text-align: center;
+        }
+
         &:hover {
           filter: grayscale(0%);
         }
@@ -125,7 +129,6 @@
 
   .accordion-block {
     margin-bottom: fn.toRem(10);
-    border-radius: fn.toRem(4);
     overflow: hidden;
 
     .accordion-title {
@@ -151,6 +154,32 @@
         max-height: 0;
         padding: 0;
       }
+    }
+  }
+}
+
+/* smartphones, iPhone, portrait 480x320 phones */
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (max-width:780px)  {
+  .section-block-people {
+    .block-people {
+      margin: unset;
+      padding: fn.toRem(24) 0;
+      border-top: 1px solid var.$lightgrey;
+
+      .block-people-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+
+        .people-details {
+          filter: grayscale(0%);
+        }
+      }
+    }
+
+    .accordion-block {
+      margin-bottom: unset;
     }
   }
 }

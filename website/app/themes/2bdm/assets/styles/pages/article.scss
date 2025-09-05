@@ -82,3 +82,32 @@
     }
   }
 }
+
+/* smartphones, iPhone, portrait 480x320 phones */
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (max-width:780px)  {
+  .article-container {
+    margin: fn.toRem(146) fn.toRem(20) 0 fn.toRem(20);
+
+    .article-title {
+      font-size: var.$fs-h2;
+      line-height: var.$lh-h2;
+    }
+
+    .content-blocks {
+      .article-intro-wrapper {
+        margin : 0 fn.toRem(20);
+      }
+    }
+
+    .article-content {
+      padding: 0 fn.toRem(20) fn.toRem(24) fn.toRem(20);
+      margin: unset;
+    }
+
+    .article-button {
+      margin: fn.toRem(24) fn.toRem(20) 0 fn.toRem(20);
+    }
+  }
+}

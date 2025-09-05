@@ -3,7 +3,7 @@ $images = get_sub_field('images');
 $align = get_sub_field('align');
 $size = 'full'; // (thumbnail, medium, large, full or custom size)
 if( $images ): ?>
-    <section class="section-block-gallery-images main-wrapper">
+    <section class="section-block-gallery-images main-wrapper <?= count($images) > 1 ? 'gallery-images' : 'gallery-image' ?>">
         <?php foreach( $images as $i => $image ):
             $srcset = wp_get_attachment_image_srcset($image['ID']);
 

@@ -1,4 +1,5 @@
 @use "../basics/variables" as var;
+@use "../basics/functions" as fn;
 
 .project-intro-wrapper {
   display: grid;
@@ -23,3 +24,21 @@
   line-height: var.$lh-p-xl;
   font-weight: var.$fw-p;
 }
+
+/* smartphones, iPhone, portrait 480x320 phones */
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (max-width:780px)  {
+  .project-intro-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 fn.toRem(20);
+    gap: fn.toRem(20);
+  }
+
+  .intro-description {
+    font-size: var.$fs-h2-m;
+  }
+}
+

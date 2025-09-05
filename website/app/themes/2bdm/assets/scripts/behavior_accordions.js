@@ -7,14 +7,17 @@ const behavior_accordions = {
                 const targetId = this.getAttribute('data-target');
                 const content = document.querySelector(targetId);
 
-                if (content.style.maxHeight) {
-                    content.style.maxHeight = null;
-                } else {
-                    content.style.maxHeight = content.scrollHeight + 'px';
-                }
+                // Close all accordions
+                document.querySelectorAll('.accordion-content').forEach(acc => {
+                    if (acc !== content) {
+                        acc.classList.remove('accordion-active');
+                    }
+                });
+
+                // Open the clicked accordion
+                content.classList.toggle('accordion-active');
             });
         });
     }
 };
-
 export default behavior_accordions;

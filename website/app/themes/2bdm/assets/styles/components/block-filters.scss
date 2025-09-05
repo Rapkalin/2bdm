@@ -7,6 +7,7 @@
 
   .fc-terms-container {
     display: flex;
+    flex-direction: column;
 
     .fc-accordion-label {
       font-size: var.$fs-h4;
@@ -21,31 +22,59 @@
       transition: 0.4s;
     }
 
-    .parent-term {
+    .parent-terms-container {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid var.$grey;
+      padding-bottom: fn.toRem(18);
+    }
+
+    .accordions-container {
+      position: relative;
+      display: flex;
+
       .accordion-content {
-        border-top: 1px solid var.$grey;
-        padding: 0 18px;
+        position: absolute;
+        display: flex;
+        align-items: center;
         max-height: 0;
+        margin-top: fn.toRem(12);
+        gap: fn.toRem(12);
         overflow: hidden;
-        transition: max-height 0.2s ease-out;
+        transition: max-height 0.3s ease-in-out;
         background-color: var.$white;
+
+        &.accordion-active {
+          max-height: fn.toRem(1000);
+        }
       }
     }
   }
 }
 
 .child-term {
-  cursor: pointer;
-  padding: 8px;
+  display: inline-block;
+  padding: fn.toRem(4) fn.toRem(12);
+  background-color: var.$lightgrey;
+  border-radius: fn.toRem(16);
+  border: 1px solid var.$white;
+  color: var.$white;
+  font-size: var.$fs-p;
+  line-height: var.$lh-p-m;
+  text-align: center;
+  text-decoration: none;
   transition: background-color 0.3s;
+  cursor: pointer;
 }
 
 .child-term:hover {
-  background-color: #e0e0e0;
+  background-color: var.$grey;
 }
 
 .child-term.selected {
-  background-color: #d4e6f1;
+  color: var.$grey;
+  background-color: var.$white;
+  border: 1px solid var.$grey;
 }
 
 

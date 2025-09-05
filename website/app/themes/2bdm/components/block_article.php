@@ -39,7 +39,9 @@
         </div>
     </a>
     <div class="next-article-date">
-        <i class="fa-solid fa-circle"></i>
+        <span>
+            <?php get_template_part('components/svg-bullet') ?>
+        </span>
         <?= get_field('release_date', $article->ID) ?>
     </div>
     <h2 class="next-article-title"><?= get_field('title', $article->ID) ?></h2>

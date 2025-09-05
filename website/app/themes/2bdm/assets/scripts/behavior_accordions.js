@@ -6,12 +6,13 @@ const behavior_accordions = {
             accordion.addEventListener('click', function() {
                 const targetId = this.getAttribute('data-target');
                 const content = document.querySelector(targetId);
+                const contentMobile = document.querySelector(targetId + '-mobile');
                 const iconPlus = this.querySelector('.icon-plus');
                 const iconMinus = this.querySelector('.icon-minus');
 
                 // Close all accordions
-                document.querySelectorAll('.accordion-content').forEach(acc => {
-                    if (acc !== content) {
+                document.querySelectorAll('.accordion-content, .accordion-content-mobile').forEach(acc => {
+                    if (acc !== content && acc !== contentMobile) {
                         acc.classList.remove('accordion-active');
                     }
                 });
@@ -25,17 +26,32 @@ const behavior_accordions = {
                         otherIconMinus.style.display = 'none';
                     }
                 });
+                
+                // Basculer l'état de l'accordéon cliqué
+                if (window.innerWidth <= 780) {
+                    // Version mobile
 
-                // Open the clicked accordion
-                content.classList.toggle('accordion-active');
-
-                // Toggle + icon to - icon
-                if (content.classList.contains('accordion-active')) {
-                    iconPlus.style.display = 'none';
-                    iconMinus.style.display = 'block';
+                    // Open the clicked accordion
+                    contentMobile.classList.toggle('accordion-active');
+                    if (contentMobile.classList.contains('accordion-active')) {
+                        iconPlus.style.display = 'none';
+                        iconMinus.style.display = 'block';
+                    } else {
+                        iconPlus.style.display = 'block';
+                        iconMinus.style.display = 'none';
+                    }
                 } else {
-                    iconPlus.style.display = 'block';
-                    iconMinus.style.display = 'none';
+                    // Version desktop
+
+                    // Open the clicked accordion
+                    content.classList.toggle('accordion-active');
+                    if (content.classList.contains('accordion-active')) {
+                        iconPlus.style.display = 'none';
+                        iconMinus.style.display = 'block';
+                    } else {
+                        iconPlus.style.display = 'block';
+                        iconMinus.style.display = 'none';
+                    }
                 }
             });
         });

@@ -69,7 +69,6 @@
     grid-row: 3 / 3;
     display: flex;
     flex-direction: column;
-    justify-content: flex-end;
 
     .hb-button-wrapper {
       display: flex;
@@ -158,7 +157,30 @@
   }
 }
 
+/* smartphones, iPhone, portrait 480x320 phones */
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (max-width:780px)  {
+  .section-block-header-banner {
+    .row-3 {
+      justify-content: flex-end;
+      align-items: flex-start;
+    }
 
+    .hb-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: fn.toRem(24);
+
+      h1 {
+        font-size: var.$fs-h1-s;
+        line-height: var.$lh-h1-s;
+      }
+    }
+  }
+}
 
 
 

@@ -4,11 +4,31 @@
 .filters-container {
   display: grid;
   grid-template-columns: 1fr 3fr;
+  color: var.$grey;
+
+  h3 {
+    font-size: var.$fs-h4;
+    line-height: var.$lh-p;
+    font-weight: var.$fw-p;
+    display: flex;
+    align-items: center;
+    gap: fn.toRem(8);
+    margin: unset;
+
+    svg {
+      height: fn.toRem(8);
+      width: fn.toRem(8);
+      color: var.$grey
+    }
+  }
 
   .fc-terms-container {
     display: flex;
+    flex-direction: column;
 
     .fc-accordion-label {
+      display: flex;
+      align-items: center;
       font-size: var.$fs-h4;
       font-weight: var.$fw-p;
       line-height: var.$lh-p;
@@ -18,34 +38,89 @@
       padding: 18px;
       border: none;
       text-align: left;
-      transition: 0.4s;
+      transition: all 0.4s ease-in-out;
+
+      svg {
+        height: fn.toRem(8);
+        width: auto;
+        margin-left: fn.toRem(16);
+      }
     }
 
-    .parent-term {
+    .fc-accordion-label .icon-minus {
+      display: none;
+    }
+
+    .parent-terms-container {
+      display: flex;
+      justify-content: space-between;
+      border-bottom: 1px solid var.$grey;
+      padding-bottom: fn.toRem(18);
+    }
+
+    .accordions-container {
+      position: relative;
+      display: flex;
+
       .accordion-content {
-        border-top: 1px solid var.$grey;
-        padding: 0 18px;
+        position: absolute;
+        display: flex;
+        align-items: center;
         max-height: 0;
+        margin-top: fn.toRem(12);
+        gap: fn.toRem(12);
         overflow: hidden;
-        transition: max-height 0.2s ease-out;
+        transition: max-height 0.3s ease-in-out;
         background-color: var.$white;
+
+        &.accordion-active {
+          max-height: fn.toRem(1000);
+
+
+        }
       }
     }
   }
 }
 
 .child-term {
+  display: inline-block;
+  padding: fn.toRem(4) fn.toRem(12);
+  background-color: var.$lightgrey;
+  border-radius: fn.toRem(16);
+  border: 1px solid var.$white;
+  color: var.$white;
+  font-size: var.$fs-p;
+  line-height: var.$lh-p-m;
+  text-align: center;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
   cursor: pointer;
-  padding: 8px;
-  transition: background-color 0.3s;
+
+  svg {
+    height: fn.toRem(8);
+    width: auto;
+    margin-left: fn.toRem(8);
+  }
 }
 
 .child-term:hover {
-  background-color: #e0e0e0;
+  background-color: var.$grey;
+
+  svg {
+    color: var.$white;
+  }
 }
 
 .child-term.selected {
-  background-color: #d4e6f1;
+  color: var.$grey;
+  background-color: var.$white;
+  border: 1px solid var.$grey;
+
+  svg {
+    color: var.$grey;
+    rotate: (45deg);
+  }
 }
 
 

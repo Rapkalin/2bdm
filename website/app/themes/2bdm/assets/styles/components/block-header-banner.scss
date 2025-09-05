@@ -44,21 +44,20 @@
       }
     }
 
-    .hb-description {
+    .hb-description-content {
       display: flex;
-      height: fit-content;
+      width: 80%;
       margin-bottom: 20px;
 
-      .fa-circle {
-        padding-right: 15px;
-        padding-top: 10px;
-        font-size: x-small;
+      svg {
+        height: fn.toRem(8);
+        margin-right: fn.toRem(12);
       }
+    }
 
-      p {
-        margin: unset;
-        line-height: var.$lh-p;
-      }
+    p {
+      margin: unset;
+      line-height: var.$lh-p;
     }
   }
 
@@ -186,6 +185,3 @@
     }
   }
 }
-
-
-

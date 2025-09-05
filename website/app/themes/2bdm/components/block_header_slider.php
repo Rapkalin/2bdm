@@ -8,14 +8,20 @@
                     $post = $feat_post['slide'][0];
                     // Setup this post for WP functions (variable must be named $post).
                     setup_postdata($post);
-                    $banner = get_field('header_banner', $post->ID);
-                    $banner['call_to_action'] = $cta;
-                    get_template_part("components/block_header_banner", args: [
-                        'banner' => $banner,
-                        'permalink' => get_permalink(),
-                        'extraClasses' => ['hb-slider-active'],
-                        'slider' => true,
-                    ]);
+
+                    if (have_rows('header_banner')) : the_row();
+                         get_template_part("components/block_header_banner", args: [
+                            'banner' => [
+                                'title' => nl2br(get_sub_field('title', false)),
+                                'description' => get_sub_field('description', false),
+                                'image' => get_sub_field('image'),
+                                'call_to_action' => $cta
+                            ],
+                            'permalink' => get_permalink(),
+                            'extraClasses' => ['hb-slider-active'],
+                            'slider' => true,
+                        ]);
+                    endif;
                 ?></div><?php
             endforeach;
         ?></div>

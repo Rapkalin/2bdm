@@ -94,5 +94,11 @@
       font-size: var.$fs-h2;
       line-height: var.$lh-h2;
     }
+
+    .content-blocks {
+      .article-intro-wrapper {
+        margin : 0 fn.toRem(20);
+      }
+    }
   }
 }

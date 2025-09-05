@@ -2,8 +2,14 @@
 @use '../basics/functions' as fn;
 
 .filters-container-articles {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  color: var.$grey;
+
   .fc-terms-container {
+    display: flex;
     border-bottom: 1px solid var.$lightgrey;
+    gap: fn.toRem(56);
   }
 
   .filter-term {

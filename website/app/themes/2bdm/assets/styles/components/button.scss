@@ -78,5 +78,11 @@
     font-size: var.$fs-p;
     border-radius: fn.toRem(25);
     cursor: pointer;
+
+    svg {
+      color: var.$white;
+      height: fn.toRem(8);
+      width: auto;
+    }
   }
 }

@@ -26,7 +26,7 @@ const behavior_accordions = {
                         otherIconMinus.style.display = 'none';
                     }
                 });
-                
+
                 // Basculer l'état de l'accordéon cliqué
                 if (window.innerWidth <= 780) {
                     // Version mobile

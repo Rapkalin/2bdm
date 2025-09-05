@@ -156,6 +156,7 @@
       &.accordion-active {
         display: flex;
         flex-wrap: wrap;
+        margin-bottom: fn.toRem(24);
       }
     }
   }

@@ -1,5 +1,5 @@
 <?php
-get_header();
+get_header(args:['color-logo' => '__grey']);
 
 /*
  * We only display the first taxonomy

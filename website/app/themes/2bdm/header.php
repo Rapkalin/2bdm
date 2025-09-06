@@ -22,8 +22,8 @@
             <nav id="navigation">
                 <?php $menuItems = build_menu(); ?>
                 <div class="menu-content">
-                    <?php foreach ($menuItems as $menuItem): ?>
-                        <div class="menu-item<?= $menuItem['children'] ? ' has-children' : '' ?>">
+                    <?php foreach ($menuItems as $index => $menuItem): ?>
+                        <div class="menu-item<?= $menuItem['children'] ? ' has-children' : '' ?>" data-menu-index="<?= $index ?>">
                             <?php if($menuItem['children']): ?>
                                 <div class="menu-item-title"><?= $menuItem['title'] ?></div>
                             <?php else: ?>
@@ -36,9 +36,9 @@
         </div>
         <nav class="expanded-navigation">
             <div class="expanded-menu-container">
-                <?php foreach ($menuItems as $menuItem): ?>
+                <?php foreach ($menuItems as $index => $menuItem): ?>
                     <?php if($menuItem['children']): ?>
-                        <div class="expanded-menu-section">
+                        <div class="expanded-menu-section" data-menu-index="<?= $index ?>">
                             <?php foreach ($menuItem['children'] as $label => $child): ?>
                                 <div class="subtitle"><?= $label ?></div>
                                 <?php if ($child): ?>

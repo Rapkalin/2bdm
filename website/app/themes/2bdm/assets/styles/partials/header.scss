@@ -147,32 +147,5 @@
         pointer-events: auto;
       }
     }
-
-    /* Show the correct expanded menu section on hover */
-    .menu-item.has-children:hover ~ .expanded-navigation .expanded-menu-section,
-    .menu-item.has-children:focus-within ~ .expanded-navigation .expanded-menu-section {
-      display: none;
-    }
-
-    .menu-item.has-children:hover ~ .expanded-navigation .expanded-menu-section:first-of-type,
-    .menu-item.has-children:focus-within ~ .expanded-navigation .expanded-menu-section:first-of-type {
-      display: block;
-    }
-
-    /* Show the specific expanded menu section on hover */
-    .menu-item.has-children:nth-of-type(1):hover ~ .expanded-navigation .expanded-menu-section:nth-of-type(1),
-    .menu-item.has-children:nth-of-type(1):focus-within ~ .expanded-navigation .expanded-menu-section:nth-of-type(1) {
-      display: block;
-    }
-
-    .menu-item.has-children:nth-of-type(2):hover ~ .expanded-navigation .expanded-menu-section:nth-of-type(2),
-    .menu-item.has-children:nth-of-type(2):focus-within ~ .expanded-navigation .expanded-menu-section:nth-of-type(2) {
-      display: block;
-    }
-
-    .menu-item.has-children:nth-of-type(3):hover ~ .expanded-navigation .expanded-menu-section:nth-of-type(3),
-    .menu-item.has-children:nth-of-type(3):focus-within ~ .expanded-navigation .expanded-menu-section:nth-of-type(3) {
-      display: block;
-    }
   }
 }

@@ -35,6 +35,10 @@
             </nav>
         </div>
         <nav class="expanded-navigation">
+            <div class="side">
+                <span><?php get_template_part('components/svg-bullet') ?></span>
+                <div class="site-title"><?= $menuItem['title'] ?></div>
+            </div>
             <div class="expanded-menu-container">
                 <?php foreach ($menuItems as $index => $menuItem): ?>
                     <?php if($menuItem['children']): ?>

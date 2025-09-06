@@ -6,13 +6,12 @@
   position: fixed;
   display: flex;
   justify-content: center;
-  width: 100%;
   z-index: 999;
   transition: all 0.3s ease-in-out;
   pointer-events: none; /* Désactive les événements de souris sur le conteneur principal */
 
   #header-container {
-    width: 100%;
+    width: 100dvw;
     align-items: center;
     transition: all 0.3s ease-in-out;
     pointer-events: auto; /* Réactive les événements de souris sur le contenu */
@@ -68,8 +67,10 @@
 
     .expanded-navigation {
       position: absolute;
+      display: grid;
+      grid-template-columns: 1fr 3fr;
       left: 0;
-      width: 100%;
+      width: auto;
       padding: fn.toRem(25) fn.toRem(48) 0 fn.toRem(48);
       margin-top: 0;
       opacity: 0;
@@ -78,13 +79,23 @@
       pointer-events: none;
       border-top: 1px solid var.$lightgrey;
 
-      .expanded-menu-container {
+      .side {
         display: flex;
-        flex-direction: column;
-        gap: fn.toRem(20);
+        color: var.$white;
 
+        span {
+          svg {
+            height: fn.toRem(8);
+            color: var.$white;
+            margin-right: fn.toRem(12);
+          }
+        }
+      }
+
+      .expanded-menu-container {
         .expanded-menu-section {
           display: none;
+          width: auto;
         }
 
         .subtitle {
@@ -101,10 +112,10 @@
           .child-item {
             display: inline-block;
             padding: fn.toRem(4) fn.toRem(12);
-            background-color: var.$lightgrey;
+            background-color: var.$white;
             border-radius: fn.toRem(16);
             border: 1px solid var.$white;
-            color: var.$white;
+            color: var.$grey;
             font-size: var.$fs-p;
             line-height: var.$lh-p-m;
             text-align: center;

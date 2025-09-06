@@ -135,6 +135,14 @@
   color: var.$white;
   .next-articles-container {
     .next-article-container {
+      .next-article-date {
+        span {
+          svg {
+            color: var.$white;
+          }
+        }
+      }
+
       .next-article-title {
         color: var.$white;
       }

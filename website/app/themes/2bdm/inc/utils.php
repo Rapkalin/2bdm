@@ -64,5 +64,25 @@ function get_item_menu_children(WP_Post $item, array &$menuItem): void
         case 'page-projects.php':
             $menuItem['children'] = get_terms_hierarchy('2bdm-projects');
             break;
+        case 'page-agency.php':
+            $menuItem['children'] = get_page_block_ids((int) $item->object_id);
+            break;
     endswitch;
+}
+
+function get_page_block_ids (int $pageId): array
+{
+    $block_ids = [];
+    $fields = get_fields($pageId);
+
+    foreach ($fields['content_blocks'] as $block) {
+        if (
+            $block['block_id']['label'] &&
+            $block['block_id']['identifier']
+        ) {
+            $block_ids[$block['block_id']['label']] = $block['block_id']['identifier'];
+        }
+    }
+
+    return $block_ids;
 }

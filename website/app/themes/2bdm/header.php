@@ -11,7 +11,6 @@
 </head>
 
 <body <?php body_class(); ?>>
-<div id="header-main">
     <div id="header-container">
         <div class="reduced-navigation">
             <div id="header-logo">
@@ -45,7 +44,7 @@
                         <div class="expanded-menu-section" data-menu-index="<?= $index ?>">
                             <?php foreach ($menuItem['children'] as $label => $child): ?>
                                 <div class="subtitle"><?= $label ?></div>
-                                <?php if ($child): ?>
+                                <?php if ($child && is_array($child)): ?>
                                     <div class="tags-container">
                                         <?php foreach ($child as $tag): ?>
                                             <a class="child-item" href="<?= $menuItem['url'] . '?filter=' . $tag->slug ?>">
@@ -61,5 +60,4 @@
             </div>
         </nav>
     </div>
-</div>
 <div class="container">

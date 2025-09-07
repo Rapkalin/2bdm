@@ -26,13 +26,13 @@ const behavior_menu = {
 
                 // Afficher la section correspondante
                 if (sectionToShow) {
-                    sectionToShow.style.display = 'block';
+                    sectionToShow.style.display = 'flex';
                 }
             });
         });
 
         // Masquer toutes les sections quand on quitte le menu
-        document.querySelector('#header-main').addEventListener('mouseleave', function() {
+        document.querySelector('#header-container').addEventListener('mouseleave', function() {
             expandedSections.forEach(section => {
                 section.style.display = 'none';
             });

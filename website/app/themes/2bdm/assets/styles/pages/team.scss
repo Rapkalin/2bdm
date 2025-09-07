@@ -21,6 +21,7 @@
 
       .popup-active {
         cursor: pointer;
+        z-index: 100;
 
         .people-image-button {
           position: relative;

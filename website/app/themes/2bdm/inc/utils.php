@@ -25,3 +25,64 @@ function get_terms_hierarchy(string $taxonomy): array
 
     return $terms;
 }
+
+function build_menu(): array
+{
+    $menu = [];
+
+    $items = wp_get_nav_menu_items('header-menu', [
+        'theme_location' => 'header-menu',
+        'menu_id' => 'header-menu',
+        'items_wrap' => '%3$s',
+        'container' => false,
+        'depth' => 2,
+    ]);
+
+    foreach ($items as $item) {
+        $menuItem = [
+            'title' => $item->title,
+            'url' => $item->url,
+            'children' => []
+        ];
+
+        if ($item->object === 'page') {
+            get_item_menu_children($item, $menuItem);
+        }
+
+        $menu[] = $menuItem;
+    }
+
+    return $menu;
+}
+
+function get_item_menu_children(WP_Post $item, array &$menuItem): void
+{
+    switch (get_page_template_slug((int) $item->object_id)):
+        case 'page-articles.php':
+            $menuItem['children'] = get_terms_hierarchy('2bdm-articles');
+            break;
+        case 'page-projects.php':
+            $menuItem['children'] = get_terms_hierarchy('2bdm-projects');
+            break;
+        case 'page-agency.php':
+            $menuItem['children'] = get_page_block_ids((int) $item->object_id);
+            break;
+    endswitch;
+}
+
+function get_page_block_ids (int $pageId): array
+{
+    $block_ids = [];
+    $fields = get_fields($pageId);
+
+    foreach ($fields['content_blocks'] as $block) {
+        if (
+            $block['block_id']['label'] &&
+            $block['block_id']['identifier']
+        ) {
+            $block_ids[$block['block_id']['label']] = $block['block_id']['identifier'];
+        }
+    }
+
+    return $block_ids;
+}

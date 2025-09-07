@@ -32,7 +32,7 @@ const behavior_menu = {
         });
 
         // Masquer toutes les sections quand on quitte le menu
-        document.querySelector('#header-container').addEventListener('mouseleave', function() {
+        document.querySelector('#header-main').addEventListener('mouseleave', function() {
             expandedSections.forEach(section => {
                 section.style.display = 'none';
             });

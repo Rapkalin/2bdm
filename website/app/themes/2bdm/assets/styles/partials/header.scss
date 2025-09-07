@@ -2,6 +2,8 @@
 @use "../basics/variables" as var;
 @use "../basics/functions" as fn;
 
+#header-main {
+  display: flex;
 
   #header-container {
     position: fixed;
@@ -14,12 +16,13 @@
     .reduced-navigation {
       display: flex;
       justify-content: space-between;
-      padding: fn.toRem(25) fn.toRem(48) 0 fn.toRem(48);
+      padding: fn.toRem(25) fn.toRem(48) fn.toRem(12) fn.toRem(48);
       pointer-events: auto;
 
       #header-logo {
         .dynamic-logo {
-          color: white;
+          color: var.$white;
+
           &__grey {
             color: var.$grey;
             svg {
@@ -122,6 +125,7 @@
 
             &:hover {
               background-color: var.$grey;
+              color: var.$white;
             }
           }
         }
@@ -133,6 +137,14 @@
       background-color: var.$grey;
 
       .reduced-navigation {
+        #header-logo {
+          .dynamic-logo {
+            &__grey {
+              color: var.$white;
+            }
+          }
+        }
+
         #navigation {
           .menu-content {
             .menu-item {
@@ -156,4 +168,6 @@
       }
     }
   }
+}
+
 

@@ -21,7 +21,6 @@
 
       .popup-active {
         cursor: pointer;
-        z-index: 100;
 
         .people-image-button {
           position: relative;
@@ -58,6 +57,7 @@
           font-size: var.$fs-h4;
           line-height: var.$lh-p;
           font-weight: var.$fw-p;
+          text-align: center;
         }
 
         .people-description {
@@ -88,7 +88,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 10;
+    z-index: 100;
 
     .popup-content {
       position: relative;

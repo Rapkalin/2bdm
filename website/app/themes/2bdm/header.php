@@ -11,6 +11,7 @@
 </head>
 
 <body <?php body_class(); ?>>
+<div id="header-main">
     <div id="header-container">
         <div class="reduced-navigation">
             <div id="header-logo">
@@ -60,4 +61,5 @@
             </div>
         </nav>
     </div>
-<div class="container">
+</div>
+    <div class="container">

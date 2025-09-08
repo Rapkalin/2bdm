@@ -1,0 +1,47 @@
+@use "../basics/variables" as var;
+@use "../basics/functions" as fn;
+
+.section-block-addresses {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: fn.toRem(20);
+  margin-top: fn.toRem(36);
+
+  .address-wrapper {
+    border-top: solid 1px var.$grey;
+    padding-top: fn.toRem(20);
+
+    .address-title {
+      font-weight: var.$fw-xl;
+      font-size: var.$fs-h4;
+      line-height: var.$lh-p;
+    }
+
+    .address-description {
+      font-weight: var.$fw-p;
+      font-size: var.$fs-p;
+      line-height: var.$lh-p-m;
+
+      .strong {
+        font-weight: var.$fw-xl;
+      }
+    }
+  }
+}
+
+.section__addresses__white {
+  .address-wrapper {
+    border-top: solid 1px var.$lightgrey-m;
+    color: var.$white;
+  }
+}
+
+/* smartphones, iPhone, portrait 480x320 phones */
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (max-width:780px)  {
+  .section-block-addresses {
+    display: flex;
+    flex-direction: column;
+  }
+}

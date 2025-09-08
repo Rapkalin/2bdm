@@ -38,12 +38,14 @@ function build_menu(): array
         $menuItem = [
             'title' => $item->title,
             'url' => $item->url,
-            'children' => []
+            'children' => [],
+            'is_contact' => false
         ];
 
         if ($item->object === 'page') {
             get_item_menu_children($item, $menuItem);
         }
+
 
         /*
          * If a menu entry has a parent then we bind it to its parent with type = pages
@@ -58,6 +60,8 @@ function build_menu(): array
             $menu[$item->ID] = $menuItem;
         }
     }
+
+    set_menu_entry_contact($menu);
 
     return $menu;
 }
@@ -77,6 +81,11 @@ function get_item_menu_children(WP_Post $item, array &$menuItem): void
             $menuItem['children'] = get_page_block_ids((int) $item->object_id);
             $menuItem['type'] = 'anchors';
             break;
+        case 'page-contact.php':
+            $menuItem['children'] = [];
+            $menuItem['type'] = 'links';
+            $menuItem['is_contact'] = true;
+            break;
     endswitch;
 }
 
@@ -95,4 +104,61 @@ function get_page_block_ids(int $pageId): array
     }
 
     return $block_ids;
+}
+
+function set_menu_entry_contact(array &$menuItems): void
+{
+    foreach ($menuItems as &$menuItem) {
+        /*
+         * If the entry is a direct page && a contact page this key is already set to true
+         * Else we check if any of the children of the entry is a contact page type and if so, then we set the parent as contact as well
+         */
+        if (!$menuItem['is_contact']) {
+            $menuItem['is_contact'] = check_menu_entry_contact($menuItem['children']);
+        }
+    }
+}
+
+function check_menu_entry_contact(array $childrenItem): bool
+{
+    /*
+     * Is one of the child is contact we return true
+     * even tho the other are false or not
+     */
+    $isContact = false;
+    foreach ($childrenItem as $child) {
+        if (isset($child['is_contact']) && $child['is_contact']) {
+            $isContact = true;
+        }
+    }
+
+    return $isContact;
+}
+
+function get_addresses(): array
+{
+    return [
+        [
+            'title' => 'Paris',
+            'address' => '60, 62, rue d’Hauteville',
+            'zipcode' => '75010 Paris',
+            'phone_number' => '+33 1 42 26 76 10',
+            'email' => 'contact@2bdm.fr'
+        ],
+        [
+            'title' => 'Versailles',
+            'address' => 'Château de Versailles · Aile des Ministres Nord',
+            'zipcode' => 'RP834 · 78008 Versailles',
+            'phone_number' => '+33 1 30 83 74 10',
+            'email' => 'versailles@2bdm.fr'
+        ],
+        [
+            'title' => 'Grand Est',
+            'address' => '81, rue Théodore Deck',
+            'zipcode' => '68500 Guebwiller',
+            'phone_number' => '+33 3 89 31 44 67',
+            'email' => 'grandest@2bdm.fr'
+        ],
+
+    ];
 }

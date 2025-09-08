@@ -4,34 +4,44 @@ const behavior_menu = {
         const expandedSections = document.querySelectorAll('.expanded-menu-section');
         const sideDiv = document.querySelector('.site-title');
 
-        // Masquer toutes les sections au chargement
+        // Hide all section when menu is loaded
         expandedSections.forEach(section => {
             section.style.display = 'none';
         });
 
-        // Gérer le survol des éléments de menu
+        // Handle menu hover
         menuItems.forEach(item => {
             item.addEventListener('mouseenter', function() {
+
+                // We remove active class on all items
+                menuItems.forEach(item => {
+                    item.classList.remove('active');
+                })
+
+                // We add the active class on the current element
+                item.classList.add('active')
+
                 const menuIndex = this.getAttribute('data-menu-index');
                 const sectionToShow = document.querySelector(`.expanded-menu-section[data-menu-index="${menuIndex}"]`);
                 const menuItemTitle = this.querySelector('.menu-item-title').textContent;
+                item.classList.add('active')
 
-                // Masquer toutes les sections
+                // Hide all menu sections
                 expandedSections.forEach(section => {
                     section.style.display = 'none';
                 });
 
-                // Mettre à jour le contenu de la div .side
+                // Update the div .side
                 sideDiv.textContent = menuItemTitle;
 
-                // Afficher la section correspondante
+                // Display the hovered menu section
                 if (sectionToShow) {
                     sectionToShow.style.display = 'flex';
                 }
             });
         });
 
-        // Masquer toutes les sections quand on quitte le menu
+        // Hide all menu sections if user leave hover menu
         document.querySelector('#header-main').addEventListener('mouseleave', function() {
             expandedSections.forEach(section => {
                 section.style.display = 'none';

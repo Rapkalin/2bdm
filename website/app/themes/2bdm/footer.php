@@ -13,34 +13,18 @@
             </a>
         </div>
 
-        <div class="footer-addresses">
-            <div class="ft-wrapper">
-                <h4 class="ft-title">Paris</h4>
-                <div class="ft-description">
-                    <p>60 · 62, rue d’Hauteville</p>
-                    <p>75010 Paris</p>
-                    <p class="strong">+33 1 42 26 76 10</p>
-                    <p class="strong">contact@2bdm.fr</p>
+        <div class="section-block-addresses">
+            <?php foreach (get_addresses() as $address): ?>
+                <div class="address-wrapper">
+                    <h4 class="address-title"><?= $address['title'] ?></h4>
+                    <div class="address-description">
+                        <p><?= $address['address'] ?></p>
+                        <p><?= $address['zipcode'] ?></p>
+                        <p class="strong"><?= $address['phone_number'] ?></p>
+                        <p class="strong"><?= $address['email'] ?></p>
+                    </div>
                 </div>
-            </div>
-            <div class="ft-wrapper">
-                <h4 class="ft-title">Versailles</h4>
-                <div class="ft-description">
-                    <p>Château de Versailles · Aile des Ministres Nord </p>
-                    <p>RP834 · 78008 Versailles</p>
-                    <p class="strong">+33 1 30 83 74 10</p>
-                    <p class="strong">versailles@2bdm.fr</p>
-                </div>
-            </div>
-            <div class="ft-wrapper">
-                <h4 class="ft-title">Grand Est</h4>
-                <div class="ft-description">
-                    <p>81, rue Théodore Deck</p>
-                    <p>68500 Guebwiller</p>
-                    <p class="strong">+33 3 89 31 44 67</p>
-                    <p class="strong">grandest@2bdm.fr</p>
-                </div>
-            </div>
+            <?php endforeach; ?>
         </div>
 
         <div class="footer-navigation">

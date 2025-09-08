@@ -58,6 +58,22 @@
                                         </div>
                                     <?php endif; ?>
                                 <?php endforeach; ?>
+
+                                <?php if($menuItem['is_contact']): ?>
+                                    <div class="section-block-addresses section__addresses__white">
+                                        <?php foreach (get_addresses() as $address): ?>
+                                            <div class="address-wrapper">
+                                                <h4 class="address-title"><?= $address['title'] ?></h4>
+                                                <div class="address-description">
+                                                    <p><?= $address['address'] ?></p>
+                                                    <p><?= $address['zipcode'] ?></p>
+                                                    <p class="strong"><?= $address['phone_number'] ?></p>
+                                                    <p class="strong"><?= $address['email'] ?></p>
+                                                </div>
+                                            </div>
+                                        <?php endforeach; ?>
+                                    </div>
+                                <?php endif; ?>
                             </div>
                         <?php endif; ?>
                     <?php endforeach; ?>
@@ -86,7 +102,12 @@
                     <!-- Handle first menu level -->
                     <div class="mobile-menu-level" data-level="0">
                         <?php foreach ($menuItems as $index => $menuItem): ?>
-                            <div class="mobile-menu-item<?= $menuItem['children'] ? ' has-children' : '' ?>" data-menu-index="<?= $index ?>" data-level="0">
+                            <div
+                                class="mobile-menu-item<?= $menuItem['children'] ? ' has-children' : '' ?>"
+                                data-menu-index="<?= $index ?>"
+                                data-level="0"
+                                <?php if($menuItem['is_contact']): ?>data-addresses="<?= htmlspecialchars(json_encode(get_addresses()), ENT_QUOTES, 'UTF-8') ?>"<?php endif; ?>
+                            >
                                 <?php if($menuItem['children']): ?>
                                     <div class="mobile-menu-item-title">
                                         <?= $menuItem['title'] ?>
@@ -102,7 +123,10 @@
                     </div>
 
                     <!-- Dynamically handled in behavior_menu_mobile -->
-                    <div class="mobile-menu-level" data-level="1" style="display: none;"></div>
+                    <div
+                        class="mobile-menu-level"
+                        data-level="1" style="display: none;"
+                    ></div>
                 </div>
             </nav>
         </div>

@@ -175,7 +175,7 @@
 /* Mobile Menu */
 
 .header-menu-container {
-  display: flex;
+  display: none;
   justify-content: space-between;
   padding: fn.toRem(12);
 
@@ -345,6 +345,8 @@
   }
 
   .header-menu-container {
+    display: flex;
+    
     .mobile-menu-button {
       display: block;
     }

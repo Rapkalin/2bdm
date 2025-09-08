@@ -2,6 +2,7 @@
 @use "../basics/variables" as var;
 @use "../basics/functions" as fn;
 
+/* Desktop Menu */
 #header-main {
   display: flex;
 
@@ -19,7 +20,7 @@
       padding: fn.toRem(25) fn.toRem(48) fn.toRem(12) fn.toRem(48);
       pointer-events: auto;
 
-      #header-logo {
+      .header-logo {
         .dynamic-logo {
           color: var.$white;
 
@@ -138,7 +139,7 @@
       background-color: var.$grey;
 
       .reduced-navigation {
-        #header-logo {
+        .header-logo {
           .dynamic-logo {
             &__grey {
               color: var.$white;
@@ -172,40 +173,64 @@
 }
 
 /* Mobile Menu */
-.mobile-menu-button {
-  display: none;
-  position: fixed;
-  top: fn.toRem(25);
-  right: fn.toRem(48);
-  width: fn.toRem(48);
-  height: fn.toRem(48);
-  background-color: var.$grey;
-  border-radius: 50%;
-  border: none;
-  cursor: pointer;
-  z-index: 1000;
 
-  .burger-icon {
-    position: relative;
-    display: flex;
-    width: 100%;
-    height: 2px;
-    background-color: var.$white;
-    transition: all 0.3s ease-in-out;
+.header-menu-container {
+  display: flex;
+  justify-content: space-between;
+  padding: fn.toRem(12);
 
-    &::before, &::after {
-      content: '';
-      position: absolute;
+
+  .header-logo {
+    .dynamic-logo {
+      color: var.$white;
+
+      &__grey {
+        color: var.$grey;
+
+        svg {
+          height: fn.toRem(49);
+          width: auto;
+        }
+      }
+      svg {
+        height: fn.toRem(49);
+        width: auto;
+      }
+    }
+  }
+
+  .mobile-menu-button {
+    display: none;
+    width: fn.toRem(48);
+    height: fn.toRem(48);
+    background-color: var.$grey;
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+    z-index: 1000;
+
+    .burger-icon {
+      position: relative;
+      display: flex;
       width: 100%;
       height: 2px;
       background-color: var.$white;
       transition: all 0.3s ease-in-out;
-    }
-    &::before {
-      top: -8px;
-    }
-    &::after {
-      top: 8px;
+
+      &::before, &::after {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: var.$white;
+        transition: all 0.3s ease-in-out;
+      }
+      &::before {
+        top: -8px;
+      }
+      &::after {
+        top: 8px;
+      }
     }
   }
 }
@@ -319,8 +344,10 @@
     }
   }
 
-  .mobile-menu-button {
-    display: block;
+  .header-menu-container {
+    .mobile-menu-button {
+      display: block;
+    }
   }
 
   #navigation {

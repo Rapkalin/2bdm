@@ -80,7 +80,7 @@ function get_item_menu_children(WP_Post $item, array &$menuItem): void
     endswitch;
 }
 
-function get_page_block_ids (int $pageId): array
+function get_page_block_ids(int $pageId): array
 {
     $block_ids = [];
     $fields = get_fields($pageId);

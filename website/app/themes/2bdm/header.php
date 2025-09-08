@@ -25,7 +25,7 @@
                         <span class="dynamic-logo<?= $args['color-logo'] ?? '' ?>"><?php get_template_part("components/logo-white"); ?></span>
                     </a>
                 </div>
-                
+
                 <nav id="navigation">
                     <?php $menuItems = build_menu(); ?>
                     <div class="menu-content">

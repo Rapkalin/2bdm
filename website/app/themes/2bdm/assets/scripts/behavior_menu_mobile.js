@@ -38,6 +38,7 @@ const behavior_menu_mobile = {
         }
 
         const mobileMenuItems = document.querySelectorAll('.mobile-menu-item.has-children');
+        const menuItemsContainer = document.querySelector(`.mobile-menu-level[data-level="0"]`);
 
         if (mobileMenuButton && mobileNavigation) {
             mobileMenuButton.addEventListener('click', function() {
@@ -60,6 +61,7 @@ const behavior_menu_mobile = {
                 if (title) {
                     title.addEventListener('click', function(e) {
                         e.preventDefault();
+                        console.log('main container ::', mobileMenuItems);
                         const menuIndex = item.getAttribute('data-menu-index');
                         const menuLevel = parseInt(item.getAttribute('data-level')) + 1;
                         showSubmenu(menuIndex, menuLevel, menuData);
@@ -70,17 +72,16 @@ const behavior_menu_mobile = {
 
         // Fonction pour afficher un sous-menu
         function showSubmenu(menuIndex, level, menuData) {
-            if (!menuData || !menuData[menuIndex]) return;
+            if (!menuData || !menuData[menuIndex]) { return }
 
             const menuItem = document.querySelector(`.mobile-menu-item[data-menu-index="${menuIndex}"]`);
-            if (!menuItem) return;
+            if (!menuItem) { return }
 
-            const menuTitle = menuItem.querySelector('.mobile-menu-item-title').textContent;
             const currentItem = menuData[menuIndex];
 
             // Récupérer le conteneur du niveau
             const levelContainer = document.querySelector(`.mobile-menu-level[data-level="${level}"]`);
-            if (!levelContainer) return;
+            if (!levelContainer) { return }
 
             // Vider le conteneur
             levelContainer.innerHTML = '';
@@ -90,7 +91,7 @@ const behavior_menu_mobile = {
             backButton.className = 'mobile-back-button';
             backButton.innerHTML = `
                 <span class="arrow">←</span>
-                <span>${menuTitle}</span>
+                <span>Retour</span>
             `;
             backButton.addEventListener('click', function() {
                 hideSubmenu(level);
@@ -135,6 +136,9 @@ const behavior_menu_mobile = {
                 levelContainer.appendChild(submenuItem);
             }
 
+            // Hide the level 0 div
+            menuItemsContainer.style.display = 'none'
+
             // Afficher le niveau
             levelContainer.style.display = 'flex';
             document.querySelector(`.mobile-menu-level[data-level="${level-1}"]`).style.transform = 'translateX(-100%)';
@@ -144,6 +148,7 @@ const behavior_menu_mobile = {
         function hideSubmenu(level) {
             document.querySelector(`.mobile-menu-level[data-level="${level}"]`).style.display = 'none';
             document.querySelector(`.mobile-menu-level[data-level="${level-1}"]`).style.transform = 'translateX(0)';
+            menuItemsContainer.style.display = 'flex'
         }
     }
 };

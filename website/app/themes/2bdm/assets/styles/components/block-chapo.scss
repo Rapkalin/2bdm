@@ -5,7 +5,7 @@
   display: flex;
   flex-direction: column;
   gap: fn.toRem(64);
-  padding: fn.toRem(160) fn.toRem(128);
+  padding: fn.toRem(128) fn.toRem(160);
   font-weight: var.$fw-p;
 
   .chapo-title {

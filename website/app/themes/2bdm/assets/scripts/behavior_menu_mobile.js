@@ -1,11 +1,11 @@
 const behavior_menu_mobile = {
     init() {
-        // Vérifier si c'est un appareil mobile
+        // Check if you are in mobile mode
         function isMobile() {
             return window.innerWidth <= 768;
         }
 
-        // Supprimer les menus desktop en mobile
+        // Remove desktop menu when in mobile mode
         function optimizeDOMForMobile() {
             if (isMobile()) {
                 const desktopMenus = document.querySelector('.desktop-menus');
@@ -15,17 +15,16 @@ const behavior_menu_mobile = {
             }
         }
 
-        // Exécuter au chargement et au redimensionnement
+        // Execut and load and resize
         optimizeDOMForMobile();
         window.addEventListener('resize', optimizeDOMForMobile);
 
-        // Le reste de votre code JavaScript pour le menu mobile
         const mobileMenuButton = document.querySelector('.mobile-menu-button');
         const mobileNavigation = document.querySelector('.mobile-navigation');
 
         if (!mobileNavigation) return;
 
-        // Récupérer les données du menu de manière sécurisée
+        // Retrieve the menu data
         let menuData = [];
         try {
             const menuItemsAttr = mobileNavigation.getAttribute('data-menu-items');
@@ -34,7 +33,7 @@ const behavior_menu_mobile = {
                 console.log('parsdd data', menuData);
             }
         } catch (e) {
-            console.error("Erreur lors du parsing des données du menu:", e);
+            console.error("Error while parsing the menu data:", e);
         }
 
         const mobileMenuItems = document.querySelectorAll('.mobile-menu-item.has-children');
@@ -45,7 +44,7 @@ const behavior_menu_mobile = {
                 this.classList.toggle('active');
                 mobileNavigation.classList.toggle('active');
 
-                // Animation du burger
+                // Burger menu animation
                 const burgerIcon = this.querySelector('.burger-icon');
                 if (burgerIcon) {
                     burgerIcon.classList.toggle('active');
@@ -53,7 +52,7 @@ const behavior_menu_mobile = {
             });
         }
 
-        // Gestion des éléments avec enfants
+        // Handle elements with children
         if (mobileMenuItems) {
             mobileMenuItems.forEach(item => {
                 const title = item.querySelector('.mobile-menu-item-title');
@@ -61,17 +60,16 @@ const behavior_menu_mobile = {
                 if (title) {
                     title.addEventListener('click', function(e) {
                         e.preventDefault();
-                        console.log('main container ::', mobileMenuItems);
                         const menuIndex = item.getAttribute('data-menu-index');
                         const menuLevel = parseInt(item.getAttribute('data-level')) + 1;
-                        showSubmenu(menuIndex, menuLevel, menuData);
+                        showSubmenu(menuIndex, menuLevel, menuData, item);
                     });
                 }
             });
         }
 
-        // Fonction pour afficher un sous-menu
-        function showSubmenu(menuIndex, level, menuData) {
+        // Function to display the submenu entries
+        function showSubmenu(menuIndex, level, menuData, parentLevel) {
             if (!menuData || !menuData[menuIndex]) { return }
 
             const menuItem = document.querySelector(`.mobile-menu-item[data-menu-index="${menuIndex}"]`);
@@ -79,26 +77,28 @@ const behavior_menu_mobile = {
 
             const currentItem = menuData[menuIndex];
 
-            // Récupérer le conteneur du niveau
+            // Retrieve the menu level container
             const levelContainer = document.querySelector(`.mobile-menu-level[data-level="${level}"]`);
             if (!levelContainer) { return }
 
-            // Vider le conteneur
+            // Empty the container
             levelContainer.innerHTML = '';
 
-            // Ajouter un bouton retour
+            // Add a return button
             const backButton = document.createElement('div');
             backButton.className = 'mobile-back-button';
             backButton.innerHTML = `
                 <span class="arrow">←</span>
                 <span>Retour</span>
             `;
+
             backButton.addEventListener('click', function() {
                 hideSubmenu(level);
             });
+
             levelContainer.appendChild(backButton);
 
-            // Ajouter les sous-éléments
+            // Add sub elements
             for (const [label, child] of Object.entries(currentItem.children)) {
                 const submenuItem = document.createElement('div');
                 submenuItem.className = 'mobile-submenu-section';
@@ -139,12 +139,43 @@ const behavior_menu_mobile = {
             // Hide the level 0 div
             menuItemsContainer.style.display = 'none'
 
-            // Afficher le niveau
+            // display the level
             levelContainer.style.display = 'flex';
             document.querySelector(`.mobile-menu-level[data-level="${level-1}"]`).style.transform = 'translateX(-100%)';
+
+            if (currentItem.is_contact) {
+                const blockAddresses = document.createElement('div');
+
+                // Retrieve the menu data
+                let addressesData = [];
+                try {
+                    const addressesAttr = parentLevel.getAttribute('data-addresses');
+                    if (addressesAttr) {
+                        addressesData = JSON.parse(addressesAttr);
+                        console.log('addresses data', addressesData);
+                        blockAddresses.className = 'section-block-addresses section__addresses__white';
+
+                        addressesData.forEach(address => {
+                            blockAddresses.innerHTML += `<div class="address-wrapper">
+                                <h4 class="address-title">${address.title}</h4>
+                                <div class="address-description">
+                                    <p>${address.address}</p>
+                                    <p>${address.zipcode}</p>
+                                    <p class="strong">${address.phone_number}</p>
+                                    <p class="strong">${address.email}</p>
+                                </div>`
+                        });
+
+                        levelContainer.appendChild(blockAddresses);
+                    }
+                } catch (e) {
+                    console.error("Error while parsing the menu data:", e);
+                }
+
+            }
         }
 
-        // Fonction pour masquer un sous-menu
+        // Hide sub menu
         function hideSubmenu(level) {
             document.querySelector(`.mobile-menu-level[data-level="${level}"]`).style.display = 'none';
             document.querySelector(`.mobile-menu-level[data-level="${level-1}"]`).style.transform = 'translateX(0)';

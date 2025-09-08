@@ -26,35 +26,6 @@
     }
   }
 
-  .footer-addresses {
-    display: grid;
-    grid-template-columns: 1fr 1fr 1fr;
-    gap: fn.toRem(20);
-    margin-top: fn.toRem(36);
-
-    .ft-wrapper {
-      border-top: solid 1px;
-      border-color: var.$grey;
-      padding-top: fn.toRem(20);
-
-      .ft-title {
-        font-weight: var.$fw-xl;
-        font-size: var.$fs-h4;
-        line-height: var.$lh-p;
-      }
-
-      .ft-description {
-        font-weight: var.$fw-p;
-        font-size: var.$fs-p;
-        line-height: var.$lh-p-m;
-
-        .strong {
-          font-weight: var.$fw-xl;
-        }
-      }
-    }
-  }
-
   .footer-navigation {
     display: flex;
     justify-content: space-between;

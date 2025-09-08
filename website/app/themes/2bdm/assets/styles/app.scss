@@ -6,6 +6,7 @@
 @use "partials/footer" as *;
 
 /* COMPONENTS */
+@use "components/block-addresses" as *;
 @use "components/button" as *;
 @use "components/block-carousel" as *;
 @use "components/block-chapo" as *;

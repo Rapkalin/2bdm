@@ -80,10 +80,10 @@
                 </button>
             </div>
             <nav id="mobile-navigation" class="mobile-navigation"
-                 data-menu-items='<?= htmlspecialchars(json_encode($menuItems, JSON_UNESCAPED_UNICODE | JSON_HEX_QUOT), ENT_QUOTES, 'UTF-8') ?>'
+                 data-menu-items='<?= htmlspecialchars(json_encode($menuItems), ENT_QUOTES, 'UTF-8') ?>'
             >
                 <div class="mobile-menu-content">
-                    <!-- Conteneur pour le contenu actuel -->
+                    <!-- Handle first menu level -->
                     <div class="mobile-menu-level" data-level="0">
                         <?php foreach ($menuItems as $index => $menuItem): ?>
                             <div class="mobile-menu-item<?= $menuItem['children'] ? ' has-children' : '' ?>" data-menu-index="<?= $index ?>" data-level="0">
@@ -101,7 +101,7 @@
                         <?php endforeach; ?>
                     </div>
 
-                    <!-- Conteneurs pour les niveaux de profondeur (seront remplis dynamiquement) -->
+                    <!-- Dynamically handled in behavior_menu_mobile -->
                     <div class="mobile-menu-level" data-level="1" style="display: none;"></div>
                 </div>
             </nav>

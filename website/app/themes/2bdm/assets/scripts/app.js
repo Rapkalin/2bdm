@@ -9,6 +9,7 @@ import behavior_carousel_banner from "./behavior_carousel_banner";
 import behavior_accordions from "./behavior_accordions";
 import behavior_fade_up from "./behavior_fade_up";
 import behavior_menu from "./behavior_menu";
+import behavior_menu_mobile from "./behavior_menu_mobile";
 import behavior_filter_projects from "./behavior_filter_projects";
 import behavior_filter_articles from "./behavior_filter_articles";
 import behavior_forms from "./behavior_forms";
@@ -67,4 +68,5 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* As the menu is on all pages this Behavior is always called */
     behavior_menu.init();
+    behavior_menu_mobile.init();
 });

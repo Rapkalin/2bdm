@@ -29,13 +29,9 @@ function get_terms_hierarchy(string $taxonomy): array
 function build_menu(): array
 {
     $menu = [];
-
     $items = wp_get_nav_menu_items('header-menu', [
         'theme_location' => 'header-menu',
         'menu_id' => 'header-menu',
-        'items_wrap' => '%3$s',
-        'container' => false,
-        'depth' => 2,
     ]);
 
     foreach ($items as $item) {
@@ -49,7 +45,18 @@ function build_menu(): array
             get_item_menu_children($item, $menuItem);
         }
 
-        $menu[] = $menuItem;
+        /*
+         * If a menu entry has a parent then we bind it to its parent with type = pages
+         * menu entry
+         *  -> child one
+         *  -> child two
+         */
+        if((int) $item->menu_item_parent && isset($menu[$item->menu_item_parent])) {
+            $menu[$item->menu_item_parent]['children'][$menuItem['title']] = $menuItem;
+            $menu[$item->menu_item_parent]['type'] = 'pages';
+        } else {
+            $menu[$item->ID] = $menuItem;
+        }
     }
 
     return $menu;
@@ -60,12 +67,15 @@ function get_item_menu_children(WP_Post $item, array &$menuItem): void
     switch (get_page_template_slug((int) $item->object_id)):
         case 'page-articles.php':
             $menuItem['children'] = get_terms_hierarchy('2bdm-articles');
+            $menuItem['type'] = 'links';
             break;
         case 'page-projects.php':
             $menuItem['children'] = get_terms_hierarchy('2bdm-projects');
+            $menuItem['type'] = 'tags';
             break;
         case 'page-agency.php':
             $menuItem['children'] = get_page_block_ids((int) $item->object_id);
+            $menuItem['type'] = 'anchors';
             break;
     endswitch;
 }

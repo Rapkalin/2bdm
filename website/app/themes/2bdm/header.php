@@ -92,7 +92,8 @@
                 </div>
 
                 <button id="mobile-menu-button" class="mobile-menu-button">
-                    <span class="burger-icon"></span>
+                    <span class="burger-icon active"></span>
+                    <span class="close-icon">x Fermer</span>
                 </button>
             </div>
             <nav id="mobile-navigation" class="mobile-navigation"

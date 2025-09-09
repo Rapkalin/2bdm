@@ -41,15 +41,18 @@ const behavior_menu_mobile = {
         if (mobileMenuButton && mobileNavigation) {
             mobileMenuButton.addEventListener('click', function() {
                 this.classList.toggle('active');
-                mobileNavigation.classList.toggle('active');
+                this.classList.toggle('color-white');
+                mobileNavigation.classList.toggle('active')
 
                 // Prevent body from being scrollable when mobile menu is open
                 document.body.classList.toggle('mobile-menu-open');
 
                 // Burger menu animation
                 const burgerIcon = this.querySelector('.burger-icon');
+                const closeMenuIcon = this.querySelector('.close-icon');
                 if (burgerIcon) {
                     burgerIcon.classList.toggle('active');
+                    closeMenuIcon.classList.toggle('active');
                 }
             });
         }

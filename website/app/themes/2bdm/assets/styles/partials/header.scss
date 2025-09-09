@@ -254,7 +254,7 @@
 }
 
 .mobile-navigation {
-  display: none;
+  display: block;
   position: fixed;
   top: 0;
   left: 0;
@@ -264,13 +264,14 @@
   z-index: 190;
   padding: fn.toRem(100) 0;
   opacity: 0;
-  transition: opacity 0.3s ease-in-out;
+  transition: all 0.3s ease-in-out;
   overflow-y: hidden;
+  visibility: hidden;
 
   &.active {
     opacity: 1;
-    display: block;
     backdrop-filter: blur(5px);
+    visibility: visible;
   }
 
   .mobile-menu-content {

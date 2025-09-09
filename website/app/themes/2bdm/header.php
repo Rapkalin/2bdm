@@ -11,7 +11,7 @@
 </head>
 <body <?php body_class(); ?>>
 <div id="header-main">
-    <div id="header-container">
+    <div id="header-container" class="header-container">
         <!-- Desktop menu container -->
         <div class="desktop-menus">
             <div class="reduced-navigation">
@@ -40,11 +40,11 @@
             <nav class="expanded-navigation">
                 <div class="side">
                     <span><?php get_template_part('components/svg-bullet') ?></span>
-                    <div class="site-title"></div>
+                    <div class="side-title"></div>
                 </div>
                 <div class="expanded-menu-container">
                     <?php foreach ($menuItems as $index => $menuItem): ?>
-                        <?php if($menuItem['children']): ?>
+                        <?php if(!empty($menuItem['children'])): ?>
                             <div class="expanded-menu-section" data-menu-index="<?= $index ?>">
                                 <?php foreach ($menuItem['children'] as $label => $child): ?>
                                     <div class="subtitle"><?= $label ?></div>
@@ -93,7 +93,7 @@
 
                 <button id="mobile-menu-button" class="mobile-menu-button">
                     <span class="burger-icon active"></span>
-                    <span class="close-icon">x Fermer</span>
+                    <span class="close-icon">Fermer</span>
                 </button>
             </div>
             <nav id="mobile-navigation" class="mobile-navigation"

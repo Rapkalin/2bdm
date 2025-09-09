@@ -2,7 +2,7 @@ const behavior_menu = {
     init() {
         const menuItems = document.querySelectorAll('.menu-item.has-children');
         const expandedSections = document.querySelectorAll('.expanded-menu-section');
-        const sideDiv = document.querySelector('.site-title');
+        const sideDiv = document.querySelector('.side-title');
 
         // Hide all section when menu is loaded
         expandedSections.forEach(section => {
@@ -41,8 +41,20 @@ const behavior_menu = {
             });
         });
 
+        const headerMainElement = document.querySelector('#header-main');
+        const headerContainerElement = document.querySelector('#header-container');
+        const navigationElement = document.querySelector('#navigation');
+
+        navigationElement.addEventListener('mouseenter', function() {
+            headerContainerElement.classList.add('active')
+        });
+
+        navigationElement.addEventListener('mouseleave', function() {
+            headerContainerElement.classList.remove('active')
+        });
+
         // Hide all menu sections if user leave hover menu
-        document.querySelector('#header-main').addEventListener('mouseleave', function() {
+        headerMainElement.addEventListener('mouseleave', function() {
             expandedSections.forEach(section => {
                 section.style.display = 'none';
             });

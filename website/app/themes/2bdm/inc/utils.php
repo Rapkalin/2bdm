@@ -69,10 +69,6 @@ function build_menu(): array
 function get_item_menu_children(WP_Post $item, array &$menuItem): void
 {
     switch (get_page_template_slug((int) $item->object_id)):
-        case 'page-articles.php':
-            $menuItem['children'] = get_terms_hierarchy('2bdm-articles');
-            $menuItem['type'] = 'links';
-            break;
         case 'page-projects.php':
             $menuItem['children'] = get_terms_hierarchy('2bdm-projects');
             $menuItem['type'] = 'tags';

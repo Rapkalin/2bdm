@@ -22,7 +22,7 @@ const behavior_menu_mobile = {
         const mobileMenuButton = document.querySelector('.mobile-menu-button');
         const mobileNavigation = document.querySelector('.mobile-navigation');
 
-        if (!mobileNavigation) return;
+        if (!mobileNavigation) { return }
 
         // Retrieve the menu data
         let menuData = [];

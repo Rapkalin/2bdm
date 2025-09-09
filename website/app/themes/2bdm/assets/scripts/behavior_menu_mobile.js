@@ -30,7 +30,6 @@ const behavior_menu_mobile = {
             const menuItemsAttr = mobileNavigation.getAttribute('data-menu-items');
             if (menuItemsAttr) {
                 menuData = JSON.parse(menuItemsAttr);
-                console.log('parsdd data', menuData);
             }
         } catch (e) {
             console.error("Error while parsing the menu data:", e);
@@ -43,6 +42,9 @@ const behavior_menu_mobile = {
             mobileMenuButton.addEventListener('click', function() {
                 this.classList.toggle('active');
                 mobileNavigation.classList.toggle('active');
+
+                // Prevent body from being scrollable when mobile menu is open
+                document.body.classList.toggle('mobile-menu-open');
 
                 // Burger menu animation
                 const burgerIcon = this.querySelector('.burger-icon');
@@ -88,15 +90,25 @@ const behavior_menu_mobile = {
             const backButton = document.createElement('div');
             backButton.className = 'mobile-back-button';
             backButton.innerHTML = `
-                <span class="arrow">←</span>
                 <span>Retour</span>
             `;
+
+            const SideInfo = document.createElement('div');
+            SideInfo.className = 'side-info-menu';
+            SideInfo.innerHTML = `
+                <span class="side-title-menu">${currentItem.title}</span>
+            `;
+
+            const headerInfo = document.createElement('div');
+            headerInfo.className = 'mobile-menu-header-info';
+            headerInfo.appendChild(backButton);
+            headerInfo.appendChild(SideInfo);
 
             backButton.addEventListener('click', function() {
                 hideSubmenu(level);
             });
 
-            levelContainer.appendChild(backButton);
+            levelContainer.appendChild(headerInfo);
 
             // Add sub elements
             for (const [label, child] of Object.entries(currentItem.children)) {
@@ -143,6 +155,7 @@ const behavior_menu_mobile = {
             levelContainer.style.display = 'flex';
             document.querySelector(`.mobile-menu-level[data-level="${level-1}"]`).style.transform = 'translateX(-100%)';
 
+            /* Add the addresses block if menu entry is contact */
             if (currentItem.is_contact) {
                 const blockAddresses = document.createElement('div');
 

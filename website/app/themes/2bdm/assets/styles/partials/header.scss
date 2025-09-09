@@ -239,13 +239,14 @@
   top: 0;
   left: 0;
   width: 100%;
-  height: 100%;
+  height: 100dvh;
   background-color: rgba(117, 111, 94, 0.9);
   backdrop-filter: blur(5px);
   z-index: 190;
   padding: fn.toRem(100) 0;
   opacity: 0;
   transition: opacity 0.3s ease-in-out;
+  overflow-y: hidden;
 
   &.active {
     opacity: 1;
@@ -256,16 +257,52 @@
     position: relative;
     height: 100%;
     overflow-y: auto;
+    max-height: 100dvh;
+    box-sizing: border-box;
 
     .mobile-menu-level {
       display: flex;
       flex-direction: column;
-      padding: fn.toRem(16);
+      min-height: 100%;
+      padding: fn.toRem(16) fn.toRem(32);
       gap: fn.toRem(12);
       transition: transform 0.3s ease-in-out;
 
       &[data-level="0"] {
         transform: translateX(0);
+      }
+
+      .mobile-menu-header-info {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        border-top: 1px solid var.$lightgrey-m;
+        border-bottom: 1px solid var.$lightgrey-m;
+        padding: fn.toRem(12) 0;
+
+        .side-info-menu {
+          display: flex;
+          align-items: center;
+          font-size: var.$fs-h4;
+          line-height: var.$lh-p;
+          color: var.$white;
+
+          &:before {
+            content: '•';
+            font-size: fn.toRem(42);
+            margin-right: fn.toRem(12);
+          }
+        }
+
+        .mobile-back-button {
+          color: var.$lightgrey;
+
+          &:before {
+            content: '⟵';
+            margin-right: fn.toRem(8);
+            vertical-align: text-bottom;
+          }
+        }
       }
 
       .mobile-menu-item {
@@ -280,21 +317,25 @@
           padding: fn.toRem(16);
           color: var.$white;
           text-decoration: none;
-          font-size: var.$fs-p;
-          line-height: var.$lh-p;
+          font-size: var.$fs-h2-m;
+          line-height: var.$lh-p-xl;
+
+            svg {
+              color: var.$white;
+              height: 12px;
+            }
         }
       }
 
       .mobile-submenu-section {
-        padding: 0 fn.toRem(16);
-
         .mobile-subtitle {
           display: flex;
           justify-content: space-between;
           align-items: center;
           padding: fn.toRem(12) 0;
           color: var.$white;
-          font-size: var.$fs-p;
+          font-size: var.$fs-h2-m;
+          line-height: var.$lh-p-xl;
           cursor: pointer;
         }
 

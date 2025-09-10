@@ -26,11 +26,7 @@
                     <div class="menu-content">
                         <?php foreach ($menuItems as $index => $menuItem): ?>
                             <div class="menu-item<?= $menuItem['children'] ? ' has-children' : '' ?>" data-menu-index="<?= $index ?>">
-                                <?php if($menuItem['children']): ?>
-                                    <div class="menu-item-title"><?= $menuItem['title'] ?></div>
-                                <?php else: ?>
-                                    <a class="menu-item-link" href="<?= $menuItem['url'] ?>"><?= $menuItem['title'] ?></a>
-                                <?php endif; ?>
+                                <a class="menu-item-link" href="<?= $menuItem['url'] ?>"><?= $menuItem['title'] ?></a>
                             </div>
                         <?php endforeach; ?>
                     </div>

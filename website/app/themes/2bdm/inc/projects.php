@@ -108,10 +108,9 @@ function projects_init(): void {
  * @return void
  */
 #[NoReturn] function load_more_or_filtered_projects(): void {
-
     try {
         $paged = isset($_POST['paged']) ? (int) $_POST['paged'] : 1;
-        $term_ids = isset($_POST['terms']) ? explode(',', $_POST['terms']) : [];
+        $terms = isset($_POST['terms']) ? explode(',', $_POST['terms']) : [];
 
         $args = [
             'post_type' => 'projects',
@@ -120,49 +119,51 @@ function projects_init(): void {
             'paged' => $paged,
         ];
 
-        if ($term_ids) {
+        // Add filter if terms
+        if (!empty($terms)) {
             $args['tax_query'] = [
-                [
+                'relation' => 'OR', // Load project that posses at least on of the term (OR)
+            ];
+
+            foreach ($terms as $term_id) {
+                $args['tax_query'][] = [
                     'taxonomy' => '2bdm-projects',
                     'field' => 'term_id',
-                    'terms' => $term_ids,
-                ]
-            ];
+                    'terms' => $term_id,
+                ];
+            }
         }
 
         $query = new WP_Query($args);
-        $remaining_projects = ($query->found_posts - ($paged * 6) - 1);
+        $remaining_projects = ($query->found_posts - ($paged * 6));
 
-        $projects_html = '';
+        ob_start();
         if ($query->have_posts()) {
             while ($query->have_posts()): $query->the_post();
                 if (have_rows('header_banner')) : the_row(); ?>
-                    <?php ob_start(); ?>
                     <section class="section-next-next-project-wrapper">
                         <?php
                         $project_banner = get_field('header_banner', $post->ID);
-
                         get_template_part("components/block_project", args: [
                             'project' => $post,
                             'project_banner' => $project_banner,
-                            'srcset' => wp_get_attachment_image_srcset( $project_banner['image']['ID']),
+                            'srcset' => wp_get_attachment_image_srcset($project_banner['image']['ID']),
                         ]);
                         ?>
                     </section>
-                    <?php $projects_html .= ob_get_clean(); ?>
                 <?php endif;
             endwhile;
         } else {
-            $projects_html = '<p>Aucun projet trouvé.</p>';
+            echo '<p>Aucun projet trouvé.</p>';
         }
+        $projects_html = ob_get_clean();
 
-        // Return JSON response
         wp_send_json_success([
             'projects_html' => $projects_html,
             'remaining_projects' => $remaining_projects,
         ]);
 
-        wp_reset_query();
+        wp_reset_postdata();
         wp_die();
     } catch (\Exception $e) {
         wp_send_json_error(['message' => 'Une erreur est survenue : ' . $e->getMessage()]);

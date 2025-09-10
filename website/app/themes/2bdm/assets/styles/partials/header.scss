@@ -183,6 +183,7 @@
 
 
   .header-logo {
+    pointer-events: auto;
     z-index: 1000;
     
     .dynamic-logo {
@@ -207,6 +208,7 @@
     display: none;
     border: none;
     cursor: pointer;
+    pointer-events: auto;
     background-color: var.$grey;
     z-index: 1000;
     padding: fn.toRem(15);
@@ -270,6 +272,7 @@
 .mobile-navigation {
   display: block;
   position: fixed;
+  pointer-events: auto;
   top: 0;
   left: 0;
   width: 100%;

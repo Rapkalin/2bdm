@@ -58,7 +58,7 @@ const behavior_menu = {
             headerContainerElement.classList.add('active')
         });
 
-        navigationElement.addEventListener('mouseleave', function() {
+        headerContainerElement.addEventListener('mouseleave', function() {
             headerContainerElement.classList.remove('active')
         });
 

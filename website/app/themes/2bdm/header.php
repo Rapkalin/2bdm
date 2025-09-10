@@ -45,7 +45,7 @@
                                 <div class="expanded-menu-section">
                                     <?php foreach ($menuItem['children'] as $label => $child): ?>
                                         <div class="subtitle"><?= $label ?></div>
-                                        <?php if ($child && is_array($child)): ?>
+                                        <?php if (is_array($child) && !empty($child)): ?>
                                             <div class="tags-container">
                                                 <?php foreach ($child as $tag): ?>
                                                     <a class="child-item" href="<?= $menuItem['url'] . '?filter=' . $tag->slug ?>">

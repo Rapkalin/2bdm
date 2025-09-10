@@ -105,24 +105,24 @@
     width: auto;
     margin-left: fn.toRem(8);
   }
-}
 
-.child-term:hover {
-  background-color: var.$grey;
+  &:hover {
+    background-color: var.$grey;
 
-  svg {
-    color: var.$white;
+    svg {
+      color: var.$white;
+    }
   }
-}
 
-.child-term.selected {
-  color: var.$grey;
-  background-color: var.$white;
-  border: 1px solid var.$grey;
-
-  svg {
+  &.selected {
     color: var.$grey;
-    rotate: (45deg);
+    background-color: var.$white;
+    border: 1px solid var.$grey;
+
+    svg {
+      color: var.$grey;
+      rotate: (45deg);
+    }
   }
 }
 
@@ -157,6 +157,22 @@
         display: flex;
         flex-wrap: wrap;
         margin-bottom: fn.toRem(24);
+      }
+
+      .child-term {
+
+        &:hover {
+          background-color: var.$lightgrey;
+        }
+
+        &.selected {
+          color: var.$white;
+          background-color: var.$grey;
+
+          svg {
+            color: var.$white;
+          }
+        }
       }
     }
   }

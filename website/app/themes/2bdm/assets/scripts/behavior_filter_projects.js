@@ -7,9 +7,27 @@ const behavior_filter_projects = {
         let selectedTerms = [];
         let currentPage = 1;
 
+        // Check if url contains filters
+        const urlParams = new URLSearchParams(window.location.search);
+        const filterParam = urlParams.get('filter');
+
+        if (filterParam) {
+            // Find the corresponding term
+            const termElement = Array.from(childTerms).find(term => {
+                return term.getAttribute('data-term-slug') === filterParam;
+            });
+
+            if (termElement) {
+                const termId = termElement.getAttribute('data-term-id');
+                selectedTerms = [termId];
+                termElement.classList.add('selected');
+            }
+        }
+
         childTerms.forEach(term => {
             term.addEventListener('click', function() {
                 const termId = this.getAttribute('data-term-id');
+                const termSlug = this.getAttribute('data-term-slug');
 
                 if (selectedTerms.includes(termId)) {
                     selectedTerms = selectedTerms.filter(id => id !== termId);
@@ -17,6 +35,11 @@ const behavior_filter_projects = {
                 } else {
                     selectedTerms.push(termId);
                     this.classList.add('selected');
+
+                    // Update url with filter
+                    const newUrl = new URL(window.location.href);
+                    newUrl.searchParams.set('filter', termSlug);
+                    window.history.pushState({}, '', newUrl);
                 }
 
                 currentPage = 1; // Reset to first page on new filter

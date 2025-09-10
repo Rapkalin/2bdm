@@ -48,7 +48,12 @@
                                         <?php if ($menuItem['type'] === 'tags' && is_array($child) && !empty($child)): ?>
                                             <div class="tags-container">
                                                 <?php foreach ($child as $tag): ?>
-                                                    <a class="child-item" href="<?= $menuItem['url'] . '?filter=' . $tag->slug ?>">
+                                                    <a
+                                                        class="child-item"
+                                                        href="<?= $menuItem['url'] . '?filter=' . $tag->slug . '#filters-container';?>"
+                                                        data-term-id="<?= $tag->term_id ?>"
+                                                        data-term-slug="<?= $tag->slug ?>"
+                                                    >
                                                         <?= $tag->name ?>
                                                     </a>
                                                 <?php endforeach; ?>

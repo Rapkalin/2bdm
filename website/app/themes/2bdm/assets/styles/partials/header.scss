@@ -213,7 +213,7 @@
 
     &.color-white {
       background-color: var.$white;
-      padding: fn.toRem(15);
+      padding: fn.toRem(12) fn.toRem(20);
     }
 
     .close-icon {
@@ -243,7 +243,7 @@
 
     .burger-icon {
       height: fn.toRem(1);
-      width: fn.toRem(24);
+      width: fn.toRem(20);
 
       &::before, &::after {
         content: '';

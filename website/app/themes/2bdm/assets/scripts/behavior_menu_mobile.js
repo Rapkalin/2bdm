@@ -142,8 +142,9 @@ const behavior_menu_mobile = {
 
                     submenuItem.appendChild(tagsContainer);
                 } else {
+                    const url = currentItem.type === 'pages' ? child.url : (currentItem.type === 'anchors' ? currentItem.url.replace(/.$/, "#") + child : '#');
                     subtitle.addEventListener('click', function() {
-                        window.location.href = currentItem.url;
+                        window.location.href = url;
                     });
                     subtitle.style.cursor = 'pointer';
                 }

@@ -16,7 +16,11 @@
                     </button>
                     <div id="<?= $parent_slug ?>-mobile" class="accordion-content-mobile">
                         <?php foreach ($child_terms as $child_term) : ?>
-                            <button class="child-term" data-term-id="<?= $child_term->term_id ?>">
+                            <button
+                                class="child-term"
+                                data-term-id="<?= $child_term->term_id ?>"
+                                data-term-slug="<?= $child_term->slug ?>"
+                            >
                                 <?= $child_term->name ?>
                                 <?php get_template_part("components/svg-plus"); ?>
                             </button>
@@ -32,7 +36,11 @@
                 <div id="<?= $parent_slug ?>" class="accordion-content">
                     <?php
                     foreach ($child_terms as $child_term) : ?>
-                        <button class="child-term" data-term-id="<?= $child_term->term_id ?>">
+                        <button
+                            class="child-term"
+                            data-term-id="<?= $child_term->term_id ?>"
+                            data-term-slug="<?= $child_term->slug ?>"
+                        >
                             <?= $child_term->name ?>
                             <?php get_template_part("components/svg-plus"); ?>
                         </button>

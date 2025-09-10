@@ -23,22 +23,32 @@ $args = [
 ];
 
 // Add filter if a term is selected
-$filtered_term_id = get_query_var('filtered_term_id');
-if ($filtered_term_id) {
+$filterParam = isset($_GET['filter']) ? sanitize_text_field($_GET['filter']) : '';
+if (!empty($filterParams)) {
     $args['tax_query'] = [
-        [
-            'taxonomy' => '2bdm-projects',
-            'field' => 'term_id',
-            'terms' => $filtered_term_id,
-        ]
+        'relation' => 'OR', // Utiliser OR pour afficher les projets qui ont AU MOINS UN des termes
     ];
+
+    foreach ($filterParams as $filterSlug) {
+        $term = get_term_by('slug', $filterSlug, '2bdm-projects');
+        if ($term) {
+            $args['tax_query'][] = [
+                'taxonomy' => '2bdm-projects',
+                'field' => 'term_id',
+                'terms' => $term->term_id,
+            ];
+        }
+    }
 }
 
 // Get the total number of projects
 $query = new WP_Query($args);
 $total_projects = $query->found_posts;
 ?>
-<div class="projects-container main-wrapper">
+<div
+    class="projects-container main-wrapper"
+    data-url="<?php echo admin_url('admin-ajax.php'); ?>"
+>
     <?php
     while ($query->have_posts()): $query->the_post();
         if (have_rows('header_banner')) : the_row(); ?>
@@ -66,7 +76,6 @@ $total_projects = $query->found_posts;
             class="classic-button"
             data-projects-left="<?= $total_projects ?>"
             data-page="1"
-            data-url="<?php echo admin_url('admin-ajax.php'); ?>"
         >
            Voir plus de projets
            <span class="svg-plus"><?php get_template_part("components/svg-plus"); ?></span>

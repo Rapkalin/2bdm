@@ -186,7 +186,6 @@ const behavior_menu_mobile = {
                     const addressesAttr = parentLevel.getAttribute('data-addresses');
                     if (addressesAttr) {
                         addressesData = JSON.parse(addressesAttr);
-                        console.log('addresses data', addressesData);
                         blockAddresses.className = 'section-block-addresses section__addresses__white';
 
                         addressesData.forEach(address => {

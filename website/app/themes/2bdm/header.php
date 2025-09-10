@@ -38,44 +38,46 @@
             </div>
 
             <nav class="expanded-navigation">
-                <div class="side">
-                    <span><?php get_template_part('components/svg-bullet') ?></span>
-                    <div class="side-title"></div>
-                </div>
                 <div class="expanded-menu-container">
                     <?php foreach ($menuItems as $index => $menuItem): ?>
-                        <?php if(!empty($menuItem['children'])): ?>
-                            <div class="expanded-menu-section" data-menu-index="<?= $index ?>">
-                                <?php foreach ($menuItem['children'] as $label => $child): ?>
-                                    <div class="subtitle"><?= $label ?></div>
-                                    <?php if ($child && is_array($child)): ?>
-                                        <div class="tags-container">
-                                            <?php foreach ($child as $tag): ?>
-                                                <a class="child-item" href="<?= $menuItem['url'] . '?filter=' . $tag->slug ?>">
-                                                    <?= $tag->name ?>
-                                                </a>
+                        <div class="expanded-menu-section-container" data-menu-index="<?= $index ?>">
+                            <div class="side">
+                                <span><?php get_template_part('components/svg-bullet') ?></span>
+                                <div class="side-title"><?= $menuItem['title'] ?></div>
+                            </div>
+                            <?php if(!empty($menuItem['children'])): ?>
+                                <div class="expanded-menu-section">
+                                    <?php foreach ($menuItem['children'] as $label => $child): ?>
+                                        <div class="subtitle"><?= $label ?></div>
+                                        <?php if ($child && is_array($child)): ?>
+                                            <div class="tags-container">
+                                                <?php foreach ($child as $tag): ?>
+                                                    <a class="child-item" href="<?= $menuItem['url'] . '?filter=' . $tag->slug ?>">
+                                                        <?= $tag->name ?>
+                                                    </a>
+                                                <?php endforeach; ?>
+                                            </div>
+                                        <?php endif; ?>
+                                    <?php endforeach; ?>
+
+                                    <?php if($menuItem['is_contact']): ?>
+                                        <div class="section-block-addresses section__addresses__white">
+                                            <?php foreach (get_addresses() as $address): ?>
+                                                <div class="address-wrapper">
+                                                    <h4 class="address-title"><?= $address['title'] ?></h4>
+                                                    <div class="address-description">
+                                                        <p><?= $address['address'] ?></p>
+                                                        <p><?= $address['zipcode'] ?></p>
+                                                        <p class="strong"><?= $address['phone_number'] ?></p>
+                                                        <p class="strong"><?= $address['email'] ?></p>
+                                                    </div>
+                                                </div>
                                             <?php endforeach; ?>
                                         </div>
                                     <?php endif; ?>
-                                <?php endforeach; ?>
-
-                                <?php if($menuItem['is_contact']): ?>
-                                    <div class="section-block-addresses section__addresses__white">
-                                        <?php foreach (get_addresses() as $address): ?>
-                                            <div class="address-wrapper">
-                                                <h4 class="address-title"><?= $address['title'] ?></h4>
-                                                <div class="address-description">
-                                                    <p><?= $address['address'] ?></p>
-                                                    <p><?= $address['zipcode'] ?></p>
-                                                    <p class="strong"><?= $address['phone_number'] ?></p>
-                                                    <p class="strong"><?= $address['email'] ?></p>
-                                                </div>
-                                            </div>
-                                        <?php endforeach; ?>
-                                    </div>
-                                <?php endif; ?>
-                            </div>
-                        <?php endif; ?>
+                                </div>
+                            <?php endif; ?>
+                        </div>
                     <?php endforeach; ?>
                 </div>
             </nav>

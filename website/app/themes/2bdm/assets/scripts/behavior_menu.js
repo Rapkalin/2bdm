@@ -1,8 +1,8 @@
 const behavior_menu = {
     init() {
-        const menuItems = document.querySelectorAll('.menu-item.has-children');
-        const expandedSections = document.querySelectorAll('.expanded-menu-section');
-        const sideDiv = document.querySelector('.side-title');
+        const menuItems = document.querySelectorAll('.menu-item');
+        const expandedSections = document.querySelectorAll('.expanded-menu-section-container');
+        const defaultMenuItem = document.querySelectorAll('.menu-item.has-children')[0];
 
         // Hide all section when menu is loaded
         expandedSections.forEach(section => {
@@ -21,22 +21,31 @@ const behavior_menu = {
                 // We add the active class on the current element
                 item.classList.add('active')
 
-                const menuIndex = this.getAttribute('data-menu-index');
-                const sectionToShow = document.querySelector(`.expanded-menu-section[data-menu-index="${menuIndex}"]`);
-                const menuItemTitle = this.querySelector('.menu-item-title').textContent;
-                item.classList.add('active')
-
                 // Hide all menu sections
                 expandedSections.forEach(section => {
                     section.style.display = 'none';
                 });
 
-                // Update the div .side
-                sideDiv.textContent = menuItemTitle;
+                /*
+                 * If item has children we display the corresponding expended menu
+                 * If not we display the first expanded menu that has children
+                 */
+                if (item.classList.contains('has-children')) {
+                    const menuIndex = this.getAttribute('data-menu-index');
+                    const sectionToShow = document.querySelector(`.expanded-menu-section-container[data-menu-index="${menuIndex}"]`);
 
-                // Display the hovered menu section
-                if (sectionToShow) {
-                    sectionToShow.style.display = 'flex';
+                    // Display the hovered menu section
+                    if (sectionToShow) {
+                        sectionToShow.style.display = 'grid';
+                    }
+                } else {
+                    const defaultMenuIndex = defaultMenuItem.getAttribute('data-menu-index');
+                    const defaultSectionToShow = document.querySelector(`.expanded-menu-section-container[data-menu-index="${defaultMenuIndex}"]`);
+
+                    // Display the default menu section
+                    if (defaultSectionToShow) {
+                        defaultSectionToShow.style.display = 'grid';
+                    }
                 }
             });
         });

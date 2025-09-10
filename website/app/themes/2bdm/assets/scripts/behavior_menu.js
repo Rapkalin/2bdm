@@ -55,11 +55,14 @@ const behavior_menu = {
         const navigationElement = document.querySelector('#navigation');
 
         navigationElement.addEventListener('mouseenter', function() {
-            headerContainerElement.classList.add('active')
+            headerContainerElement.classList.add('active');
+            headerContainerElement.style.pointerEvents = 'auto'
+            console.log('headerContainerElement::' , headerContainerElement);
         });
 
         headerContainerElement.addEventListener('mouseleave', function() {
-            headerContainerElement.classList.remove('active')
+            headerContainerElement.classList.remove('active');
+            headerContainerElement.style.pointerEvents = 'none'
         });
 
         // Hide all menu sections if user leave hover menu

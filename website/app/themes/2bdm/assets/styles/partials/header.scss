@@ -5,12 +5,13 @@
 /* Desktop Menu */
 #header-main {
   display: flex;
+  pointer-events: none;
 
   #header-container {
     position: fixed;
     width: 100dvw;
     align-items: center;
-    pointer-events: auto;
+    pointer-events: none;
     z-index: 90;
     backdrop-filter: unset;
     transition: all 0.3s ease-in-out;
@@ -19,7 +20,6 @@
       display: flex;
       justify-content: space-between;
       padding: fn.toRem(25) fn.toRem(48) fn.toRem(12) fn.toRem(48);
-      pointer-events: auto;
 
       .header-logo {
         .dynamic-logo {
@@ -68,7 +68,7 @@
     .expanded-navigation {
       width: auto;
       opacity: 0;
-      pointer-events: none;
+      pointer-events: auto;
       border-top: 1px solid var.$lightgrey;
       transition: all 0.3s ease-in-out;
 

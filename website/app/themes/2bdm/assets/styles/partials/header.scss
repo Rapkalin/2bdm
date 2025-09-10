@@ -22,6 +22,8 @@
       padding: fn.toRem(25) fn.toRem(48) fn.toRem(12) fn.toRem(48);
 
       .header-logo {
+        pointer-events: auto;
+
         .dynamic-logo {
           color: var.$white;
 

@@ -131,8 +131,25 @@ const behavior_menu_mobile = {
                     child.forEach(tag => {
                         const tagItem = document.createElement('a');
                         tagItem.className = 'mobile-child-item';
-                        tagItem.href = currentItem.url + '?filter=' + tag.slug;
+                        tagItem.href = currentItem.url + '?filter=' + tag.slug + '#filters-container'; // scroll to the filtered results block
                         tagItem.textContent = tag.name;
+
+                        // Handle click on tags
+                        tagItem.addEventListener('click', function(e) {
+                            e.preventDefault();
+                            const url = this.getAttribute('href');
+
+                            // Fermer le menu mobile
+                            mobileMenuButton.classList.remove('active');
+                            mobileNavigation.classList.remove('active');
+                            document.body.classList.remove('mobile-menu-open');
+
+                            // Redirect with a delay for the menu to close
+                            setTimeout(() => {
+                                window.location.href = url;
+                            }, 300);
+                        });
+
                         tagsContainer.appendChild(tagItem);
                     });
 
@@ -142,8 +159,9 @@ const behavior_menu_mobile = {
 
                     submenuItem.appendChild(tagsContainer);
                 } else {
+                    const url = currentItem.type === 'pages' ? child.url : (currentItem.type === 'anchors' ? currentItem.url.replace(/.$/, "#") + child : '#');
                     subtitle.addEventListener('click', function() {
-                        window.location.href = currentItem.url;
+                        window.location.href = url;
                     });
                     subtitle.style.cursor = 'pointer';
                 }

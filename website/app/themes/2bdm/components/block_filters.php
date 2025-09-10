@@ -1,4 +1,4 @@
-<div class="filters-container main-wrapper">
+<div class="filters-container main-wrapper" id="filters-container">
     <h3 class="fc-title">
         <?php get_template_part('components/svg-bullet') ?>
         Projects

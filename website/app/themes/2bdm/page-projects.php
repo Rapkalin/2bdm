@@ -14,17 +14,28 @@ endif;
 $terms = get_terms_hierarchy('2bdm-projects');
 get_template_part("components/block_filters", args: ['terms' => $terms]);
 
-// Initial query to load only 4 projects
-$query = new WP_Query(
+// Initial query to load only 6 projects
+$args = [
+    'post_type' => 'projects',
+    'post_status' => 'publish',
+    'posts_per_page' => 6,
+    'paged' => 1
+];
+
+// Add filter if a term is selected
+$filtered_term_id = get_query_var('filtered_term_id');
+if ($filtered_term_id) {
+    $args['tax_query'] = [
         [
-        'post_type' => 'projects',
-        'post_status' => 'publish',
-        'posts_per_page' => 6,
-        'paged' => 1
-    ]
-);
+            'taxonomy' => '2bdm-projects',
+            'field' => 'term_id',
+            'terms' => $filtered_term_id,
+        ]
+    ];
+}
 
 // Get the total number of projects
+$query = new WP_Query($args);
 $total_projects = $query->found_posts;
 ?>
 <div class="projects-container main-wrapper">

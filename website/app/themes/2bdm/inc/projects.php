@@ -7,6 +7,7 @@ add_action('init', 'projects_init');
 // Ajax to list all projects or list filtered_projects
 add_action('wp_ajax_load_more_or_filtered_projects', 'load_more_or_filtered_projects');
 add_action('wp_ajax_nopriv_load_more_or_filtered_projects', 'load_more_or_filtered_projects');
+add_action('wp', 'load_filtered_projects_from_url');
 
 function projects_init(): void {
     register_post_type(
@@ -166,5 +167,20 @@ function projects_init(): void {
     } catch (\Exception $e) {
         wp_send_json_error(['message' => 'Une erreur est survenue : ' . $e->getMessage()]);
     }
+}
 
+function load_filtered_projects_from_url() {
+    if (is_admin() || !isset($_GET['filter'])) {
+        return;
+    }
+
+    $filter_slug = sanitize_text_field($_GET['filter']);
+
+    if ($filter_slug) {
+        $term = get_term_by('slug', $filter_slug, '2bdm-projects');
+        if ($term) {
+            // Stock the filtered term to use it in the main request
+            set_query_var('filtered_term_id', $term->term_id);
+        }
+    }
 }

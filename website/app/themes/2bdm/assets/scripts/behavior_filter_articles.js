@@ -9,7 +9,6 @@ const behavior_filter_articles = {
 
         terms.forEach(term => {
             term.addEventListener('click', function() {
-                console.log('this', this.getAttribute('data-term-id'));
                 const termId = this.getAttribute('data-term-id');
 
                 if (termId === 'all') {

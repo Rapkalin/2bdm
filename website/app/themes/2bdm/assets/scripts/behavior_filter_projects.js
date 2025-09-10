@@ -8,14 +8,20 @@ const behavior_filter_projects = {
 
         // Check if URL contains filters
         const urlParams = new URLSearchParams(window.location.search);
-        const filterParams = urlParams.getAll('filter[]'); // Récupérer tous les filtres
+        const filterParam = urlParams.get('filter'); // Récupérer tous les filtres
 
-        if (filterParams.length > 0) {
+        // Variable pour savoir si on doit déclencher une mise à jour initiale
+        let shouldFetchInitialProjects = false;
+
+        if (filterParam) {
+            // Séparer les filtres par virgule
+            const filterSlugs = filterParam.split(',');
+
             // Trouver les termes correspondants
-            filterParams.forEach(filterSlug => {
-                const termElement = Array.from(childTerms).find(term => {
-                    return term.getAttribute('data-term-slug') === filterSlug;
-                });
+            filterSlugs.forEach(filterSlug => {
+                const termElement = Array.from(childTerms).find(term =>
+                    term.getAttribute('data-term-slug') === filterSlug
+                );
 
                 if (termElement) {
                     const termId = termElement.getAttribute('data-term-id');
@@ -25,8 +31,12 @@ const behavior_filter_projects = {
                     }
                 }
             });
-        }
 
+            // Si on a trouvé des termes, on devra déclencher une mise à jour
+            if (selectedTerms.length > 0) {
+                shouldFetchInitialProjects = true;
+            }
+        }
 
         childTerms.forEach(term => {
             term.addEventListener('click', function() {
@@ -74,6 +84,10 @@ const behavior_filter_projects = {
                 currentPage++;
                 fetchProjects(selectedTerms, currentPage);
             });
+        }
+
+        if (shouldFetchInitialProjects) {
+            fetchProjects(selectedTerms, currentPage);
         }
 
         function fetchProjects(terms, page) {

@@ -57,7 +57,6 @@ const behavior_menu = {
         navigationElement.addEventListener('mouseenter', function() {
             headerContainerElement.classList.add('active');
             headerContainerElement.style.pointerEvents = 'auto'
-            console.log('headerContainerElement::' , headerContainerElement);
         });
 
         headerContainerElement.addEventListener('mouseleave', function() {

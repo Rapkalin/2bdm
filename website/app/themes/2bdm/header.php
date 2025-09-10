@@ -32,7 +32,6 @@
                     </div>
                 </nav>
             </div>
-
             <nav class="expanded-navigation">
                 <div class="expanded-menu-container">
                     <?php foreach ($menuItems as $index => $menuItem): ?>
@@ -44,8 +43,9 @@
                             <?php if(!empty($menuItem['children'])): ?>
                                 <div class="expanded-menu-section">
                                     <?php foreach ($menuItem['children'] as $label => $child): ?>
-                                        <div class="subtitle"><?= $label ?></div>
-                                        <?php if (is_array($child) && !empty($child)): ?>
+                                        <?php $url = $menuItem['type'] === 'pages' ? $child['url'] : ($menuItem['type'] === 'anchors' ? "{$menuItem['url']}#$child" : '#') ?>
+                                        <a class="subtitle" href="<?= $url ?>"><?= $label ?></a>
+                                        <?php if ($menuItem['type'] === 'tags' && is_array($child) && !empty($child)): ?>
                                             <div class="tags-container">
                                                 <?php foreach ($child as $tag): ?>
                                                     <a class="child-item" href="<?= $menuItem['url'] . '?filter=' . $tag->slug ?>">

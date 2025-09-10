@@ -92,6 +92,7 @@
             }
 
             .expanded-menu-section {
+              display: flex;
               flex-direction: column;
               gap: fn.toRem(24);
 

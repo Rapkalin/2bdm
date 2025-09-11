@@ -28,6 +28,17 @@ function get_terms_hierarchy(string $taxonomy): array
 
 function build_menu(): array
 {
+    // Create transient key
+    $transient_key = '2bdm_menu_items_' . md5(serialize([
+            'locale' => get_locale(),
+            'user_role' => wp_get_current_user()->roles[0] ?? 'guest',
+    ]));
+
+    // If menu is cached we return it
+    if (false !== ($menu = get_transient($transient_key))) {
+        return $menu;
+    }
+
     $menu = [];
     $items = wp_get_nav_menu_items('header-menu', [
         'theme_location' => 'header-menu',
@@ -62,6 +73,9 @@ function build_menu(): array
     }
 
     set_menu_entry_contact($menu);
+
+    // Cache for 1 hour
+    set_transient($transient_key, $menu, HOUR_IN_SECONDS);
 
     return $menu;
 }

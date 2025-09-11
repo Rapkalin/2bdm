@@ -12,3 +12,4 @@
 [2BDM-10] - Team page
 [2BDM-11] - Animated intro
 [2BDM-12] - Mobile version
+[2BDM-13] - Optimisation and performance

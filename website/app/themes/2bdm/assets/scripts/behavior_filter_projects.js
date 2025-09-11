@@ -1,6 +1,17 @@
 const behavior_filter_projects = {
     init() {
-        const childTerms = document.querySelectorAll('.child-term');
+
+        function isMobile() {
+            return window.innerWidth <= 768;
+        }
+
+        let childTerms;
+        if (isMobile()) {
+            childTerms = document.querySelectorAll('.child-term');
+        } else {
+            childTerms = document.querySelectorAll('.child-term-accordion');
+        }
+
         const loadMoreButton = document.getElementById('load-more');
         const projectsContainer = document.querySelector('.projects-container');
         let selectedTerms = [];
@@ -8,16 +19,15 @@ const behavior_filter_projects = {
 
         // Check if URL contains filters
         const urlParams = new URLSearchParams(window.location.search);
-        const filterParam = urlParams.get('filter'); // Récupérer tous les filtres
+        const filterParam = urlParams.get('filter'); // Retrieve all filtered terms
 
-        // Variable pour savoir si on doit déclencher une mise à jour initiale
+        // Allow initial page loading to load filtered project
         let shouldFetchInitialProjects = false;
 
         if (filterParam) {
-            // Séparer les filtres par virgule
             const filterSlugs = filterParam.split(',');
 
-            // Trouver les termes correspondants
+            // Find the corresponding terms with the one in the URL
             filterSlugs.forEach(filterSlug => {
                 const termElement = Array.from(childTerms).find(term =>
                     term.getAttribute('data-term-slug') === filterSlug
@@ -28,11 +38,12 @@ const behavior_filter_projects = {
                     if (!selectedTerms.includes(termId)) {
                         selectedTerms.push(termId);
                         termElement.classList.add('selected');
+                        termElement.parentNode.classList.add('accordion-active');
                     }
                 }
             });
 
-            // Si on a trouvé des termes, on devra déclencher une mise à jour
+            // If there are filtered terms in the URL then we load the filtered projects
             if (selectedTerms.length > 0) {
                 shouldFetchInitialProjects = true;
             }
@@ -44,16 +55,16 @@ const behavior_filter_projects = {
                 const isSelected = selectedTerms.includes(termId);
 
                 if (isSelected) {
-                    // Désélectionner le terme
+                    // Unselect the term
                     selectedTerms = selectedTerms.filter(id => id !== termId);
                     this.classList.remove('selected');
                 } else {
-                    // Sélectionner le terme
+                    // Select the term
                     selectedTerms.push(termId);
                     this.classList.add('selected');
                 }
 
-                // Mettre à jour l'URL
+                // Update URL
                 const newUrl = new URL(window.location.href);
 
                 // Add new filters

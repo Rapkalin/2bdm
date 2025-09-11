@@ -37,7 +37,7 @@
                     <?php
                     foreach ($child_terms as $child_term) : ?>
                         <button
-                            class="child-term"
+                            class="child-term child-term-accordion"
                             data-term-id="<?= $child_term->term_id ?>"
                             data-term-slug="<?= $child_term->slug ?>"
                         >

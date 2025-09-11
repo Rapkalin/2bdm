@@ -123,16 +123,18 @@ const behavior_filter_projects = {
                 .then(response => response.json())
                 .then(jsonResponse => {
                     const data = jsonResponse.data;
+
                     if (page === 1) {
                         projectsContainer.innerHTML = data.projects_html;
                     } else {
                         projectsContainer.insertAdjacentHTML('beforeend', data.projects_html);
                     }
+
                     if (data.remaining_projects < 0) {
                         const button_wrapper = document.querySelector('.button-load-more');
-                        loadMoreButton.style.display = 'none';
+                        button_wrapper.style.display = 'none';
                     } else {
-                        loadMoreButton.style.display = 'flex';
+                        button_wrapper.style.display = 'flex';
                     }
                 })
                 .catch(error => {

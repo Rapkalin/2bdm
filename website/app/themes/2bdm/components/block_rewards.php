@@ -26,7 +26,7 @@
                 <div class="card-header-container">
                     <img class="card-logo" src="<?= $card['reward_logo']['url'] ?>" alt="card-logo">
                     <div class="card-header">
-                        <div class="card-header-title"><?= $card['reward_title'] ?></div>
+                        <div class="no-numbers-animation card-header-title"><?= $card['reward_title'] ?></div>
 
                         <?php if($card['reward_category']): ?>
                             <div class="card-header-category">

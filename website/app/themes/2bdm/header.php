@@ -62,19 +62,9 @@
                                     <?php endforeach; ?>
 
                                     <?php if($menuItem['is_contact']): ?>
-                                        <div class="section-block-addresses section__addresses__white">
-                                            <?php foreach (get_addresses() as $address): ?>
-                                                <div class="address-wrapper">
-                                                    <h4 class="address-title"><?= $address['title'] ?></h4>
-                                                    <div class="address-description">
-                                                        <p><?= $address['address'] ?></p>
-                                                        <p><?= $address['zipcode'] ?></p>
-                                                        <p class="strong"><?= $address['phone_number'] ?></p>
-                                                        <p class="strong"><?= $address['email'] ?></p>
-                                                    </div>
-                                                </div>
-                                            <?php endforeach; ?>
-                                        </div>
+                                        <?php get_template_part('components/block_addresses', args: [
+                                            'extraClasses' => ['section__addresses__white'],
+                                        ]) ?>
                                     <?php endif; ?>
                                 </div>
                             <?php endif; ?>

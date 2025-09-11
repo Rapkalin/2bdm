@@ -87,7 +87,6 @@ get_header(args:['color-logo' => '__grey']);
 </div>
 
 <?php
-
 wp_reset_query();
 get_footer();
 ?>

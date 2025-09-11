@@ -168,11 +168,10 @@ function getFormGroup(string $type, array $data = []): void {
 }
 
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
 require_once __DIR__ . '/../../../../vendor/autoload.php';
 add_action('phpmailer_init', 'configure_smtp');
 
-function configure_smtp($phpmailer): void
+function configure_smtp(PHPMailer $phpmailer): void
 {
     $phpmailer->isSMTP();
     $phpmailer->Host = $env['HOST']; // Serveur SMTP pour IONOS

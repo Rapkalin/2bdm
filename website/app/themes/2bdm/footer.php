@@ -2,30 +2,12 @@
 
     <div id="footer-container" class="main-wrapper">
         <div id="footer-logo">
-            <?php $imageData = getimagesize(get_template_directory() . '/assets/images/' . '2BDM_white.webp'); ?>
             <a href="<?= home_url('/'); ?>">
-                <img
-                    src="<?= asset('logo-white.svg') ?>"
-                    alt="2BDM ARCHITECTURE LOGO"
-                    width="<?= $imageData[0] ?>"
-                    height="<?= $imageData[1] ?>"
-                >
+                <?php get_template_part('components/logo-2bdm') ?>
             </a>
         </div>
 
-        <div class="section-block-addresses">
-            <?php foreach (get_addresses() as $address): ?>
-                <div class="address-wrapper">
-                    <h4 class="address-title"><?= $address['title'] ?></h4>
-                    <div class="address-description">
-                        <p><?= $address['address'] ?></p>
-                        <p><?= $address['zipcode'] ?></p>
-                        <p class="strong"><?= $address['phone_number'] ?></p>
-                        <p class="strong"><?= $address['email'] ?></p>
-                    </div>
-                </div>
-            <?php endforeach; ?>
-        </div>
+        <?php get_template_part('components/block_addresses') ?>
 
         <div class="footer-navigation">
             <nav id="footer-main-navigation">

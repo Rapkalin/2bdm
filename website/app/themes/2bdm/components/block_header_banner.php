@@ -1,4 +1,4 @@
-<section class="section-block-header-banner slide-content"
+<div class="section-block-header-banner slide-content"
          style='background-image: url("<?= $args['banner']['image']['url']; ?>")'
 >
     <div class="hb-wrapper row-2">
@@ -32,6 +32,6 @@
             </div>
         </div>
     </div>
-</section>
+</div>
 
 <span id="first-section"></span>

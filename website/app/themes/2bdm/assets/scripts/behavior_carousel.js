@@ -9,6 +9,16 @@ const behavior_carousel = {
 
         let currentIndex = 0;
 
+        // Fonction pour faire trembler la navigation
+        const shakeNavigation = () => {
+            if (carouselNav) {
+                carouselNav.classList.add('shake');
+                setTimeout(() => {
+                    carouselNav.classList.remove('shake');
+                }, 2500);
+            }
+        };
+
         const scrollToIndex = (index) => {
             if (index < 0 || index >= slides.length) return;
             const slide = slides[index];
@@ -32,6 +42,23 @@ const behavior_carousel = {
                 e.preventDefault();
                 scrollToIndex(currentIndex + 1)
             });
+        }
+
+        // Détecter quand la section du carrousel est visible
+        const carouselSection = document.querySelector('.carousel-images');
+        const carouselNav = document.querySelector('.carousel-nav');
+
+        // Trigger animation when section is visible in viewport
+        if (carouselSection && carouselNav) {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        setTimeout(shakeNavigation, 1000); // 1 seconde après que la section soit visible
+                    }
+                });
+            }, { threshold: 0.5 });
+
+            observer.observe(carouselSection);
         }
 
         // Drag / swipe

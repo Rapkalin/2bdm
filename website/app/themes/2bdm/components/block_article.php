@@ -38,7 +38,7 @@
 
         </div>
     </a>
-    <div class="next-article-date">
+    <div class="no-numbers-animation next-article-date">
         <span>
             <?php get_template_part('components/svg-bullet') ?>
         </span>

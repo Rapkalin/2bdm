@@ -9,7 +9,7 @@ $taxonomy = get_the_terms(get_the_ID(), '2bdm-articles')[0];
 ?>
 <div class="article-container">
     <div class="article-header-wrapper">
-        <span class="article-date"><?= get_field('release_date', $post->ID) ?></span>
+        <span class="no-numbers-animation article-date"><?= get_field('release_date', $post->ID) ?></span>
         <span class="article-taxonomy"><?= $taxonomy->name ?></span>
     </div>
     <h1 class="article-title"><?= get_field('title', $post->ID) ?></h1>
@@ -31,7 +31,7 @@ $taxonomy = get_the_terms(get_the_ID(), '2bdm-articles')[0];
                             get_template_part("components/block_text");
                             break;
                         case 'content':
-                            ?><div class="article-content"><?= get_sub_field('content', $post->ID) ?></div>
+                            ?><div class="no-numbers-animation article-content"><?= get_sub_field('content', false) ?></div>
                             <?php break;
                     } ?>
                 </section>

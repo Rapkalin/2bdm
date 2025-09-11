@@ -19,13 +19,15 @@ get_header(args:['color-logo' => '__grey']);
                 <?php get_template_part('components/svg-bullet') ?>
                 <?= get_sub_field('title') ?>
             </div>
-            <div class="side-next side-desktop">
-                <div class="next-title">
-                    <?php get_template_part('components/svg-bullet') ?>
-                    <?= get_sub_field('side_content_bottom')['title'] ?>
+            <?php if(have_rows('side_content_bottom')): the_row() ?>
+                <div class="side-next side-desktop">
+                    <div class="next-title">
+                        <?php get_template_part('components/svg-bullet') ?>
+                        <?= get_sub_field('title') ?>
+                    </div>
+                    <p class="next-description"><?= get_sub_field('description', false) ?></p>
                 </div>
-                <p class="next-description"><?= get_sub_field('side_content_bottom')['description'] ?></p>
-            </div>
+            <?php endif; ?>
         <?php endif; ?>
     </div>
     <form id="dynamic-form" method="post">
@@ -83,7 +85,7 @@ get_header(args:['color-logo' => '__grey']);
         <?php get_template_part('components/svg-bullet') ?>
         <?= get_sub_field('side_content_bottom')['title'] ?>
     </div>
-    <p class="next-description"><?= get_sub_field('side_content_bottom')['description'] ?></p>
+    <p class="next-description"><?= get_sub_field('side_content_bottom', false)['description'] ?></p>
 </div>
 
 <?php

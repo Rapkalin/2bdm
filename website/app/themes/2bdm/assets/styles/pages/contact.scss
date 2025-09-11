@@ -252,6 +252,7 @@ input[type="file"] {
     display: flex;
     align-items: center;
     gap: fn.toRem(8);
+    color: var.$grey;
     font-size: 22px;
     line-height: 32px;
     margin-bottom: 8px;
@@ -266,6 +267,11 @@ input[type="file"] {
   .next-description {
     font-size: 16px;
     line-height: 26px;
+
+    a {
+      color: var.$grey;
+      text-decoration: underline;
+    }
   }
 }
 

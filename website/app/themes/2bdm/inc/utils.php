@@ -28,15 +28,13 @@ function get_terms_hierarchy(string $taxonomy): array
 
 function build_menu(): array
 {
-    // Create transient key
-    $transient_key = '2bdm_menu_items_' . md5(serialize([
-            'locale' => get_locale(),
-            'user_role' => wp_get_current_user()->roles[0] ?? 'guest',
-    ]));
-
-    // If menu is cached we return it
-    if (false !== ($menu = get_transient($transient_key))) {
-        return $menu;
+    /*
+     * If menu is cached, we return the cached version
+     * All transient keys are prefixed with 2bdm_
+     */
+    $transientKey = get_transient_key('menu_items');
+    if ($cachedData = get_transient($transientKey)) {
+        return $cachedData;
     }
 
     $menu = [];
@@ -57,7 +55,6 @@ function build_menu(): array
             get_item_menu_children($item, $menuItem);
         }
 
-
         /*
          * If a menu entry has a parent then we bind it to its parent with type = pages
          * menu entry
@@ -72,10 +69,11 @@ function build_menu(): array
         }
     }
 
+    // Set the contact block for the menu
     set_menu_entry_contact($menu);
 
     // Cache for 1 hour
-    set_transient($transient_key, $menu, HOUR_IN_SECONDS);
+    set_transient($transientKey, $menu, HOUR_IN_SECONDS);
 
     return $menu;
 }
@@ -171,4 +169,13 @@ function get_addresses(): array
         ],
 
     ];
+}
+
+function get_transient_key(string $key): mixed
+{
+    // Create transient key
+    return CACHE_PREFIX .$key . md5(serialize([
+            'locale' => get_locale(),
+            'user_role' => wp_get_current_user()->roles[0] ?? 'guest',
+    ]));
 }

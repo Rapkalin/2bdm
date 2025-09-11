@@ -55,6 +55,8 @@ get_header(args:['color-logo' => '__grey']);
                             );
                         }
                         break;
+                    case 'file':
+                        break;
                 endswitch;
             endwhile;
         endif;
@@ -83,7 +85,7 @@ get_header(args:['color-logo' => '__grey']);
     </form>
 </div>
 
-<?php if (isset($next_title)): ?>
+<?php if (isset($next_title) && isset($next_description)): ?>
     <div class="side-next side-mobile">
         <div class="next-title">
             <?php get_template_part('components/svg-bullet') ?>

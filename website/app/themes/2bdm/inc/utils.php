@@ -28,6 +28,15 @@ function get_terms_hierarchy(string $taxonomy): array
 
 function build_menu(): array
 {
+    /*
+     * If menu is cached, we return the cached version
+     * All transient keys are prefixed with 2bdm_
+     */
+    $transientKey = get_transient_key('menu_items');
+    if ($cachedData = get_transient($transientKey)) {
+        return $cachedData;
+    }
+
     $menu = [];
     $items = wp_get_nav_menu_items('header-menu', [
         'theme_location' => 'header-menu',
@@ -46,7 +55,6 @@ function build_menu(): array
             get_item_menu_children($item, $menuItem);
         }
 
-
         /*
          * If a menu entry has a parent then we bind it to its parent with type = pages
          * menu entry
@@ -61,7 +69,11 @@ function build_menu(): array
         }
     }
 
+    // Set the contact block for the menu
     set_menu_entry_contact($menu);
+
+    // Cache for 1 hour
+    set_transient($transientKey, $menu, HOUR_IN_SECONDS);
 
     return $menu;
 }
@@ -157,4 +169,13 @@ function get_addresses(): array
         ],
 
     ];
+}
+
+function get_transient_key(string $key): mixed
+{
+    // Create transient key
+    return CACHE_PREFIX .$key . md5(serialize([
+            'locale' => get_locale(),
+            'user_role' => wp_get_current_user()->roles[0] ?? 'guest',
+    ]));
 }

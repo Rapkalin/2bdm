@@ -114,6 +114,7 @@ define( 'WP_DEFAULT_THEME', '2bdm' );
 define ('WP_CONTENT_DIR', __DIR__ . '/app');
 define ('WP_CONTENT_URL', $env['WP_CONTENT_URL'] . 'app');
 define( 'WP_SITEURL',  $env['WP_SITEURL'] . 'wordpress-core/');
+define( 'CACHE_PREFIX',  '2bdm_');
 
 /* That's all, stop editing! Happy publishing. */
 

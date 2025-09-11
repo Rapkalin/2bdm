@@ -14,6 +14,7 @@ import behavior_filter_projects from "./behavior_filter_projects";
 import behavior_filter_articles from "./behavior_filter_articles";
 import behavior_forms from "./behavior_forms";
 import behavior_popup from "./behavior_popup";
+import behavior_animations from "./behavior_animations";
 
 console.info('The main JS has been loaded');
 
@@ -69,4 +70,7 @@ document.addEventListener("DOMContentLoaded", () => {
     /* As the menu is on all pages this Behavior is always called */
     behavior_menu.init();
     behavior_menu_mobile.init();
+
+    /* Global animations for the entire website */
+    behavior_animations.init()
 });

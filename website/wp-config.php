@@ -92,7 +92,8 @@ $table_prefix = 'wp_';
  *
  * @link https://wordpress.org/documentation/article/debugging-in-wordpress/
  */
-if ($env['_ENV'] === 'production') {
+
+if (isset($env['_ENV']) && $env['_ENV'] === 'production') {
     define( 'WP_DEBUG', false );
 } else {
     define( 'WP_DEBUG', true );
@@ -102,9 +103,8 @@ if ($env['_ENV'] === 'production') {
 
 /* Add any custom values between this line and the "stop editing" line. */
 
-/** Define a custom path to the config.php file */
 if ( ! defined( 'ABSPATH' ) ) {
-    define( 'ABSPATH', __DIR__ . 'wp-config.php');
+    define( 'ABSPATH', __DIR__ . '/');
 }
 
 /** Define a custom default theme */

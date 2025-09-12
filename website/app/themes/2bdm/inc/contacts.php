@@ -1,7 +1,25 @@
 <?php
 
+use PHPMailer\PHPMailer\PHPMailer;
+
 add_action('wp_ajax_submit_dynamic_form', 'submit_dynamic_form');
 add_action('wp_ajax_nopriv_submit_dynamic_form', 'submit_dynamic_form');
+add_action('phpmailer_init', 'configure_smtp');
+
+function configure_smtp(PHPMailer $phpmailer): void
+{
+    $env = PROJECT_ENV_CONFIG;
+    $phpmailer->isSMTP();
+    $phpmailer->Host = $env['HOST']; // SMTP SERVER
+    $phpmailer->SMTPAuth = (bool) $env['SMTPAUTH'];
+    $phpmailer->Port = (int) $env['PORT']; // SSL Port SMTP
+    $phpmailer->Username = $env['USERNAME'];
+    $phpmailer->Password = $env['PASSWORD'];
+    $phpmailer->SMTPSecure = $env['SMTPSECURE'];
+    $phpmailer->From = $env['FROM'];
+    $phpmailer->FromName = $env['FROMNAME'];
+}
+
 function submit_dynamic_form(): void {
     // reCAPTCHA
     // recaptchaCheck();
@@ -172,21 +190,3 @@ function getFormGroup(string $type, array $data = []): void {
             break;
     }
 }
-
-use PHPMailer\PHPMailer\PHPMailer;
-require_once __DIR__ . '/../../../../vendor/autoload.php';
-add_action('phpmailer_init', 'configure_smtp');
-
-function configure_smtp(PHPMailer $phpmailer): void
-{
-    $phpmailer->isSMTP();
-    $phpmailer->Host = $env['HOST']; // Serveur SMTP pour IONOS
-    $phpmailer->SMTPAuth = $env['SMTPAUTH'];
-    $phpmailer->Port = $env['PORT']; // Port SMTP pour SSL
-    $phpmailer->Username = $env['USERNAME']; // Remplacez par votre adresse email OVH
-    $phpmailer->Password = $env['PASSWORD']; // Remplacez par votre mot de passe email
-    $phpmailer->SMTPSecure = $env['SMTPSECURE']; // Utilisez 'tls' si vous utilisez le port 587
-    $phpmailer->From = $env['FROM'];
-    $phpmailer->FromName = $env['FROMNAME'];
-}
-

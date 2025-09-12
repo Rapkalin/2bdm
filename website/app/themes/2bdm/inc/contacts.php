@@ -44,7 +44,6 @@ function submit_dynamic_form(): void {
         }
     }
 
-
     try {
         // Handle uploaded files
         $attachments = [];
@@ -153,26 +152,32 @@ function getFormGroup(string $type, array $data = []): void {
             break;
         case 'file':
             ?>
-            <div class="form-group">
-                <input type="file" id="<?= htmlspecialchars($data['label']) ?>" name="<?= htmlspecialchars($data['label']) ?>" class="custom-file-input">
+            <div class="form-group group-file">
+                <input type="file" class="custom-file-input" name="<?= htmlspecialchars($data['label']) ?>" id="<?= htmlspecialchars($data['label']) ?>">
                 <label for="<?= htmlspecialchars($data['label']) ?>" class="custom-file-label">
                     <?= htmlspecialchars($data['label']) ?>
                     <?php get_template_part("components/svg-arrow-down"); ?>
                 </label>
+                <!-- Conteneur pour afficher les infos du fichier -->
+                <div class="file-info-container" style="display: none;">
+                    <div class="file-name"></div>
+                    <div class="file-size"></div>
+                    <div class="progress-container">
+                        <div class="progress-bar"></div>
+                    </div>
+                </div>
             </div>
-            <?php
-            break;
+            <?php break;
         default:
             break;
     }
 }
 
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\Exception;
 require_once __DIR__ . '/../../../../vendor/autoload.php';
 add_action('phpmailer_init', 'configure_smtp');
 
-function configure_smtp($phpmailer): void
+function configure_smtp(PHPMailer $phpmailer): void
 {
     $phpmailer->isSMTP();
     $phpmailer->Host = $env['HOST']; // Serveur SMTP pour IONOS

@@ -14,18 +14,24 @@ get_header(args:['color-logo' => '__grey']);
 
 <div class="form-wrapper main-wrapper">
     <div class="form-side-container">
-        <?php if(have_rows('side_content')): the_row() ?>
+        <?php if (have_rows('side_content')): the_row() ?>
             <div class="side-title">
                 <?php get_template_part('components/svg-bullet') ?>
                 <?= get_sub_field('title') ?>
             </div>
-            <div class="side-next side-desktop">
-                <div class="next-title">
-                    <?php get_template_part('components/svg-bullet') ?>
-                    <?= get_sub_field('side_content_bottom')['title'] ?>
+            <?php if (have_rows('side_content_bottom')): the_row() ?>
+                <div class="side-next side-desktop">
+                    <div class="next-title">
+                        <?php
+                            get_template_part('components/svg-bullet');
+                            $next_title = get_sub_field('title');
+                            $next_description = get_sub_field('description', false)
+                        ?>
+                        <?= $next_title ?>
+                    </div>
+                    <p class="next-description"><?= $next_description ?></p>
                 </div>
-                <p class="next-description"><?= get_sub_field('side_content_bottom')['description'] ?></p>
-            </div>
+            <?php endif; ?>
         <?php endif; ?>
     </div>
     <form id="dynamic-form" method="post">
@@ -42,13 +48,14 @@ get_header(args:['color-logo' => '__grey']);
                         );
                         break;
                     case 'cities':
-                        $cities = get_sub_field('cities');
-                        if ($cities) {
+                        if ($cities = get_sub_field('cities')) {
                             getFormGroup(
                                 'cities',
                                 ['label' => get_sub_field('text_label'), 'cities' => $cities]
                             );
                         }
+                        break;
+                    case 'file':
                         break;
                 endswitch;
             endwhile;
@@ -78,16 +85,17 @@ get_header(args:['color-logo' => '__grey']);
     </form>
 </div>
 
-<div class="side-next side-mobile">
-    <div class="next-title">
-        <?php get_template_part('components/svg-bullet') ?>
-        <?= get_sub_field('side_content_bottom')['title'] ?>
+<?php if (isset($next_title) && isset($next_description)): ?>
+    <div class="side-next side-mobile">
+        <div class="next-title">
+            <?php get_template_part('components/svg-bullet') ?>
+            <?= $next_title ?>
+        </div>
+        <p class="next-description"><?= $next_description ?></p>
     </div>
-    <p class="next-description"><?= get_sub_field('side_content_bottom')['description'] ?></p>
-</div>
+<?php endif; ?>
 
 <?php
-
 wp_reset_query();
 get_footer();
 ?>

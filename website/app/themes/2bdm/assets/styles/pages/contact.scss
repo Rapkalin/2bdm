@@ -43,99 +43,99 @@
       line-height: 26px;
     }
 
-    /* Cache les labels */
+    /* Hide labels */
     .group-label label {
       display: none;
     }
 
-    /* Style général pour les inputs et textarea */
-    .form-group input[type="text"],
-    .form-group input[type="email"],
-    .form-group textarea {
-      width: 100%;
-      padding: 10px 0;
-      margin: 5px 0;
-      border: none;
-      background: transparent;
-      font-size: 16px;
-      font-family: var.$font-family;
+    /* Global style for inputs & textarea */
+    .form-group {
+      input[type="text"],
+      input[type="email"],
+      textarea {
+        width: 100%;
+        padding: 10px 0;
+        margin: 5px 0;
+        border: none;
+        background: transparent;
+        font-size: 16px;
+        font-family: var.$font-family;
+      }
+
+      /* Delete border focus for inputs and textarea */
+      input[type="text"]:focus,
+      input[type="email"]:focus,
+      textarea:focus {
+        outline: none;
+        border: none;
+        color: #756F5E;
+      }
+
+      input::placeholder,
+      textarea::placeholder {
+        color: #756F5E;
+        opacity: 1;
+      }
     }
 
-    /* Supprime la bordure de focus pour les inputs et textarea */
-    .form-group input[type="text"]:focus,
-    .form-group input[type="email"]:focus,
-    .form-group textarea:focus {
-      outline: none;
-      border: none;
-      color: #756F5E;
-    }
+    .group-cities {
+      display: flex;
+      flex-direction: row;
 
-    /* Style pour le placeholder */
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-      color: #756F5E;
-      opacity: 1; /* Assure que le placeholder est pleinement visible */
+      .cities-container {
+        display: flex;
+        justify-content: space-between;
+        width: 100%;
+        align-items: center;
+
+        .cities-option {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+
+          .city-option {
+            input[type="radio"] {
+              display: none;
+
+              &:checked + label {
+                background-color: var.$white; /* Une couleur encore plus foncée pour la sélection */
+                color: var.$grey;
+                border: 1px solid var.$lightgrey;
+              }
+            }
+
+            label {
+              display: inline-block;
+              padding: 4px 12px;
+              margin: 5px;
+              background-color: #D4CFC1;
+              color: #756F5E;
+              border-radius: 16px;
+              cursor: pointer;
+              transition: background-color 0.3s;
+              border: 1px solid var.$white;
+            }
+
+            &label:hover {
+              background-color: #B8B2A8; /* Une couleur plus foncée pour le survol */
+              color: var.$white;
+              border: 1px solid var.$white;
+            }
+          }
+        }
+      }
     }
 
     .group-text {
       padding-bottom: 12px;
       border-bottom: 1px solid #D4CFC1;
     }
-
-    .group-cities {
-      display: flex;
-      flex-direction: row;
-    }
   }
-}
-
-/* Masquer les boutons radio natifs */
-.city-option input[type="radio"] {
-  display: none;
 }
 
 /* Supprime les flèches de dropdown pour les inputs de type file */
 input[type="file"] {
   border: none;
-}
-
-/* Styliser les labels pour ressembler à des gélules */
-.city-option label {
-  display: inline-block;
-  padding: 4px 12px;
-  margin: 5px;
-  background-color: #D4CFC1;
-  color: #756F5E;
-  border-radius: 16px; /* Crée l'effet de gélule */
-  cursor: pointer;
-  transition: background-color 0.3s;
-  border: 1px solid var.$white;
-}
-
-/* Changer la couleur au survol */
-.city-option label:hover {
-  background-color: #B8B2A8; /* Une couleur plus foncée pour le survol */
-  color: var.$white;
-  border: 1px solid var.$white;
-}
-
-/* Changer la couleur lorsque le bouton radio est sélectionné */
-.city-option input[type="radio"]:checked + label {
-  background-color: var.$white; /* Une couleur encore plus foncée pour la sélection */
-  color: var.$grey;
-  border: 1px solid var.$lightgrey;
-}
-
-.cities-option {
-  display: flex;
-  flex-direction: row;
-}
-
-.cities-container {
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-  align-items: center;
 }
 
 /* Masquer le champ de fichier par défaut */
@@ -234,6 +234,38 @@ input[type="file"] {
     }
   }
 
+  .side-next {
+    margin-bottom: 64px;
+    border-top: 1px solid;
+    padding-top: 24px;
+
+    .next-title {
+      display: flex;
+      align-items: center;
+      gap: fn.toRem(8);
+      color: var.$grey;
+      font-size: 22px;
+      line-height: 32px;
+      margin-bottom: 8px;
+
+      svg {
+        height: fn.toRem(8);
+        width: fn.toRem(8);
+        color: var.$grey
+      }
+    }
+
+    .next-description {
+      font-size: 16px;
+      line-height: 26px;
+
+      a {
+        color: var.$grey;
+        text-decoration: underline;
+      }
+    }
+  }
+
   .side-desktop {
     display: block;
   }
@@ -242,33 +274,6 @@ input[type="file"] {
 .side-mobile {
   display: none;
 }
-
-.side-next {
-  margin-bottom: 64px;
-  border-top: 1px solid;
-  padding-top: 24px;
-
-  .next-title {
-    display: flex;
-    align-items: center;
-    gap: fn.toRem(8);
-    font-size: 22px;
-    line-height: 32px;
-    margin-bottom: 8px;
-
-    svg {
-      height: fn.toRem(8);
-      width: fn.toRem(8);
-      color: var.$grey
-    }
-  }
-
-  .next-description {
-    font-size: 16px;
-    line-height: 26px;
-  }
-}
-
 
 /* smartphones, iPhone, portrait 480x320 phones */
 /* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
@@ -279,11 +284,43 @@ input[type="file"] {
     flex-direction: column;
     margin: fn.toRem(200) fn.toRem(20) fn.toRem(48) fn.toRem(20);
     gap: fn.toRem(40);
+
+    .contact-title {
+      font-size: var.$fs-h1-s;
+      line-height: var.$lh-h1-s;
+    }
   }
 
   .side-mobile {
     display: block;
     margin: 0 fn.toRem(20) fn.toRem(40) fn.toRem(20);
+
+    .next-title {
+      display: flex;
+      align-items: center;
+      gap: fn.toRem(8);
+      color: var.$grey;
+      font-size: 22px;
+      line-height: 32px;
+      margin-bottom: 8px;
+
+      svg {
+        height: fn.toRem(8);
+        width: fn.toRem(8);
+        color: var.$grey
+      }
+    }
+
+    .next-description {
+      color: var.$grey;
+      font-size: 16px;
+      line-height: 26px;
+
+      a {
+        color: var.$grey;
+        text-decoration: underline;
+      }
+    }
   }
 
   .form-side-container {

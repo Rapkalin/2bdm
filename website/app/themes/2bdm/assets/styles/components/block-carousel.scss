@@ -47,7 +47,7 @@
     align-items: center;
     padding: fn.toRem(14) fn.toRem(12);
     border-radius: 24px;
-    background-color: var.$grey;
+    background-color: var.$white;
     transform: translateX(-50%);
     gap: fn.toRem(16);
     z-index: 10;
@@ -60,6 +60,7 @@
       color: var.$white;
 
       svg {
+        color: black;
         height: fn.toRem(8);
         width: fn.toRem(13);
       }

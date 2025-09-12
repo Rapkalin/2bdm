@@ -115,6 +115,8 @@ define ('WP_CONTENT_DIR', __DIR__ . '/app');
 define ('WP_CONTENT_URL', $env['WP_CONTENT_URL'] . 'app');
 define( 'WP_SITEURL',  $env['WP_SITEURL'] . 'wordpress-core/');
 define( 'CACHE_PREFIX',  '2bdm_');
+define('PROJECT_ROOT_PATH', __DIR__);
+define('PROJECT_ENV_CONFIG', $env);
 
 /* That's all, stop editing! Happy publishing. */
 

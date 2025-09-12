@@ -2,7 +2,7 @@ const behavior_animations = {
     init() {
         // Select all elements to animate
         const textElements = document.querySelectorAll(
-            'h1, h2, h3, h4, h5, h6, p, a, span'
+            'h1, h2, h3, h4, h5, h6, p, a, span, .section-block-image-with-text, .section-block-image-text, .section-block-rewards, .section-block-publications'
         );
 
         // Add class to all selected element

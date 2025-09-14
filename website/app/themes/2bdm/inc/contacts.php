@@ -9,7 +9,6 @@ add_action('phpmailer_init', 'configure_smtp');
 function configure_smtp(PHPMailer $phpmailer): void
 {
     $env = PROJECT_ENV_CONFIG;
-    dump('$env', $env);
     $phpmailer->isSMTP();
     $phpmailer->Host = $env['HOST']; // SMTP SERVER
     $phpmailer->SMTPAuth = (bool) $env['SMTPAUTH'];

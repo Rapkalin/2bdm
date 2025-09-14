@@ -130,8 +130,8 @@ const behavior_filter_projects = {
                         projectsContainer.insertAdjacentHTML('beforeend', data.projects_html);
                     }
 
+                    const button_wrapper = document.querySelector('.button-load-more');
                     if (data.remaining_projects < 0) {
-                        const button_wrapper = document.querySelector('.button-load-more');
                         button_wrapper.style.display = 'none';
                     } else {
                         button_wrapper.style.display = 'flex';

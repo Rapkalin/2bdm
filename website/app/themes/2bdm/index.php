@@ -18,19 +18,17 @@ $homeCover = get_field('home_cover');
     </div>
 <?php endif; ?>
 
-<section class="section-block-home-cover"
-         style='background-image:
-                 linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2)),
-                 url("<?= $homeCover['image']['url']; ?>")'
->
-    <div class="block-cover-words">
-        <?php foreach($homeCover['cover_words'] as $i => $word): ?>
-            <div class="word">
-                <?= $word['cover_word'] ?>
+<?php if(have_rows('home_cover')): the_row() ?>
+        <section class="section-block-home-cover"
+                 style='background-image:
+                         linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2)),
+                         url("<?= get_sub_field('image')['url']; ?>")'
+        >
+            <div class="description">
+                <?= get_sub_field('description') ?>
             </div>
-        <?php endforeach; ?>
-    </div>
-</section>
+        </section>
+<?php endif; ?>
 
 <span id="first-section"></span>
 

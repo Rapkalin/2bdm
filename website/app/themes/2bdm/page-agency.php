@@ -41,9 +41,6 @@ while (have_rows('content_blocks')) : the_row(); ?>
         case 'block_infos':
             get_template_part("components/block_infos");
             break;
-        case 'block_team':
-            // get_template_part("components/block_team");
-            break;
         case 'block_rewards':
             get_template_part("components/block_rewards");
             break;

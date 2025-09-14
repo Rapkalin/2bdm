@@ -11,8 +11,15 @@
   }
 }
 
-.text-align-right {
-  flex-direction: row-reverse;
+.text-align {
+  &-right {
+    flex-direction: row-reverse;
+  }
+
+  &-center {
+    justify-content: center;
+    text-align: center;
+  }
 }
 
 /* smartphones, iPhone, portrait 480x320 phones */

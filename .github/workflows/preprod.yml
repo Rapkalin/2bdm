@@ -108,6 +108,7 @@ jobs:
             ln -nsrf ~/preprod/shared/uploads ~/preprod/website/app/uploads
             ln -nsrf ~/preprod/shared/cache ~/preprod/website/app/cache
             ln -nsrf ~/preprod/shared/w3tc-config ~/preprod/website/app/w3tc-config
+            ln -nsrf ~/preprod/shared/uploads-webpc ~/preprod/website/app/uploads-webpc
             rm ~/preprod/website/.htaccess
             rm ~/preprod/website/app/.htaccess
             ln -nsrf ~/preprod/shared/.htaccess ~/preprod/website/app/.htaccess

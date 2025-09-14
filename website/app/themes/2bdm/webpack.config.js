@@ -28,7 +28,6 @@ let config = {
     output: {
         filename: 'main.js',
         path: path.resolve(__dirname, 'dist'),
-        publicPath: '/dist/',
     },
     watch: dev,
     mode: "development",

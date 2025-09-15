@@ -42,7 +42,7 @@ if (have_rows('content_blocks')) :
 endif;
 
 // BLOCK NEXT PROJECT
-$next_project = get_sub_field('next_project')[0];
+$next_project = get_field('next_project')[0];
 $next_project_banner = get_field('header_banner', $next_project->ID);
 
 get_template_part("components/block_next_project", args: [

@@ -32,10 +32,10 @@ function build_menu(): array
      * If menu is cached, we return the cached version
      * All transient keys are prefixed with 2bdm_
      */
-    $transientKey = get_transient_key('menu_items');
-    if ($cachedData = get_transient($transientKey)) {
-        return $cachedData;
-    }
+   // $transientKey = get_transient_key('menu_items');
+    //if ($cachedData = get_transient($transientKey)) {
+    //    return $cachedData;
+    //}
 
     $menu = [];
     $items = wp_get_nav_menu_items('header-menu', [
@@ -73,7 +73,7 @@ function build_menu(): array
     set_menu_entry_contact($menu);
 
     // Cache for 1 hour
-    set_transient($transientKey, $menu, HOUR_IN_SECONDS);
+   // set_transient($transientKey, $menu, HOUR_IN_SECONDS);
 
     return $menu;
 }
@@ -133,14 +133,13 @@ function check_menu_entry_contact(array $childrenItem): bool
      * Is one of the child is contact we return true
      * even tho the other are false or not
      */
-    $isContact = false;
     foreach ($childrenItem as $child) {
         if (isset($child['is_contact']) && $child['is_contact']) {
-            $isContact = true;
+            return true;
         }
     }
 
-    return $isContact;
+    return false;
 }
 
 function get_addresses(): array

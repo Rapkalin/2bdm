@@ -15,6 +15,44 @@
   color: var.$white;
   padding: 0 fn.toRem(48);
 
+  &.text-align {
+    &-right {
+      text-align: end;
+
+      .description {
+        padding-left: unset;
+        padding-right: fn.toRem(48);
+      }
+    }
+
+    &-center {
+      justify-content: center;
+      text-align: center;
+    }
+
+    &-bottom {
+      justify-content: center;
+      text-align: center;
+      align-items: flex-end;
+
+      .description {
+        margin-bottom: fn.toRem(48);
+        padding-left: unset;
+      }
+    }
+
+    &-top {
+      justify-content: center;
+      text-align: center;
+      align-items: flex-start;
+
+      .description {
+        margin-top: fn.toRem(120);
+        padding-left: unset;
+      }
+    }
+  }
+
   .description {
     width: 70%;
     padding-left: fn.toRem(48);
@@ -28,6 +66,17 @@
 /* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
 @media (max-width:780px)  {
   .section-block-home-cover {
+    &.text-align {
+      &-right {
+        text-align: end;
+
+        .description {
+          padding-left: unset;
+          padding-right: unset;
+        }
+      }
+    }
+
     .description {
       width: 100%;
       padding-left: unset;

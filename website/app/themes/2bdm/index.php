@@ -19,14 +19,17 @@ $homeCover = get_field('home_cover');
 <?php endif; ?>
 
 <?php if(have_rows('home_cover')): the_row() ?>
-        <section class="section-block-home-cover"
+        <?php $align = get_sub_field('text_alignment') ?>
+        <section class="section-block-home-cover text-align-<?= $align ?>"
                  style='background-image:
-                         linear-gradient(to bottom, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.2)),
+                         linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.2)),
                          url("<?= get_sub_field('image')['url']; ?>")'
         >
-            <div class="description">
-                <?= get_sub_field('description') ?>
-            </div>
+            <?php if($description = get_sub_field('description')): ?>
+                <div class="description">
+                    <?= $description ?>
+                </div>
+            <?php endif; ?>
         </section>
 <?php endif; ?>
 

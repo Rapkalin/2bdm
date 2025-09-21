@@ -3,7 +3,7 @@ import {CountUp} from 'countup.js';
 const behavior_numbers_accordion = {
     init() {
         // Detect number in text
-        const textElements = document.querySelectorAll('body *:not(script):not(style):not(noscript):not(.no-numbers-animation):not(.publication-title):not(.intro-city)');
+        const textElements = document.querySelectorAll('body .number');
         const numberRegex = /\b\d+(?: \d+)*\b/g;
 
         textElements.forEach(element => {

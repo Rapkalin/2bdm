@@ -9,19 +9,19 @@
     line-height: var.$lh-p-m;
     font-size: var.$fs-p;
   }
-}
 
-.text-align {
-  &-right {
-    flex-direction: row-reverse;
-  }
+  &.text-align {
+    &-right {
+      flex-direction: row-reverse;
+    }
 
-  &-center {
-    justify-content: center;
-    text-align: center;
+    &-center {
+      justify-content: center;
+      text-align: center;
 
-    .text-content {
-      width: 100%;
+      .text-content {
+        width: 100%;
+      }
     }
   }
 }

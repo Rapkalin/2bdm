@@ -1,4 +1,4 @@
-<div class="filters-container-articles main-wrapper" style="
+<div class="filters-container-articles main-wrapper max-width-container" style="
     margin-top: 50px;
 ">
     <div class="fc-title">

@@ -8,7 +8,7 @@
 get_header(args:['color-logo' => '__grey']);
 ?>
 
-<div class="legal-wrapper">
+<div class="legal-wrapper max-width-container">
     <h1 class="legal-title"><?= get_the_title() ?></h1>
 
 

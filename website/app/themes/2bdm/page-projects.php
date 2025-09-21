@@ -46,7 +46,7 @@ $query = new WP_Query($args);
 $total_projects = $query->found_posts;
 ?>
 <div
-    class="projects-container main-wrapper"
+    class="projects-container max-width-container main-wrapper"
     data-url="<?php echo admin_url('admin-ajax.php'); ?>"
 >
     <?php

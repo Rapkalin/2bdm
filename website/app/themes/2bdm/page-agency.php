@@ -8,7 +8,7 @@
 get_header(args:['color-logo' => '__grey']);
 
 ?>
-<div class="page-header-container">
+<div class="page-header-container max-width-container">
     <h1 class="title"><?= get_field('title') ?></h1>
     <div class="description"><?= get_field('description') ?></div>
 </div>

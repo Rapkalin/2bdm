@@ -37,12 +37,21 @@ a {
     padding: fn.toRem(40) fn.toRem(48);
 }
 
+.max-width-container {
+  width: 100%;
+  max-width: 1600px;
+  justify-self: center;
+}
+
 .svg-plus {
   margin-left: fn.toRem(8);
 }
 
 .content-blocks {
   margin-top: fn.toRem(40);
+  width: 100%;
+  max-width: 1600px;
+  justify-self: center;
 }
 
 .svg-right svg {

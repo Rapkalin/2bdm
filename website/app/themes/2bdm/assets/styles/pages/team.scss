@@ -1,6 +1,10 @@
 @use '../basics/variables' as var;
 @use '../basics/functions' as fn;
 
+.section-people-wrapper {
+  width: auto;
+}
+
 .section-block-people {
   .block-people {
     margin-top: fn.toRem(40);

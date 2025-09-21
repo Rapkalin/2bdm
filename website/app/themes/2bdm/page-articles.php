@@ -6,9 +6,8 @@
  */
 
 get_header(args:['color-logo' => '__grey']);
-
 ?>
-    <div class="article-container articles-grid-header-container">
+    <div class="article-container articles-grid-header-container max-width-container">
         <div class="articles-grid-title"><?= get_field('title') ?></div>
         <div class="articles-grid-description"><?= get_field('description') ?></div>
     </div>
@@ -46,7 +45,7 @@ $query = new WP_Query(
 // Get the total number of projects
 $total_articles = $query->found_posts;
 ?>
-<section class="section-block-next-articles-wrapper main-wrapper">
+<section class="section-block-next-articles-wrapper main-wrapper max-width-container">
         <div class="next-articles-container">
             <?php while ($query->have_posts()): $query->the_post(); ?>
                 <?php get_template_part("components/block_article", args: [

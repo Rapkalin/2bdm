@@ -7,12 +7,12 @@
 
 get_header(args:['color-logo' => '__grey']);
 ?>
-<div class="contact-container contact-header-container">
+<div class="contact-container contact-header-container max-width-container">
     <div class="contact-title"><?= get_field('title') ?></div>
     <div class="contact-description"><?= nl2br(get_field('description')) ?></div>
 </div>
 
-<div class="form-wrapper main-wrapper">
+<div class="form-wrapper main-wrapper max-width-container">
     <div class="form-side-container">
         <?php if (have_rows('side_content')): the_row() ?>
             <div class="side-title">

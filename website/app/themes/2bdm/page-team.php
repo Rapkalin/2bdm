@@ -8,12 +8,12 @@
 get_header(args:['color-logo' => '__grey']);
 ?>
 
-<div class="page-header-container">
+<div class="page-header-container max-width-container">
     <h1 class="title"><?= get_field('title') ?></h1>
     <div class="description"><?= get_field('description') ?></div>
 </div>
 
-<div class="main-wrapper">
+<div class="section-people-wrapper main-wrapper max-width-container">
     <section class="section-block-people">
         <?php foreach (get_field('departments') as $department): ?>
             <div class="accordion-block block-people">

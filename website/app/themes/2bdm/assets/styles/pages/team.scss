@@ -177,6 +177,12 @@
         display: grid;
         grid-template-columns: 1fr 1fr;
 
+        .people-image-button {
+          .people-button {
+            display: none;
+          }
+        }
+
         .people-details {
           filter: grayscale(0%);
         }

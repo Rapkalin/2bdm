@@ -42,9 +42,53 @@
       }
     }
 
+    &-bottom-right {
+      justify-content: flex-end;
+      text-align: end;
+      align-items: flex-end;
+
+      .description {
+        margin-bottom: fn.toRem(48);
+        padding-left: unset;
+      }
+    }
+
+    &-bottom-left {
+      justify-content: flex-start;
+      text-align: start;
+      align-items: flex-end;
+
+      .description {
+        margin-bottom: fn.toRem(48);
+        padding-left: unset;
+      }
+    }
+
     &-top {
       justify-content: center;
       text-align: center;
+      align-items: flex-start;
+
+      .description {
+        margin-top: fn.toRem(120);
+        padding-left: unset;
+      }
+    }
+
+    &-top-right {
+      justify-content: flex-end;
+      text-align: end;
+      align-items: flex-start;
+
+      .description {
+        margin-top: fn.toRem(120);
+        padding-left: unset;
+      }
+    }
+
+    &-top-left {
+      justify-content: flex-start;
+      text-align: start;
       align-items: flex-start;
 
       .description {

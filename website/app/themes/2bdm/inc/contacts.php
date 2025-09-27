@@ -85,7 +85,7 @@ function submit_dynamic_form(): void {
         // Send email with attachments
         $headers = [
             'Content-Type' => 'text/html; charset=UTF-8',
-            'From' => PROJECT_ENV_CONFIG['FROMNAME'],
+            'From' => 'simple test',
             'Reply-To' => PROJECT_ENV_CONFIG['FROM'],
         ];
         $mail = new PHPMailer(true);
@@ -93,6 +93,7 @@ function submit_dynamic_form(): void {
         foreach ($attachments as $attachment) {
             $mail->addAttachment($attachment);
         }
+        dump('$mail', $mail);
         $mail_sent = mail($to, $subject, $message, $headers);
 
         // Delete files from temp directory

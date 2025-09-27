@@ -4,7 +4,6 @@ use PHPMailer\PHPMailer\PHPMailer;
 
 add_action('wp_ajax_submit_dynamic_form', 'submit_dynamic_form');
 add_action('wp_ajax_nopriv_submit_dynamic_form', 'submit_dynamic_form');
-add_action('phpmailer_init', 'configure_smtp');
 
 function configure_smtp(PHPMailer $phpmailer): void
 {
@@ -58,7 +57,6 @@ function submit_dynamic_form(): void {
             default:
                 $message .= "<p>" . ucfirst($key) . ' : ' . sanitize_text_field($value) . "</p><br>";
                 break;
-
         }
     }
 
@@ -86,7 +84,12 @@ function submit_dynamic_form(): void {
 
         // Send email with attachments
         $headers = ['Content-Type: text/html; charset=UTF-8'];
-        $mail_sent = wp_mail($to, $subject, $message, $headers, $attachments);
+        $mail = new PHPMailer(true);
+        configure_smtp($mail);
+        foreach ($attachments as $attachment) {
+            $mail->addAttachment($attachment);
+        }
+        $mail_sent = mail($to, $subject, $message);
 
         // Delete files from temp directory
         foreach ($attachments as $attachment) {

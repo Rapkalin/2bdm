@@ -52,10 +52,10 @@ function submit_dynamic_form(): void {
             case 'action':
                 break;
             case 'message':
-                $message .= "<p>" . ucfirst($key) . ' :<br>' . sanitize_text_field($value) . "</p><br>";
+                $message .= "<p>" . str_replace('_', ' ', ucfirst($key)) . ' :<br>' . sanitize_text_field($value) . "</p><br>";
                 break;
             default:
-                $message .= "<p>" . ucfirst($key) . ' : ' . sanitize_text_field($value) . "</p><br>";
+                $message .= "<p>" . str_replace('_', ' ', ucfirst($key)) . ' : ' . sanitize_text_field($value) . "</p><br>";
                 break;
         }
     }
@@ -64,7 +64,7 @@ function submit_dynamic_form(): void {
         // Handle uploaded files
         $attachments = [];
         if (!empty($_FILES)) {
-            $message .= "<p>Fichiers uploadés:</p>";
+            $message .= "<p>Fichiers uploadés :</p>";
             foreach ($_FILES as $key => $file) {
                 // Check the file type and make sure they are only PDF
                 $file_type = wp_check_filetype_and_ext($file['tmp_name'], $file['name']);
@@ -83,13 +83,17 @@ function submit_dynamic_form(): void {
         }
 
         // Send email with attachments
-        $headers = ['Content-Type: text/html; charset=UTF-8'];
+        $headers = [
+            'Content-Type' => 'text/html; charset=UTF-8',
+            'From' => PROJECT_ENV_CONFIG['FROMNAME'],
+            'Reply-To' => PROJECT_ENV_CONFIG['FROM'],
+        ];
         $mail = new PHPMailer(true);
         configure_smtp($mail);
         foreach ($attachments as $attachment) {
             $mail->addAttachment($attachment);
         }
-        $mail_sent = mail($to, $subject, $message);
+        $mail_sent = mail($to, $subject, $message, $headers);
 
         // Delete files from temp directory
         foreach ($attachments as $attachment) {

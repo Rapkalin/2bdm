@@ -96,6 +96,7 @@ if ($env['_ENV'] === 'production') {
     define( 'WP_DEBUG', false );
 } else {
     define( 'WP_DEBUG', true );
+    define( 'WP_DEBUG_LOG', true );
     define( 'WP_DEBUG_DISPLAY', true );
     @ini_set( 'display_errors', 1 );
 }

@@ -93,7 +93,6 @@ function submit_dynamic_form(): void {
         foreach ($attachments as $attachment) {
             $mail->addAttachment($attachment);
         }
-        dump('$mail', $mail);
         $mail_sent = mail($to, $subject, $message, $headers);
 
         // Delete files from temp directory

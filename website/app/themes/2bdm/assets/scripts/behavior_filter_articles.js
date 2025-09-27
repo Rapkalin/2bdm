@@ -71,7 +71,7 @@ const behavior_filter_articles = {
                     if (data.remaining_articles < 0) {
                         loadMoreButton.style.display = 'none';
                     } else {
-                        loadMoreButton.style.display = 'flex';
+                        loadMoreButton.style.display = 'inline-block';
                     }
                 })
                 .catch(error => {

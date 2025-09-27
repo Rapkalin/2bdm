@@ -87,7 +87,9 @@
 }
 
 .child-term {
-  display: inline-block;
+  display: flex;
+  width: max-content;
+  align-items: center;
   padding: fn.toRem(4) fn.toRem(12);
   background-color: var.$lightgrey;
   border-radius: fn.toRem(16);

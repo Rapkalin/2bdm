@@ -30,8 +30,34 @@
 
     .block-publications-wrapper {
       display: flex;
+      align-items: center;
       flex-direction: column;
       gap: fn.toRem(80);
+
+      .load-more-btn-publications {
+        background-color: var.$white;
+        align-items: center;
+        width: fit-content;
+        border: none;
+        color: var.$grey;
+        padding: fn.toRem(15) fn.toRem(32);
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: var.$fs-p;
+        border-radius: fn.toRem(25);
+        cursor: pointer;
+
+        svg {
+          color: var.$grey;
+          height: fn.toRem(8);
+          width: auto;
+        }
+
+        &:hover {
+          background: var.$lightgrey-m;
+        }
+      }
 
       .publications-intro-description {
         font-size: var.$fs-h2-m;

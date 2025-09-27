@@ -15,6 +15,7 @@ import behavior_menu from "./behavior_menu";
 import behavior_menu_mobile from "./behavior_menu_mobile";
 import behavior_numbers_animation from "./behavior_numbers_animation";
 import behavior_popup from "./behavior_popup";
+import behavior_loadmore_publications from "./behavior_publications";
 
 console.info('The main JS has been loaded');
 
@@ -74,4 +75,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* Behavior for number on the entire website */
     behavior_numbers_animation.init()
+
+    /* Behavior for the publications block on the agency page */
+    const loadMoreButtons = document.querySelectorAll(".load-more-btn-publications");
+    if (loadMoreButtons.length) {
+        behavior_loadmore_publications.init();
+    }
 });

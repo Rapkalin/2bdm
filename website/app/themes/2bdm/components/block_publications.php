@@ -33,6 +33,10 @@
                     </div>
                 <?php endforeach; ?>
             </div>
+            <button class="load-more-btn-publications load-more-cards">
+                Voir plus
+                <?php get_template_part("components/svg-plus"); ?>
+            </button>
 
             <div class="block-publications-cards-list">
                 <?php foreach (get_sub_field('publication_cards_list') as $i => $cardList): ?>
@@ -53,6 +57,10 @@
                     </div>
                 <?php endforeach; ?>
             </div>
+            <button class="load-more-btn-publications load-more-list">
+                Voir plus
+                <?php get_template_part("components/svg-plus"); ?>
+            </button>
         </div>
 
     </div>

@@ -67,6 +67,12 @@ get_header(args:['color-logo' => '__grey']);
             name="email_to"
             value="<?= get_field('email_to') ?>"
         >
+        <input
+            type="hidden"
+            id="email-from"
+            name="email_from"
+            value="<?= get_field('mail_choice') ?>"
+        >
         <div class="legal-text">
             * Champs obligatoires.  <br>
             Les données collectées sur ce formulaire sont enregistrées afin d'étudier votre demande et de vous répondre.

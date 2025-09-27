@@ -5,18 +5,25 @@ use PHPMailer\PHPMailer\PHPMailer;
 add_action('wp_ajax_submit_dynamic_form', 'submit_dynamic_form');
 add_action('wp_ajax_nopriv_submit_dynamic_form', 'submit_dynamic_form');
 
-function configure_smtp(PHPMailer $phpmailer): void
+function configure_smtp(PHPMailer $phpmailer, string $to, string $from, string $message): void
 {
     $env = PROJECT_ENV_CONFIG;
     $phpmailer->isSMTP();
-    $phpmailer->Host = $env['HOST']; // SMTP SERVER
+    $phpmailer->isHTML();
+    $phpmailer->Host = $env['HOST'];      // SMTP SERVER
     $phpmailer->SMTPAuth = (bool) $env['SMTPAUTH'];
-    $phpmailer->Port = (int) $env['PORT']; // SSL Port SMTP
-    $phpmailer->Username = $env['USERNAME'];
-    $phpmailer->Password = $env['PASSWORD'];
+    $phpmailer->Port = (int) $env['PORT'];
+    $phpmailer->Username = $from === 'recruitment' ? $env['USERNAME_RECRUIT'] : $env['USERNAME_APPLY'];
+    $phpmailer->Password = $from === 'recruitment' ? $env['PASSWORD_RECRUIT'] : $env['PASSWORD_APPLY'];
     $phpmailer->SMTPSecure = $env['SMTPSECURE'];
-    $phpmailer->From = $env['FROM'];
-    $phpmailer->FromName = $env['FROMNAME'];
+    $phpmailer->CharSet = 'UTF-8';
+    $senderMail = $from === 'recruitment' ? $env['FROM_RECRUIT'] : $env['FROM_APPLY'];
+    $fromName = $from === 'recruitment' ? $env['FROMNAME_RECRUIT'] : $env['FROMNAME_APPLY'] ;
+    $phpmailer->setFrom($senderMail, $fromName);
+    $phpmailer->addAddress($to);
+    $phpmailer->Subject = 'Nouveau message depuis le formulaire de contact';
+    $phpmailer->Body = $message;
+    $phpmailer->AltBody = strip_tags($message);
 }
 
 function submit_dynamic_form(): void {
@@ -44,7 +51,7 @@ function submit_dynamic_form(): void {
 
     // Preparing email
     $to = $_POST['email_to'];
-    $subject = 'Nouveau message depuis le formulaire de contact';
+    $from = $_POST['email_from'];
     $message = '';
     foreach ($_POST as $key => $value) {
         switch ($key) {
@@ -83,17 +90,12 @@ function submit_dynamic_form(): void {
         }
 
         // Send email with attachments
-        $headers = [
-            'Content-Type' => 'text/html; charset=UTF-8',
-            'From' => 'simple test',
-            'Reply-To' => PROJECT_ENV_CONFIG['FROM'],
-        ];
         $mail = new PHPMailer(true);
-        configure_smtp($mail);
+        configure_smtp($mail, $to, $from, $message);
         foreach ($attachments as $attachment) {
             $mail->addAttachment($attachment);
         }
-        $mail_sent = mail($to, $subject, $message, $headers);
+        $mail_sent = $mail->send();
 
         // Delete files from temp directory
         foreach ($attachments as $attachment) {

@@ -111,6 +111,14 @@
           aspect-ratio: 3.5/4;
         }
       }
+
+      .next-project-img:hover {
+        clip-path: unset;
+
+        .next-project-button {
+          display: none;
+        }
+      }
     }
 
     .main-header {

@@ -198,28 +198,49 @@
     grid-template-rows: 1fr;
     grid-template-columns: unset;
     gap: fn.toRem(24);
-    padding: fn.toRem(48) fn.toRem(20);
+    padding: fn.toRem(48) 0;
+
+    .publications-intro-title {
+      padding: 0 fn.toRem(20);
+    }
 
     .block-publications-container {
       .block-publications-wrapper {
-        gap: fn.toRem(48);
+        gap: fn.toRem(60);
+
+        .publications-intro-description {
+          padding: 0 fn.toRem(20);
+        }
 
         .block-publications-cards {
-          gap: 3rem;
-          width: 100%;
+          gap: 1rem;
+          width: 100dvw;
           grid-auto-flow: column;
           grid-auto-columns: 75%;
           grid-template-columns: unset;
           overflow-x: scroll;
+
+          .block-publications-card {
+            width: fit-content;
+            padding: 0 fn.toRem(20);
+          }
         }
+
+        .load-more-btn-publications {
+          display: none;
+        }
+
         .block-publications-cards-list {
           gap: fn.toRem(16);
+          width: 100%;
 
           .card-last {
-            padding-bottom: fn.toRem(16);
+            border-bottom: unset;
           }
 
           .block-publications-card {
+            padding: 0 fn.toRem(20);
+
             .publication-info {
               display: flex;
               flex-direction: column;

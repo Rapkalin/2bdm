@@ -78,7 +78,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     /* Behavior for the publications block on the agency page */
     const loadMoreButtons = document.querySelectorAll(".load-more-btn-publications");
-    if (loadMoreButtons.length) {
+    if (loadMoreButtons.length && window.innerWidth > 768) { // && not mobile
         behavior_loadmore_publications.init();
     }
 });

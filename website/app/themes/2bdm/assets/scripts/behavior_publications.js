@@ -35,7 +35,9 @@ const behavior_loadmore_publications = {
             });
         }
 
-        setupLoadMore(".block-publications-cards", ".load-more-cards");
+        if (window.innerWidth > 768) { // only if not mobile
+            setupLoadMore(".block-publications-cards", ".load-more-cards");
+        }
         setupLoadMore(".block-publications-cards-list", ".load-more-list");
     }
 };

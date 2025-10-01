@@ -1,4 +1,4 @@
-<section class="section-block-next-articles-wrapper main-wrapper <?= isset($args['extraClasses']) ? implode(' ', $args['extraClasses']) : '' ?>">
+<section class="section-block-next-articles-wrapper main-wrapper max-width-container <?= isset($args['extraClasses']) ? implode(' ', $args['extraClasses']) : '' ?>">
     <?php if($args['show_header_main']): ?>
         <div class="main-header">
             <h2 class="title"><?= $args['show_header_main'] ?></h2>

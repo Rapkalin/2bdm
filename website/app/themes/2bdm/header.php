@@ -126,7 +126,11 @@
         </div>
     </div>
 </div>
-<div class="container">
+<?php
+    $templateName  = basename(get_page_template());
+    $maxWidth = $templateName !== 'page-projects.php' && get_post_type() !== 'projects' && !is_front_page();
+?>
+<div class="container <?= $maxWidth ? 'max-width-container' : '' ?>">
 
 
 

@@ -5,6 +5,7 @@
   display: grid;
   grid-template-columns: 1fr 3fr;
   color: var.$grey;
+  width: 100%;
 
   h3 {
     font-size: var.$fs-h4;

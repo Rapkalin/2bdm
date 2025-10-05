@@ -32,7 +32,7 @@ get_header(args:['color-logo' => '__grey']);
                             class="people-details <?= $isPopUpActive ? 'popup-active' : '' ?>"
                             <?php if ($isPopUpActive): ?>
                                 data-name="<?= esc_attr($member['title']) ?>"
-                                data-description="<?= $member['popup_description'] ?>"
+                                data-description="<?= esc_attr($member['popup_description']) ?>"
                                 data-image="<?= esc_url($member['image']['url']) ?>"
                             <?php endif ?>
                         >

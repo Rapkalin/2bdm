@@ -73,11 +73,19 @@ function submit_dynamic_form(): void {
         if (!empty($_FILES)) {
             $message .= "<p>Fichiers uploadés :</p>";
             foreach ($_FILES as $key => $file) {
-                // Check the file type and make sure they are only PDF
+                // Check the file type and make sure they are only PDF or DOCX
                 $file_type = wp_check_filetype_and_ext($file['tmp_name'], $file['name']);
-                if ($file_type['type'] !== 'application/pdf') {
-                    wp_send_json_error('Seuls les fichiers PDF sont autorisés.');
+                $allowed_types = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
+                $max_size = 5 * 1024 * 1024; // 5 Mo
+
+                if (!in_array($file_type['type'], $allowed_types)) {
+                    wp_send_json_error('Seuls les fichiers PDF ou DOCX sont autorisés.');
                 }
+
+                if ($file['size'] > $max_size) {
+                    wp_send_json_error('Le fichier dépasse la taille maximale autorisée de 5 Mo.');
+                }
+
 
                 if ($file['error'] === UPLOAD_ERR_OK) {
                     $upload_dir = wp_upload_dir();

@@ -7,6 +7,22 @@
   margin-bottom: 5px;
 }
 
+.group-file {
+  position: relative;
+
+  .file-info-container {
+    display: none;
+    margin-top: fn.toRem(10);
+    font-size: var.$fs-p-s;
+    color: var.$grey;
+
+    .file-name,
+    .file-size {
+      margin-bottom: fn.toRem(5);
+    }
+  }
+}
+
 .contact-header-container {
   margin: fn.toRem(200) fn.toRem(48);
   color: var.$darkgrey;
@@ -27,13 +43,13 @@
 .form-wrapper {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 20px;
+  gap: fn.toRem(20);
   width: 80%;
 
   #dynamic-form {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: fn.toRem(30);
     color: #756F5E;
 
     .form-group {

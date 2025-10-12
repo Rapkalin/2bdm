@@ -40,8 +40,7 @@ get_header(args:['color-logo' => '__grey']);
         if (have_rows('form')):
             while (have_rows('form')): the_row();
                 switch (get_row_layout()):
-                    case 'text':
-                    case 'email':
+                    case 'text': // simple
                         getFormGroup(
                             get_sub_field('field_type'),
                             ['label' => get_sub_field('text_label')]
@@ -54,8 +53,6 @@ get_header(args:['color-logo' => '__grey']);
                                 ['label' => get_sub_field('text_label'), 'cities' => $cities]
                             );
                         }
-                        break;
-                    case 'file':
                         break;
                 endswitch;
             endwhile;

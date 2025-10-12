@@ -14,3 +14,4 @@
 [2BDM-12] - Mobile version
 [2BDM-13] - Optimisation and performance
 [2BDM-14] - Website animations
+[2BDM-15] - Multilingual implementation

@@ -51,6 +51,7 @@
 
         .menu-content {
           display: flex;
+          align-items: center;
           gap: fn.toRem(20);
 
           .menu-item {

@@ -29,6 +29,7 @@
                                 <a class="menu-item-link" href="<?= $menuItem['url'] ?>"><?= $menuItem['title'] ?></a>
                             </div>
                         <?php endforeach; ?>
+                        <div id="weglot_here"></div>
                     </div>
                 </nav>
             </div>
@@ -114,6 +115,7 @@
                                 <?php endif; ?>
                             </div>
                         <?php endforeach; ?>
+                        <div id="weglot_here"></div>
                     </div>
 
                     <!-- Dynamically handled in behavior_menu_mobile -->

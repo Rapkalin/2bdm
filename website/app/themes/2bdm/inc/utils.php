@@ -32,7 +32,7 @@ function build_menu(): array
      * If menu is cached, we return the cached version
      * All transient keys are prefixed with 2bdm_
      */
-   // $transientKey = get_transient_key('menu_items');
+    // $transientKey = get_transient_key('menu_items');
     //if ($cachedData = get_transient($transientKey)) {
     //    return $cachedData;
     //}

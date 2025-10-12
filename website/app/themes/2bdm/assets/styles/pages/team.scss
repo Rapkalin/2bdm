@@ -87,22 +87,21 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 100%;
+    height: 100dvh;
     background: rgba(0, 0, 0, 0.8);
     display: flex;
     justify-content: center;
     z-index: 100;
-    overflow: scroll;
 
     .popup-content {
       position: relative;
-      height: 100%;
       background: var.$white;
       padding: fn.toRem(20);
       border-radius: fn.toRem(8);
       max-width: fn.toRem(500);
       text-align: center;
       color: var.$grey;
+      margin: fn.toRem(48) 0;
       overflow: scroll;
 
       .popup-name {

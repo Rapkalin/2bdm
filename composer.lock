@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "0b39e4e488aa2756cd142a3567aed3b1",
+    "content-hash": "6a6ed38cf7827ccd9318409194def953",
     "packages": [
         {
             "name": "composer/installers",
@@ -876,6 +876,24 @@
             },
             "type": "wordpress-plugin",
             "homepage": "https://wordpress.org/plugins/webp-converter-for-media/"
+        },
+        {
+            "name": "wpackagist-plugin/weglot",
+            "version": "5.1",
+            "source": {
+                "type": "svn",
+                "url": "https://plugins.svn.wordpress.org/weglot/",
+                "reference": "tags/5.1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://downloads.wordpress.org/plugin/weglot.5.1.zip"
+            },
+            "require": {
+                "composer/installers": "^1.0 || ^2.0"
+            },
+            "type": "wordpress-plugin",
+            "homepage": "https://wordpress.org/plugins/weglot/"
         }
     ],
     "packages-dev": [

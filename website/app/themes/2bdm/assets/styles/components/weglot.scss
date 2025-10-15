@@ -1,6 +1,12 @@
+@use '../basics/variables' as var;
+
 .country-selector.weglot-dropdown .wgcurrent a,
 .country-selector.weglot-dropdown .wgcurrent span {
   padding-right: unset;
+  text-decoration: none;
+  font-size: var.$fs-p;
+  line-height: var.$lh-p;
+  color: var.$white;
 }
 
 .country-selector.weglot-dropdown {
@@ -18,4 +24,11 @@
 .country-selector.weglot-dropdown ul {
   background: unset;
   border: unset;
+
+  li > a {
+    text-decoration: none;
+    font-size: var.$fs-p;
+    line-height: var.$lh-p;
+    color: var.$white;
+  }
 }

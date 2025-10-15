@@ -37,7 +37,7 @@ function submit_dynamic_form(): void {
             $errors[$key] = 'Ce champ est requis';
         } else {
             if (
-                ($key === 'email' || $key === 'email_to') &&
+                ($key === 'email') &&
                 !filter_var($value, FILTER_VALIDATE_EMAIL)
             ) {
                 $errors[$key] = 'Email invalide';
@@ -50,7 +50,7 @@ function submit_dynamic_form(): void {
     }
 
     // Preparing email
-    $to = $_POST['email_to'];
+    $to = $_POST['email'];
     $from = $_POST['email_from'];
     $message = '';
     foreach ($_POST as $key => $value) {

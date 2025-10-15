@@ -40,7 +40,7 @@ get_header(args:['color-logo' => '__grey']);
         if (have_rows('form')):
             while (have_rows('form')): the_row();
                 switch (get_row_layout()):
-                    case 'text': // simple
+                    case 'simple': // simple
                         getFormGroup(
                             get_sub_field('field_type'),
                             ['label' => get_sub_field('text_label')]
@@ -58,12 +58,6 @@ get_header(args:['color-logo' => '__grey']);
             endwhile;
         endif;
         ?>
-        <input
-            type="hidden"
-            id="email-to"
-            name="email_to"
-            value="<?= get_field('email_to') ?>"
-        >
         <input
             type="hidden"
             id="email-from"

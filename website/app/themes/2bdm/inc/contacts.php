@@ -5,12 +5,12 @@ use PHPMailer\PHPMailer\PHPMailer;
 add_action('wp_ajax_submit_dynamic_form', 'submit_dynamic_form');
 add_action('wp_ajax_nopriv_submit_dynamic_form', 'submit_dynamic_form');
 
-function configure_smtp(PHPMailer $phpmailer, string $to, string $from, string $message): void
+function configure_smtp(PHPMailer $phpmailer, string $from, string $message): void
 {
     $env = PROJECT_ENV_CONFIG;
     $phpmailer->isSMTP();
     $phpmailer->isHTML();
-    $phpmailer->Host = $env['HOST'];      // SMTP SERVER
+    $phpmailer->Host = $env['HOST']; // SMTP SERVER
     $phpmailer->SMTPAuth = (bool) $env['SMTPAUTH'];
     $phpmailer->Port = (int) $env['PORT'];
     $phpmailer->Username = $from === 'recruitment' ? $env['USERNAME_RECRUIT'] : $env['USERNAME_APPLY'];
@@ -20,6 +20,7 @@ function configure_smtp(PHPMailer $phpmailer, string $to, string $from, string $
     $senderMail = $from === 'recruitment' ? $env['FROM_RECRUIT'] : $env['FROM_APPLY'];
     $fromName = $from === 'recruitment' ? $env['FROMNAME_RECRUIT'] : $env['FROMNAME_APPLY'] ;
     $phpmailer->setFrom($senderMail, $fromName);
+    $to = $from === 'recruitment' ? $env['TO_RECRUIT'] : $env['TO_APPLY'];
     $phpmailer->addAddress($to);
     $phpmailer->Subject = 'Nouveau message depuis le formulaire de contact';
     $phpmailer->Body = $message;
@@ -50,13 +51,13 @@ function submit_dynamic_form(): void {
     }
 
     // Preparing email
-    $to = $_POST['email'];
     $from = $_POST['email_from'];
     $message = '';
     foreach ($_POST as $key => $value) {
         switch ($key) {
             case 'email_to':
             case 'action':
+            case 'email_from':
                 break;
             case 'message':
                 $message .= "<p>" . str_replace('_', ' ', ucfirst($key)) . ' :<br>' . sanitize_text_field($value) . "</p><br>";
@@ -99,7 +100,7 @@ function submit_dynamic_form(): void {
 
         // Send email with attachments
         $mail = new PHPMailer(true);
-        configure_smtp($mail, $to, $from, $message);
+        configure_smtp($mail, $from, $message);
         foreach ($attachments as $attachment) {
             $mail->addAttachment($attachment);
         }

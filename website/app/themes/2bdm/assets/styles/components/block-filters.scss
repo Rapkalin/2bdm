@@ -144,6 +144,7 @@
       .fc-accordion-label {
         display: flex;
         justify-content: space-between;
+        width: 100%;
       }
     }
 
@@ -160,9 +161,12 @@
         display: flex;
         flex-wrap: wrap;
         margin-bottom: fn.toRem(24);
+        width: 100%;
+        gap: fn.toRem(5);
       }
 
       .child-term {
+        text-align: left;
 
         &:hover {
           background-color: var.$lightgrey;

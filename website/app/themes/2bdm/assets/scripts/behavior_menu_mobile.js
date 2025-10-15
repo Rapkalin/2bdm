@@ -8,6 +8,7 @@ const behavior_menu_mobile = {
         // Remove desktop menu when in mobile mode
         function optimizeDOMForMobile() {
             if (isMobile()) {
+                console.info('MOBILE MODE ACTIVATED');
                 const desktopMenus = document.querySelector('.desktop-menus');
                 if (desktopMenus) {
                     desktopMenus.remove();
@@ -80,11 +81,10 @@ const behavior_menu_mobile = {
             const menuItem = document.querySelector(`.mobile-menu-item[data-menu-index="${menuIndex}"]`);
             if (!menuItem) { return }
 
-            const currentItem = menuData[menuIndex];
-
             // Retrieve the menu level container
             const levelContainer = document.querySelector(`.mobile-menu-level[data-level="${level}"]`);
             if (!levelContainer) { return }
+
 
             // Empty the container
             levelContainer.innerHTML = '';
@@ -96,6 +96,7 @@ const behavior_menu_mobile = {
                 <span>Retour</span>
             `;
 
+            const currentItem = menuData[menuIndex];
             const SideInfo = document.createElement('div');
             SideInfo.className = 'side-info-menu';
             SideInfo.innerHTML = `
@@ -122,13 +123,14 @@ const behavior_menu_mobile = {
                 subtitle.className = 'mobile-subtitle';
                 subtitle.textContent = label;
 
+                const tagsArray = child && typeof child === 'object' ? Object.keys(child).map((key) => child[key]) : [];
                 submenuItem.appendChild(subtitle);
 
-                if (Array.isArray(child)) {
+                if (tagsArray.length > 0) {
                     const tagsContainer = document.createElement('div');
                     tagsContainer.className = 'mobile-tags-container';
 
-                    child.forEach(tag => {
+                    tagsArray.forEach(tag => {
                         const tagItem = document.createElement('a');
                         tagItem.className = 'mobile-child-item';
                         tagItem.href = currentItem.url + '?filter=' + tag.slug + '#filters-container'; // scroll to the filtered results block

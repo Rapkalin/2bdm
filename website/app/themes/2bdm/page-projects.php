@@ -51,21 +51,19 @@ $total_projects = $query->found_posts;
 >
     <?php
     while ($query->have_posts()): $query->the_post();
-        if (have_rows('header_banner')) : the_row(); ?>
-            <section class="section-next-next-project-wrapper">
-                <?php
-                    $project_banner = get_field('header_banner', $post->ID);
+        global $post; ?>
+        <section class="section-next-next-project-wrapper">
+            <?php
+                $project_banner = get_field('header_banner', $post->ID);
 
-                    get_template_part("components/block_project", args: [
-                        'project' => $post,
-                        'project_banner' => $project_banner,
-                        'srcset' => wp_get_attachment_image_srcset( $project_banner['image']['ID']),
-                    ]);
-                ?>
-            </section>
-        <?php endif;
-    endwhile;
-    ?>
+                get_template_part("components/block_project", args: [
+                    'project' => $post,
+                    'project_banner' => $project_banner,
+                    'srcset' => wp_get_attachment_image_srcset( $project_banner['image']['ID']),
+                ]);
+            ?>
+        </section>
+    <?php endwhile; ?>
 </div>
 
 <!-- We display the Button load more projects only if there are more than 6 projects left -->

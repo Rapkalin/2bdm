@@ -23,18 +23,13 @@ get_header(args:['color-logo' => '__grey']);
                 </h3>
                 <div class="accordion-content">
                     <div class="block-people-container">
-                    <?php foreach ($department['team'] as $member): ?>
+                    <?php foreach ($department['team'] as $i => $member): ?>
                         <?php
                             $srcset = wp_get_attachment_image_srcset( $member['image']['ID']);
                             $isPopUpActive = isset($member['popup_description']) && $member['popup_description'];
                         ?>
                         <div
                             class="people-details <?= $isPopUpActive ? 'popup-active' : '' ?>"
-                            <?php if ($isPopUpActive): ?>
-                                data-name="<?= esc_attr($member['title']) ?>"
-                                data-description="<?= esc_attr($member['popup_description']) ?>"
-                                data-image="<?= esc_url($member['image']['url']) ?>"
-                            <?php endif ?>
                         >
                             <div class="people-image-button">
                                 <?php if ($isPopUpActive): ?>
@@ -52,20 +47,22 @@ get_header(args:['color-logo' => '__grey']);
                             <div class="people-name"><?= esc_attr($member['title']) ?></div>
                             <div class="people-description"><?= esc_attr($member['description']) ?></div>
                         </div>
+
+                        <?php if ($isPopUpActive): ?>
+                            <div class="people-popup" id="people-popup-<?= $i ?>" hidden>
+                                <div class="popup-content">
+                                    <button class="popup-close">&times;</button>
+                                    <img src="<?= esc_url($member['image']['url']) ?>" alt="" class="popup-image">
+                                    <h4 class="popup-name"><?= esc_attr($member['title']) ?></h4>
+                                    <p class="popup-description"><?= $member['popup_description'] ?></p>
+                                </div>
+                            </div>
+                        <?php endif; ?>
                     <?php endforeach; ?>
                 </div>
                 </div>
             </div>
         <?php endforeach; ?>
-
-        <div class="people-popup" id="people-popup" hidden>
-            <div class="popup-content">
-                <button class="popup-close">&times;</button>
-                <img src="" alt="" class="popup-image">
-                <h4 class="popup-name"></h4>
-                <p class="popup-description"></p>
-            </div>
-        </div>
     </section>
 </div>
 

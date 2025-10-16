@@ -19,40 +19,28 @@ const behavior_popup = {
         });
 
         const peopleDetails = document.querySelectorAll('.popup-active');
-        const popup = document.getElementById('people-popup');
-        const popupImage = popup.querySelector('.popup-image');
-        const popupName = popup.querySelector('.popup-name');
-        const popupDescription = popup.querySelector('.popup-description');
-        const popupClose = popup.querySelector('.popup-close');
 
-        peopleDetails.forEach(person => {
+        peopleDetails.forEach((person, id) => {
+            const popup = document.getElementById('people-popup-' + id);
+            const popupClose = popup.querySelector('.popup-close');
+
+            popupClose.addEventListener('click', function() {
+                popup.hidden = true;
+            });
+
+            // Close popup if we click outside
+            popup.addEventListener('click', function(e) {
+                if (e.target === popup) {
+                    popup.hidden = true;
+                }
+            });
+
             person.addEventListener('click', function(e) {
                 if (e.target.classList.contains('people-button') || e.target.classList.contains('people-image')) {
-                    const name = this.getAttribute('data-name');
-                    const description = this.getAttribute('data-description');
-                    const image = this.getAttribute('data-image');
-
-                    popupName.textContent = name;
-                    popupDescription.innerHTML = description;
-                    popupImage.src = image;
-                    popupImage.alt = name;
-
                     popup.hidden = false;
                 }
             });
         });
-
-        popupClose.addEventListener('click', function() {
-            popup.hidden = true;
-        });
-
-        // Close popup if we click outside
-        popup.addEventListener('click', function(e) {
-            if (e.target === popup) {
-                popup.hidden = true;
-            }
-        });
-
     }
 };
 

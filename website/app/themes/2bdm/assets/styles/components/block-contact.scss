@@ -1,9 +1,12 @@
 @use "../basics/variables" as var;
 @use "../basics/functions" as fn;
 
+.reverse {
+  flex-direction: row-reverse;
+}
+
 .section-block-contact {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
+  display: flex;
   gap: 15%;
   padding: fn.toRem(104) fn.toRem(48);
 
@@ -19,6 +22,7 @@
     flex-direction: column;
     gap: fn.toRem(80);
     color: var.$darkgrey;
+    width: 60%;
 
     .contact-container {
       display: flex;
@@ -105,6 +109,7 @@
 
     .block-contact-container {
       gap: fn.toRem(48);
+      width: 100%;
 
       .join-us-container {
         flex-direction: column;

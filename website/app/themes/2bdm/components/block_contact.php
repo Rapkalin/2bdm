@@ -1,6 +1,6 @@
-<section class="section-block-contact">
-    <?php $image = get_sub_field('image');
-    if( $image ): ?>
+<?php $image = get_sub_field('image'); ?>
+<section class="section-block-contact <?= $image ? '' : 'reverse' ?>">
+    <?php if( $image ): ?>
         <?php $srcset = wp_get_attachment_image_srcset( $image['ID']); ?>
         <img
             src="<?= $image['url'] ?>"

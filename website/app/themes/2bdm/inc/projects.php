@@ -198,7 +198,7 @@ function update_admin_projects_columns_list(): array
     ];
 }
 
-function update_admin_projects_columns_content(string $column_name) {
+function update_admin_projects_columns_content(string $column_name): void {
     global $post;
 
     if ($column_name === 'admin_title' && get_field('admin_title')) {
@@ -206,6 +206,4 @@ function update_admin_projects_columns_content(string $column_name) {
     } else if ($column_name === 'admin_title') {
         echo 'Aucun titre admin contribué';
     }
-
-    return $column_name;
 }

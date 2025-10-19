@@ -8,6 +8,8 @@ add_action('init', 'projects_init');
 add_action('wp_ajax_load_more_or_filtered_projects', 'load_more_or_filtered_projects');
 add_action('wp_ajax_nopriv_load_more_or_filtered_projects', 'load_more_or_filtered_projects');
 add_action('wp', 'load_filtered_projects_from_url');
+add_action('manage_projects_posts_columns', 'update_admin_projects_columns_list');
+add_action('manage_projects_posts_custom_column', 'update_admin_projects_columns_content');
 
 function projects_init(): void {
     register_post_type(
@@ -183,5 +185,25 @@ function load_filtered_projects_from_url() {
             // Stock the filtered term to use it in the main request
             set_query_var('filtered_term_id', $term->term_id);
         }
+    }
+}
+
+function update_admin_projects_columns_list(): array
+{
+    return [
+        'cb' => '<input type="checkbox" />',
+        'title' =>'Titre',
+        'admin_title' => 'Titre admin',
+        'date' => 'Date'
+    ];
+}
+
+function update_admin_projects_columns_content(string $column_name): void {
+    global $post;
+
+    if ($column_name === 'admin_title' && get_field('admin_title')) {
+        echo '<a class="row-title" href=' . admin_url( 'post.php?post=' . $post->ID ) . '&action=edit' . '>' . get_field('admin_title', $post->ID) . '</a>' ;
+    } else if ($column_name === 'admin_title') {
+        echo 'Aucun titre admin contribué';
     }
 }

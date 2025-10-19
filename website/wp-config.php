@@ -92,9 +92,6 @@ $table_prefix = 'wp_';
  *
  * @link https://wordpress.org/documentation/article/debugging-in-wordpress/
  */
-if ($env['_ENV'] === 'production') {
-    define( 'WP_DEBUG', false );
-}
 
 /* Add any custom values between this line and the "stop editing" line. */
 
@@ -113,6 +110,17 @@ define( 'WP_SITEURL',  $env['WP_SITEURL'] . 'wordpress-core/');
 define( 'CACHE_PREFIX',  '2bdm_');
 define('PROJECT_ROOT_PATH', __DIR__);
 define('PROJECT_ENV_CONFIG', $env);
+
+/**
+ * HOW TO USE ERROR LOG
+ * error_log('IDENTIFIER:: ' . print_r($message, true) . "\n", 3, ERROR_PATH_LOG);
+ */
+if ($env['_ENV'] === 'production') {
+    define( 'WP_DEBUG', false );
+} else {
+    define ('ERROR_PATH_LOG', WP_CONTENT_DIR . '/debug_log.log');
+    error_reporting(E_ERROR);
+}
 
 /* That's all, stop editing! Happy publishing. */
 

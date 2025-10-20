@@ -38,10 +38,10 @@
 }
 
 .country-selector {
-  color: var.$lightgrey;
+  color: var.$white;
+  font-weight: var.$fw-xl;
 
   a {
-    color: var.$white;
-    font-weight: var.$fw-xl;
+    color: var.$lightgrey;
   }
 }

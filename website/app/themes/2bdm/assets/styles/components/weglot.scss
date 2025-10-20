@@ -43,5 +43,9 @@
 
   a {
     color: var.$lightgrey;
+
+    &:hover {
+      color: var.$white;
+    }
   }
 }

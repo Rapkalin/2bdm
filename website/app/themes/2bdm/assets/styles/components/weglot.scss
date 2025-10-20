@@ -36,3 +36,12 @@
 .country-selector.weglot-dropdown span {
   height: unset;
 }
+
+.country-selector {
+  color: var.$lightgrey;
+
+  a {
+    color: var.$white;
+    font-weight: var.$fw-xl;
+  }
+}

@@ -9,16 +9,6 @@ const behavior_carousel = {
 
         let currentIndex = 0;
 
-        // Fonction pour faire trembler la navigation
-        const shakeNavigation = () => {
-            if (carouselNav) {
-                carouselNav.classList.add('shake');
-                setTimeout(() => {
-                    carouselNav.classList.remove('shake');
-                }, 2500);
-            }
-        };
-
         const scrollToIndex = (index) => {
             if (index < 0 || index >= slides.length) return;
             const slide = slides[index];
@@ -44,7 +34,7 @@ const behavior_carousel = {
             });
         }
 
-        // Détecter quand la section du carrousel est visible
+        // Detect when carrousel section is visible
         const carouselSection = document.querySelector('.carousel-images');
         const carouselNav = document.querySelector('.carousel-nav');
 
@@ -61,37 +51,15 @@ const behavior_carousel = {
             observer.observe(carouselSection);
         }
 
-        // Drag / swipe
-        let isDragging = false,
-            startX = 0,
-            scrollLeft = 0;
-
-        const startDrag = (x) => {
-            isDragging = true;
-            startX = x;
-            scrollLeft = track.scrollLeft;
+        // Function to shake the bottom navigation icon
+        const shakeNavigation = () => {
+            if (carouselNav) {
+                carouselNav.classList.add('shake');
+                setTimeout(() => {
+                    carouselNav.classList.remove('shake');
+                }, 2500);
+            }
         };
-
-        const moveDrag = (x) => {
-            if (!isDragging) return;
-            const walk = (x - startX) * 1.5;
-            track.scrollLeft = scrollLeft - walk;
-        };
-
-        const endDrag = () => {
-            isDragging = false;
-        };
-
-        // Mouse
-        track.addEventListener("mousedown", (e) => startDrag(e.pageX));
-        track.addEventListener("mousemove", (e) => moveDrag(e.pageX));
-        track.addEventListener("mouseup", endDrag);
-        track.addEventListener("mouseleave", endDrag);
-
-        // Touch
-        track.addEventListener("touchstart", (e) => startDrag(e.touches[0].pageX));
-        track.addEventListener("touchmove", (e) => moveDrag(e.touches[0].pageX));
-        track.addEventListener("touchend", endDrag);
     }
 };
 

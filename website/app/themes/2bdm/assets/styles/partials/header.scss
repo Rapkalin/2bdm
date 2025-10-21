@@ -301,8 +301,7 @@
     .mobile-menu-level {
       display: flex;
       flex-direction: column;
-      min-height: 100%;
-      padding: fn.toRem(16) fn.toRem(32);
+      padding: fn.toRem(16) fn.toRem(32) fn.toRem(150) fn.toRem(32);
       gap: fn.toRem(12);
       transition: transform 0.3s ease-in-out;
 

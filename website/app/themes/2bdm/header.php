@@ -7,6 +7,7 @@
     <meta name="description" content="<?= get_bloginfo('description') ?>">
     <meta name="keywords" content="2BDM ARCHITECTURE, 2BDM, ARCHITECTURE, studio d'architectes, studio, studio d'artchitecture">
     <meta name="author" content="Rapkalin">
+    <link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/favicon.ico" />
     <?php wp_head(); ?>
 </head>
 <body <?php body_class(); ?>>

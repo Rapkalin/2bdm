@@ -126,7 +126,7 @@ const behavior_menu_mobile = {
                 const tagsArray = child && typeof child === 'object' ? Object.keys(child).map((key) => child[key]) : [];
                 submenuItem.appendChild(subtitle);
 
-                if (tagsArray.length > 0) {
+                if (tagsArray.length > 0 && !currentItem.is_contact) {
                     const tagsContainer = document.createElement('div');
                     tagsContainer.className = 'mobile-tags-container';
 
@@ -161,7 +161,7 @@ const behavior_menu_mobile = {
 
                     submenuItem.appendChild(tagsContainer);
                 } else {
-                    const url = currentItem.type === 'pages' ? child.url : (currentItem.type === 'anchors' ? currentItem.url.replace(/.$/, "#") + child : '#');
+                    const url = currentItem.type === 'pages' || currentItem.is_contact ? child.url : (currentItem.type === 'anchors' ? currentItem.url.replace(/.$/, "#") + child : '#');
                     subtitle.addEventListener('click', function() {
                         window.location.href = url;
                     });

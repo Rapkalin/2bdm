@@ -1,0 +1,52 @@
+@use "../basics/variables" as var;
+@use "../basics/functions" as fn;
+
+.block_infos {
+  margin-top: unset;
+}
+
+.section-block-infos {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  padding: fn.toRem(80) fn.toRem(48);
+  background-color: var.$grey;
+  color: var.$white;
+  font-size: var.$fs-p;
+  line-height: var.$lh-p;
+
+  .block-infos-title {
+    &:before {
+      content: url("../../../components/svg-bullet-white.svg");
+      vertical-align: center;
+      margin-right: 7px;
+    }
+  }
+
+  .block-infos-container {
+    display: grid;
+    gap: fn.toRem(40);
+
+    .block-infos {
+      padding-top: fn.toRem(24);
+      border-top: solid 1px var.$lightgrey-m;
+
+      .title {
+        font-size: var.$fs-h2-m;
+        line-height: var.$lh-p-xl;
+        margin-bottom: fn.toRem(8);
+      }
+    }
+  }
+}
+
+/* smartphones, iPhone, portrait 480x320 phones */
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (max-width:780px)  {
+  .section-block-infos {
+    display: flex;
+    flex-direction: column;
+    gap: fn.toRem(48);
+    padding: fn.toRem(48) fn.toRem(20);
+  }
+}

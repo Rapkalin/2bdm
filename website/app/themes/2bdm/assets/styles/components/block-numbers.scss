@@ -1,0 +1,59 @@
+@use "../basics/variables" as var;
+@use "../basics/functions" as fn;
+
+.section-block-numbers {
+  display: grid;
+  padding: fn.toRem(80) fn.toRem(48);
+  background-color: var.$grey;
+  grid-template-columns: 1fr 2fr;
+  color: var.$white;
+
+  .block-numbers-title {
+    &:before {
+      content: url("../../../components/svg-bullet-white.svg");
+      vertical-align: text-bottom;
+      margin-right: 7px;
+    }
+  }
+
+  .block-numbers-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: fn.toRem(49);
+
+    .block-number {
+      display: grid;
+      gap: fn.toRem(14);
+      padding-top: fn.toRem(12);
+      border-top: solid 1px var.$lightgrey-m;
+
+      .title {
+        font-size: var.$fw-p;
+        line-height: var.$lh-p;
+      }
+
+      .number {
+        font-size: var.$fs-h1-m;
+        line-height: var.$lh-h1-m;
+        font-weight: var.$fw-xl;
+      }
+    }
+  }
+}
+
+/* smartphones, iPhone, portrait 480x320 phones */
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (max-width:780px)  {
+  .section-block-numbers {
+    display: block;
+
+    .block-numbers-title {
+      margin-bottom: fn.toRem(48);
+    }
+
+    .block-numbers-container {
+      gap: fn.toRem(38);
+    }
+  }
+}

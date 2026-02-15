@@ -1,0 +1,182 @@
+@use "../basics/functions" as fn;
+@use "../basics/variables" as var;
+
+.section-block-next-articles-wrapper {
+  .main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: fn.toRem(48);
+    padding-bottom: fn.toRem(24);
+    border-bottom: 1px solid var.$white;
+
+    .title {
+      font-size: var.$fs-h2;
+      line-height: var.$lh-h2;
+      font-weight: var.$fw-p;
+      color: var.$white;
+    }
+  }
+
+  .all-articles-container {
+    display: flex;
+    justify-content: space-between;
+    color: grey;
+    margin: fn.toRem(24) 0;
+    padding-top: fn.toRem(24);
+    border-top: 1px solid var.$lightgrey;
+
+    a {
+      color: var.$grey;
+      border-bottom: 1px solid var.$white;
+    }
+
+    a:hover {
+      border-bottom: 1px solid var.$grey;
+    }
+  }
+
+  .next-articles-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.25rem;
+
+    .next-article-taxonomy-button {
+      position: absolute;
+      z-index: 1;
+      bottom: fn.toRem(12);
+      left: fn.toRem(12);
+    }
+
+    .next-article-container {
+      &:hover {
+        .next-article-taxonomy-button {
+          .classic-button {
+            background-color: var.$lightgrey;
+            color: var.$white;
+            border: 1px solid var.$lightgrey;
+          }
+        }
+      }
+
+      .next-article-date {
+        display: flex;
+        align-items: center;
+        margin-top: fn.toRem(16);
+
+        span {
+          display: flex;
+
+          svg {
+            height: fn.toRem(5);
+            color: var.$grey;
+            margin-right: fn.toRem(12);
+          }
+        }
+      }
+
+      .next-article-title {
+        font-size: var.$fs-h2;
+        font-weight: var.$fw-h1;
+        line-height: var.$lh-h2;
+        color: var.$darkgrey;
+      }
+
+      .next-article-img-container {
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        .next-article-img {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          clip-path: circle(100%);
+          transition: all 1s ease-in-out;
+          
+          img {
+            aspect-ratio: 16 / 9;
+            width: 100%;
+            height: auto;
+            object-fit: cover;
+            background-position: center;
+          }
+
+          .next-article-button {
+            position: absolute;
+            visibility: visible;
+          }
+
+          &:hover {
+            clip-path: circle(34% at center);
+          }
+        }
+
+        .next-article-button {
+          position: absolute;
+          opacity: 0;
+          transition: all 0.5s ease-in-out;
+        }
+      }
+
+      .next-article-img-container:hover {
+        .next-article-button {
+          opacity: 100%;
+        }
+      }
+    }
+  }
+}
+
+.bck-color-grey {
+  background-color: var.$darkgrey;
+  color: var.$white;
+  .next-articles-container {
+    .next-article-container {
+      .next-article-date {
+        span {
+          svg {
+            color: var.$white;
+          }
+        }
+      }
+
+      .next-article-title {
+        color: var.$white;
+      }
+    }
+  }
+}
+
+/* smartphones, iPhone, portrait 480x320 phones */
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (max-width:780px)  {
+  .section-block-next-articles-wrapper {
+    .next-articles-container {
+      display: flex;
+      flex-direction: column;
+      gap: fn.toRem(48);
+
+      .next-article-container {
+        .next-article-img-container {
+          .next-article-img {
+            img {
+              aspect-ratio: 3.5 / 4;
+            }
+          }
+        }
+      }
+    }
+
+    .main-header {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: fn.toRem(48);
+    }
+  }
+}

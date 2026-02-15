@@ -1,0 +1,48 @@
+@use "../basics/variables" as var;
+@use "../basics/functions" as fn;
+
+.section-block-table-content {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  gap: 20px;
+  font-weight: var.$fw-p;
+  font-size: var.$fs-p;
+
+  .tc-wrapper {
+    border-top: solid 1px;
+    border-color: var.$lightgrey;
+    padding-top: 20px;
+
+    .tc-title {
+      color: var.$grey;
+    }
+
+    .tc-description {
+      color: var.$darkgrey;
+
+      ul  {
+        padding: unset;
+        list-style-position: inside;
+      }
+    }
+  }
+}
+
+/* smartphones, iPhone, portrait 480x320 phones */
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (max-width:780px)  {
+  .section-block-table-content {
+    display: flex;
+    flex-direction: column;
+    padding: 0 fn.toRem(20);
+    gap: fn.toRem(24);
+
+    .tc-wrapper {
+      display: flex;
+      flex-direction: column;
+      gap: fn.toRem(20);
+    }
+  }
+}
+

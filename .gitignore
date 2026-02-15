@@ -1,39 +1,14 @@
 # Wordpress - ignore core, configuration, examples, uploads and logs.
 # https://github.com/github/gitignore/blob/main/WordPress.gitignore
 
-# Core
-#
-# Note: if you want to stage/commit WP core files
-# you can delete this whole section/until Configuration.
-/wp-admin/
-/wp-content/index.php
-/wp-content/languages
-/wp-content/plugins/index.php
-/wp-content/themes/index.php
-/wp-includes/
-/index.php
-/license.txt
-/readme.html
-/wp-*.php
-/xmlrpc.php
-
 # Configuration
-wp-config.php
-
-# Example themes
-/wp-content/themes/twenty*/
-
-# Example plugin
-/wp-content/plugins/hello.php
-
-# Uploads
-/wp-content/uploads/
+# wp-config.php
 
 # Log files
 *.log
 
 # htaccess
-/.htaccess
+website/.htaccess
 
 # All plugins
 #
@@ -46,3 +21,21 @@ wp-config.php
 # Note: If you wish to whitelist themes,
 # uncomment the next line
 #/wp-content/themes
+/vendor/
+
+# 2BDM project
+website/vendor
+website/wordpress-core
+website/.env
+website/app/uploads/*
+website/app/uploads-webpc/*
+website/app/themes/2bdm/node_modules
+website/app/themes/2bdm/dist
+
+# 2BDM plugins
+website/app/plugins/*
+!website/app/plugins/advanced-custom-fields-pro
+
+# Other
+.DS_Store
+.idea

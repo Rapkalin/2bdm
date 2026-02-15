@@ -1,0 +1,44 @@
+@use "../basics/variables" as var;
+@use "../basics/functions" as fn;
+
+.project-intro-wrapper {
+  display: grid;
+  grid-template-columns: 2.5fr 1fr;
+
+  .intro-location {
+    display: flex;
+    gap: 10px;
+    color: var.$grey;
+    font-size: var.$fs-p;
+    padding-top: 20px;
+    justify-content: flex-end;
+
+    .intro-city {
+      font-weight: var.$fw-xl;
+    }
+  }
+}
+
+.intro-description {
+  font-size: var.$lh-p-xl;
+  line-height: var.$lh-p-xl;
+  font-weight: var.$fw-p;
+}
+
+/* smartphones, iPhone, portrait 480x320 phones */
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (max-width:780px)  {
+  .project-intro-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 0 fn.toRem(20);
+    gap: fn.toRem(20);
+  }
+
+  .intro-description {
+    font-size: var.$fs-h2-m;
+  }
+}
+

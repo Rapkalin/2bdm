@@ -1,0 +1,131 @@
+@use "../basics/variables" as var;
+@use "../basics/functions" as fn;
+
+.section-next-next-project-wrapper {
+  color: var.$darkgrey;
+
+  .main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: fn.toRem(24);
+
+    .title {
+      font-size: var.$fs-h2;
+      line-height: var.$lh-h2;
+      font-weight: var.$fw-p;
+      color: var.$grey;
+    }
+  }
+
+  .next-project-links {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid var.$darkgrey;
+    padding-top: fn.toRem(24);
+    color: var.$grey;
+    font-size: var.$fs-p;
+
+    .all-projects-container {
+      border-bottom: 1px solid var.$white;
+
+      a {
+        color: var.$grey;
+      }
+    }
+
+    .all-projects-container:hover {
+      border-bottom: 1px solid var.$darkgrey;
+    }
+
+  }
+
+  .section-block-next-project-container {
+    margin-top: fn.toRem(16);
+
+    h2 {
+      margin: unset;
+      font-weight: var.$fw-h1;
+      font-size: var.$fs-h2;
+      line-height: var.$lh-h2;
+    }
+
+    a {
+      color: var.$darkgrey;
+    }
+
+    .next-project-img {
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      clip-path: circle(100%);
+      transition: all 1s ease-in-out;
+
+      img {
+        width: 100%;
+        height: auto;
+        object-fit: cover;
+        background-position: center;
+        aspect-ratio: 5/2;
+      }
+
+      .next-project-button {
+        position: absolute;
+        opacity: 0;
+        transition: all 0.5s ease-in-out 0.3s;
+      }
+    }
+
+    .next-project-img:hover {
+      clip-path: circle(26% at center);
+
+      .next-project-button {
+        opacity: 100%;
+      }
+    }
+
+    ul {
+      margin: 0 0 fn.toRem(16) 0;;
+      padding: unset;
+
+      li {
+        font-weight: var.$fw-h1;
+        font-size: var.$fs-p;
+        line-height: var.$lh-p-m;
+        list-style-position: inside;
+      }
+    }
+  }
+}
+
+/* smartphones, iPhone, portrait 480x320 phones */
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (max-width:780px)  {
+  .section-next-next-project-wrapper {
+    .section-block-next-project-container {
+      .next-project-img {
+        img {
+          aspect-ratio: 3.5/4;
+        }
+      }
+
+      .next-project-img:hover {
+        clip-path: unset;
+
+        .next-project-button {
+          display: none;
+        }
+      }
+    }
+
+    .main-header {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: fn.toRem(48);
+    }
+  }
+}

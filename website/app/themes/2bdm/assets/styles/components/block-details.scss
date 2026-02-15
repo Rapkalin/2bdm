@@ -1,0 +1,115 @@
+@use "../basics/variables" as var;
+@use "../basics/functions" as fn;
+
+.section-block-details {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  color: var.$darkgrey;
+  gap: fn.toRem(80);
+
+  .block-details-left {
+    gap: fn.toRem(103);
+    display: flex;
+    flex-direction: column;
+
+    h3 {
+      font-size: var.$fs-h4;
+      line-height: var.$lh-p;
+      font-weight: var.$fw-p;
+      display: flex;
+      align-items: center;
+      gap: fn.toRem(8);
+      margin: unset;
+
+      svg {
+        height: fn.toRem(8);
+        width: fn.toRem(8);
+        color: var.$grey
+      }
+    }
+
+    img {
+      aspect-ratio: 2 / 3;
+      width: 90%;
+      height: auto;
+      object-fit: cover;
+    }
+  }
+
+  .block-details-right {
+    h2 {
+      font-size: var.$fs-h2-m;
+      line-height: var.$lh-p-xl;
+      font-weight: var.$fw-p;
+      padding-bottom: fn.toRem(48);
+    }
+
+    .details-container {
+      margin-top: fn.toRem(48);
+
+      .row-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: fn.toRem(48);
+
+        .content {
+          font-size: var.$fs-p;
+          line-height: var.$lh-p-m;
+
+          strong {
+            font-weight: var.$fw-xl;
+            color: var.$grey;
+          }
+        }
+      }
+
+      .row-paragraph {
+        padding: fn.toRem(24) 0;
+        border-top: 1px solid var.$lightgrey;
+      }
+
+      .row-list  {
+        p:nth-child(n+1) {
+          font-size: var.$fs-h4;
+          line-height: var.$lh-p;
+        }
+
+        &-first {
+          padding: fn.toRem(24) 0;
+          border-top: 1px solid var.$lightgrey;
+        }
+      }
+    }
+  }
+}
+
+/* smartphones, iPhone, portrait 480x320 phones */
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (max-width:780px)  {
+  .section-block-details {
+    grid-template-rows: 1fr;
+    grid-template-columns: unset;
+    gap: fn.toRem(40);
+    padding-top: unset;
+    padding-bottom: unset;
+
+    .block-details-left {
+      gap: fn.toRem(24);
+    }
+
+    .block-details-right {
+      h2 {
+        padding-bottom: unset;
+      }
+
+      .details-container {
+        .row-container {
+          display: flex;
+          flex-direction: column;
+          gap: fn.toRem(48);
+        }
+      }
+    }
+  }
+}

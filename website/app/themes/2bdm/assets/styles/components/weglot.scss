@@ -1,0 +1,51 @@
+@use '../basics/variables' as var;
+
+.country-selector.weglot-dropdown .wgcurrent a,
+.country-selector.weglot-dropdown .wgcurrent span {
+  padding-right: unset;
+  text-decoration: none;
+  font-size: var.$fs-p;
+  line-height: var.$lh-p;
+  color: var.$white;
+}
+
+.country-selector.weglot-dropdown {
+  background-color: unset;
+}
+
+.country-selector.weglot-dropdown .wgcurrent {
+  border: unset;
+}
+
+.country-selector.weglot-dropdown .wgcurrent:after {
+  display: none;
+}
+
+.country-selector.weglot-dropdown ul {
+  background: unset;
+  border: unset;
+
+  li > a {
+    text-decoration: none;
+    font-size: var.$fs-p;
+    line-height: var.$lh-p;
+    color: var.$white;
+  }
+}
+
+.country-selector.weglot-dropdown span {
+  height: unset;
+}
+
+.country-selector {
+  color: var.$white;
+  font-weight: var.$fw-xl;
+
+  a {
+    color: var.$lightgrey;
+
+    &:hover {
+      color: var.$white;
+    }
+  }
+}

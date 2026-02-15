@@ -1,0 +1,185 @@
+@use '../basics/functions' as fn;
+@use '../basics/variables' as var;
+
+.section-block-header-banner {
+  display: grid;
+  align-items: end;
+  min-height: 100dvh;
+  background-size:cover;
+  background-position: center;
+  box-shadow: inset 100dvw 0 0 0 rgba(0, 0, 0, 0.5);
+  color: var.$white;
+  padding: 0 fn.toRem(48);
+
+  .hb-bottom {
+    z-index: 1;
+
+    .hb-button-wrapper {
+      visibility: hidden;
+    }
+
+    .hb-slider-active {
+      visibility: visible;
+    }
+  }
+
+  .hb-active {
+    z-index: 5;
+  }
+
+  .hb-wrapper {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    align-items: end;
+
+    h1 {
+      font-size: var.$fs-h1;
+      font-weight: var.$fw-h1;
+      line-height: var.$lh-h1;
+      margin-right: 20px;
+
+      p {
+        margin: unset;
+      }
+    }
+
+    .hb-description-content {
+      display: flex;
+      width: 80%;
+      margin-bottom: 20px;
+
+      svg {
+        height: fn.toRem(8);
+        margin-right: fn.toRem(12);
+      }
+    }
+
+    p {
+      margin: unset;
+      line-height: var.$lh-p;
+    }
+  }
+
+  .row-2 {
+    grid-row: 2 / 3;
+  }
+
+  .row-3 {
+    grid-row: 3 / 3;
+    display: flex;
+    flex-direction: column;
+
+    .hb-button-wrapper {
+      display: flex;
+      justify-content: flex-end;
+      margin-bottom: fn.toRem(32);
+    }
+
+    .hb-cta-wrapper {
+      display: flex;
+      justify-content: space-between;
+      bottom: fn.toRem(35);
+      width: 100%;
+      border-top: 1px solid var.$white;
+      padding-top: fn.toRem(16);
+      padding-bottom: fn.toRem(24);
+
+      .hb-cta {
+        display: flex;
+        align-items: center;
+
+        svg {
+          margin-right: 10px;
+          height: fn.toRem(13);
+          width: fn.toRem(8);
+        }
+      }
+
+      .hb-slider-buttons {
+        display: flex;
+        gap: 10px;
+
+        button {
+          background-color: rgb(0, 0, 0, 0);
+          border-radius: 40px;
+          padding: 8px;
+          color: white;
+          border: 1px solid white;
+
+          svg {
+            height: fn.toRem(8);
+            width: fn.toRem(13);
+          }
+        }
+      }
+    }
+  }
+}
+
+.slider {
+  position: relative;
+  overflow: hidden;
+  min-height: 100dvh;
+
+  .slide {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+
+    .slide-content {
+      background-size: cover;
+      background-position: center;
+      color: white;
+      display: grid;
+      align-items: end;
+      min-height: 100dvh;
+    }
+  }
+
+  .slide.active {
+    opacity: 1;
+  }
+}
+
+/* hb-slider-buttons is also used outside of slider */
+.hb-slider-buttons {
+  visibility: hidden;
+
+  button {
+    background-color: rgba(0, 0, 0, 0);
+    border-radius: 40px;
+    padding: 8px;
+    color: white;
+    border: 1px solid white;
+    cursor: pointer;
+  }
+}
+
+/* smartphones, iPhone, portrait 480x320 phones */
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (max-width:780px)  {
+  .section-block-header-banner {
+    padding: 0 fn.toRem(20);
+
+    .row-3 {
+      justify-content: flex-end;
+      align-items: flex-start;
+    }
+
+    .hb-wrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      gap: fn.toRem(24);
+
+      h1 {
+        font-size: var.$fs-h1-xs;
+        line-height: var.$lh-h1-s;
+      }
+    }
+  }
+}

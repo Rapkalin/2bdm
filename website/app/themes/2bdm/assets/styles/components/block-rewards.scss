@@ -1,0 +1,185 @@
+@use "../basics/variables" as var;
+@use "../basics/functions" as fn;
+
+.section-block-rewards {
+  display: grid;
+  gap: fn.toRem(80);
+  color: var.$grey;
+
+  .block-rewards-intro {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    font-size: var.$fs-p;
+    line-height: var.$lh-p;
+
+    .reward-intro-title {
+      display: flex;
+      align-items: center;
+      gap: fn.toRem(8);
+      font-size: var.$fs-h4;
+      line-height: var.$lh-p;
+      font-weight: var.$fw-p;
+
+      svg {
+        height: fn.toRem(8);
+        width: fn.toRem(8);
+        color: var.$grey
+      }
+    }
+
+    .reward-intro-description {
+      font-size: var.$fs-h2-m;
+      line-height: var.$lh-p-xl;
+    }
+  }
+
+  .block-rewards-container {
+    display: grid;
+    gap: fn.toRem(48);
+    width: 100%;
+    grid-auto-flow: column;
+    grid-auto-columns: 25%;
+    overflow-x: scroll;
+
+    .block-rewards-card {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      .card-header-container {
+        display: grid;
+        grid-template-columns: 1fr 3fr;
+        align-items: center;
+        gap: fn.toRem(16);
+
+        img {
+          height: fn.toRem(102);
+          object-fit: cover;
+          aspect-ratio: 1 / 1;
+        }
+
+        .card-header {
+          .card-header-title {
+            font-size: var.$fs-h2-m;
+            line-height: var.$lh-p-xl;
+            font-weight: var.$fw-p;
+            color: var.$darkgrey;
+          }
+
+          .card-header-category {
+            display: flex;
+            align-items: center;
+            gap: fn.toRem(8);
+            line-height: var.$lh-p-m;
+
+            svg {
+              height: fn.toRem(4);
+              width: fn.toRem(4);
+              color: var.$grey
+            }
+          }
+        }
+      }
+
+      .card-image {
+        width: 100%;
+        object-fit: cover;
+        aspect-ratio: 396 / 260;
+      }
+
+      .card-infos {
+        display: flex;
+        flex-direction: column;
+        gap: fn.toRem(16);
+
+        a {
+          color: var.$grey;
+        }
+
+        .card-infos-header {
+          display: flex;
+          gap: fn.toRem(8);
+
+          .card-infos-header-title {
+            font-size: var.$fs-h4;
+            line-height: var.$lh-p;
+            font-weight: var.$fw-p;
+            color: var.$darkgrey;
+          }
+
+          .card-infos-header-location {
+            display: flex;
+            align-items: center;
+            gap: fn.toRem(8);
+            color: var.$darkgrey;
+
+            svg {
+              height: fn.toRem(4);
+              width: fn.toRem(4);
+              color: var.$grey
+            }
+          }
+        }
+
+        .card-button {
+          display: flex;
+          gap: fn.toRem(8);
+          align-items: center;
+          border-bottom: 1px solid var.$white;
+          width: fit-content;
+
+          svg {
+            color: var.$grey;
+            height: fn.toRem(8);
+            width: fn.toRem(13);
+          }
+
+          &:hover {
+            border-bottom: 1px solid var.$grey;
+          }
+        }
+
+        .card-description {
+          color: var.$darkgrey;
+        }
+      }
+    }
+  }
+}
+
+/* smartphones, iPhone, portrait 480x320 phones */
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (max-width:780px)  {
+  .section-block-rewards {
+    gap: fn.toRem(48);
+    padding: 0 fn.toRem(20);
+
+    .block-rewards-intro {
+      display: flex;
+      flex-direction: column;
+      gap: fn.toRem(24);
+    }
+
+    .block-rewards-container {
+      gap: fn.toRem(24);
+      grid-auto-columns: 75%;
+
+      .block-rewards-card {
+        .card-header-container {
+          .card-header {
+            .card-header-title {
+              font-size: var.$fs-h4;
+              line-height: var.$lh-p;
+            }
+
+            .card-header-category {
+              font-size: var.$fs-p-s;
+              line-height: var.$lh-p-s;
+            }
+          }
+        }
+      }
+    }
+  }
+}

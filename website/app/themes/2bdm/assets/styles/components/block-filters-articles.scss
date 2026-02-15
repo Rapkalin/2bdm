@@ -1,0 +1,74 @@
+@use '../basics/variables' as var;
+@use '../basics/functions' as fn;
+
+.filters-container-articles {
+  display: grid;
+  grid-template-columns: 1fr 3fr;
+  color: var.$grey;
+  width: 100%;
+
+  .fc-terms-container {
+    display: flex;
+    border-bottom: 1px solid var.$lightgrey;
+    gap: fn.toRem(56);
+  }
+
+  .filter-term {
+    font-size: var.$fs-h4;
+    font-weight: var.$fw-p;
+    line-height: var.$lh-p;
+    background-color: var.$white;
+    color: var.$lightgrey;
+    cursor: pointer;
+    padding: 18px;
+    border: none;
+    text-align: left;
+
+    &.selected {
+      color: var.$grey;
+      font-weight: var.$fw-h1;
+    }
+
+    &:hover {
+      color: var.$grey;
+    }
+  }
+
+  .fc-title {
+    display: flex;
+    align-items: center;
+    gap: fn.toRem(8);
+    color: var.$grey;
+    font-size: var.$fs-h4;
+    line-height: var.$lh-p;
+    font-weight: var.$fw-p;
+
+    svg {
+      height: fn.toRem(8);
+      width: fn.toRem(8);
+    }
+  }
+}
+
+/* smartphones, iPhone, portrait 480x320 phones */
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (max-width:780px)  {
+  .filters-container-articles {
+    display: flex;
+    flex-direction: column;
+    padding: 0 fn.toRem(20);
+    gap: fn.toRem(24);
+
+    .fc-terms-container {
+      display: flex;
+      flex-direction: column;
+      padding-bottom: fn.toRem(24);
+      gap: fn.toRem(12);
+    }
+
+    .filter-term {
+      padding: 0 fn.toRem(18);
+    }
+  }
+}

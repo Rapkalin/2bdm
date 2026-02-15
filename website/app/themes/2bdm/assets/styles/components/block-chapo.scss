@@ -1,0 +1,75 @@
+@use "../basics/variables" as var;
+@use "../basics/functions" as fn;
+
+.section-block-chapo {
+  display: flex;
+  flex-direction: column;
+  gap: fn.toRem(64);
+  padding: fn.toRem(128) fn.toRem(160);
+  font-weight: var.$fw-p;
+
+  .chapo-title {
+    font-size: var.$fs-h2;
+    line-height: var.$lh-h2;
+    font-weight: var.$fw-p;
+    text-indent: 10%;
+  }
+
+  .chapo-container {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+
+    .chapo-bullet {
+      font-size: var.$fs-h4;
+      line-height: var.$lh-p;
+      display: flex;
+      align-items: center;
+      gap: fn.toRem(8);
+
+      svg {
+        height: fn.toRem(8);
+        width: fn.toRem(8);
+        color: var.$grey
+      }
+    }
+
+    .chapo-description-container {
+      color: var.$grey;
+
+      .chapo-description {
+        margin-bottom: fn.toRem(24);
+        font-size: var.$fs-p;
+        line-height: var.$lh-p-m;
+      }
+    }
+  }
+}
+
+/* smartphones, iPhone, portrait 480x320 phones */
+/* portrait e-readers (Nook/Kindle), smaller tablets @ 600 or @ 640 wide. */
+/* portrait tablets, portrait iPad, landscape e-readers, landscape 800x480 or 854x480 phones */
+@media (max-width:780px)  {
+  .section-block-chapo {
+    padding: fn.toRem(40) fn.toRem(20) 0 fn.toRem(20);
+
+    .chapo-container {
+      display: flex;
+      flex-direction: column;
+      gap: fn.toRem(16);
+
+      .chapo-description-container {
+        .chapo-description {
+          margin-bottom: unset;
+        }
+
+        a {
+          margin-top: fn.toRem(24);
+        }
+      }
+    }
+
+    .chapo-title {
+      text-indent: unset;
+    }
+  }
+}

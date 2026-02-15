@@ -1,4 +1,4 @@
-# version 1.0.0 - unreleased
+# version 1.0.0 - released - 16/02/2026
 
 [2BDM-1] - Header
 [2BDM-2] - Footer

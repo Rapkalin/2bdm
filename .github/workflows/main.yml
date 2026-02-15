@@ -35,6 +35,21 @@ jobs:
           args: --prefer-dist --no-interaction
           php_version: 8.2
 
+      - name: Setup Node version
+        uses: actions/setup-node@v2
+        with:
+          node-version: 20
+
+      - name: Install node_modules
+        run: |
+          cd website/app/themes/2bdm/
+          npm install
+
+      - name: Build webpack
+        run: |
+          cd website/app/themes/2bdm/
+          npx webpack --optimization-minimize
+
       - name: Zip artifact for deployment
         run: zip -r release-${{ matrix.runs-on }}.zip website/app/* website/vendor/* website/wordpress-core/* -x ".git/*" -x ".github/*"
 

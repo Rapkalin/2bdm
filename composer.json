@@ -2,6 +2,7 @@
     "name": "rapkalin/2bdm",
     "description": "The o2bdm architecture studio's official website",
     "type": "project",
+    "version": "1.0.O",
     "autoload": {
         "psr-4": {
             "App\\": "website/app/"

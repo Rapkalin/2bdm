@@ -111,3 +111,11 @@ if (!function_exists('theme_2bdm_scripts')) {
     }
     add_action('wp_enqueue_scripts', 'theme_2bdm_scripts');
 }
+
+if (!function_exists('add_cors_http_header')) {
+    function add_cors_http_header() : void
+    {
+        header("Access-Control-Allow-Origin: *");
+    }
+    add_action('init','add_cors_http_header');
+}

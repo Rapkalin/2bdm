@@ -1,7 +1,7 @@
 <div class="filters-container main-wrapper max-width-container" id="filters-container">
     <h3 class="fc-title">
         <?php get_template_part('components/svg-bullet') ?>
-        Projects
+        Projets
     </h3>
     <div class="fc-terms-container">
 

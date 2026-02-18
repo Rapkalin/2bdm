@@ -82,8 +82,10 @@ function get_item_menu_children(WP_Post $item, array &$menuItem): void
 {
     switch (get_page_template_slug((int) $item->object_id)):
         case 'page-projects.php':
-            $menuItem['children'] = get_terms_hierarchy('2bdm-projects');
-            $menuItem['type'] = 'tags';
+            if (!isMobileOrTablet()) {
+                $menuItem['children'] = get_terms_hierarchy('2bdm-projects');
+                $menuItem['type'] = 'tags';
+            }
             break;
         case 'page-agency.php':
             $menuItem['children'] = get_page_block_ids((int) $item->object_id);
@@ -177,4 +179,15 @@ function get_transient_key(string $key): mixed
             'locale' => get_locale(),
             'user_role' => wp_get_current_user()->roles[0] ?? 'guest',
     ]));
+}
+
+function isMobileOrTablet() : bool
+{
+    $userAgent = $_SERVER['HTTP_USER_AGENT'] ?? '';
+
+    return preg_match(
+            '/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i',
+            $userAgent
+        ) === 1
+    ;
 }

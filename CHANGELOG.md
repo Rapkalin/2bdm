@@ -1,3 +1,6 @@
+# version 1.0.7 - released - 16/02/2026
+[2BDM-18] - Fix minor bugs
+
 # version 1.0.0 - released - 16/02/2026
 
 [2BDM-1] - Header

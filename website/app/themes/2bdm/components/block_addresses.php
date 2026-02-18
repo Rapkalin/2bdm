@@ -6,7 +6,7 @@
                 <p class="no-numbers-animation"><?= $address['address'] ?></p>
                 <p class="no-numbers-animation "><?= $address['zipcode'] ?></p>
                 <p class="no-numbers-animation strong"><?= $address['phone_number'] ?></p>
-                <p class="no-numbers-animation strong"><?= $address['email'] ?></p>
+                <a class="no-numbers-animation strong" href="mailto:<?= $address['email'] ?>"><?= $address['email'] ?></a>
             </div>
         </div>
     <?php endforeach; ?>

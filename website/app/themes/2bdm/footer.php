@@ -33,7 +33,7 @@
         </div>
 
         <div class="footer-legal">
-            <div class="no-numbers-animation">© <?= date('Y') ?> 2BDM architectes</div>
+            <div class="no-numbers-animation">© <?= date('Y') ?> 2bdm architectes</div>
             <nav id="footer-legal-navigation">
                 <ul class="menu-content">
                     <?php wp_nav_menu([

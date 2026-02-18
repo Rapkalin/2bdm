@@ -9,6 +9,11 @@
     font-size: fn.toRem(94);
     line-height: fn.toRem(94);
     font-weight: 400;
+    overflow-wrap: break-word;
+    -ms-hyphens: manual;
+    -moz-hyphens: manual;
+    -webkit-hyphens: manual;
+    hyphens: manual;
   }
 
   .articles-grid-description {

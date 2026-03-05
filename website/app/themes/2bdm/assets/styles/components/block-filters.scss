@@ -11,10 +11,19 @@
     font-size: var.$fs-h4;
     line-height: var.$lh-p;
     font-weight: var.$fw-p;
-    display: flex;
-    align-items: center;
     gap: fn.toRem(8);
     margin: unset;
+
+    .fc-title {
+      display: flex;
+      gap: fn.toRem(12);
+      align-items: center;
+
+      span {
+        display: flex;
+        align-items: center;
+      }
+    }
 
     svg {
       height: fn.toRem(8);
@@ -69,9 +78,9 @@
       display: flex;
 
       .accordion-content {
-        position: absolute;
-        display: flex;
+        display: none;
         align-items: center;
+        flex-flow: wrap;
         max-height: 0;
         margin-top: fn.toRem(12);
         gap: fn.toRem(12);
@@ -81,6 +90,7 @@
 
         &.accordion-active {
           max-height: fn.toRem(1000);
+          display: flex;
         }
       }
     }

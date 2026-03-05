@@ -20,17 +20,19 @@ get_header(args:['color-logo' => '__grey']);
                 <?= get_sub_field('title') ?>
             </div>
             <?php if (have_rows('side_content_bottom')): the_row() ?>
-                <div class="side-next side-desktop">
-                    <div class="next-title">
-                        <?php
-                            get_template_part('components/svg-bullet');
-                            $next_title = get_sub_field('title');
-                            $next_description = get_sub_field('description', false)
-                        ?>
-                        <?= $next_title ?>
+                <?php if (get_sub_field('title') && get_sub_field('description', false)): ?>
+                    <div class="side-next side-desktop">
+                        <div class="next-title">
+                            <?php
+                                get_template_part('components/svg-bullet');
+                                $next_title = get_sub_field('title');
+                                $next_description = get_sub_field('description', false)
+                            ?>
+                            <?= $next_title ?>
+                        </div>
+                        <p class="next-description"><?= $next_description ?></p>
                     </div>
-                    <p class="next-description"><?= $next_description ?></p>
-                </div>
+                <?php endif; ?>
             <?php endif; ?>
         <?php endif; ?>
     </div>

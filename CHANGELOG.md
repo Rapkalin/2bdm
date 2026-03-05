@@ -1,5 +1,20 @@
-# version 1.0.7 - released - 16/02/2026
-[2BDM-18] - Fix minor bugs
+# version 1.0.8 - released - 19/02/2026
+[2BDM-19] - Fix minor bugs
+- Filters: Wrap the filters if there are too many
+
+# version 1.0.7 - released - 18/02/2026
+[2BDM-18] - Fix minor bugs:
+- News Page
+On mobile, the title wraps if it's too long.
+
+- Menu
+Projects: On mobile, the filters are hidden. 
+Clicking on "Project" will take you directly to the projects page.
+
+- Footer
+2BDM will be lowercase.
+Restored the current year to the copyright notice.
+Email addresses will be clickable.
 
 # version 1.0.0 - released - 16/02/2026
 

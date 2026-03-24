@@ -30,7 +30,7 @@ get_header(args:['color-logo' => '__grey']);
                             ?>
                             <?= $next_title ?>
                         </div>
-                        <p class="next-description"><?= $next_description ?></p>
+                        <div class="next-description"><?= $next_description ?></div>
                     </div>
                 <?php endif; ?>
             <?php endif; ?>

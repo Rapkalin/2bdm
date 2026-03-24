@@ -1,3 +1,7 @@
+# version 1.0.9 - released - 24/03/2026
+[2BDM-20] - Fix minor bugs
+- Page contact: Fix interline space bottom description
+
 # version 1.0.8 - released - 19/02/2026
 [2BDM-19] - Fix minor bugs
 - Filters: Wrap the filters if there are too many

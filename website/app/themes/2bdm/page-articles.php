@@ -13,7 +13,7 @@ get_header(args:['color-logo' => '__grey']);
     </div>
 <?php
 
-$terms =     $parent_terms = get_terms([
+$terms = get_terms([
     'taxonomy' => '2bdm-articles',
     'parent' => 0,
 ]);
@@ -22,12 +22,11 @@ get_template_part("components/block_filters_articles", args: ['terms' => $terms]
 // Initial query to load only 4 articles
 $tax_query = [];
 if (isset($_GET['terms']) && $_GET['terms'] !== 'all') {
-    $terms = explode(',', $_GET['terms']);
     $tax_query = [
         [
             'taxonomy' => '2bdm-articles',
             'field' => 'term_id',
-            'terms' => $terms,
+            'terms' => intval($_GET['terms']),
         ]
     ];
 }

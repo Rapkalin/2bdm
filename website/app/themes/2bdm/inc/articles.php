@@ -66,16 +66,16 @@ add_action('wp_ajax_nopriv_load_more_or_filtered_articles', 'load_more_or_filter
 
 function load_more_or_filtered_articles() {
     $paged = $_POST['paged'];
-    $terms = isset($_POST['terms']) ? $_POST['terms'] : 'all';
+    $term = isset($_POST['terms']) ? $_POST['terms'] : 'all';
 
     $tax_query = [];
-    if ($terms !== 'all') {
-        $terms = explode(',', $terms);
+
+    if ($term !== 'all') {
         $tax_query = [
             [
                 'taxonomy' => '2bdm-articles',
                 'field' => 'term_id',
-                'terms' => $terms,
+                'terms' => intval($term),
             ]
         ];
     }
@@ -89,6 +89,7 @@ function load_more_or_filtered_articles() {
     ]);
 
     $articles_html = '';
+
     while ($query->have_posts()) : $query->the_post();
         ob_start();
         get_template_part("components/block_article", null, ['article' => get_post()]);

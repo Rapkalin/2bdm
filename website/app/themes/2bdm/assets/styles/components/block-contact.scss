@@ -17,6 +17,25 @@
     aspect-ratio: 5 / 8;
   }
 
+  .group-file {
+    display: flex;
+    flex-direction: column;
+    gap: fn.toRem(8);
+
+    .file-info-container {
+      display: none;
+      background: #f5f5f5;
+      padding: fn.toRem(12);
+      border-radius: fn.toRem(4);
+
+      .file-name,
+      .file-size {
+        font-size: var.$fs-p;
+        line-height: var.$lh-p-m;
+      }
+    }
+  }
+
   .block-contact-container {
     display: flex;
     flex-direction: column;

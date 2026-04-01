@@ -28,21 +28,11 @@ function configure_smtp(PHPMailer $phpmailer, string $from, string $message): vo
 }
 
 function submit_dynamic_form(): void {
-    // reCAPTCHA
-    // recaptchaCheck();
-
-    // Data validation
     $errors = [];
+
     foreach ($_POST as $key => $value) {
         if (empty($value)) {
             $errors[$key] = 'Ce champ est requis';
-        } else {
-            if (
-                ($key === 'email') &&
-                !filter_var($value, FILTER_VALIDATE_EMAIL)
-            ) {
-                $errors[$key] = 'Email invalide';
-            }
         }
     }
 
@@ -50,82 +40,85 @@ function submit_dynamic_form(): void {
         wp_send_json_error($errors);
     }
 
-    // Preparing email
     $from = $_POST['email_from'];
     $message = '';
+
     foreach ($_POST as $key => $value) {
-        switch ($key) {
-            case 'email_to':
-            case 'action':
-            case 'email_from':
-                break;
-            case 'message':
-                $message .= "<p>" . str_replace('_', ' ', ucfirst($key)) . ' :<br>' . sanitize_text_field($value) . "</p><br>";
-                break;
-            default:
-                $message .= "<p>" . str_replace('_', ' ', ucfirst($key)) . ' : ' . sanitize_text_field($value) . "</p><br>";
-                break;
-        }
+        if (in_array($key, ['action', 'email_from'])) continue;
+
+        $message .= "<p>" . ucfirst($key) . " : " . sanitize_text_field($value) . "</p>";
     }
 
     try {
-        // Handle uploaded files
         $attachments = [];
+
         if (!empty($_FILES)) {
-            $message .= "<p>Fichiers uploadés :</p>";
-            foreach ($_FILES as $key => $file) {
-                // Check the file type and make sure they are only PDF or DOCX
-                $file_type = wp_check_filetype_and_ext($file['tmp_name'], $file['name']);
-                $allowed_types = ['application/pdf', 'application/vnd.openxmlformats-officedocument.wordprocessingml.document'];
-                $max_size = 5 * 1024 * 1024; // 5 Mo
+            $message .= "<p>Fichiers :</p>";
 
-                if (!in_array($file_type['type'], $allowed_types)) {
-                    wp_send_json_error('Seuls les fichiers PDF ou DOCX sont autorisés.');
-                }
+            foreach ($_FILES as $inputName => $fileData) {
 
-                if ($file['size'] > $max_size) {
-                    wp_send_json_error('Le fichier dépasse la taille maximale autorisée de 5 Mo.');
-                }
+                // multiple uploaded files
+                foreach ($fileData['name'] as $index => $name) {
+
+                    if (empty($name)) continue;
+
+                    $tmpName = $fileData['tmp_name'][$index];
+                    $size = $fileData['size'][$index];
+                    $error = $fileData['error'][$index];
+
+                    if ($error !== UPLOAD_ERR_OK) continue;
+
+                    $fileType = wp_check_filetype_and_ext($tmpName, $name);
+                    $allowed = [
+                        'application/pdf',
+
+                        // Word
+                        'application/msword',
+                        'application/vnd.openxmlformats-officedocument.wordprocessingml.document',
+
+                        // PowerPoint
+                        'application/vnd.ms-powerpoint', // .ppt
+                        'application/vnd.openxmlformats-officedocument.presentationml.presentation' // .pptx
+                    ];
 
 
-                if ($file['error'] === UPLOAD_ERR_OK) {
+                    if (!in_array($fileType['type'], $allowed)) {
+                        wp_send_json_error("Fichier invalide : $name");
+                    }
+
+                    if ($size > 5 * 1024 * 1024) {
+                        wp_send_json_error("Fichier trop volumineux : $name");
+                    }
+
                     $upload_dir = wp_upload_dir();
-                    $file_path = $upload_dir['path'] . '/' . basename($file['name']);
-                    move_uploaded_file($file['tmp_name'], $file_path);
-                    $attachments[] = $file_path;
-                    $message .= "<p>" . ucfirst($key) . ': ' . basename($file['name']) . "</p>";
+                    $filePath = $upload_dir['path'] . '/' . uniqid() . '-' . basename($name);
+
+                    move_uploaded_file($tmpName, $filePath);
+
+                    $attachments[] = $filePath;
+
+                    $message .= "<p>$inputName : $name</p>";
                 }
             }
         }
 
-        // Send email with attachments
         $mail = new PHPMailer(true);
         configure_smtp($mail, $from, $message);
-        foreach ($attachments as $attachment) {
-            $mail->addAttachment($attachment);
-        }
-        $mail_sent = $mail->send();
 
-        // Delete files from temp directory
-        foreach ($attachments as $attachment) {
-            if (file_exists($attachment)) {
-                unlink($attachment);
-            }
+        foreach ($attachments as $file) {
+            $mail->addAttachment($file);
         }
 
-        if ($mail_sent) {
-            wp_send_json_success('Formulaire soumis avec succès et email envoyé');
-        } else {
-            wp_send_json_error(
-                    [
-                        'message' => 'Erreur lors de l\'envoi de l\'email',
-                        'error' => $mail_sent
-                    ],
-                500,
-            );
+        $mail->send();
+
+        foreach ($attachments as $file) {
+            if (file_exists($file)) unlink($file);
         }
+
+        wp_send_json_success();
+
     } catch (\Exception $e) {
-        wp_send_json_error('Erreur lors de l\'envoi de l\'email : ' . $e->getMessage());
+        wp_send_json_error($e->getMessage());
     }
 }
 
@@ -189,18 +182,22 @@ function getFormGroup(string $type, array $data = []): void {
         case 'file':
             ?>
             <div class="form-group group-file">
-                <input type="file" class="custom-file-input" name="<?= htmlspecialchars($data['label']) ?>" id="<?= htmlspecialchars($data['label']) ?>">
+                <input
+                    type="file"
+                    multiple
+                    class="custom-file-input"
+                    name="<?= htmlspecialchars($data['label']) ?>[]"
+                    id="<?= htmlspecialchars($data['label']) ?>"
+                >
+
                 <label for="<?= htmlspecialchars($data['label']) ?>" class="custom-file-label">
                     <?= htmlspecialchars($data['label']) ?>
                     <?php get_template_part("components/svg-arrow-down"); ?>
                 </label>
-                <!-- Conteneur pour afficher les infos du fichier -->
+
                 <div class="file-info-container" style="display: none;">
                     <div class="file-name"></div>
                     <div class="file-size"></div>
-                    <div class="progress-container">
-                        <div class="progress-bar"></div>
-                    </div>
                 </div>
             </div>
             <?php break;

@@ -1,3 +1,10 @@
+# version 1.0.10 - released - 01/04/2026
+[2BDM-22] - Update contact page form
+- Page contact: Allow multiple upload files in contact form
+
+[2BDM-21] - Update news filter selection
+- Page news: Limit news filters selection to one
+
 # version 1.0.9 - released - 24/03/2026
 [2BDM-20] - Fix minor bugs
 - Page contact: Fix interline space bottom description

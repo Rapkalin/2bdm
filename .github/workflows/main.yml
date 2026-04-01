@@ -109,5 +109,5 @@ jobs:
             ln -nsrf ~/prod/shared/w3tc-config ~/prod/website/app/w3tc-config
             ln -nsrf ~/prod/shared/uploads-webpc ~/prod/website/app/uploads-webpc
             rm ~/prod/website/.htaccess
-            rm ~/prod/website/app/.htaccess
-            ln -nsrf ~/prod/shared/.htaccess ~/prod/website/app/.htaccess
+            rm ~/prod/website/.htaccess
+            ln -nsrf ~/prod/shared/.htaccess ~/prod/website/.htaccess

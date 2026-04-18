@@ -3,12 +3,12 @@
 
 .section-block-publications {
   display: grid;
-  grid-template-columns: 1fr 3fr;
   align-items: start;
   gap: fn.toRem(80);
   padding: fn.toRem(80) fn.toRem(48);
-  background-color: var.$grey;
-  color: var.$white;
+  background-color: var.$white;
+  color: var.$grey;
+  margin-top: fn.toRem(24);
 
   .publications-intro-title {
     display: flex;
@@ -35,11 +35,11 @@
       gap: fn.toRem(80);
 
       .load-more-btn-publications {
-        background-color: var.$white;
+        background-color: var.$grey;
         align-items: center;
         width: fit-content;
         border: none;
-        color: var.$grey;
+        color: var.$white;
         padding: fn.toRem(15) fn.toRem(32);
         text-align: center;
         text-decoration: none;
@@ -49,13 +49,18 @@
         cursor: pointer;
 
         svg {
-          color: var.$grey;
+          color: var.$white;
           height: fn.toRem(8);
           width: auto;
         }
 
         &:hover {
-          background: var.$lightgrey-m;
+          background: var.$white;
+          color: var.$grey;
+
+          svg {
+            color: var.$grey;
+          }
         }
       }
 
@@ -73,7 +78,7 @@
           img {
             aspect-ratio: 9 / 14;
             object-fit: contain;
-            width: 70%;
+            width: 100%;
           }
 
           .publication-info {

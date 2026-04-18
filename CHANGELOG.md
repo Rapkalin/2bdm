@@ -1,3 +1,8 @@
+# version 1.0.11 - released - TBC
+[2BDM-23] - Add publications page
+- Page publications: Add new publications page
+- Page publications: Add optionnal link for publications
+
 # version 1.0.10 - released - 01/04/2026
 [2BDM-22] - Update contact page form
 - Page contact: Allow multiple upload files in contact form

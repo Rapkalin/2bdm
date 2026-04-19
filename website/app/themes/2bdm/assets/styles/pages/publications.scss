@@ -34,6 +34,41 @@
             flex-direction: column;
             gap: fn.toRem(80);
 
+            .publication-isbn-label {
+                font-weight: var.$fw-xl;
+            }
+
+            .publication-links {
+                .publication-file,
+                .publication-link {
+                    margin-top: fn.toRem(12);
+                    transition: all .4s ease-in-out;
+                    background-color: var.$lightgrey;
+                    padding: fn.toRem(12) 0 fn.toRem(12) fn.toRem(12);
+
+                    &:hover {
+                        background-color: var.$grey;
+                    }
+                }
+
+                .publication-file,
+                .publication-link {
+                    display: flex;
+                    align-items: center;
+                    color: var.$grey;
+
+                    svg {
+                        height: fn.toRem(8);
+                        width: auto;
+                        margin-right: fn.toRem(5);
+                    }
+
+                    &:hover {
+                        color: var.$white;
+                    }
+                }
+            }
+
             .load-more-btn-publications {
                 background-color: var.$grey;
                 align-items: center;
@@ -107,7 +142,7 @@
                             display: flex;
                             justify-content: space-between;
                             padding-top: fn.toRem(8);
-                            border-top: solid 1px var.$lightgrey-m;
+                            border-top: solid 1px var.$lightgrey;
                             font-size: var.$fs-p-s;
                             line-height: var.$lh-p-s;
 
@@ -126,42 +161,6 @@
                                 }
                             }
                         }
-
-                        .publication-isbn-label {
-                            font-weight: var.$fw-xl;
-                        }
-
-                        .publication-links {
-                            .publication-file,
-                            .publication-link {
-                                margin-top: fn.toRem(12);
-                                transition: all .4s ease-in-out;
-                                background-color: var.$lightgrey;
-                                padding: fn.toRem(12) 0 fn.toRem(12) fn.toRem(12);
-
-                                &:hover {
-                                    background-color: var.$grey;
-                                }
-                            }
-
-                            .publication-file,
-                            .publication-link {
-                                display: flex;
-                                align-items: center;
-                                color: var.$grey;
-
-                                svg {
-                                    height: fn.toRem(8);
-                                    width: auto;
-                                    margin-right: fn.toRem(5);
-                                }
-
-                                &:hover {
-                                    color: var.$white;
-                                }
-                            }
-                        }
-
                     }
                 }
             }
@@ -169,10 +168,15 @@
             .block-publications-cards-list {
                 display: flex;
                 flex-direction: column;
+                color: var.$grey;
+
+                .publication-links {
+                    max-width: 50%;
+                }
 
                 .card-last {
                     padding-bottom: fn.toRem(8);
-                    border-bottom: solid 1px var.$lightgrey-m;
+                    border-bottom: solid 1px var.$lightgrey;
                 }
 
                 .block-publications-card {
@@ -180,7 +184,8 @@
                         display: grid;
                         grid-template-columns: 4fr 1fr;
                         padding-top: fn.toRem(8);
-                        border-top: solid 1px var.$lightgrey-m;
+                        border-top: solid 1px var.$lightgrey;
+                        margin: fn.toRem(8) 0;
 
                         .publication-info-details {
                             display: flex;
@@ -240,6 +245,8 @@
         grid-template-columns: unset;
         gap: fn.toRem(24);
         padding: fn.toRem(48) 0;
+        margin-left: fn.toRem(-20);
+        margin-right: fn.toRem(-20);
 
         .publications-intro-title {
             padding: 0 fn.toRem(20);
@@ -251,6 +258,7 @@
 
                 .publications-intro-description {
                     padding: 0 fn.toRem(20);
+                    text-wrap: wrap;
                 }
 
                 .block-publications-cards {
@@ -274,6 +282,10 @@
                 .block-publications-cards-list {
                     gap: fn.toRem(16);
                     width: 100%;
+
+                    .publication-links {
+                        max-width: unset;
+                    }
 
                     .card-last {
                         border-bottom: unset;

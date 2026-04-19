@@ -83,8 +83,8 @@ get_header(args:['color-logo' => '__grey']);
                 </button>
 
                 <div class="block-publications-cards-list">
-                    <?php foreach (get_sub_field('publication_cards_list') as $i => $cardList): ?>
-                        <div class="block-publications-card <?= $i === count(get_sub_field('publication_cards_list')) - 1 ? 'card-last' : '' ?>">
+                    <?php foreach (get_field('publication_cards_list') as $i => $cardList): ?>
+                        <div class="block-publications-card <?= $i === count(get_field('publication_cards_list')) - 1 ? 'card-last' : '' ?>">
                             <div class="publication-info">
                                 <div class="publication-info-details">
                                     <div class="publication-title"><?= $cardList['publication_title'] ?></div>
@@ -97,6 +97,40 @@ get_header(args:['color-logo' => '__grey']);
                                         <?= $cardList['publication_year'] ?>
                                     </div>
                                 </div>
+                                <?php if (($cardList['publication_file']) || ($cardList['publication_link'])): ?>
+                                    <div class="publication-links">
+                                        <?php if ($cardList['publication_file']): ?>
+                                            <a class="publication-file"
+                                               href="<?= $cardList['publication_file']['link'] ?>'"
+                                               role="button"
+                                               aria-label="Télécharger la publication"
+                                            >
+                                                <?php get_template_part("components/svg-plus"); ?>
+                                                Télécharger la publication
+                                            </a>
+                                        <?php endif; ?>
+                                        <?php if ($cardList['publication_link']): ?>
+                                            <a class="publication-link"
+                                               href="<?= $cardList['publication_link'] ?>"
+                                               aria-label="Lire la publication"
+                                               target="_blank"
+                                            >
+                                                <?php get_template_part("components/svg-plus"); ?>
+                                                Lire la publication
+                                            </a>
+                                        <?php endif; ?>
+                                    </div>
+                                <?php endif; ?>
+                                <?php if ($cardList['publication_isbn']): ?>
+                                    <div class="publication-details">
+                                        <div class="publication-isbn-label">
+                                            ISBN
+                                        </div>
+                                        <div class="publication-isbn-value">
+                                            <?= $cardList['publication_isbn'] ?>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
                             </div>
                         </div>
                     <?php endforeach; ?>

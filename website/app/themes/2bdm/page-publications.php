@@ -1,0 +1,149 @@
+<?php
+/**
+ * Template Name: Page publications
+ *
+ * @package WordPress
+ */
+
+get_header(args:['color-logo' => '__grey']);
+?>
+<div class="section-people-wrapper main-wrapper">
+    <div class="page-header-container">
+        <h1 class="title"><?= get_field('title') ?></h1>
+        <div class="description"><?= get_field('description') ?></div>
+    </div>
+
+    <section class="section-block-publications">
+        <div class="block-publications-container">
+            <div class="block-publications-wrapper">
+                <div class="block-publications-cards">
+                    <?php foreach (get_field('publication_cards') as $card): ?>
+                        <div class="block-publications-card">
+                            <img src="<?= $card['publication_image']['url'] ?>" alt="publication-cover">
+                            <div class="publication-info">
+                                <div class="publication-info-details">
+                                    <div class="publication-title"><?= $card['publication_title'] ?></div>
+                                    <div class="publication-author"><?= $card['publication_author'] ?></div>
+
+                                    <?php if ($card['button']): ?>
+                                        <a class="publication-button" href="<?= $card['button']['url'] ?>">
+                                            <?= $card['title'] ?>
+                                            <span class="svg-right"><?php get_template_part("components/svg-arrow-right") ?></span>
+                                        </a>
+                                    <?php endif; ?>
+                                </div>
+                                <div class="publication-details">
+                                    <div class="publication-name"><?= $card['publication_newspaper_title'] ?></div>
+                                    <div class="publication-year">
+                                        <?php get_template_part('components/svg-bullet') ?>
+                                        <?= $card['publication_year'] ?>
+                                    </div>
+                                </div>
+                                <?php if ($card['publication_isbn']): ?>
+                                    <div class="publication-details">
+                                        <div class="publication-isbn-label">
+                                            ISBN
+                                        </div>
+                                        <div class="publication-isbn-value">
+                                            <?= $card['publication_isbn'] ?>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+                                <?php if (($card['publication_file']) || ($card['publication_link'])): ?>
+                                    <div class="publication-links">
+                                        <?php if ($card['publication_file']): ?>
+                                            <a class="publication-file"
+                                               href="<?= $card['publication_file']['link'] ?>'"
+                                               role="button"
+                                               aria-label="Télécharger la publication"
+                                            >
+                                                <?php get_template_part("components/svg-plus"); ?>
+                                                Télécharger la publication
+                                            </a>
+                                        <?php endif; ?>
+                                        <?php if ($card['publication_link']): ?>
+                                            <a class="publication-link"
+                                                href="<?= $card['publication_link'] ?>"
+                                               aria-label="Lire la publication"
+                                               target="_blank"
+                                            >
+                                                <?php get_template_part("components/svg-plus"); ?>
+                                                Lire la publication
+                                            </a>
+                                        <?php endif; ?>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+                <button class="load-more-btn-publications load-more-cards">
+                    Voir plus
+                    <?php get_template_part("components/svg-plus"); ?>
+                </button>
+
+                <div class="block-publications-cards-list">
+                    <?php foreach (get_field('publication_cards_list') as $i => $cardList): ?>
+                        <div class="block-publications-card <?= $i === count(get_field('publication_cards_list')) - 1 ? 'card-last' : '' ?>">
+                            <div class="publication-info">
+                                <div class="publication-info-details">
+                                    <div class="publication-title"><?= $cardList['publication_title'] ?></div>
+                                    <div class="publication-author"><?= $cardList['publication_author'] ?></div>
+                                </div>
+                                <div class="publication-details">
+                                    <div class="publication-name"><?= $cardList['publication_newspaper_title'] ?></div>
+                                    <div class="publication-year">
+                                        <?php get_template_part('components/svg-bullet') ?>
+                                        <?= $cardList['publication_year'] ?>
+                                    </div>
+                                </div>
+                                <?php if (($cardList['publication_file']) || ($cardList['publication_link'])): ?>
+                                    <div class="publication-links">
+                                        <?php if ($cardList['publication_file']): ?>
+                                            <a class="publication-file"
+                                               href="<?= $cardList['publication_file']['link'] ?>'"
+                                               role="button"
+                                               aria-label="Télécharger la publication"
+                                            >
+                                                <?php get_template_part("components/svg-plus"); ?>
+                                                Télécharger la publication
+                                            </a>
+                                        <?php endif; ?>
+                                        <?php if ($cardList['publication_link']): ?>
+                                            <a class="publication-link"
+                                               href="<?= $cardList['publication_link'] ?>"
+                                               aria-label="Lire la publication"
+                                               target="_blank"
+                                            >
+                                                <?php get_template_part("components/svg-plus"); ?>
+                                                Lire la publication
+                                            </a>
+                                        <?php endif; ?>
+                                    </div>
+                                <?php endif; ?>
+                                <?php if ($cardList['publication_isbn']): ?>
+                                    <div class="publication-details">
+                                        <div class="publication-isbn-label">
+                                            ISBN
+                                        </div>
+                                        <div class="publication-isbn-value">
+                                            <?= $cardList['publication_isbn'] ?>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+                <button class="load-more-btn-publications load-more-list">
+                    Voir plus
+                    <?php get_template_part("components/svg-plus"); ?>
+                </button>
+            </div>
+
+        </div>
+    </section>
+</div>
+<?php
+get_footer();
+?>

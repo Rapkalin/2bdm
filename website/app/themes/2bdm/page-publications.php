@@ -39,6 +39,40 @@ get_header(args:['color-logo' => '__grey']);
                                         <?= $card['publication_year'] ?>
                                     </div>
                                 </div>
+                                <?php if ($card['publication_isbn']): ?>
+                                    <div class="publication-details">
+                                        <div class="publication-isbn-label">
+                                            ISBN
+                                        </div>
+                                        <div class="publication-isbn-value">
+                                            <?= $card['publication_isbn'] ?>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+                                <?php if (($card['publication_file']) || ($card['publication_link'])): ?>
+                                    <div class="publication-links">
+                                        <?php if ($card['publication_file']): ?>
+                                            <a class="publication-file"
+                                               href="<?= $card['publication_file']['link'] ?>'"
+                                               role="button"
+                                               aria-label="Télécharger la publication"
+                                            >
+                                                <?php get_template_part("components/svg-plus"); ?>
+                                                Télécharger la publication
+                                            </a>
+                                        <?php endif; ?>
+                                        <?php if ($card['publication_link']): ?>
+                                            <a class="publication-link"
+                                                href="<?= $card['publication_link'] ?>"
+                                               aria-label="Lire la publication"
+                                               target="_blank"
+                                            >
+                                                <?php get_template_part("components/svg-plus"); ?>
+                                                Lire la publication
+                                            </a>
+                                        <?php endif; ?>
+                                    </div>
+                                <?php endif; ?>
                             </div>
                         </div>
                     <?php endforeach; ?>

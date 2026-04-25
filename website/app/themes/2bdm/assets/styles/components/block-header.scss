@@ -32,6 +32,8 @@
     gap: fn.toRem(40);
     margin-top: fn.toRem(200);
     padding: 0 fn.toRem(20);
+    overflow-wrap: break-word;
+    hyphens: auto;
 
     .title {
       font-size: var.$fs-h1-s;

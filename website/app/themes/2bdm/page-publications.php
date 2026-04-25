@@ -77,7 +77,7 @@ get_header(args:['color-logo' => '__grey']);
                         </div>
                     <?php endforeach; ?>
                 </div>
-                <button class="load-more-btn-publications load-more-cards">
+                <button class="load-more-btn-publications load-more-cards classic-button">
                     Voir plus
                     <?php get_template_part("components/svg-plus"); ?>
                 </button>
@@ -135,7 +135,7 @@ get_header(args:['color-logo' => '__grey']);
                         </div>
                     <?php endforeach; ?>
                 </div>
-                <button class="load-more-btn-publications load-more-list">
+                <button class="load-more-btn-publications load-more-list classic-button">
                     Voir plus
                     <?php get_template_part("components/svg-plus"); ?>
                 </button>

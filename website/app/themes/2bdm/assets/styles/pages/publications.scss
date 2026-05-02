@@ -73,7 +73,7 @@
                 background-color: var.$grey;
                 align-items: center;
                 width: fit-content;
-                border: none;
+                border: 1px solid var.$grey;
                 color: var.$white;
                 padding: fn.toRem(15) fn.toRem(32);
                 text-align: center;
@@ -82,6 +82,7 @@
                 font-size: var.$fs-p;
                 border-radius: fn.toRem(25);
                 cursor: pointer;
+                transition: all 0.5s ease-in-out;
 
                 svg {
                     color: var.$white;

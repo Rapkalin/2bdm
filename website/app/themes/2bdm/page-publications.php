@@ -85,7 +85,7 @@ if (is_preview()) {
                         </div>
                     <?php endforeach; ?>
                 </div>
-                <button class="load-more-btn-publications load-more-cards">
+                <button class="load-more-btn-publications load-more-cards classic-button">
                     Voir plus
                     <?php get_template_part("components/svg-plus"); ?>
                 </button>
@@ -143,7 +143,7 @@ if (is_preview()) {
                         </div>
                     <?php endforeach; ?>
                 </div>
-                <button class="load-more-btn-publications load-more-list">
+                <button class="load-more-btn-publications load-more-list classic-button">
                     Voir plus
                     <?php get_template_part("components/svg-plus"); ?>
                 </button>

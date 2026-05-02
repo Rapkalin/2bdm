@@ -7,14 +7,21 @@
 
 get_header(args:['color-logo' => '__grey']);
 
+if (is_preview()) {
+    global $post;
+    $post_id = $post->ID;
+} else {
+    $post_id = get_the_ID();
+}
+
 ?>
 <div class="page-header-container">
-    <h1 class="title"><?= get_field('title') ?></h1>
-    <div class="description"><?= get_field('description') ?></div>
+    <h1 class="title"><?= get_field('title', $post_id) ?></h1>
+    <div class="description"><?= get_field('description', $post_id) ?></div>
 </div>
 
-<?php if (have_rows('content_blocks')) :
-while (have_rows('content_blocks')) : the_row(); ?>
+<?php if (have_rows('content_blocks', $post_id)) :
+while (have_rows('content_blocks', $post_id)) : the_row(); ?>
     <?php
         $blockId = get_sub_field('block_id');
         $hasId = $blockId['label'] && $blockId['identifier'];

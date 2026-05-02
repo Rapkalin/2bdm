@@ -6,20 +6,28 @@
  */
 
 get_header(args:['color-logo' => '__grey']);
+
+if (is_preview()) {
+    global $post;
+    $post_id = $post->ID;
+} else {
+    $post_id = get_the_ID();
+}
+
 ?>
 <div class="contact-container contact-header-container">
-    <div class="contact-title"><?= get_field('title') ?></div>
-    <div class="contact-description"><?= nl2br(get_field('description')) ?></div>
+    <div class="contact-title"><?= get_field('title', $post_id) ?></div>
+    <div class="contact-description"><?= nl2br(get_field('description', $post_id)) ?></div>
 </div>
 
 <div class="form-wrapper main-wrapper">
     <div class="form-side-container">
-        <?php if (have_rows('side_content')): the_row() ?>
+        <?php if (have_rows('side_content', $post_id)): the_row() ?>
             <div class="side-title">
                 <?php get_template_part('components/svg-bullet') ?>
                 <?= get_sub_field('title') ?>
             </div>
-            <?php if (have_rows('side_content_bottom')): the_row() ?>
+            <?php if (have_rows('side_content_bottom', $post_id)): the_row() ?>
                 <?php if (get_sub_field('title') && get_sub_field('description', false)): ?>
                     <div class="side-next side-desktop">
                         <div class="next-title">
@@ -39,8 +47,8 @@ get_header(args:['color-logo' => '__grey']);
     <form id="dynamic-form" method="post">
         <?php // <div class="g-recaptcha" data-sitekey="votre_cle_de_site"></div> ?>
         <?php
-        if (have_rows('form')):
-            while (have_rows('form')): the_row();
+        if (have_rows('form', $post_id)):
+            while (have_rows('form', $post_id)): the_row();
                 switch (get_row_layout()):
                     case 'simple': // simple
                         getFormGroup(
@@ -64,7 +72,7 @@ get_header(args:['color-logo' => '__grey']);
             type="hidden"
             id="email-from"
             name="email_from"
-            value="<?= get_field('mail_choice') ?>"
+            value="<?= get_field('mail_choice', $post_id) ?>"
         >
         <div class="legal-text">
             * Champs obligatoires.  <br>
@@ -78,7 +86,7 @@ get_header(args:['color-logo' => '__grey']);
                 id="submit-button"
                 data-url="<?php echo admin_url('admin-ajax.php'); ?>"
                 type="submit"
-                value="<?= get_field('submit_label') ?>"
+                value="<?= get_field('submit_label', $post_id) ?>"
             >
         </div>
     </form>

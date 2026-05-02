@@ -1,6 +1,13 @@
 <?php
 get_header(args:['color-logo' => '__grey']);
 
+if (is_preview()) {
+    global $post;
+    $post_id = $post->ID;
+} else {
+    $post_id = get_the_ID();
+}
+
 /*
  * We only display the first taxonomy
  * So even though there are several contributed we only take the first one
@@ -9,14 +16,14 @@ $taxonomy = get_the_terms(get_the_ID(), '2bdm-articles')[0];
 ?>
 <div class="article-container">
     <div class="article-header-wrapper">
-        <span class="no-numbers-animation article-date"><?= get_field('release_date', $post->ID) ?></span>
+        <span class="no-numbers-animation article-date"><?= get_field('release_date', $post_id) ?></span>
         <span class="article-taxonomy"><?= $taxonomy->name ?></span>
     </div>
-    <h1 class="article-title"><?= get_field('title', $post->ID) ?></h1>
+    <h1 class="article-title"><?= get_field('title', $post_id) ?></h1>
 
     <?php
-        if (have_rows('content_blocks')) :
-            while (have_rows('content_blocks')) : the_row(); ?>
+        if (have_rows('content_blocks', $post_id)) :
+            while (have_rows('content_blocks', $post_id)) : the_row(); ?>
                 <section class="content-blocks">
                     <?php switch(get_row_layout()) {
                         case 'image':
@@ -39,7 +46,7 @@ $taxonomy = get_the_terms(get_the_ID(), '2bdm-articles')[0];
         endif;
     ?>
 
-    <?php  if($button = get_field('button')): ?>
+    <?php  if($button = get_field('button', $post_id)): ?>
         <a
             class="article-button classic-button classic-button-bkg-grey classic-button-border"
             href="<?= $button['url'] ?>"
@@ -52,8 +59,8 @@ $taxonomy = get_the_terms(get_the_ID(), '2bdm-articles')[0];
 
 
 <?php
-    if (have_rows('next_articles')) :
-        $next_articles = get_field('next_articles');
+    if (have_rows('next_articles', $post_id)) :
+        $next_articles = get_field('next_articles', $post_id);
         get_template_part("components/block_next_articles", args: [
             'articles' => $next_articles,
             'extraClasses' => ['main-wrapper']

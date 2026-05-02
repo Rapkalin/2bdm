@@ -1,7 +1,15 @@
 <?php
 get_header();
 
-if (have_rows('header_banner')) : the_row() ?>
+if (is_preview()) {
+    global $post;
+    $post_id = $post->ID;
+} else {
+    $post_id = get_the_ID();
+}
+
+
+if (have_rows('header_banner', $post_id)) : the_row() ?>
     <?php
         get_template_part("components/block_header_banner", args: [
             'banner' => [
@@ -15,9 +23,9 @@ if (have_rows('header_banner')) : the_row() ?>
     ?>
 <?php endif;
 
-if (have_rows('content_blocks')) : ?>
+if (have_rows('content_blocks', $post_id)) : ?>
     <div class="max-width-container">
-        <?php while (have_rows('content_blocks')) : the_row(); ?>
+        <?php while (have_rows('content_blocks', $post_id)) : the_row(); ?>
             <section class="content-blocks">
                 <?php switch(get_row_layout()) {
                     case 'text':
@@ -45,7 +53,7 @@ if (have_rows('content_blocks')) : ?>
 <?php endif;
 
 // BLOCK NEXT PROJECT
-$next_project = get_field('next_project')[0];
+$next_project = get_field('next_project', $post_id)[0];
 $next_project_banner = get_field('header_banner', $next_project->ID);
 
 get_template_part("components/block_next_project", args: [

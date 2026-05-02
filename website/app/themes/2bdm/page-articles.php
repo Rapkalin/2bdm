@@ -6,10 +6,18 @@
  */
 
 get_header(args:['color-logo' => '__grey']);
+
+if (is_preview()) {
+    global $post;
+    $post_id = $post->ID;
+} else {
+    $post_id = get_the_ID();
+}
+
 ?>
     <div class="article-container articles-grid-header-container">
-        <div class="articles-grid-title"><?= get_field('title') ?></div>
-        <div class="articles-grid-description"><?= get_field('description') ?></div>
+        <div class="articles-grid-title"><?= get_field('title', $post_id) ?></div>
+        <div class="articles-grid-description"><?= get_field('description', $post_id) ?></div>
     </div>
 <?php
 

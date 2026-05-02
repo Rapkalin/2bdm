@@ -6,6 +6,14 @@
  */
 
 get_header(args:['color-logo' => '__grey']);
+
+if (is_preview()) {
+    global $post;
+    $post_id = $post->ID;
+} else {
+    $post_id = get_the_ID();
+}
+
 ?>
 
 <div class="legal-wrapper">
@@ -13,7 +21,7 @@ get_header(args:['color-logo' => '__grey']);
 
 
     <div class="legal-container">
-        <?php while (have_rows('content_blocks')) : the_row(); ?>
+        <?php while (have_rows('content_blocks', $post_id)) : the_row(); ?>
             <div class="block-legal-container">
                 <h2 class="block-legal-title"><?= get_sub_field('title') ?></h2>
                 <p class="block-legal-description"><?= get_sub_field('description') ?></p>

@@ -1,8 +1,8 @@
-# version 1.0.11 - released - TBC
+# version 1.0.12 - released - TBC
 [2BDM-24] - Fix preview pages
 - Pages : fix preview function
 
-# version 1.0.11 - released - TBC
+# version 1.0.11 - released - 25/04/2026
 [2BDM-23] - Add publications page
 - Page publications: Add new publications page
 - Page publications: Add optionnal link for publications

@@ -7,7 +7,14 @@
 
 get_header();
 
-if (have_rows('header_slider')) :
+if (is_preview()) {
+    global $post;
+    $post_id = $post->ID;
+} else {
+    $post_id = get_the_ID();
+}
+
+if (have_rows('header_slider', $post_id)) :
     get_template_part("components/block_header_slider");
 endif;
 

@@ -6,10 +6,18 @@
  */
 
 get_header(args:['color-logo' => '__grey']);
+
+if (is_preview()) {
+    global $post;
+    $post_id = $post->ID;
+} else {
+    $post_id = get_the_ID();
+}
+
 ?>
 <div class="section-people-wrapper main-wrapper">
     <div class="page-header-container">
-        <h1 class="title"><?= get_field('title') ?></h1>
+        <h1 class="title"><?= get_field('title', $post_id) ?></h1>
         <div class="description"><?= get_field('description') ?></div>
     </div>
 
@@ -17,7 +25,7 @@ get_header(args:['color-logo' => '__grey']);
         <div class="block-publications-container">
             <div class="block-publications-wrapper">
                 <div class="block-publications-cards">
-                    <?php foreach (get_field('publication_cards') as $card): ?>
+                    <?php foreach (get_field('publication_cards', $post_id) as $card): ?>
                         <div class="block-publications-card">
                             <img src="<?= $card['publication_image']['url'] ?>" alt="publication-cover">
                             <div class="publication-info">
@@ -53,7 +61,7 @@ get_header(args:['color-logo' => '__grey']);
                                     <div class="publication-links">
                                         <?php if ($card['publication_file']): ?>
                                             <a class="publication-file"
-                                               href="<?= $card['publication_file']['link'] ?>'"
+                                               href="<?= $card['publication_file']['link'] ?>"
                                                role="button"
                                                aria-label="Télécharger la publication"
                                             >
@@ -83,8 +91,8 @@ get_header(args:['color-logo' => '__grey']);
                 </button>
 
                 <div class="block-publications-cards-list">
-                    <?php foreach (get_field('publication_cards_list') as $i => $cardList): ?>
-                        <div class="block-publications-card <?= $i === count(get_field('publication_cards_list')) - 1 ? 'card-last' : '' ?>">
+                    <?php foreach (get_field('publication_cards_list', $post_id) as $i => $cardList): ?>
+                        <div class="block-publications-card <?= $i === count(get_field('publication_cards_list', $post_id)) - 1 ? 'card-last' : '' ?>">
                             <div class="publication-info">
                                 <div class="publication-info-details">
                                     <div class="publication-title"><?= $cardList['publication_title'] ?></div>

@@ -6,16 +6,24 @@
  */
 
 get_header(args:['color-logo' => '__grey']);
+
+if (is_preview()) {
+    global $post;
+    $post_id = $post->ID;
+} else {
+    $post_id = get_the_ID();
+}
+
 ?>
 
 <div class="page-header-container">
-    <h1 class="title"><?= get_field('title') ?></h1>
-    <div class="description"><?= get_field('description') ?></div>
+    <h1 class="title"><?= get_field('title', $post_id) ?></h1>
+    <div class="description"><?= get_field('description', $post_id) ?></div>
 </div>
 
 <div class="section-people-wrapper main-wrapper">
     <section class="section-block-people">
-        <?php foreach (get_field('departments') as $department): ?>
+        <?php foreach (get_field('departments', $post_id) as $department): ?>
             <div class="accordion-block block-people">
                 <h3 class="accordion-title block-people-title">
                     <?= $department['title'] ?>

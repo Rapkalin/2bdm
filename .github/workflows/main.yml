@@ -111,3 +111,42 @@ jobs:
             rm ~/prod/website/.htaccess
             rm ~/prod/website/.htaccess
             ln -nsrf ~/prod/shared/.htaccess ~/prod/website/.htaccess
+
+      # Inventaire Watcha : envoie composer.lock à la veille CVE.
+      # Guide complet (variables à créer, cas WordPress, refus) : /documentation
+      # sur l'instance Watcha. WordPress est ici géré par Composer, donc le lock
+      # suffit — il porte le cœur et les extensions wpackagist.
+      - name: Signaler l'inventaire à Watcha
+        # Le déploiement a réussi : une veille injoignable ne doit pas le marquer en échec.
+        continue-on-error: true
+        env:
+          WATCHA_TOKEN: ${{ secrets.WATCHA_TOKEN }}
+          WATCHA_URL: ${{ vars.WATCHA_URL || secrets.WATCHA_URL }}
+        run: |
+          # Guide d'installation : <WATCHA_URL>/documentation
+          [ -n "$WATCHA_TOKEN" ] && [ -n "$WATCHA_URL" ] || { echo "Watcha non configuré : envoi ignoré."; exit 0; }
+          [ -s composer.lock ] || { echo "composer.lock absent : rien à envoyer."; exit 0; }
+          while [ "${WATCHA_URL%/}" != "$WATCHA_URL" ]; do WATCHA_URL="${WATCHA_URL%/}"; done
+
+          body=$(mktemp); trace=$(mktemp)
+          # --http1.1 et « Expect: » vidé : sans eux, un proxy peut faire perdre le corps.
+          result=$(curl -sS --http1.1 -H "Expect:" -v -o "$body" -w '%{http_code} %{size_upload}' \
+            -X POST "$WATCHA_URL/api/inventory" \
+            -H "X-Watcha-Token: $WATCHA_TOKEN" \
+            -F "lock=@composer.lock" 2>"$trace") || result="000 0"
+          code=${result%% *}; sent=${result##* }   # expansion et non « set -- » : zsh diffère
+
+          if [ "$code" = "200" ]; then cat "$body"; echo; exit 0; fi
+
+          # Watcha explique lui-même chaque refus dans sa réponse : on n'ajoute ici que
+          # ce qu'un serveur ne peut pas savoir.
+          echo "Envoi de l'inventaire refusé (HTTP $code) :"
+          head -c 500 "$body"; echo
+          echo "→ composer.lock : $(wc -c < composer.lock) octets ; émis par curl : $sent."
+          if [ "$code" = "000" ]; then
+            echo "→ Aucune réponse : vérifiez WATCHA_URL et le réseau."
+          elif head -c 200 "$body" | grep -qi '<html\|<!doctype'; then
+            echo "→ Réponse HTML : le SERVEUR WEB a refusé, Watcha n'a rien vu."
+          fi
+          sed -E 's/(X-Watcha-Token:).*/\1 ***/I' "$trace" | grep -E '^[*<>]' \
+            | grep -vE '^\* (TLSv|SSL|ALPN|Server certificate|  )' | head -30
